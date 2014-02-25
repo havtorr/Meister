@@ -6,14 +6,16 @@ Methods:\\
 Visualization:\\
 	Generating graphs and diagrams representing the program\\
 	Easier to get an overview of program structure and execution\\
+	generation based on code itself, or trace of program execution, former easiest to use for class diagrams, latter for sequence diagrams and other types of runtime representation.\\
 
 Interactive forwards- and backwards-stepping\\
 	two forms: re-execution, state-saving\\
 	re-execution: small memory footprint,  slow backward stepping\\
-	state-save: fast stepping both ways, needs more memory, amount depending on program\\
+	state-save: fast stepping both ways, needs more memory, amount depending on program. Slower in general due to overhead of saving every change of program-state, but can be fast enough to not be noticed. Will again depend on the program.\\
 
 Queries:\\
 	fast way to check object-relations and -properties\\
+	Ask the debugger to evaluate a statement concerning the state of the debugged program. E.g. checking constraints or invariants, making sure relations are correct, why did something happen, etc.\\
 
 Tools:\\
 
@@ -49,11 +51,11 @@ code canvas (visual studio)\\
 
 trace viewer plugin (g-Eclipse)\\
 	g-eclipse=grid, archived project\\
-	visualize and analyze communication of message-passing programs\\
+	visualize and analyze communication of message-passing programs - communication graphs\\
 	standalone/platform independent\\
-	designed for massive parallelism\\
+	designed for massive parallelism - MPI and similar\\
 	debugging\\
-	event markers\\
+	events are marked by different colored nodes in the graphs.\\
 
 Whyline\\
 	Interrogative debugger\\
@@ -66,11 +68,11 @@ TOD: Trace-Oriented Debugger\\
 	dynamic visualizations - high-level, graph of event density\\
 
 Jive\\
-	combines ale fields\\
-	contour diagram\\
-	sequence diagram\\
-	stepping - state-saving\\
-	queries - enabled by state-saving\\
+	combines all fields\\
+	contour diagram - Enhanced object diagram, showing objects and their environments: fields, values, relations, inheritance, etc.\\
+	sequence diagram - generated during execution, supports zooming and folding to cope with, and hide irrelevant information, but can still become quite large.\\
+	stepping - state-saving enables fast backward stepping, and the current state is reflected in the diagrams.\\
+	queries - enabled by state-saving. Allows filtering of irrelevant information.\\
 	can be used for debugging\\
 
 
