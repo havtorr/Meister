@@ -8,8 +8,8 @@ In order to generate the diagrams, the tools can analyze both the source-code, a
 ~\\
 
 Execution traces can also be used to enable backwards stepping of program execution.
-Stepping back in time allows the user to not only see the failure state of a program, but to go back and see what caused the problem, instead of adding a new breakpoint and running the program again.%TODO: breakpoint to glossary?
-Each reverse step can be faily cheap, but it may still be impractical to make large jumps in the execution history.
+Stepping back in time allows the user to not only see the failure state of a program, but to go back and see what caused the problem, instead of adding a new \gls{breakpoint} and running the program again.
+Each reverse step can be fairly cheap, but it may still be impractical to make large jumps in the execution history.
 ~\\
 
 One can avoid the potential disadvantages of manual backstepping by using queries instead.
@@ -26,14 +26,18 @@ The \gls{traceviewer} for g-eclipse, uses a trace to generate visualizations of 
 \Gls{codecanvas} uses an interesting way of visualizing an entire project,  everything from source-code to design documents and diagrams  are layered onto a large canvas, allowing easy navigation between various elements, but is restricted to Microsoft Visual Studio.
 \Gls{jinsight} is a powerful tool  built by IBM, supporting both tracing and visualization.
 However, it is restricted to z/OS and linux on system Z, preventing most people from using it.
-~\\
+~\\%stuff about jive
 
 \Gls{jive} seems to be the only tool that utilizes all three methods, as well as being freely available as a plugin for eclipse, making it easy to install and use.
-During program executiion, Jive generates a contour diagram, and a sequence diagram.%TODO:contour diagram to glossary
+During program executiion, Jive generates a \gls{contourdiagram}, and a sequence diagram.
 Combined with an execution trace, it allows the user to jump back and forth in the  execution, and have the diagrams updated accordingly.
-
+Querying is supported through the \gls{jql}, and is accessed trough a simple graphical interface with templates for the most common queries, as well as a text-field allowing the user to write any kind of query.
+~\\
+Due to all the extra work being done when using jive to debug a program, the performance is not always acceptable.
+For small non-interactive programs, the added waiting time may not be a problem, but larger programs may suffer from a significantly longer execution time, and even simple interactive programs can use up to a second to respond to input on a fairly powerful computer.
 ~\\
 
+%temporary stuff
 Jinsight\\%todo:move to glossary
 	made by IBM\\
 	two components: profiler and visualizer\\
