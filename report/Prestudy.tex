@@ -1,5 +1,5 @@
 \section{Prestudy}\label{Prestudy}
-\subsection{methods}\label{PreMethods}
+\subsection{Methods}\label{PreMethods}
 There are several ways a debugger can aid the programmer beyond just showing the current state of a program.
 For a fresh programmer, either in general, or at a certain project, the most useful method is probably to generate diagrams that visualize the current state, and the path of execution.
 I.e. some form of object-, and/or sequence--diagram.
@@ -21,12 +21,12 @@ There currently exists several tools that provide one or two of the methods ment
 \Gls{gdb} offers a tracing environment, but due to its command-line interface %todo:cli to glossary
 it is not necessarily easy to use on its own.
 The \gls{traceviewer} for g-eclipse, uses a trace to generate visualizations of the program execution, and thus makes it easier to understand, but is  designed for massive parallelism, and may not be very useful for understanding smaller programs.
-\Gls{whyline}, and \gls{tod} also utilize execution traces, but use them to enable querying, instead of providing visualizations.
+\Gls{whyline}\cite{ko2009}, and the \gls{tod}\cite{Pothier2007} also utilize execution traces, but use them to enable querying, instead of providing visualizations.
 \Gls{javavis} provides visualizations in the form of UML-diagrams, but does not provide any debugging features.
 \Gls{codecanvas} uses an interesting way of visualizing an entire project,  everything from source-code to design documents and diagrams  are layered onto a large canvas, allowing easy navigation between various elements, but is restricted to Microsoft Visual Studio.
 \Gls{jinsight} is a powerful tool  built by IBM, supporting both tracing and visualization.
 However, it is restricted to z/OS and linux on system Z, preventing most people from using it.
-~\\%stuff about jive
+~\\%stuff about jive coming up
 
 \Gls{jive} seems to be the only tool that utilizes all three methods, as well as being freely available as a plugin for eclipse, making it easy to install and use.
 During program executiion, Jive generates a \gls{contourdiagram}, and a sequence diagram.
