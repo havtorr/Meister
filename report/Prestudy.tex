@@ -27,8 +27,8 @@ Additionally, Whyline exists only as a separate application, and does not integr
 \Gls{codecanvas} uses an interesting way of visualizing an entire project,  everything from source-code to design documents and diagrams  are layered onto a large canvas, allowing easy navigation between various elements, but is restricted to Microsoft Visual Studio.
 \Gls{jinsight}\cite{Pauw} is a powerful tool  built by IBM, supporting both tracing and visualization.
 However, it is restricted to z/OS and linux on system Z, preventing most people from using it.
-~\\%stuff about jive coming up
-
+~\\
+%stuff about jive coming up
 \Gls{jive} seems to be the only tool that utilizes all three methods, as well as being freely available as a plugin for eclipse, making it easy to install and use.
 During program executiion, Jive generates a \gls{contourdiagram}\cite{Jayaraman1996}, and a sequence diagram.
 Combined with an execution trace, it allows the user to jump back and forth in the  execution, and have the diagrams updated accordingly.
@@ -38,56 +38,6 @@ Due to all the extra work being done when using jive to debug a program, the per
 For small non-interactive programs, the added waiting time may not be a problem, but larger programs may suffer from a significantly longer execution time, and even simple interactive programs can use up to a second to respond to input on a fairly powerful computer.
 ~\\
 
-%temporary stuff
-Jinsight\\%todo:move to glossary
-	made by IBM\\
-	two components: profiler and visualizer\\
-	only for z/OS or Linux on system z\\
-	builds a trace when application is running\\
-	client connects to profiler and visualizes the trace\\
-	modified JVM?\\
-	120 minute trace limit\\
-	very powerful\\
-
-Javavis\\
-	relies on the Java Debug Interface (JDI), and the Vivaldi Kernel (a visualization library)\\
-	shows dynamic behavior of running program\\
-	object diagrams+sequence diagram, UML\\
-	smooth transitions\\
-	not a debugger\\
-	
-code canvas (visual studio)\\%todo:move to glossary
-	unites all project-files on a infinite zoomable surface\\
-	both content and info\\
-	layers of visualization - files/folders, diagrams, tests, editors, traces ++\\
-	several layers visible at the same time\\
-	search\\
-
-trace viewer plugin (g-Eclipse)\\%todo:move to glossary
-	g-eclipse=grid, archived project\\
-	visualize and analyze communication of message-passing programs - communication graphs\\
-	standalone/platform independent\\
-	designed for massive parallelism - MPI and similar\\
-	debugging\\
-	events are marked by different colored nodes in the graphs.\\
-
-Whyline\\%todo:move to glossary
-	Interrogative debugger\\
-	why did, why did not\\
-	works on recorded executions\\
-
-TOD: Trace-Oriented Debugger\\%todo:move to glossary
-	omniscient debugger\\
-	queries\\
-	dynamic visualizations - high-level, graph of event density\\
-
-Jive\\%todo:move to glossary
-	combines all fields\\
-	contour diagram - Enhanced object diagram, showing objects and their environments: fields, values, relations, inheritance, etc.\\
-	sequence diagram - generated during execution, supports zooming and folding to cope with, and hide irrelevant information, but can still become quite large.\\
-	stepping - state-saving enables fast backward stepping, and the current state is reflected in the diagrams.\\
-	queries - enabled by state-saving. Allows filtering of irrelevant information.\\
-	can be used for debugging\\
 
 
 
