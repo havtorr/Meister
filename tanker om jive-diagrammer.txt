@@ -2,6 +2,11 @@ diagrammene er relativ lettfattelige når man gjennomgår programmet steg for st
 
 markere aktiv linje i tracelogg
 
+markeringer i/over kjørende prog
+hente ut info/grafikk og legg markeringer over dette?
+
+fargelegging av diag
+
 standardsinnstillinger ignorerer java swing, og andre standard-objekter, tømming av ekluderingslisten har ingen effekt p diagrammene.
 
 
@@ -38,4 +43,17 @@ Contour:
 trebasert
 
 
-sliter tydeligvis med å få tilgang til filer, prøv som admin og på annnen maskin?
+ser ut dom jive sliter med å få tilgang til filer, prøv som admin og på annnen maskin?
+
+studentevaluering - spørsmål
+	i hvilken grad er diag nyttig/forståelige
+	bruk diag til å forklar prog
+	introdusere en/flere feil for å a dem prøve å finne de?
+
+
+kildekode - https://code.google.com/p/jive/ - bruker eclipse public license, ingen problem med å gjøre endringer, lastet ned fra svn
+Er tydeligvis ikke siste versjon! ta kontakt?
+
+
+
+mmi offisiel lf for øving 4 lar seg ikke  debugges, verken med eller uten jive, eclipse får store problemer, selv etter manuell terminering av øvingen. -> åpenbart ikke alle typer program som fungerer. muligens pproblem med siste eclipse/mitt oppsett prøv hjemme
