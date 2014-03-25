@@ -1,6 +1,11 @@
-diagrammene er relativ lettfattelige når mag gjennomgår programmet steg for steg, men det er tidkrevende. - få til kontinuerlig avspilling? f.eks nytt steg per 0,5 sekund.
-standardsinnstillinger ignorerer java swing
-Interne klasser uten navn (f.eks. listeners) er lite tydelige, eks: PersonPanel$1:1 når en kaller "new KeyListener(){...somecode...}" - burde hatt klassetype tydelig i diagrammet
+diagrammene er relativ lettfattelige nÃ¥r man gjennomgÃ¥r programmet steg for steg, men det er tidkrevende. - fÃ¥ til kontinuerlig avspilling? f.eks nytt steg per 0,5 sekund.
+
+markere aktiv linje i tracelogg
+
+standardsinnstillinger ignorerer java swing, og andre standard-objekter, tÃ¸mming av ekluderingslisten har ingen effekt p diagrammene.
+
+
+Interne klasser uten navn (f.eks. listeners) er lite tydelige, eks: PersonPanel$1:1 nÃ¥r en kaller "new KeyListener(){...somecode...}" - burde hatt klassetype tydelig i diagrammet
 markering av klasser som er en type listener?
 vis at listeners faktisk er bundet til noe
 
@@ -8,8 +13,8 @@ vis at listeners faktisk er bundet til noe
 
 
 undeliggende datamodel er tracelogg
-kan eksporteres som csv og xml på enkel linje
-csv-format: tråd, id, kilde, event-type, detaljer
+kan eksporteres som csv og xml pÃ¥ enkel linje
+csv-format: trÃ¥d, id, kilde, event-type, detaljer
 xml-format: liste med events:
 <events>
 	<event>
@@ -26,11 +31,11 @@ xml-format: liste med events:
 </events>
 
 
-både sekvens og contour er generert ut i fra trace
+bÃ¥de sekvens og contour er generert ut i fra trace
 Sekvens:
-trebasert, roten er programstart, nytt nivå for hver tråd, og hvert metodekall.
+trebasert, roten er programstart, nytt nivÃ¥ for hver trÃ¥d, og hvert metodekall.
 Contour:
 trebasert
 
 
-sliter tydeligvis med å få tilgang til filer, prøv som admin og på annnen maskin?
+sliter tydeligvis med Ã¥ fÃ¥ tilgang til filer, prÃ¸v som admin og pÃ¥ annnen maskin?
