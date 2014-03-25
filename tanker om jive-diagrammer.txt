@@ -1,0 +1,36 @@
+diagrammene er relativ lettfattelige når mag gjennomgår programmet steg for steg, men det er tidkrevende. - få til kontinuerlig avspilling? f.eks nytt steg per 0,5 sekund.
+standardsinnstillinger ignorerer java swing
+Interne klasser uten navn (f.eks. listeners) er lite tydelige, eks: PersonPanel$1:1 når en kaller "new KeyListener(){...somecode...}" - burde hatt klassetype tydelig i diagrammet
+markering av klasser som er en type listener?
+vis at listeners faktisk er bundet til noe
+
+
+
+
+undeliggende datamodel er tracelogg
+kan eksporteres som csv og xml på enkel linje
+csv-format: tråd, id, kilde, event-type, detaljer
+xml-format: liste med events:
+<events>
+	<event>
+		<id>48</id>
+		<thread>main</thread>
+		<kind>Method Call</kind>
+		<file>unavailable</file>
+		<line>-1</line>
+		<details>
+		<caller>oving4.PersonPanel:1#oving4.PersonPanel:1</caller>
+		<target>oving4.Gender#<clinit>:1</target>
+		</details>
+	</event>
+</events>
+
+
+både sekvens og contour er generert ut i fra trace
+Sekvens:
+trebasert, roten er programstart, nytt nivå for hver tråd, og hvert metodekall.
+Contour:
+trebasert
+
+
+sliter tydeligvis med å få tilgang til filer, prøv som admin og på annnen maskin?
