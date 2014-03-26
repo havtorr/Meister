@@ -5,20 +5,20 @@ markere aktiv linje i tracelogg
 markeringer i/over kjørende prog
 hente ut info/grafikk og legg markeringer over dette?
 
-fargelegging av diag
+fargelegging av diag, utheving av ulike typer objekt, mulig å identifisere generelle typer? listeners kan lett identifiseres, men hva med modell og kontroller? sette en bestemt kommentar i start av kilde-fil?
 
-standardsinnstillinger ignorerer java swing, og andre standard-objekter, tømming av ekluderingslisten har ingen effekt p diagrammene.
+standardsinnstillinger ignorerer java swing, og andre standard-objekter, tømming av ekluderingslisten har ingen effekt på diagrammene. mulig inkompatibilitet med eclipse kepler?
 
 
 Interne klasser uten navn (f.eks. listeners) er lite tydelige, eks: PersonPanel$1:1 når en kaller "new KeyListener(){...somecode...}" - burde hatt klassetype tydelig i diagrammet
 markering av klasser som er en type listener?
 vis at listeners faktisk er bundet til noe
+vise navn på objekter i diagram (variabelnavn og ikke bare klassenavn)
 
 
 
 
-undeliggende datamodel er tracelogg
-kan eksporteres som csv og xml på enkel linje
+tracelogg kan eksporteres som csv og xml på enkel linje, fåes ved eksport av sekvens-, contour-modell, eller trace
 csv-format: tråd, id, kilde, event-type, detaljer
 xml-format: liste med events:
 <events>
@@ -36,11 +36,12 @@ xml-format: liste med events:
 </events>
 
 
-både sekvens og contour er generert ut i fra trace
-Sekvens:
-trebasert, roten er programstart, nytt nivå for hver tråd, og hvert metodekall.
-Contour:
-trebasert
+både sekvens og contour er generert ut i fra trace, 
+Sekvens modell:
+visualisert som tre, roten er programstart, nytt nivå for hver tråd, og hvert metodekall.
+Contour modell:
+visualisert som liste med nøstede objekt.
+holdes i endatabase under kjøring
 
 
 ser ut dom jive sliter med å få tilgang til filer, prøv som admin og på annnen maskin?
