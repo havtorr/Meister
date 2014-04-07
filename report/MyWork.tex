@@ -1,0 +1,47 @@
+\section{Enhancing JIVE}\label{enhJive}
+%todo: referanser til artikler og ordliste
+
+In this section I will first explain the various features of JIVE, before identifying any shortcomings, and suggest improvements.
+
+\subsection{features}\label{jiveFeatures}
+
+The most apparent feature of JIVE is its generation of contour- and sequence-diagrams during debugging of a program.
+The diagrams are updated according to the current state of the debugged program, so that the backtracking functionality allows you to see the entire execution graphically step-by-step.
+~\\
+
+Contour-diagrams are based on an old technique to  give semantics to Algol-like languages.
+The basis has been extended to support modern concepts, such as object-oriented programming.
+Objects are represented by a box, or contour.
+Within the contour, the objects variables are shown, with name, type and value.
+The contour also uses arrows to point at other contours that are related, e.g. an other object representing the value of a variable, or an enumerator.
+Inheritance is shown by putting the contour of an object within the contour of the extended object. 
+Object instances are kept separate from the contours representing inheritance, but will have relational links when necessary.
+Method calls are also represented in the diagram, in their own contours, linked to the calling object.
+JIVE offers to hide some of the information, such as inheritance or the composition of objects, in order to make the diagram smaller, and easier to read.
+Something that can be especially useful when working with larger programs, with many objects and relations.
+Visibility is aided by the use of colors
+~\\
+
+The sequence diagrams are fairly standard, with threads and objects represented by boxes on a row at the top, each with a vertical life-line.
+The actual sequence is shown with a thicker lifeline, with arrows representing method-calls.
+In order to differentiate the threads where the execution is happening, the sequences are colored with the same color as the thread- box the sequence originates from, regardless of witch objects and methods are involved.
+In order to cope with size, it is possible to collapse a method call, so that the lifeline of the called object is hidden.
+~\\
+
+Both of the diagrams can be saved as a high-resolution image at any time, so that one can look at earlier diagrams, instead of being forced to view them through JIVE.
+This also helps to visualize any changes made to a program, and to see what the effects are on the program flow.
+They also share the ability to zoom in and out, further helping with the handling of larger diagrams.
+~\\
+
+Closely related to the diagrams, is the ability to quickly jump backwards and forwards between execution states.
+This is enabled by the trace-log, containing an entry for every single event that occurs during execution of a program.
+Each event is assigned an identifying number, in ascending order, and information about thread, type, caller, target, and the location of the source-code is stored.
+The log is used as the basis for the models that make up the diagrams, and can be saved as both XML- and CSV-files for later use.
+As mentioned in the Prestudy, logging every event has a significant impact on run-time performance, limiting the size of the programs that can be used in a meaningful way.
+On the other hand, it allows the almost instant jumping between recorded states, as opposed to techniques that save a snapshot at predefined intervals, requiring the program to be run from the snapshot-state to the desired one, even if it is just a single step backwards.
+~\\
+
+Finally, the trace-log enables the use of queries to search for specific events in the execution.
+The queries are presented through a new tab in the eclipse search-window, and comes with several pre-defined templates to simplify searching.
+For example, searching for when a certain variable gets a certain value, only requires the user to specify the variable-name, its parent, and the value.
+It is also possible to write custom queries, using the JIVE-Query-Language.
