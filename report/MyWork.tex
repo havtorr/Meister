@@ -1,14 +1,17 @@
 \section{Enhancing JIVE}\label{enhJive}
-%todo: referanser til artikler og ordliste
+%todo: referanser til artikler og ordliste, legg til figurer for å forklare bedre
 
 In this section I will first explain the various features of JIVE, before identifying any shortcomings, and suggest improvements.
 
-\subsection{features}\label{jiveFeatures}
+\subsection{Features}\label{jiveFeatures}
 
-The most apparent feature of JIVE is its generation of contour- and sequence-diagrams during debugging of a program.
+As mentioned in the prestudy, JIVE installs as a plugin in the eclipse IDE, adding another perspective in the environment.
+The default views shown in this perspective are the "object diagram" and "sequence diagram" views, making the diagrams generated during debugging JIVEs two most apparent features.
 The diagrams are updated according to the current state of the debugged program, so that the backtracking functionality allows you to see the entire execution graphically step-by-step.
+The other views provided by JIVE are as follows: "contour model", "sequence model", "execution trace" and "search".
 ~\\
 
+The object diagram-view shows the current state of the program by using a contour-diagram.
 Contour-diagrams are based on an old technique to  give semantics to Algol-like languages.
 The basis has been extended to support modern concepts, such as object-oriented programming.
 Objects are represented by a box, or contour.
@@ -19,16 +22,17 @@ Object instances are kept separate from the contours representing inheritance, b
 Method calls are also represented in the diagram, in their own contours, linked to the calling object.
 JIVE offers to hide some of the information, such as inheritance or the composition of objects, in order to make the diagram smaller, and easier to read.
 Something that can be especially useful when working with larger programs, with many objects and relations.
-Visibility is aided by the use of colors
+Visibility is aided by the use of colors to highlight specific elements of the diagram, such as variables bound to objects, and method-calls.
 ~\\
 
 The sequence diagrams are fairly standard, with threads and objects represented by boxes on a row at the top, each with a vertical life-line.
 The actual sequence is shown with a thicker lifeline, with arrows representing method-calls.
 In order to differentiate the threads where the execution is happening, the sequences are colored with the same color as the thread- box the sequence originates from, regardless of witch objects and methods are involved.
-In order to cope with size, it is possible to collapse a method call, so that the lifeline of the called object is hidden.
+Right-clicking on a lifeline offers the ability to collapse method-calls originating from that lifeline in order to hide unnecessary information.
+Right-clicking also offers to set the execution-state via the jump-option, updating the contour-diagram and -model to show that state.
 ~\\
 
-Both of the diagrams can be saved as a high-resolution image at any time, so that one can look at earlier diagrams, instead of being forced to view them through JIVE.
+Both of the diagrams can be saved as a high-resolution image at any time, so that one can look at diagrams from earlier runs, instead of being forced to view them through JIVE.
 This also helps to visualize any changes made to a program, and to see what the effects are on the program flow.
 They also share the ability to zoom in and out, further helping with the handling of larger diagrams.
 ~\\
@@ -41,7 +45,26 @@ As mentioned in the Prestudy, logging every event has a significant impact on ru
 On the other hand, it allows the almost instant jumping between recorded states, as opposed to techniques that save a snapshot at predefined intervals, requiring the program to be run from the snapshot-state to the desired one, even if it is just a single step backwards.
 ~\\
 
+The model-views each display an alternate view of their respective diagrams.
+They show the data-model representing the diagrams in a hierarchical structure, much like the organization of files and folders.
+Right-clicking on an event in the sequence model allows you to set the execution state to that event, and have the diagrams updated accordingly.
+Clicking on elements in the contour-model allows you to inspect the values of objects and their variables.
+~\\
+
 Finally, the trace-log enables the use of queries to search for specific events in the execution.
-The queries are presented through a new tab in the eclipse search-window, and comes with several pre-defined templates to simplify searching.
+The queries are presented through a new tab in the eclipse search-window, easily accessible through the search-view, and comes with several pre-defined templates to simplify searching.
 For example, searching for when a certain variable gets a certain value, only requires the user to specify the variable-name, its parent, and the value.
 It is also possible to write custom queries, using the JIVE-Query-Language.
+~\\
+
+\subsection{Shortcomings of JIVE}\label{jiveShortcomings}
+
+Even though JIVE offers several useful features, there is still room for improvements, both for general use, and more tailored towards development of graphical interfaces, as is the focus of the MMI-course.
+~\\
+Keywords:\\
+inner types in the diagrams\\
+ignoring objects defined in jre, and their inner types are not linked\\
+only step-by-step iteration through the log, or jump to specific point\\
+colorizing listeners and other mvc-related objects\\
+too few zoom-levels - big diagrams are cumbersome to navigate\\
+sequence-diagrams can quickly become very long, vertical folding of diagram not there?  papers mention regex-folding, but it is nowhere to be found\\
