@@ -1,7 +1,7 @@
 \section{Enhancing JIVE}\label{enhJive}
 %todo: referanser til artikler og ordliste, legg til figurer for å forklare bedre
 
-In this section I will first explain the various features of JIVE, before identifying any shortcomings, and suggest improvements.
+In this section I will first explain the various features of JIVE, before identifying any shortcomings, and finally suggest improvements.
 
 \subsection{Features}\label{jiveFeatures}
 
@@ -61,6 +61,21 @@ It is also possible to write custom queries, using the JIVE-Query-Language.
 
 Even though JIVE offers several useful features, there is still room for improvements, both for general use, and more tailored towards development of graphical interfaces, as is the focus of the MMI-course.
 ~\\
+
+The diagrams are possibly the most useful feature of JIVE, showing a lot of information in an understandable way, and offering some useful interaction.
+But there is still room for improvement:
+Inner types are displayed with their automatically generated, and fairly anonymous, name unless given a proper name in code.
+By default, most of the classes defined by the JRE itself are ignored.
+For the sequence-diagrams, it is naturally not important no show the internal behavior of every object, but they are also hidden in the contour-diagram.
+Related to this, is the lack of visual connections between standard-objects, and for example instances of listeners added to them.
+~\\
+
+The sequence-diagrams can quickly become huge and hard to navigate, and the zooming function has very few levels outward, as well as leaving all text to small to read when zooming out.
+Additionally there does not seem to be any way to vertically compact the sequence-diagrams, making them unnecessarily long in certain cases.
+~\\
+
+Another potential for improvement is the stepping through recorded states, which currently requires manual interaction for each step, making replays of an execution infeasible due to the massive number of events recorded even for simple programs.
+
 Keywords:\\
 inner types in the diagrams\\
 ignoring objects defined in jre, and their inner types are not linked\\
@@ -68,3 +83,5 @@ only step-by-step iteration through the log, or jump to specific point\\
 colorizing listeners and other mvc-related objects\\
 too few zoom-levels - big diagrams are cumbersome to navigate\\
 sequence-diagrams can quickly become very long, vertical folding of diagram not there?  papers mention regex-folding, but it is nowhere to be found\\
+
+\subsection{Suggestions for improvement}\label{jiveSuggestions}
