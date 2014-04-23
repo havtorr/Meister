@@ -5,13 +5,13 @@ In this section I will first explain the various features of JIVE, before identi
 
 \subsection{Features}\label{jiveFeatures}
 
-As mentioned in the prestudy, JIVE installs as a plugin in the eclipse IDE, adding another perspective in the environment.
+As mentioned in the prestudy, JIVE installs as a plugin in the eclipse IDE, adding another perspective in the environment.%figur, hele jive-perspektivet
 The default views shown in this perspective are the "object diagram" and "sequence diagram" views, making the diagrams generated during debugging JIVEs two most apparent features.
 The diagrams are updated according to the current state of the debugged program, so that the backtracking functionality allows you to see the entire execution graphically step-by-step.
 The other views provided by JIVE are as follows: "contour model", "sequence model", "execution trace" and "search".
 ~\\
 
-The object diagram-view shows the current state of the program by using a contour-diagram.
+The object diagram-view shows the current state of the program by using a contour-diagram.%figur
 Contour-diagrams are based on an old technique to  give semantics to Algol-like languages.
 The basis has been extended to support modern concepts, such as object-oriented programming.
 Objects are represented by a box, or contour.
@@ -25,7 +25,7 @@ Something that can be especially useful when working with larger programs, with 
 Visibility is aided by the use of colors to highlight specific elements of the diagram, such as variables bound to objects, and method-calls.
 ~\\
 
-The sequence diagrams are fairly standard, with threads and objects represented by boxes on a row at the top, each with a vertical life-line.
+The sequence diagrams are fairly standard, with threads and objects represented by boxes on a row at the top, each with a vertical life-line.%figur
 The actual sequence is shown with a thicker lifeline, with arrows representing method-calls.
 In order to differentiate the threads where the execution is happening, the sequences are colored with the same color as the thread- box the sequence originates from, regardless of witch objects and methods are involved.
 Right-clicking on a lifeline offers the ability to collapse method-calls originating from that lifeline in order to hide unnecessary information.
@@ -45,7 +45,7 @@ As mentioned in the Prestudy, logging every event has a significant impact on ru
 On the other hand, it allows the almost instant jumping between recorded states, as opposed to techniques that save a snapshot at predefined intervals, requiring the program to be run from the snapshot-state to the desired one, even if it is just a single step backwards.
 ~\\
 
-The model-views each display an alternate view of their respective diagrams.
+The model-views each display an alternate view of their respective diagrams.%figur
 They show the data-model representing the diagrams in a hierarchical structure, much like the organization of files and folders.
 Right-clicking on an event in the sequence model allows you to set the execution state to that event, and have the diagrams updated accordingly.
 Clicking on elements in the contour-model allows you to inspect the values of objects and their variables.
@@ -68,20 +68,32 @@ Inner types are displayed with their automatically generated, and fairly anonymo
 By default, most of the classes defined by the JRE itself are ignored.
 For the sequence-diagrams, it is naturally not important no show the internal behavior of every object, but they are also hidden in the contour-diagram.
 Related to this, is the lack of visual connections between standard-objects, and for example instances of listeners added to them.
+More related to the target group for this project, is a lack of differentiation between the different object-types in typical graphical architectures.
+Especially MVC, whitch  is a major focus of the MMI-course, has certain distinct types that are more important than others.
 ~\\
 
 The sequence-diagrams can quickly become huge and hard to navigate, and the zooming function has very few levels outward, as well as leaving all text to small to read when zooming out.
 Additionally there does not seem to be any way to vertically compact the sequence-diagrams, making them unnecessarily long in certain cases.
+For instance when horizontally collapsing large parts of the diagram, leaving the parent lifeline untouched.
+Some of the papers on JIVE mention regex-folding, but it is nowhere to be found in the latest version of the plugin.
 ~\\
 
 Another potential for improvement is the stepping through recorded states, which currently requires manual interaction for each step, making replays of an execution infeasible due to the massive number of events recorded even for simple programs.
+~\\
 
-Keywords:\\
-inner types in the diagrams\\
-ignoring objects defined in jre, and their inner types are not linked\\
-only step-by-step iteration through the log, or jump to specific point\\
-colorizing listeners and other mvc-related objects\\
-too few zoom-levels - big diagrams are cumbersome to navigate\\
-sequence-diagrams can quickly become very long, vertical folding of diagram not there?  papers mention regex-folding, but it is nowhere to be found\\
+The search-view, while useful, is very strict in terms of what it looks for.
+For example, searching for the creation of an object requires its full name, including parent objects.
+~\\
 
 \subsection{Suggestions for improvement}\label{jiveSuggestions}
+
+Based on the mentioned shortcomings, the following improvements are suggested.
+~\\
+
+The ability to detect an inner type with a generic name, and display its parent type in the diagrams instead of its own.
+This will make, among others, listener-heavy programs much more understandable as one can see what kind of listener each object is, instead of guessing, based on when it is invoked in the sequence-diagram.%figur
+Further helping the same situation, is to visually link listeners to the objects they are added to, in the contour-diagram, making it clearly visible which object is being listened to by the different listeners.%figur
+Finding ways to highlight the different parts of e.g. an MVC-architecture, making it clearly visible which objects make out the models, views and controllers, may further help the understanding of a program.
+But such highlighting must be balanced in order to not create a visual chaos of different colors.
+The coloring, and naming of inner types should apply to both of the diagrams.
+~\\
