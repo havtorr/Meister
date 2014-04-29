@@ -12,7 +12,7 @@ The other views provided by JIVE are as follows: "contour model", "sequence mode
 ~\\
 
 The object diagram-view shows the current state of the program by using a contour-diagram.%figur
-Contour-diagrams are based on an old technique to  give semantics to Algol-like languages.
+Contour-diagrams are based on an old technique to give semantics to Algol-like languages.
 The basis has been extended to support modern concepts, such as object-oriented programming.
 Objects are represented by a box, or contour.
 Within the contour, the objects variables are shown, with name, type and value.
@@ -65,11 +65,11 @@ Even though JIVE offers several useful features, there is still room for improve
 The diagrams are possibly the most useful feature of JIVE, showing a lot of information in an understandable way, and offering some useful interaction.
 But there is still room for improvement:
 Inner types are displayed with their automatically generated, and fairly anonymous, name unless given a proper name in code.
-By default, most of the classes defined by the JRE itself are ignored.
+By default, most of the classes defined by the JRE itself are ignored, omitting potentially important information in GUI-applications.
 For the sequence-diagrams, it is naturally not important no show the internal behavior of every object, but they are also hidden in the contour-diagram.
 Related to this, is the lack of visual connections between standard-objects, and for example instances of listeners added to them.
 More related to the target group for this project, is a lack of differentiation between the different object-types in typical graphical architectures.
-Especially MVC, whitch  is a major focus of the MMI-course, has certain distinct types that are more important than others.
+Especially MVC, whitch is a major focus of the MMI-course, has certain distinct types that are more important than others.
 ~\\
 
 The sequence-diagrams can quickly become huge and hard to navigate, and the zooming function has very few levels outward, as well as leaving all text to small to read when zooming out.
@@ -97,3 +97,10 @@ Finding ways to highlight the different parts of e.g. an MVC-architecture, makin
 But such highlighting must be balanced in order to not create a visual chaos of different colors.
 The coloring, and naming of inner types should apply to both of the diagrams.
 ~\\
+
+Exploring changes to the default exclusion-filter, in order to provide more useful information out of the box, is also an option.
+This will provide a better experience for certain scenarios, but may be useless in other cases, so a way to easily switch filters would be preferable.
+For instance by enabling user-defined presets.
+~\\
+
+Allowing more ways to interact with the diagrams, e.g. hiding elements or compressing sequences, should improve usability for larger programs and longer runs.
