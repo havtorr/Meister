@@ -5,7 +5,12 @@ In this section I will first explain the various features of JIVE, before identi
 
 \subsection{Features}\label{jiveFeatures}
 
-As mentioned in the prestudy, JIVE installs as a plugin in the eclipse IDE, adding another perspective in the environment.%figur, hele jive-perspektivet
+\begin{figure}[h]
+	\includegraphics[width=\textwidth]{jivePerspective3}
+	\caption{The JIVE perspective in Eclipse}
+	\label{fig:jivePerspective}
+\end{figure}
+As mentioned in the prestudy, JIVE installs as a plugin in the eclipse IDE, adding another perspective in the environment shown in Figure~\ref{fig:jivePerspective}.
 The default views shown in this perspective are the "object diagram" and "sequence diagram" views, making the diagrams generated during debugging JIVEs two most apparent features.
 The diagrams are updated according to the current state of the debugged program, so that the backtracking functionality allows you to see the entire execution graphically step-by-step.
 The other views provided by JIVE are as follows: "contour model", "sequence model", "execution trace" and "search".
@@ -28,7 +33,16 @@ Visibility is aided by the use of colors to highlight specific elements of the d
 The sequence diagrams are fairly standard, with threads and objects represented by boxes on a row at the top, each with a vertical life-line.%figur
 The actual sequence is shown with a thicker lifeline, with arrows representing method-calls.
 In order to differentiate the threads where the execution is happening, the sequences are colored with the same color as the thread- box the sequence originates from, regardless of witch objects and methods are involved.
-Right-clicking on a lifeline offers the ability to collapse method-calls originating from that lifeline in order to hide unnecessary information.
+\begin{figure}[h]
+	\includegraphics{seqRightClick}
+	\caption{The sequence diagram right click menu}
+	\label{fig:seqRightClick}
+\end{figure}
+Right-clicking on a lifeline offers the ability to collapse method-calls originating from that lifeline in order to hide unnecessary information, shown in  figure~\ref{fig:seqRightClick}.
+The collapse-menu offers four options when used on the lifeline of an object: after, before, children and here.
+Before and after collapses lifelines that occurred before or after the selected event, at the same depth in the sequence-tree.
+Children collapses all events that are children of the selected event, while here collapses the selected event.%figurer!
+The same options are of course available for expanding collapsed elements.
 Right-clicking also offers to set the execution-state via the jump-option, updating the contour-diagram and -model to show that state.
 ~\\
 
@@ -99,8 +113,10 @@ The coloring, and naming of inner types should apply to both of the diagrams.
 ~\\
 
 Exploring changes to the default exclusion-filter, in order to provide more useful information out of the box, is also an option.
-This will provide a better experience for certain scenarios, but may be useless in other cases, so a way to easily switch filters would be preferable.
-For instance by enabling user-defined presets.
+This will provide a better experience for certain scenarios, but may be useless in other cases by providing too much unnecessary information.
+A way to easily switch filters by defining presets might be preferable.
+The filter might also be extended to support both exclusion and inclusion, allowing a more fine-grained selection of interesting classes.
 ~\\
 
 Allowing more ways to interact with the diagrams, e.g. hiding elements or compressing sequences, should improve usability for larger programs and longer runs.
+In the case of exploring events triggered by a listener, the ability to isolate the involved objects, and reorder the diagram could be very useful, providing a clean view of a smaller series of events.%figur
