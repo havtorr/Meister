@@ -66,7 +66,7 @@ Right-clicking also offers to set the execution-state via the jump-option, updat
 	\centering
 	\begin{subfigure}{\textwidth}
 		\centering
-		\includegraphics[width=\textwidth, trim= 0 40cm 0 50cm, clip]{MMI-Oving4-SequenceDiagInit}
+		\includegraphics[width=\textwidth, trim= 0 48cm 0 50cm, clip]{MMI-Oving4-SequenceDiagInit}
 		\caption{Normal}
 		\label{fig:seqOving4CollapseA}
 	\end{subfigure}
@@ -152,7 +152,7 @@ A crude visualization of these two changes, compared to the original, can be see
 Finding ways to highlight the different parts of e.g. an MVC-architecture, making it clearly visible which objects make out the models, views and controllers, may further help the understanding of a program.
 But such highlighting must be balanced in order to not create a visual chaos of different colors.
 Adding symbols instead of colors might be a better solution, both maintaining the current color-scheme, and adding new information.
-The coloring, and naming of inner types should apply to both of the diagrams.
+The coloring, highlighting and naming of inner types should apply to both of the diagrams.
 ~\\
 
 \begin{figure}[h]
@@ -187,7 +187,16 @@ For example ignoring the entire javax.swing-package, apart from a few selected c
 ~\\
 
 Allowing more ways to interact with the diagrams, e.g. hiding elements or compressing sequences, should improve usability for larger programs and longer runs.
-In the case of exploring events triggered by a listener, the ability to isolate the involved objects, and reorder the diagram could be very useful, providing a clean view of a smaller series of events.%figur
+The way the sequence diagrams currently work, object instances are added as they appear, resulting in later method calls to draw lines crossing large parts of the diagram, as shown in \autoref{fig:seqOving4CrossLines}.
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\textwidth, trim= 45cm 0 0 100cm, clip]{MMI-Oving4-SequenceDiagInit}
+	\caption{A section of a larger sequence diagram, showing method calls crossing several unrelated lifelines}
+	\label{fig:seqOving4CrossLines}
+\end{figure}
+In the case of exploring events triggered by a listener, the ability to isolate the involved objects, and reorder the diagram could be very useful, providing a clean view of a smaller series of events.%figur?
+Using the same figure as an example, the rightmost, and longest, bar would be moved to the far left, the three second-longest would be in the middle, while the shortest ones would be to the left.
+In total, only those three lifelines would be visible, all the ones that are being crossed in \autoref{fig:seqOving4CrossLines} are unnecessary, and would be hidden.
 This function should be accessed by right clicking on the topmost event that is desired, and selecting a "view isolated" option.
 Whether the isolated view should appear in a new eclipse view, or simply modify the existing view of the sequence diagram,  is something that should be determined by user-testing.
 ~\\
