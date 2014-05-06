@@ -57,6 +57,7 @@ Right-clicking on a lifeline offers the ability to collapse method-calls origina
 The collapse-menu offers four options when used on the lifeline of an object: after, before, children and here.
 Before and after collapses lifelines that occurred before or after the selected event, at the same depth in the sequence-tree.
 Children collapses all events that are children of the selected event, while here collapses the selected event.%figurer!
+Right clicking on an object instance at the top of the diagram also offers to collapse that objects entire lifeline, the result of which can be seen in Figure~\ref{fig:seqOving4Collapse}.
 The same options are of course available for expanding collapsed elements.
 Right-clicking also offers to set the execution-state via the jump-option, updating the contour-diagram and -model to show that state.
 ~\\
@@ -78,7 +79,6 @@ Right-clicking also offers to set the execution-state via the jump-option, updat
 	\caption{Normal and collapsed section of a sequence diagram}
 	\label{fig:seqOving4Collapse} 
 \end{figure}
-
 
 Both of the diagrams can be saved as a high-resolution image at any time, so that one can look at diagrams from earlier runs, instead of being forced to view them through JIVE.
 This also helps to visualize any changes made to a program, and to see what the effects are on the program flow.
@@ -126,12 +126,12 @@ Especially MVC, whitch is a major focus of the MMI-course, has certain distinct 
 ~\\
 
 The sequence-diagrams can quickly become huge and hard to navigate, and the zooming function has very few levels outward, as well as leaving all text to small to read when zooming out.
-Additionally there does not seem to be any way to vertically compact the sequence-diagrams, making them unnecessarily long in certain cases.
-For instance when horizontally collapsing large parts of the diagram, leaving the parent lifeline untouched.
-Some of the papers on JIVE mention regex-folding, but it is nowhere to be found in the latest version of the plugin.
+Additionally there does not seem to be any way to vertically compact the sequence-diagrams, making them unnecessarily long in cases where calls to ignored or hidden methods are being made.
+For instance when horizontally collapsing large parts of the diagram, leaving the parent lifeline at the same length as before, as can be seen in Figure~\ref{fig:seqOving4CollapseB}.
+Some of the papers on JIVE mention regex-folding,that could be used to substitute a series of events with a single new event, but it is nowhere to be found in the latest version of the plugin.
 ~\\
 
-Another potential for improvement is the stepping through recorded states, which currently requires manual interaction for each step, making replays of an execution infeasible due to the massive number of events recorded even for simple programs.
+Another potential for improvement is the process of stepping through recorded states, which currently requires manual interaction for each step, making complete replays of an execution infeasible due to the massive number of events recorded even for simple programs.
 ~\\
 
 The search-view, while useful, is very strict in terms of what it looks for.
@@ -144,18 +144,58 @@ Based on the mentioned shortcomings, the following improvements are suggested.
 ~\\
 
 The ability to detect an inner type with a generic name, and display its parent type in the diagrams instead of its own.
-This will make, among others, listener-heavy programs much more understandable as one can see what kind of listener each object is, instead of guessing, based on when it is invoked in the sequence-diagram.%figur
-Further helping the same situation, is to visually link listeners to the objects they are added to, in the contour-diagram, making it clearly visible which object is being listened to by the different listeners.%figur
+This will make, among others, listener-heavy programs much more understandable as one can see what kind of listener each object is, instead of guessing, based on when it is invoked in the sequence-diagram.
+Further helping the same situation, is to visually link listeners to the objects they are added to, in the contour-diagram, making it clearly visible which object is being listened to by the different listeners.
+A crude visualization of these two changes, compared to the original, can be seen in Figure~\ref{fig:contOving4Changes}.
+~\\
+
 Finding ways to highlight the different parts of e.g. an MVC-architecture, making it clearly visible which objects make out the models, views and controllers, may further help the understanding of a program.
 But such highlighting must be balanced in order to not create a visual chaos of different colors.
+Adding symbols instead of colors might be a better solution, both maintaining the current color-scheme, and adding new information.
 The coloring, and naming of inner types should apply to both of the diagrams.
 ~\\
+
+\begin{figure}[h]
+	\centering
+	\begin{subfigure}{\textwidth}
+		\centering
+		\includegraphics[width=\textwidth, trim= 0 0 0 0, clip]{MMI-Oving4-ObjectDiagInit}
+		\caption{Original}
+		\label{fig:contOving4ChangesA}
+	\end{subfigure}
+	\begin{subfigure}{\textwidth}
+		\centering
+		\includegraphics[width=\textwidth, trim= 0 0 0 0, clip]{MMI-Oving4-ObjectDiagInit-edit}
+		\caption{Changed naming of inner types}
+		\label{fig:contOving4ChangesB}
+	\end{subfigure}
+	\begin{subfigure}{\textwidth}
+		\centering
+		\includegraphics[width=\textwidth, trim= 0 0 0 0, clip]{MMI-Oving4-ObjectDiagInit-edit3}
+		\caption{Listeners connected to the object listened to}
+		\label{fig:contOving4ChangesC}
+	\end{subfigure}
+	\caption{Crude comparison of suggested changes to the contour diagram}
+	\label{fig:contOving4Changes} 
+\end{figure}
 
 Exploring changes to the default exclusion-filter, in order to provide more useful information out of the box, is also an option.
 This will provide a better experience for certain scenarios, but may be useless in other cases by providing too much unnecessary information.
 A way to easily switch filters by defining presets might be preferable.
 The filter might also be extended to support both exclusion and inclusion, allowing a more fine-grained selection of interesting classes.
+For example ignoring the entire javax.swing-package, apart from a few selected classes that are relevant.%eksempel?
 ~\\
 
 Allowing more ways to interact with the diagrams, e.g. hiding elements or compressing sequences, should improve usability for larger programs and longer runs.
 In the case of exploring events triggered by a listener, the ability to isolate the involved objects, and reorder the diagram could be very useful, providing a clean view of a smaller series of events.%figur
+This function should be accessed by right clicking on the topmost event that is desired, and selecting a "view isolated" option.
+Whether the isolated view should appear in a new eclipse view, or simply modify the existing view of the sequence diagram,  is something that should be determined by user-testing.
+~\\
+
+Stepping through the recorded states is, as mentioned above, cumbersome.
+While there are quick and easy ways to jump straight to any interesting state, it may also be interesting to view a playback of a part of, or the entire execution.
+This would allow an easier way of observing changes happening in a program.
+~\\
+
+Searching can be improved by relaxing the requirements for for search-terms.
+For instance by allowing partial class names, or substrings in general.
