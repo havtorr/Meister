@@ -183,7 +183,8 @@ Exploring changes to the default exclusion-filter, in order to provide more usef
 This will provide a better experience for certain scenarios, but may be useless in other cases by providing too much unnecessary information.
 A way to easily switch filters by defining presets might be preferable.
 The filter might also be extended to support both exclusion and inclusion, allowing a more fine-grained selection of interesting classes.
-For example ignoring the entire javax.swing-package, apart from a few selected classes that are relevant.%eksempel?
+As  an example, one might be interested in ignoring the entire javax-package, but still allowing javax.swing in order to see more GUI-related objects.
+It is also important to not let too many packages through the filter, as the performance can suffer immensely from logging too much.
 ~\\
 
 Allowing more ways to interact with the diagrams, e.g. hiding elements or compressing sequences, should improve usability for larger programs and longer runs.
