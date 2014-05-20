@@ -188,8 +188,8 @@ Exploring changes to the default exclusion-filter, in order to provide more usef
 This will provide a better experience for certain scenarios, but may be useless in other cases by providing too much unnecessary information.
 A way to easily switch filters by defining presets might be preferable.
 The filter might also be extended to support both exclusion and inclusion, allowing a more fine-grained selection of interesting classes.
-As  an example, one might be interested in ignoring the entire javax-package, but still allowing javax.swing in order to see more GUI-related objects.
-It is also important to not let too many packages through the filter, as the performance can suffer immensely from logging too much.
+As an example, one might be interested in ignoring the entire javax-package, but still allowing javax.swing in order to see more GUI-related objects.
+It is also important to not allow too many packages through the filter, as the performance can suffer immensely from logging too many events.
 ~\\
 
 Allowing more ways to interact with the diagrams, e.g. hiding elements or compressing sequences, should improve usability for larger programs and longer runs.
@@ -202,14 +202,22 @@ The way the sequence diagrams currently work, object instances are added as they
 \end{figure}
 In the case of exploring events triggered by a listener, the ability to isolate the involved objects, and reorder the diagram could be very useful, providing a clean view of a smaller series of events.%figur?
 Using the same figure as an example, the rightmost, and longest, bar would be moved to the far left, the three second-longest would be in the middle, while the shortest ones would be to the left.
-In total, only those three lifelines would be visible, all the ones that are being crossed in \autoref{fig:seqOving4CrossLines} are unnecessary, and would be hidden.
+In total, only the lifelines of those five objects would be visible, all the ones that are being crossed in \autoref{fig:seqOving4CrossLines} are unnecessary, and would be hidden as shown in \autoref{fig:seqOving4IsolatedMock}.
 This function should be accessed by right clicking on the topmost event that is desired, and selecting a "view isolated" option.
-Whether the isolated view should appear in a new eclipse view, or simply modify the existing view of the sequence diagram,  is something that should be determined by user-testing.
+Whether the isolated view should appear in a new eclipse view, or simply modify the existing view of the sequence diagram, is something that should be determined by user-testing.
+\begin{figure}[H]
+	\centering
+	\includegraphics[height =.5\paperheight]{MMI-Oving4-SequenceDiagInit-isolatedEventsMock}
+	\caption{An example of how \autoref{fig:seqOving4CrossLines} might look in the isolated view}
+	\label{fig:seqOving4IsolatedMock}
+\end{figure}
 ~\\
 
 Stepping through the recorded states is, as mentioned above, cumbersome.
 While there are quick and easy ways to jump straight to any interesting state, it may also be interesting to view a playback of a part of, or the entire execution.
 This would allow an easier way of observing changes happening in a program.
+The playback would automatically step through the recorded states at a pace that the user should be able to adjust, updating the diagrams for each step.
+Playback should be possible to initialize from any selected event that has been recorded, as starting from the beginning would often be a waste of time.
 ~\\
 
 Searching can be improved by relaxing the requirements for for search-terms.
