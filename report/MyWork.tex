@@ -7,11 +7,11 @@ In this section I will first explain the various features of JIVE, before identi
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=\textwidth]{jivePerspective3}
+	\includegraphics[width=\textwidth]{UIjivePerspective3}
 	\caption{The JIVE perspective in Eclipse}
-	\label{fig:jivePerspective}
+	\label{fig:UIjivePerspective}
 \end{figure}
-As mentioned in the prestudy, JIVE installs as a plugin in the eclipse IDE, adding another perspective in the environment shown in \autoref{fig:jivePerspective}.
+As mentioned in the prestudy, JIVE installs as a plugin in the eclipse IDE, adding another perspective in the environment shown in \autoref{fig:UIjivePerspective}.
 The default views shown in this perspective are the "object diagram" and "sequence diagram" views, making the diagrams generated during debugging JIVEs two most apparent features.
 The diagrams are updated according to the current state of the debugged program, so that the backtracking functionality allows you to see the entire execution graphically step-by-step.
 The other views provided by JIVE are as follows: "contour model", "sequence model", "execution trace" and "search".
@@ -100,13 +100,13 @@ Clicking on elements in the contour-model allows you to inspect the values of ob
 ~\\
 
 Finally, the trace-log enables the use of queries to search for specific events in the execution.
-The queries are presented through a new tab in the eclipse search-window as seen in \autoref{fig:jiveSearchPanel}, easily accessible through the search-view, and comes with several pre-defined templates to simplify searching.
+The queries are presented through a new tab in the eclipse search-window as seen in \autoref{fig:UIjiveSearchPanel}, easily accessible through the search-view, and comes with several pre-defined templates to simplify searching.
 For example, searching for when a certain variable gets a certain value, only requires the user to specify the variable-name, its parent, and the value.
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=\textwidth]{jiveSearch}
+	\includegraphics[width=\textwidth]{UIjiveSearch}
 	\caption{The JIVE search panel}
-	\label{fig:jiveSearchPanel}
+	\label{fig:UIjiveSearchPanel}
 \end{figure}
 ~\\
 
@@ -221,4 +221,5 @@ Playback should be possible to initialize from any selected event that has been 
 ~\\
 
 Searching can be improved by relaxing the requirements for for search-terms.
-For instance by allowing partial class names, or substrings in general.
+The requirement of full class names in searches caused some confusion, and made me wonder if the feature was working at all.
+Relaxing this requirement to allowing partial class names, or substrings in general, would be an improvement to the usability of the tool.
