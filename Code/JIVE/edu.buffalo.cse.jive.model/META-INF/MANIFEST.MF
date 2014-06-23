@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: JIVE Data Model
+Bundle-SymbolicName: edu.buffalo.cse.jive.model
+Bundle-Version: 1.9.29.v20121216b
+Bundle-Vendor: University at Buffalo
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Export-Package: edu.buffalo.cse.jive.model;uses:="edu.buffalo.cse.jive
+ .model.factory",edu.buffalo.cse.jive.model.factory;uses:="edu.buffalo
+ .cse.jive.model",edu.buffalo.cse.jive.model.lib;uses:="edu.buffalo.cs
+ e.jive.model"
+

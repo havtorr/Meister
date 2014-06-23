@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: JIVE In-Memory Store Extension
+Bundle-SymbolicName: edu.buffalo.cse.jive.model.store.memory
+Bundle-Version: 1.9.29.v20121216b
+Bundle-Vendor: University at Buffalo
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Import-Package: edu.buffalo.cse.jive.model,edu.buffalo.cse.jive.model.
+ factory,edu.buffalo.cse.jive.model.store.db
+Export-Package: edu.buffalo.cse.jive.internal.model.store.memory;x-int
+ ernal:=true,edu.buffalo.cse.jive.model.store.memory;uses:="edu.buffal
+ o.cse.jive.model.factory"
+Require-Bundle: edu.buffalo.cse.jive.model,edu.buffalo.cse.jive.model.
+ jdbc.postgres;bundle-version="1.9.26"
+

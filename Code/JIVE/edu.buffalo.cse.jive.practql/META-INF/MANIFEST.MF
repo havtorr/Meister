@@ -1,0 +1,43 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: JIVE Practical Temporal Query Language (PRACTQL)
+Bundle-SymbolicName: edu.buffalo.cse.jive.practql
+Bundle-Version: 1.9.29.v20121216b
+Bundle-Vendor: University at Buffalo
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Export-Package: edu.buffalo.cse.jive.internal.practql;x-internal:=true
+ ,edu.buffalo.cse.jive.internal.practql.compiler;x-internal:=true,edu.
+ buffalo.cse.jive.internal.practql.expression;x-internal:=true,edu.buf
+ falo.cse.jive.internal.practql.expression.atomic;x-internal:=true,edu
+ .buffalo.cse.jive.internal.practql.expression.literal;x-internal:=tru
+ e,edu.buffalo.cse.jive.internal.practql.expression.nary;x-internal:=t
+ rue,edu.buffalo.cse.jive.internal.practql.expression.query;x-internal
+ :=true,edu.buffalo.cse.jive.internal.practql.expression.unary;x-inter
+ nal:=true,edu.buffalo.cse.jive.internal.practql.parser;x-internal:=tr
+ ue,edu.buffalo.cse.jive.internal.practql.schema;x-internal:=true,edu.
+ buffalo.cse.jive.internal.practql.test;x-internal:=true,edu.buffalo.c
+ se.jive.internal.practql.tokenizer;x-internal:=true,edu.buffalo.cse.j
+ ive.internal.practql.visitor;x-internal:=true,edu.buffalo.cse.jive.pr
+ actql; uses:="edu.buffalo.cse.jive.practql.expression,  edu.buffalo.c
+ se.jive.practql.parser,  edu.buffalo.cse.jive.practql.expression.quer
+ y,  edu.buffalo.cse.jive.practql.schema",edu.buffalo.cse.jive.practql
+ .expression; uses:="edu.buffalo.cse.jive.practql.expression.nary,  ed
+ u.buffalo.cse.jive.practql.expression.literal,  edu.buffalo.cse.jive.
+ practql.schema,  edu.buffalo.cse.jive.practql.expression.unary,  edu.
+ buffalo.cse.jive.practql.expression.relational,  edu.buffalo.cse.jive
+ .practql.expression.atomic",edu.buffalo.cse.jive.practql.expression.a
+ tomic;uses:="edu.buffalo.cse.jive.practql.expression,edu.buffalo.cse.
+ jive.practql.schema",edu.buffalo.cse.jive.practql.expression.literal;
+ uses:="edu.buffalo.cse.jive.practql.expression.atomic",edu.buffalo.cs
+ e.jive.practql.expression.nary;uses:="edu.buffalo.cse.jive.practql.ex
+ pression",edu.buffalo.cse.jive.practql.expression.query; uses:="edu.b
+ uffalo.cse.jive.practql.expression,  edu.buffalo.cse.jive.practql.sch
+ ema,  edu.buffalo.cse.jive.practql.expression.unary,  edu.buffalo.cse
+ .jive.practql.expression.atomic",edu.buffalo.cse.jive.practql.express
+ ion.relational;uses:="edu.buffalo.cse.jive.practql.expression",edu.bu
+ ffalo.cse.jive.practql.expression.unary;uses:="edu.buffalo.cse.jive.p
+ ractql.expression",edu.buffalo.cse.jive.practql.parser;uses:="edu.buf
+ falo.cse.jive.practql.expression.query,edu.buffalo.cse.jive.practql.s
+ chema",edu.buffalo.cse.jive.practql.schema;uses:="edu.buffalo.cse.jiv
+ e.practql.expression.query",edu.buffalo.cse.jive.practql.tokenizer
+

@@ -1,0 +1,22 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: JIVE Preferences
+Bundle-SymbolicName: edu.buffalo.cse.jive.preferences;singleton:=true
+Bundle-Version: 1.9.29.v20121216b
+Bundle-Vendor: University at Buffalo
+Bundle-Localization: plugin
+Require-Bundle: org.eclipse.ui;visibility:=reexport,edu.buffalo.cse.ji
+ ve.model,org.eclipse.draw2d;bundle-version="3.7.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-ActivationPolicy: lazy
+Bundle-Activator: edu.buffalo.cse.jive.preferences.PreferencesPlugin
+Import-Package: org.eclipse.core.runtime;version="3.4.0",org.eclipse.c
+ ore.runtime.preferences;version="3.3.0",org.eclipse.debug.core,org.os
+ gi.framework
+Export-Package: edu.buffalo.cse.jive.preferences; uses:="org.eclipse.d
+ ebug.core,  org.eclipse.core.runtime,  org.eclipse.jface.resource,  o
+ rg.eclipse.swt.graphics,  org.eclipse.ui.plugin,  org.osgi.framework,
+   org.eclipse.jface.util,  org.eclipse.core.runtime.preferences,  edu
+ .buffalo.cse.jive.model",edu.buffalo.cse.jive.preferences.ui;uses:="o
+ rg.eclipse.jface.preference,org.eclipse.ui,org.eclipse.swt.widgets"
+

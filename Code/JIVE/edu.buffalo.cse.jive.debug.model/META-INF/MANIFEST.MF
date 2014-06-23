@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: JIVE Debug Model
+Bundle-SymbolicName: edu.buffalo.cse.jive.debug.model
+Bundle-Version: 1.9.29.v20121216b
+Bundle-Vendor: University at Buffalo
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Import-Package: edu.buffalo.cse.jive.model,org.eclipse.core.runtime,or
+ g.eclipse.jdt.debug.core
+Require-Bundle: org.eclipse.debug.core
+Export-Package: edu.buffalo.cse.jive.debug.model;uses:="org.eclipse.de
+ bug.core,org.eclipse.debug.core.model,edu.buffalo.cse.jive.model"
+

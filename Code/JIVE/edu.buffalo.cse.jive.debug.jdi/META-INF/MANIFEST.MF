@@ -1,0 +1,29 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: JIVE JDI Debug Extension
+Bundle-SymbolicName: edu.buffalo.cse.jive.debug.jdi
+Bundle-Version: 1.9.29.v20121216b
+Bundle-Activator: edu.buffalo.cse.jive.debug.JiveDebugPlugin
+Bundle-Vendor: University at Buffalo
+Require-Bundle: org.eclipse.core.runtime;bundle-version="3.5.0";visibi
+ lity:=reexport,org.eclipse.debug.core;bundle-version="3.5.0";visibili
+ ty:=reexport,org.eclipse.jdt.debug;bundle-version="3.5.0";visibility:
+ =reexport,edu.buffalo.cse.jive.model;bundle-version="1.9.0",edu.buffa
+ lo.cse.jive.core.ast;bundle-version="1.9.0",edu.buffalo.cse.jive.pref
+ erences;bundle-version="1.9.1"
+Bundle-ActivationPolicy: lazy
+Export-Package: edu.buffalo.cse.jive.debug; uses:="org.eclipse.debug.c
+ ore,  org.eclipse.core.runtime,  edu.buffalo.cse.jive.model.factory, 
+  edu.buffalo.cse.jive.debug.jdi.model,  org.osgi.framework,  com.sun.
+ jdi,  org.eclipse.debug.core.model,  edu.buffalo.cse.jive.debug.model
+ ,  edu.buffalo.cse.jive.model",edu.buffalo.cse.jive.debug.jdi.model; 
+ uses:="com.sun.jdi.request,  edu.buffalo.cse.jive.model.factory,  com
+ .sun.jdi.event,  com.sun.jdi,  edu.buffalo.cse.jive.debug.model,  edu
+ .buffalo.cse.jive.model",edu.buffalo.cse.jive.internal.debug.jdi;x-in
+ ternal:=true,edu.buffalo.cse.jive.internal.debug.jdi.model;x-internal
+ :=true
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Import-Package: edu.buffalo.cse.jive.debug.jdi.model,edu.buffalo.cse.j
+ ive.debug.model,edu.buffalo.cse.jive.model.store,org.eclipse.jdt.inte
+ rnal.debug.core.model
+

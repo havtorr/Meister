@@ -1,0 +1,38 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: JIVE UI Integration
+Bundle-SymbolicName: edu.buffalo.cse.jive.ui;singleton:=true
+Bundle-Version: 1.9.29.v20121216b
+Bundle-Activator: edu.buffalo.cse.jive.ui.JiveUIPlugin
+Bundle-Vendor: University at Buffalo
+Bundle-Localization: plugin
+Require-Bundle: org.eclipse.ui.console;bundle-version="3.4.0";visibili
+ ty:=reexport,org.eclipse.debug.ui;bundle-version="3.5.0";visibility:=
+ reexport,org.eclipse.jdt.ui;bundle-version="3.5.0";visibility:=reexpo
+ rt,org.eclipse.gef;bundle-version="3.5.0";visibility:=reexport,org.ec
+ lipse.search;bundle-version="3.5.0";visibility:=reexport,edu.buffalo.
+ cse.jive.model,edu.buffalo.cse.jive.debug.jdi,edu.buffalo.cse.jive.pr
+ eferences
+Bundle-ActivationPolicy: lazy
+Export-Package: edu.buffalo.cse.jive.internal.ui;x-internal:=true,edu.
+ buffalo.cse.jive.ui; uses:="org.eclipse.debug.core,  org.eclipse.core
+ .runtime,  org.eclipse.ui,  org.eclipse.ui.plugin,  edu.buffalo.cse.j
+ ive.ui.view,  edu.buffalo.cse.jive.debug.model,  edu.buffalo.cse.jive
+ .model,  org.eclipse.jface.action,  org.eclipse.swt.graphics,  org.ec
+ lipse.jface.viewers,  org.osgi.framework,  org.eclipse.jface.util,  o
+ rg.eclipse.swt.widgets,  org.eclipse.gef",edu.buffalo.cse.jive.ui.sea
+ rch; uses:="org.eclipse.core.runtime,  org.eclipse.jface.resource,  o
+ rg.eclipse.search.ui,  org.eclipse.swt.events,  org.eclipse.ui,  org.
+ eclipse.ui.part,  edu.buffalo.cse.jive.debug.model,  edu.buffalo.cse.
+ jive.model,  edu.buffalo.cse.jive.model.factory,  org.eclipse.jface.v
+ iewers,  org.eclipse.swt.graphics,  org.eclipse.swt.widgets,  org.ecl
+ ipse.search.ui.text,  org.eclipse.jface.dialogs",edu.buffalo.cse.jive
+ .ui.view; uses:="org.eclipse.debug.core,  org.eclipse.jface.action,  
+ org.eclipse.jface.resource,  edu.buffalo.cse.jive.ui,  org.eclipse.sw
+ t.graphics,  org.eclipse.jface.viewers,  org.eclipse.ui.part,  org.ec
+ lipse.swt.widgets,  org.eclipse.gef,  edu.buffalo.cse.jive.debug.mode
+ l"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Import-Package: edu.buffalo.cse.jive.debug.model,edu.buffalo.cse.jive.
+ launch
+
