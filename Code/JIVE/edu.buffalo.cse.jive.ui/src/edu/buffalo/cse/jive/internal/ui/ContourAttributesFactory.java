@@ -111,20 +111,17 @@ public class ContourAttributesFactory
       text = computeDefaultText(toolTipText);
       superText = computeDefaultText(contour.schema().superClass().name());
       
+      String textTail = "";
+      if (text.contains("$")){
+    	  textTail = ":" + text.substring(text.lastIndexOf('$') + 1, text.lastIndexOf(':'));
+      }
       Iterator<ITypeNodeRef> supIntIterator = contour.schema().superInterfaces().iterator();
       if(supIntIterator.hasNext()){
-    	  superInterfaceText = computeDefaultText(supIntIterator.next().name());
+    	  superInterfaceText = computeDefaultText(supIntIterator.next().name()) + textTail;
       }else{
     	  superInterfaceText = "";
       }
       
-      if (text.contains("$")){
-    	  System.out.println("text: " + text);
-    	  System.out.println("tooltiptext: " + toolTipText);
-    	  System.out.println("contour: " + contour);
-    	  System.out.println("contur.schema.superClass.name: " + contour.schema().superClass().name());
-    	  System.out.println("contur.schema.superInterfaces: " + contour.schema().superInterfaces());
-      }
     }
 
     @Override
