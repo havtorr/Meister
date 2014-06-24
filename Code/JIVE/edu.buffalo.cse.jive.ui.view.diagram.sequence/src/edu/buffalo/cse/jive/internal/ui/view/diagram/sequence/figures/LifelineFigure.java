@@ -37,7 +37,21 @@ public class LifelineFigure extends Figure
     }
     else
     {
-      head = new Label(attributes.getText(), attributes.getIcon());
+    	
+    	/*
+  	   *  check if we are representing an anonymous inner type,
+  	   * and look for superclass/interfaces if so. 
+  	   */
+  	  if (attributes.getText().contains("$")){
+  		  if(attributes.SuperInterfaceText().equals("")){
+  			  head = new Label(attributes.superText(), attributes.getIcon());
+  		  }else{
+  			  head = new Label(attributes.SuperInterfaceText(), attributes.getIcon());
+  		  }
+  	  }else{
+  		  head = new Label(attributes.getText(), attributes.getIcon());
+  	  }
+    	    	
       final Label tooltip = new Label(attributes.getToolTipText(), attributes.getToolTipIcon());
       head.setToolTip(tooltip);
       head.setToolTip(tooltip);
