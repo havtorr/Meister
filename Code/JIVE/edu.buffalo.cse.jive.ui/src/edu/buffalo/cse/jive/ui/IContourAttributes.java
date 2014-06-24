@@ -27,6 +27,10 @@ public interface IContourAttributes
   public Color getLabelBackgroundColor();
 
   public String getText();
+  
+  public String superText();
+  
+  public String SuperInterfaceText(); 
 
   public Image getToolTipIcon();
 

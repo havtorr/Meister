@@ -203,7 +203,20 @@ public class ContourFigure extends Figure
    */
   protected void initializeLabel(final IContourAttributes attributes)
   {
-    label = new Label(attributes.getText(), attributes.getIcon());
+	  /*
+	   *  check if we are representing an anonymous inner type,
+	   * and look for superclass/interfaces if so. 
+	   */
+	  if (attributes.getText().contains("$")){
+		  if(attributes.SuperInterfaceText().equals("")){
+			  label = new Label(attributes.superText(), attributes.getIcon());
+		  }else{
+			  label = new Label(attributes.SuperInterfaceText(), attributes.getIcon());
+		  }
+	  }else{
+		  label = new Label(attributes.getText(), attributes.getIcon());
+	  }
+	  
     label.setOpaque(true);
     label.setToolTip(new Label(attributes.getToolTipText(), attributes.getToolTipIcon()));
     label.setBorder(ContourFigure.LABEL_BORDER);

@@ -6,6 +6,8 @@ import static edu.buffalo.cse.jive.preferences.ImageInfo.IM_OM_CONTOUR_METHOD;
 import static edu.buffalo.cse.jive.preferences.ImageInfo.IM_OM_CONTOUR_STATIC;
 import static edu.buffalo.cse.jive.preferences.ImageInfo.IM_OM_CONTOUR_THREAD;
 
+import java.util.Iterator;
+
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.Image;
 
@@ -15,6 +17,7 @@ import edu.buffalo.cse.jive.model.IContourModel.IMethodContour;
 import edu.buffalo.cse.jive.model.IModel.IOutOfModelMethodReference;
 import edu.buffalo.cse.jive.model.IModel.IThreadValue;
 import edu.buffalo.cse.jive.model.IModel.IValue;
+import edu.buffalo.cse.jive.model.IStaticModel.ITypeNodeRef;
 import edu.buffalo.cse.jive.model.IStaticModel.NodeKind;
 import edu.buffalo.cse.jive.model.IStaticModel.NodeModifier;
 import edu.buffalo.cse.jive.ui.IContourAttributes;
@@ -98,11 +101,30 @@ public class ContourAttributesFactory
     private static final Image CONTOUR_IMAGE = IM_OM_CONTOUR_INSTANCE.enabledImage();
     private final String text;
     private final String toolTipText;
+    private final String superText;
+    private final String superInterfaceText;
+    
 
     private InstanceContourAttributes(final IContextContour contour)
     {
       toolTipText = contour.signature();
       text = computeDefaultText(toolTipText);
+      superText = computeDefaultText(contour.schema().superClass().name());
+      
+      Iterator<ITypeNodeRef> supIntIterator = contour.schema().superInterfaces().iterator();
+      if(supIntIterator.hasNext()){
+    	  superInterfaceText = computeDefaultText(supIntIterator.next().name());
+      }else{
+    	  superInterfaceText = "";
+      }
+      
+      if (text.contains("$")){
+    	  System.out.println("text: " + text);
+    	  System.out.println("tooltiptext: " + toolTipText);
+    	  System.out.println("contour: " + contour);
+    	  System.out.println("contur.schema.superClass.name: " + contour.schema().superClass().name());
+    	  System.out.println("contur.schema.superInterfaces: " + contour.schema().superInterfaces());
+      }
     }
 
     @Override
@@ -134,6 +156,16 @@ public class ContourAttributesFactory
     {
       return toolTipText;
     }
+
+	@Override
+	public String superText() {
+		return superText;
+	}
+
+	@Override
+	public String SuperInterfaceText() {
+		return superInterfaceText;
+	}
   }
 
   private static class MemberAttributes implements IMemberAttributes
@@ -440,6 +472,18 @@ public class ContourAttributesFactory
     {
       return toolTipText;
     }
+
+	@Override
+	public String superText() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String SuperInterfaceText() {
+		// TODO Auto-generated method stub
+		return null;
+	}
   }
 
   private static class StaticContourAttributes extends ContourAttributes
@@ -489,6 +533,18 @@ public class ContourAttributesFactory
     {
       return toolTipText;
     }
+
+	@Override
+	public String superText() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String SuperInterfaceText() {
+		// TODO Auto-generated method stub
+		return null;
+	}
   }
 
   private static final class ThreadAttributes extends ContourAttributes
@@ -532,5 +588,17 @@ public class ContourAttributesFactory
     {
       return thread.toString();
     }
+
+	@Override
+	public String superText() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String SuperInterfaceText() {
+		// TODO Auto-generated method stub
+		return null;
+	}
   }
 }
