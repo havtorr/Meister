@@ -43,7 +43,7 @@ public class LifelineFigure extends Figure
   	   * and look for superclass/interfaces if so. 
   	   */
   	  if (attributes.getText().contains("$")){
-  		  if(attributes.getSuperInterfaceText().equals("")){
+  		  if(attributes.getSuperInterfaceText() == null){
   			  head = new Label(attributes.getSuperText(), attributes.getIcon());
   		  }else{
   			  head = new Label(attributes.getSuperInterfaceText(), attributes.getIcon());

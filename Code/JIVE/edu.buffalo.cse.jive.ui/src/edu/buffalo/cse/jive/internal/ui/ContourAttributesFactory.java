@@ -119,7 +119,7 @@ public class ContourAttributesFactory
       if(supIntIterator.hasNext()){
     	  superInterfaceText = computeDefaultText(supIntIterator.next().name()) + textTail;
       }else{
-    	  superInterfaceText = "";
+    	  superInterfaceText = null;
       }
       
     }
