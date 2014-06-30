@@ -208,10 +208,10 @@ public class ContourFigure extends Figure
 	   * and look for superclass/interfaces if so. 
 	   */
 	  if (attributes.getText().contains("$")){
-		  if(attributes.SuperInterfaceText().equals("")){
-			  label = new Label(attributes.superText(), attributes.getIcon());
+		  if(attributes.getSuperInterfaceText().equals("")){
+			  label = new Label(attributes.getSuperText(), attributes.getIcon());
 		  }else{
-			  label = new Label(attributes.SuperInterfaceText(), attributes.getIcon());
+			  label = new Label(attributes.getSuperInterfaceText(), attributes.getIcon());
 		  }
 	  }else{
 		  label = new Label(attributes.getText(), attributes.getIcon());

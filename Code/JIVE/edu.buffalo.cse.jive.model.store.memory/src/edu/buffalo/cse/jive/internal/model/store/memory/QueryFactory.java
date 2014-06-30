@@ -727,8 +727,7 @@ public class QueryFactory implements IQueryFactory
       while (newContour != null)
       {
         final IContourTokens tokenizer = newContour.tokenize();
-        if (params().classText().equals(tokenizer.className()))
-        {
+        if (tokenizer.className().toLowerCase().contains(params().classText().toLowerCase())){
           if (!rejectString(params().instanceText(), tokenizer.instanceNumber()))
           {
             return true;

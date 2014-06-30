@@ -28,9 +28,9 @@ public interface IContourAttributes
 
   public String getText();
   
-  public String superText();
+  public String getSuperText();
   
-  public String SuperInterfaceText(); 
+  public String getSuperInterfaceText(); 
 
   public Image getToolTipIcon();
 

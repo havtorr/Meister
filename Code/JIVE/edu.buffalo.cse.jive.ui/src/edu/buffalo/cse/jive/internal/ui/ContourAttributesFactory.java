@@ -155,12 +155,12 @@ public class ContourAttributesFactory
     }
 
 	@Override
-	public String superText() {
+	public String getSuperText() {
 		return superText;
 	}
 
 	@Override
-	public String SuperInterfaceText() {
+	public String getSuperInterfaceText() {
 		return superInterfaceText;
 	}
   }
@@ -471,13 +471,13 @@ public class ContourAttributesFactory
     }
 
 	@Override
-	public String superText() {
+	public String getSuperText() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public String SuperInterfaceText() {
+	public String getSuperInterfaceText() {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -532,13 +532,13 @@ public class ContourAttributesFactory
     }
 
 	@Override
-	public String superText() {
+	public String getSuperText() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public String SuperInterfaceText() {
+	public String getSuperInterfaceText() {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -587,13 +587,13 @@ public class ContourAttributesFactory
     }
 
 	@Override
-	public String superText() {
+	public String getSuperText() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public String SuperInterfaceText() {
+	public String getSuperInterfaceText() {
 		// TODO Auto-generated method stub
 		return null;
 	}
