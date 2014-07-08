@@ -55,6 +55,7 @@ public class LifelineFigure extends Figure
       final Label tooltip = new Label(attributes.getToolTipText(), attributes.getToolTipIcon());
       
       head.setToolTip(tooltip);
+      head.setToolTip(tooltip);//called twice to work around blank tooltip
       head.setOpaque(true);
       head.setBorder(LifelineFigure.HEAD_BORDER);
       head.setIconAlignment(PositionConstants.BOTTOM);

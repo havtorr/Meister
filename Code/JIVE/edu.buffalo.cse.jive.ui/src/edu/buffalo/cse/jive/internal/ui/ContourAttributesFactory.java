@@ -98,7 +98,8 @@ public class ContourAttributesFactory
 
   private static class InstanceContourAttributes extends ContourAttributes
   {
-    private static final Image CONTOUR_IMAGE = IM_OM_CONTOUR_INSTANCE.enabledImage();
+    private static final Image CLASS_IMAGE = IM_OM_CONTOUR_INSTANCE.enabledImage();
+    private static final Image INTERFACE_IMAGE = IM_OM_CONTOUR_INTERFACE.enabledImage();
     private final String text;
     private final String toolTipText;
     private final String superText;
@@ -127,7 +128,10 @@ public class ContourAttributesFactory
     @Override
     public Image getIcon()
     {
-      return InstanceContourAttributes.CONTOUR_IMAGE;
+    	if(superInterfaceText != null){
+    		return InstanceContourAttributes.INTERFACE_IMAGE;
+    	}
+      return InstanceContourAttributes.CLASS_IMAGE;
     }
 
     @Override
@@ -145,7 +149,7 @@ public class ContourAttributesFactory
     @Override
     public Image getToolTipIcon()
     {
-      return InstanceContourAttributes.CONTOUR_IMAGE;
+      return InstanceContourAttributes.CLASS_IMAGE;
     }
 
     @Override
