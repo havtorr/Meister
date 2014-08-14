@@ -70,9 +70,9 @@ public class ModelCache implements IModelCache
     }
     else
     {
-      for (final String filter : exclusionList)
+      for (final String exFilter : exclusionList)
       {
-        if (match(clazz, filter))
+        if (match(clazz, exFilter))
         {
           rejectedClassCache.add(clazz);
           return false;
@@ -164,19 +164,26 @@ public class ModelCache implements IModelCache
 
 @Override
 public void addInclusionFilter(String filter) {
-	// TODO Auto-generated method stub
-	
+	if (!inclusionList.contains(filter))
+    {
+      inclusionList.add(filter);
+    }
+    acceptedClassCache.clear();
+    rejectedClassCache.clear();	
 }
 
 @Override
 public void addMethodInclusionPattern(String pattern) {
-	// TODO Auto-generated method stub
-	
+	    if (!inclusionPatterns.contains(pattern))
+	    {
+	      inclusionPatterns.add(pattern);
+	    }
+	    acceptedMethodsCache.clear();
+	    rejectedMethodsCache.clear();	
 }
 
 @Override
 public List<String> inclusionList() {
-	// TODO Auto-generated method stub
-	return null;
+	return inclusionList;
 }
 }
