@@ -34,6 +34,16 @@ public class ModelCache implements IModelCache
    * A set containing method names that are known to be rejected by the filter.
    */
   private final Set<String> rejectedMethodsCache;
+  /**
+   * The list of included package filters. Each element is a String specifying a regular expression
+   * filter, such as "java.*".
+   */
+  private final List<String> inclusionList;
+  /**
+   * The list of included method name filters. Each element is a String specifying a regular
+   * expression filter, such as "get*".
+   */
+  private final List<String> inclusionPatterns;
 
   public ModelCache()
   {
@@ -41,6 +51,8 @@ public class ModelCache implements IModelCache
     this.acceptedMethodsCache = Tools.newHashSet();
     this.exclusionList = Tools.newArrayList();
     this.exclusionPatterns = Tools.newArrayList();
+    this.inclusionList	= Tools.newArrayList();
+    this.inclusionPatterns	= Tools.newArrayList();
     this.rejectedClassCache = Tools.newHashSet();
     this.rejectedMethodsCache = Tools.newHashSet();
   }
@@ -149,4 +161,22 @@ public class ModelCache implements IModelCache
       return input.equals(pattern);
     }
   }
+
+@Override
+public void addInclusionFilter(String filter) {
+	// TODO Auto-generated method stub
+	
+}
+
+@Override
+public void addMethodInclusionPattern(String pattern) {
+	// TODO Auto-generated method stub
+	
+}
+
+@Override
+public List<String> inclusionList() {
+	// TODO Auto-generated method stub
+	return null;
+}
 }
