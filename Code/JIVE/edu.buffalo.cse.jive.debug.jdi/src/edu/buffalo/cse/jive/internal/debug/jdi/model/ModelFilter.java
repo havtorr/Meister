@@ -140,6 +140,28 @@ class ModelFilter implements IModelFilter
   {
     modelCache.addMethodExclusionPattern(pattern);
   }
+  
+  /**
+   * Adds a package filter to the inclusion list.
+   * 
+   * @param filter
+   *          the regular expression filter, such as "java.*"
+   */
+  public void addInclusionFilter(final String filter)
+  {
+    modelCache.addInclusionFilter(filter);
+  }
+
+  /**
+   * Adds a method inclusion pattern to the inclusion list.
+   * 
+   * @param pattern
+   *          the regular expression filter, such as "get*"
+   */
+  public void addMethodInclusionPattern(final String pattern)
+  {
+    modelCache.addMethodInclusionPattern(pattern);
+  }
 
   @Override
   public void filter(final ClassPrepareRequest request)
@@ -148,6 +170,9 @@ class ModelFilter implements IModelFilter
     {
       request.addClassExclusionFilter(filter);
     }
+    for (final String filter : modelCache.inclusionList()) {
+		request.addClassFilter(filter);
+	}
   }
 
   @Override
@@ -157,6 +182,9 @@ class ModelFilter implements IModelFilter
     {
       request.addClassExclusionFilter(filter);
     }
+    for (final String filter : modelCache.inclusionList()) {
+		request.addClassFilter(filter);
+	}
   }
 
   @Override
@@ -166,6 +194,9 @@ class ModelFilter implements IModelFilter
     {
       request.addClassExclusionFilter(filter);
     }
+    for (final String filter : modelCache.inclusionList()) {
+		request.addClassFilter(filter);
+	}
   }
 
   @Override
@@ -175,6 +206,9 @@ class ModelFilter implements IModelFilter
     {
       request.addClassExclusionFilter(filter);
     }
+    for (final String filter : modelCache.inclusionList()) {
+		request.addClassFilter(filter);
+	}
   }
 
   @Override
