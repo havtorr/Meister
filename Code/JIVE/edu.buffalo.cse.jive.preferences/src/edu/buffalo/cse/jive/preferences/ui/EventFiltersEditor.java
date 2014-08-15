@@ -39,8 +39,8 @@ class EventFiltersEditor extends ListEditor
   @Override
   protected String getNewInputObject()
   {
-    final InputDialog inputDialog = new InputDialog(getShell(), "Exclude classes",
-        "Enter class exclusion filter", null, new IInputValidator()
+    final InputDialog inputDialog = new InputDialog(getShell(), "Filter classes",
+        "Enter class filters prefaced with + or -, for inclusion or exclusion respectivley", null, new IInputValidator()
           {
             @Override
             public String isValid(final String newText)
