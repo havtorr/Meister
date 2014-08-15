@@ -74,6 +74,12 @@ public class ModelCache implements IModelCache
 			{
 				if (match(clazz, exFilter))
 				{
+					for (String inFilter : inclusionList) {
+						if (match(clazz, inFilter)) {
+							acceptedClassCache.add(clazz);
+							return true;
+						}
+					}
 					rejectedClassCache.add(clazz);
 					return false;
 				}

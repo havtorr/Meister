@@ -50,7 +50,14 @@ final class JDIManager implements IJDIManager
                 : filters.iterator();
             while (iter.hasNext())
             {
-              addExclusionFilter(iter.next());
+            	String next = iter.next();
+            	
+            	if (next.startsWith("+")) {
+					addInclusionFilter(next);
+				}else{
+					addExclusionFilter(iter.next());			
+				}
+            	
             }
           }
         };
