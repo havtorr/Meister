@@ -170,9 +170,6 @@ class ModelFilter implements IModelFilter
     {
       request.addClassExclusionFilter(filter);
     }
-    for (final String filter : modelCache.inclusionList()) {
-		request.addClassFilter(filter);
-	}
   }
 
   @Override
@@ -182,9 +179,6 @@ class ModelFilter implements IModelFilter
     {
       request.addClassExclusionFilter(filter);
     }
-    for (final String filter : modelCache.inclusionList()) {
-		request.addClassFilter(filter);
-	}
   }
 
   @Override
@@ -194,9 +188,6 @@ class ModelFilter implements IModelFilter
     {
       request.addClassExclusionFilter(filter);
     }
-    for (final String filter : modelCache.inclusionList()) {
-		request.addClassFilter(filter);
-	}
   }
 
   @Override
@@ -206,9 +197,6 @@ class ModelFilter implements IModelFilter
     {
       request.addClassExclusionFilter(filter);
     }
-    for (final String filter : modelCache.inclusionList()) {
-		request.addClassFilter(filter);
-	}
   }
 
   @Override

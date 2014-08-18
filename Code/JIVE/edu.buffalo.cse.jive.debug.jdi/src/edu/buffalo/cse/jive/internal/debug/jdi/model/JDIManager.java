@@ -53,11 +53,10 @@ final class JDIManager implements IJDIManager
             	String next = iter.next();
             	
             	if (next.startsWith("+")) {
-					addInclusionFilter(next);
+					addInclusionFilter(next.substring(1));
 				}else{
-					addExclusionFilter(iter.next());			
+					addExclusionFilter(next);			
 				}
-            	
             }
           }
         };
