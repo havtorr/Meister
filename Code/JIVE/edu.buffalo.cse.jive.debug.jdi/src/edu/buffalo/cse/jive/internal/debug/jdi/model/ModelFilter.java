@@ -166,7 +166,7 @@ class ModelFilter implements IModelFilter
   @Override
   public void filter(final ClassPrepareRequest request)
   {
-    for (final String filter : modelCache.exclusionList())
+    for (final String filter : modelCache.getFilter())
     {
       request.addClassExclusionFilter(filter);
     }
@@ -175,7 +175,7 @@ class ModelFilter implements IModelFilter
   @Override
   public void filter(final MethodEntryRequest request)
   {
-    for (final String filter : modelCache.exclusionList())
+    for (final String filter : modelCache.getFilter())
     {
       request.addClassExclusionFilter(filter);
     }
@@ -184,7 +184,7 @@ class ModelFilter implements IModelFilter
   @Override
   public void filter(final MethodExitRequest request)
   {
-    for (final String filter : modelCache.exclusionList())
+    for (final String filter : modelCache.getFilter())
     {
       request.addClassExclusionFilter(filter);
     }
@@ -193,7 +193,7 @@ class ModelFilter implements IModelFilter
   @Override
   public void filter(final StepRequest request)
   {
-    for (final String filter : modelCache.exclusionList())
+    for (final String filter : modelCache.getFilter())
     {
       request.addClassExclusionFilter(filter);
     }

@@ -33,4 +33,6 @@ public interface IModelCache
    * Must be called after modifying filters.
    */
   public void buildFilter();
+  
+  public List<String> getFilter();
 }

@@ -23,7 +23,7 @@ public class PreferenceInitializer extends AbstractPreferenceInitializer
    * The default event filters.
    */
   private static final String[] COMMON_FILTERS =
-  { "antlr.*", "com.apple.*", "com.mysql.*", "com.sun.*", "java.*", "javax.*", "org.apache.*",
+  { "antlr.*", "com.apple.*", "com.mysql.*", "com.sun.*", "java.*", "javax.*", "jdk.*", "org.apache.*",
       "org.eclipse.*", "org.hibernate.*", "org.jcp.*", "org.junit.*", "org.postgresql.*",
       "org.w3c.*", "org.xml.*", "sun.*", "$Proxy*" };
   // gray: cececeff

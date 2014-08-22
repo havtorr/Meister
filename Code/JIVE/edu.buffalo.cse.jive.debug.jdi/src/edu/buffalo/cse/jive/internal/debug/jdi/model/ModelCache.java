@@ -190,6 +190,8 @@ public class ModelCache implements IModelCache
 	public List<String> inclusionList() {
 		return inclusionList;
 	}
+	
+	
 
 	@Override
 	public void buildFilter() {
@@ -211,9 +213,10 @@ public class ModelCache implements IModelCache
 		ArrayList<ArrayList<String>> inDepthList = new ArrayList<ArrayList<String>>();
 		
 		String[] packageStrings = new String[packs.length];
+		boolean[] added	= new boolean[packs.length];
 		
 		for (int i = 0; i < packageStrings.length; i++) {
-			packageStrings[i] = packs[i].getName();
+			packageStrings[i] = packs[i].getName() + "*";
 		}
 		
 		//sort lists by depth
@@ -251,18 +254,41 @@ public class ModelCache implements IModelCache
 		
 		//compare lists with package-list and add/remove from filter as appropriate 
 		for (int i = 0; i < Math.max(inDepthList.size(), exDepthList.size()); i++) {
-			if(exDepthList.size() <= i){
+			if(exDepthList.size() > i){
 				for (int j = 1; j < exDepthList.get(i).size(); j++) {
+					boolean matchFound = false;
 					for (int j2 = 0; j2 < packageStrings.length; j2++) {
-						if (packageStrings[j2].matches(exDepthList.get(i).get(j))) {
-							filter.add(packageStrings[j2]);
+						if (match(packageStrings[j2], exDepthList.get(i).get(j))) {
+							if(!added[j2]){
+								filter.add(packageStrings[j2]);
+								added[j2] = true;
+								matchFound = true;
+							}
+						}
+					}
+					if(!matchFound){
+						filter.add(exDepthList.get(i).get(j));
+					}
+				}
+			}
+			if(inDepthList.size() > i){
+				if(inDepthList.get(i) != null){
+					for (int j = 1; j < inDepthList.get(i).size(); j++) {
+						for (String filtered : filter) {
+							if (match(filtered, inDepthList.get(i).get(j))){
+								filter.remove(filtered);
+							}
 						}
 					}
 				}
 			}
-			
 		}
-		
-		
+	}
+	
+	
+
+	@Override
+	public List<String> getFilter() {
+		return filter;
 	}
 }
