@@ -95,4 +95,23 @@ public class Tools
     list.addAll(source);
     return Collections.unmodifiableList(list);
   }
+  
+  /**
+   * Counts the number of times a character appears in a string. 
+   * @param s	-the string to search
+   * @param c	-the character to look for
+   * @return	number of times c occurs in s
+   */
+  public static int countOccurrences(String s, char c)
+  {
+      int count = 0;
+      for (int i=0; i < s.length(); i++)
+      {
+          if (s.charAt(i) == c)
+          {
+               count++;
+          }
+      }
+      return count;
+  }
 }

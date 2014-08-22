@@ -27,4 +27,10 @@ public interface IModelCache
   public List<String> inclusionList();
 
   public boolean match(String input, String pattern);
+  
+  /**
+   * Builds the exclusion filter from the contents of the exclusion- and inclusion-lists.
+   * Must be called after modifying filters.
+   */
+  public void buildFilter();
 }

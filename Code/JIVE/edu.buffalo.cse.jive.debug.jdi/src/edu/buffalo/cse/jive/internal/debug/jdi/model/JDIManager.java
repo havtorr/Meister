@@ -48,8 +48,7 @@ final class JDIManager implements IJDIManager
                 .getExclusionFiltersKey(), (List<String>) null);
             final Iterator<String> iter = filters == null ? Collections.EMPTY_LIST.iterator()
                 : filters.iterator();
-            while (iter.hasNext())
-            {
+            while (iter.hasNext()){
             	String next = iter.next();
             	
             	if (next.startsWith("+")) {
@@ -58,6 +57,7 @@ final class JDIManager implements IJDIManager
 					addExclusionFilter(next);			
 				}
             }
+            modelCache().buildFilter();
           }
         };
       localEvents = config.getAttribute(PreferencesPlugin.getDefault().getGenerateLocalEventsKey(),

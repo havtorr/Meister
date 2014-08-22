@@ -1,5 +1,6 @@
 package edu.buffalo.cse.jive.internal.debug.jdi.model;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
@@ -44,17 +45,20 @@ public class ModelCache implements IModelCache
 	 * expression filter, such as "get*".
 	 */
 	private final List<String> inclusionPatterns;
+	
+	private final List<String> filter;
 
 	public ModelCache()
 	{
-		this.acceptedClassCache = Tools.newHashSet();
-		this.acceptedMethodsCache = Tools.newHashSet();
-		this.exclusionList = Tools.newArrayList();
-		this.exclusionPatterns = Tools.newArrayList();
-		this.inclusionList	= Tools.newArrayList();
-		this.inclusionPatterns	= Tools.newArrayList();
-		this.rejectedClassCache = Tools.newHashSet();
-		this.rejectedMethodsCache = Tools.newHashSet();
+		acceptedClassCache		= Tools.newHashSet();
+		acceptedMethodsCache	= Tools.newHashSet();
+		exclusionList			= Tools.newArrayList();
+		exclusionPatterns		= Tools.newArrayList();
+		inclusionList			= Tools.newArrayList();
+		inclusionPatterns		= Tools.newArrayList();
+		rejectedClassCache		= Tools.newHashSet();
+		rejectedMethodsCache	= Tools.newHashSet();
+		filter					= Tools.newArrayList();
 	}
 
 	@Override
@@ -70,16 +74,10 @@ public class ModelCache implements IModelCache
 		}
 		else
 		{
-			for (final String exFilter : exclusionList)
+			for (final String exFilter : filter)
 			{
 				if (match(clazz, exFilter))
 				{
-					for (String inFilter : inclusionList) {
-						if (match(clazz, inFilter)) {
-							acceptedClassCache.add(clazz);
-							return true;
-						}
-					}
 					rejectedClassCache.add(clazz);
 					return false;
 				}
@@ -191,5 +189,80 @@ public class ModelCache implements IModelCache
 	@Override
 	public List<String> inclusionList() {
 		return inclusionList;
+	}
+
+	@Override
+	public void buildFilter() {
+		/*pseudo:
+		 * get list of all packages							-done
+		 * sort exclusion- and inclusion-list by depth		-done
+		 * while ex/in-lists not empty, n = 0:
+		 * 		compare exlist depth n with package-list
+		 * 		add matches to filter
+		 * 		compare inlist depth n with filter
+		 * 		remove matches from filter
+		 * 		n++
+		 * 
+		 */
+		
+		Package[] packs = Package.getPackages();
+		
+		ArrayList<ArrayList<String>> exDepthList = new ArrayList<ArrayList<String>>();
+		ArrayList<ArrayList<String>> inDepthList = new ArrayList<ArrayList<String>>();
+		
+		String[] packageStrings = new String[packs.length];
+		
+		for (int i = 0; i < packageStrings.length; i++) {
+			packageStrings[i] = packs[i].getName();
+		}
+		
+		//sort lists by depth
+		for (String ex : exclusionList) {
+			int index	= Tools.countOccurrences(ex, '.') -1;
+			if (index == -1) {
+				index = 0;
+			}
+					
+			if(exDepthList.size() <= index){
+				exDepthList.add(index, new ArrayList<String>());
+				exDepthList.get(index).add(Integer.toString(index));
+			}else if (Integer.parseInt(exDepthList.get(index).get(0)) != index) {
+				exDepthList.add(index, new ArrayList<String>());
+				exDepthList.get(index).add(Integer.toString(index));
+			}
+			exDepthList.get(index).add(ex);
+		}
+		
+		for (String in : inclusionList) {
+			int index	= Tools.countOccurrences(in, '.') -1;
+			if (index == -1) {
+				index = 0;
+			}
+					
+			if(inDepthList.size() <= index){
+				inDepthList.add(index, new ArrayList<String>());
+				inDepthList.get(index).add(Integer.toString(index));
+			}else if (Integer.parseInt(inDepthList.get(index).get(0)) != index) {
+				inDepthList.add(index, new ArrayList<String>());
+				inDepthList.get(index).add(Integer.toString(index));
+			}
+			inDepthList.get(index).add(in);
+		}
+		
+		//compare lists with package-list and add/remove from filter as appropriate 
+		for (int i = 0; i < Math.max(inDepthList.size(), exDepthList.size()); i++) {
+			if(exDepthList.size() <= i){
+				for (int j = 1; j < exDepthList.get(i).size(); j++) {
+					for (int j2 = 0; j2 < packageStrings.length; j2++) {
+						if (packageStrings[j2].matches(exDepthList.get(i).get(j))) {
+							filter.add(packageStrings[j2]);
+						}
+					}
+				}
+			}
+			
+		}
+		
+		
 	}
 }
