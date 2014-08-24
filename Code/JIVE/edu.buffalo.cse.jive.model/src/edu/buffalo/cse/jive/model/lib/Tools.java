@@ -114,4 +114,39 @@ public class Tools
       }
       return count;
   }
+
+  /**
+   * Combines two {@link String} arrays, allowing only one entry in case of duplicates. 
+   * @param s1
+   * @param s2
+   * @return
+   */
+public static String[] combineStringArrays(String[] s1,	String[] s2) {
+	String[] temp	= new String[s1.length+s2.length];
+	int emptyIndex	= 0;
+	
+	for (int i = 0; i < s1.length; i++) {
+		temp[i] = s1[i];
+		emptyIndex++;
+	}
+	
+	for (int i = 0; i < s2.length; i++) {
+		boolean found = false;
+		for (int j = 0; j < emptyIndex; j++) {
+			if(s2[i].equals(temp[j])){
+				found = true;
+			}
+		}
+		if(!found){
+			temp[emptyIndex] = s2[i];
+			emptyIndex++;
+		}
+	}
+	String[] result = new String[emptyIndex];
+	
+	for (int i = 0; i < result.length; i++) {
+		result[i] = temp[i];
+	}
+	return result;
+}
 }

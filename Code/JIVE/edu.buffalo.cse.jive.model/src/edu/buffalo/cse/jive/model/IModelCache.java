@@ -18,13 +18,13 @@ public interface IModelCache
 
   public void addMethodExclusionPattern(String pattern);
 
-  public List<String> exclusionList();
+  public List<String> getExclusionList();
   
   public void addInclusionFilter(String filter);
 
   public void addMethodInclusionPattern(String pattern);
 
-  public List<String> inclusionList();
+  public List<String> getInclusionList();
 
   public boolean match(String input, String pattern);
   
