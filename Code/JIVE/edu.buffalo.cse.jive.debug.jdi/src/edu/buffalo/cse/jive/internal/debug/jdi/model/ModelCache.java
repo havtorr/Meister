@@ -45,9 +45,9 @@ public class ModelCache implements IModelCache
 	 * expression filter, such as "get*".
 	 */
 	private final List<String> inclusionPatterns;
-	
+
 	private final List<String> filter;
-	
+
 	/**
 	 * List of all java 8 API packages, and other APIs, as they are not all available through {@link Package}
 	 * 
@@ -115,7 +115,7 @@ public class ModelCache implements IModelCache
 		"com.sun.swing.internal.plaf.metal*", "com.sun.swing.internal.plaf.metal.resources*",
 		"com.sun.swing.internal.plaf.synth*", "com.sun.swing.internal.plaf.synth.resources*"
 		};
-	
+
 
 
 	public ModelCache()
@@ -228,7 +228,7 @@ public class ModelCache implements IModelCache
 		}
 		else if (wildcardIndex == pattern.length() - 1)
 		{
-//			System.out.println(input+" "+wildcardIndex+" "+pattern);
+			//			System.out.println(input+" "+wildcardIndex+" "+pattern);
 			return input.startsWith(pattern.substring(0, wildcardIndex - 1));
 		}
 		else
@@ -261,44 +261,44 @@ public class ModelCache implements IModelCache
 	public List<String> getInclusionList() {
 		return inclusionList;
 	}
-	
-	
+
+
 
 	@Override
 	public void buildFilter() {
-		 
-//		  get list of all packages, and combine with api-list
-//		  sort exclusion- and inclusion-list by depth		-done
-//		  while ex/in-lists not empty, n = 0:
-//		  		compare exlist depth n with package-list
-//		  		add matches to filter
-//		  		compare inlist depth n with filter
-//		  		remove matches from filter
-//		  		n++
-		 
-		 
-		
-		
-				
+
+		//		  get list of all packages, and combine with api-list
+		//		  sort exclusion- and inclusion-list by depth		-done
+		//		  while ex/in-lists not empty, n = 0:
+		//		  		compare exlist depth n with package-list
+		//		  		add matches to filter
+		//		  		compare inlist depth n with filter
+		//		  		remove matches from filter
+		//		  		n++
+
+
+
+
+
 		Package[] packs = Package.getPackages();
 		String[] packageStrings = new String[packs.length];
-				
+
 		ArrayList<ArrayList<String>> exDepthList = new ArrayList<ArrayList<String>>();
 		ArrayList<ArrayList<String>> inDepthList = new ArrayList<ArrayList<String>>();
-		
-		
+
+
 		for (int i = 0; i < packageStrings.length; i++) {
 			packageStrings[i] = packs[i].getName() + "*";
 		}
-		
+
 		packageStrings = Tools.combineStringArrays(packageStrings, javaAPIPackages);
-		
+
 		exDepthList = makeHierarchical(exclusionList);
 		inDepthList = makeHierarchical(inclusionList);	
-		
-		
+
+
 		boolean[] added	= new boolean[packageStrings.length];
-		
+
 		//compare lists with package-list and add/remove from filter as appropriate 
 		for (int i = 0; i < Math.max(inDepthList.size(), exDepthList.size()); i++) {
 			if(exDepthList.size() > i){
@@ -334,7 +334,7 @@ public class ModelCache implements IModelCache
 			}
 		}
 	}
-	
+
 	/**
 	 * takes a {@link List} of strings, and organizes them in a multidimensional {@link ArrayList}
 	 * according to the number of '.'s in each string.
@@ -342,32 +342,32 @@ public class ModelCache implements IModelCache
 	 * @return
 	 */
 	private ArrayList<ArrayList<String>> makeHierarchical(List<String> list){
-		
+
 		ArrayList<ArrayList<String>> hierarchy = new ArrayList<ArrayList<String>>();
 		//prepass to check how deep the hierarchy must be.
-				int depth = 0;
-				for (String string : list) {
-					int d = Tools.countOccurrences(string, '.');
-					if( d > depth){
-						depth = d;
-					}
-				}
-				for (int i = 0; i < depth; i++) {
-					hierarchy.add(i, new ArrayList<String>());
-					hierarchy.get(i).add(Integer.toString(i));
-				}
-				//sort lists by depth
-				for (String in : list) {
-					int index	= Tools.countOccurrences(in, '.') -1;
-					if (index == -1) {
-						index = 0;
-					}
-					
-					hierarchy.get(index).add(in);
-				}
+		int depth = 0;
+		for (String string : list) {
+			int d = Tools.countOccurrences(string, '.');
+			if( d > depth){
+				depth = d;
+			}
+		}
+		for (int i = 0; i < depth; i++) {
+			hierarchy.add(i, new ArrayList<String>());
+			hierarchy.get(i).add(Integer.toString(i));
+		}
+		//sort lists by depth
+		for (String in : list) {
+			int index	= Tools.countOccurrences(in, '.') -1;
+			if (index == -1) {
+				index = 0;
+			}
+
+			hierarchy.get(index).add(in);
+		}
 		return hierarchy;
 	}
-	
+
 
 	@Override
 	public List<String> getFilter() {
