@@ -291,41 +291,11 @@ public class ModelCache implements IModelCache
 			packageStrings[i] = packs[i].getName() + "*";
 		}
 		
-		
 		packageStrings = Tools.combineStringArrays(packageStrings, javaAPIPackages);
 		
-		//sort lists by depth
-		for (String ex : exclusionList) {
-			int index	= Tools.countOccurrences(ex, '.') -1;
-			if (index == -1) {
-				index = 0;
-			}
-					
-			if(exDepthList.size() <= index){
-				exDepthList.add(index, new ArrayList<String>());
-				exDepthList.get(index).add(Integer.toString(index));
-			}else if (Integer.parseInt(exDepthList.get(index).get(0)) != index) {
-				exDepthList.add(index, new ArrayList<String>());
-				exDepthList.get(index).add(Integer.toString(index));
-			}
-			exDepthList.get(index).add(ex);
-		}
+		exDepthList = makeHierarchical(exclusionList);
+		inDepthList = makeHierarchical(inclusionList);	
 		
-		for (String in : inclusionList) {
-			int index	= Tools.countOccurrences(in, '.') -1;
-			if (index == -1) {
-				index = 0;
-			}
-					
-			if(inDepthList.size() <= index){
-				inDepthList.add(index, new ArrayList<String>());
-				inDepthList.get(index).add(Integer.toString(index));
-			}else if (Integer.parseInt(inDepthList.get(index).get(0)) != index) {
-				inDepthList.add(index, new ArrayList<String>());
-				inDepthList.get(index).add(Integer.toString(index));
-			}
-			inDepthList.get(index).add(in);
-		}
 		
 		boolean[] added	= new boolean[packageStrings.length];
 		
@@ -351,17 +321,52 @@ public class ModelCache implements IModelCache
 			if(inDepthList.size() > i){
 				if(inDepthList.get(i) != null){
 					for (int j = 1; j < inDepthList.get(i).size(); j++) {
+						List<String> toRemove = new ArrayList<String>();
 						for (String filtered : filter) {
-							if (match(filtered, inDepthList.get(i).get(j))){
-								filter.remove(filtered);
+							if (match(inDepthList.get(i).get(j), filtered)){
+								toRemove.add(filtered);
 							}
 						}
+						filter.removeAll(toRemove);
+						System.out.println("removed" + toRemove);
 					}
 				}
 			}
 		}
 	}
 	
+	/**
+	 * takes a {@link List} of strings, and organizes them in a multidimensional {@link ArrayList}
+	 * according to the number of '.'s in each string.
+	 * @param list
+	 * @return
+	 */
+	private ArrayList<ArrayList<String>> makeHierarchical(List<String> list){
+		
+		ArrayList<ArrayList<String>> hierarchy = new ArrayList<ArrayList<String>>();
+		//prepass to check how deep the hierarchy must be.
+				int depth = 0;
+				for (String string : list) {
+					int d = Tools.countOccurrences(string, '.');
+					if( d > depth){
+						depth = d;
+					}
+				}
+				for (int i = 0; i < depth; i++) {
+					hierarchy.add(i, new ArrayList<String>());
+					hierarchy.get(i).add(Integer.toString(i));
+				}
+				//sort lists by depth
+				for (String in : list) {
+					int index	= Tools.countOccurrences(in, '.') -1;
+					if (index == -1) {
+						index = 0;
+					}
+					
+					hierarchy.get(index).add(in);
+				}
+		return hierarchy;
+	}
 	
 
 	@Override
