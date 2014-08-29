@@ -1,4 +1,4 @@
-package simpleEx;
+package simpleSwingDemo;
 
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
@@ -16,6 +16,10 @@ import javax.swing.JTextField;
  */
 public class SingleButtonPanel extends JPanel{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	JTextField	textField;
 	JButton		button;
 	
