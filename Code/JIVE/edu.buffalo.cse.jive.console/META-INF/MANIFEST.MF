@@ -4,7 +4,7 @@ Bundle-Name: JIVE OSGI Console Extension
 Bundle-SymbolicName: edu.buffalo.cse.jive.console;singleton:=true
 Bundle-Version: 1.9.29.v20121216b
 Bundle-Activator: edu.buffalo.cse.jive.console.JiveConsole
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: edu.buffalo.cse.jive.console;uses:="org.eclipse.ui,org
  .eclipse.osgi.framework.console,org.osgi.framework",edu.buffalo.cse.j
  ive.internal.console;x-internal:=true

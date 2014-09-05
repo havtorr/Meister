@@ -6,7 +6,7 @@ Bundle-SymbolicName: edu.buffalo.cse.jive.launch.offline;singleton:=tr
 Bundle-Localization: plugin
 Bundle-Version: 1.9.29.v20121216b
 Bundle-Vendor: University at Buffalo
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Require-Bundle: org.eclipse.debug.ui,edu.buffalo.cse.jive.preferences;
  bundle-version="1.9.23"
 Import-Package: edu.buffalo.cse.jive.core.ast,edu.buffalo.cse.jive.deb

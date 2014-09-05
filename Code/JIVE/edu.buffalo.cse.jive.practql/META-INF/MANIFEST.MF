@@ -4,7 +4,7 @@ Bundle-Name: JIVE Practical Temporal Query Language (PRACTQL)
 Bundle-SymbolicName: edu.buffalo.cse.jive.practql
 Bundle-Version: 1.9.29.v20121216b
 Bundle-Vendor: University at Buffalo
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: edu.buffalo.cse.jive.internal.practql;x-internal:=true
  ,edu.buffalo.cse.jive.internal.practql.compiler;x-internal:=true,edu.
  buffalo.cse.jive.internal.practql.expression;x-internal:=true,edu.buf

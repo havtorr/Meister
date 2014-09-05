@@ -22,7 +22,7 @@ Export-Package: edu.buffalo.cse.jive.debug; uses:="org.eclipse.debug.c
  .buffalo.cse.jive.model",edu.buffalo.cse.jive.internal.debug.jdi;x-in
  ternal:=true,edu.buffalo.cse.jive.internal.debug.jdi.model;x-internal
  :=true
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Import-Package: edu.buffalo.cse.jive.debug.jdi.model,
  edu.buffalo.cse.jive.debug.model,
  edu.buffalo.cse.jive.model.store,
