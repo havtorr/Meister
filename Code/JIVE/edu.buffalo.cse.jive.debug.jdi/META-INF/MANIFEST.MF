@@ -23,7 +23,9 @@ Export-Package: edu.buffalo.cse.jive.debug; uses:="org.eclipse.debug.c
  ternal:=true,edu.buffalo.cse.jive.internal.debug.jdi.model;x-internal
  :=true
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
-Import-Package: edu.buffalo.cse.jive.debug.jdi.model,edu.buffalo.cse.j
- ive.debug.model,edu.buffalo.cse.jive.model.store,org.eclipse.jdt.inte
- rnal.debug.core.model
+Import-Package: edu.buffalo.cse.jive.debug.jdi.model,
+ edu.buffalo.cse.jive.debug.model,
+ edu.buffalo.cse.jive.model.store,
+ org.eclipse.jdt.core,
+ org.eclipse.jdt.internal.debug.core.model
 

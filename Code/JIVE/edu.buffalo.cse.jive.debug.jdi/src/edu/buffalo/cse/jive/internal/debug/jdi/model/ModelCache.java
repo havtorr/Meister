@@ -4,6 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
+import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.IWorkspace;
+import org.eclipse.core.resources.ResourcesPlugin;
+import org.eclipse.core.runtime.CoreException;
+import org.eclipse.jdt.core.IJavaProject;
+import org.eclipse.jdt.core.IPackageFragment;
+import org.eclipse.jdt.core.JavaCore;
+
 import edu.buffalo.cse.jive.model.IModelCache;
 import edu.buffalo.cse.jive.model.lib.Tools;
 
@@ -268,7 +276,7 @@ public class ModelCache implements IModelCache
 	public void buildFilter() {
 
 		//		  get list of all packages, and combine with api-list
-		//		  sort exclusion- and inclusion-list by depth		-done
+		//		  sort exclusion- and inclusion-list by depth
 		//		  while ex/in-lists not empty, n = 0:
 		//		  		compare exlist depth n with package-list
 		//		  		add matches to filter
@@ -276,9 +284,26 @@ public class ModelCache implements IModelCache
 		//		  		remove matches from filter
 		//		  		n++
 
-
-
-
+		//get object which represents the workspace
+		IWorkspace	workspace	= ResourcesPlugin.getWorkspace();
+		IProject[]	projects	= workspace.getRoot().getProjects();
+		
+		for (IProject project : projects) {
+			try {
+				if (project.isNatureEnabled("org.eclipse.jdt.core.javanature")) {
+					IJavaProject javaProject = JavaCore.create(project);
+					IPackageFragment[] packages = javaProject.getPackageFragments();
+					System.out.println("s");
+				}
+			} catch (CoreException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
+		
+		
+		
 
 		Package[] packs = Package.getPackages();
 		String[] packageStrings = new String[packs.length];
