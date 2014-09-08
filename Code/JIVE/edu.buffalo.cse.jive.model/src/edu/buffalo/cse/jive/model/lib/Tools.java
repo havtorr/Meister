@@ -133,7 +133,9 @@ public static String[] combineStringArrays(String[] s1,	String[] s2) {
 	for (int i = 0; i < s2.length; i++) {
 		boolean found = false;
 		for (int j = 0; j < emptyIndex; j++) {
-			if(s2[i].equals(temp[j])){
+			if (s2[i] == null) {
+				found = true;
+			} else if(s2[i].equals(temp[j])){
 				found = true;
 			}
 		}

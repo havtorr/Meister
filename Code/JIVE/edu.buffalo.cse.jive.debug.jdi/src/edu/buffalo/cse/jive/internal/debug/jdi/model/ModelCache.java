@@ -288,12 +288,30 @@ public class ModelCache implements IModelCache
 		IWorkspace	workspace	= ResourcesPlugin.getWorkspace();
 		IProject[]	projects	= workspace.getRoot().getProjects();
 		
+		ArrayList<String[]>	packageLists	= new ArrayList<String[]>();
+		
+		
+		
+		//get all packages
 		for (IProject project : projects) {
 			try {
 				if (project.isNatureEnabled("org.eclipse.jdt.core.javanature")) {
 					IJavaProject javaProject = JavaCore.create(project);
+					
+				
+					
 					IPackageFragment[] packages = javaProject.getPackageFragments();
-					System.out.println("s");
+					String[] packageStrings	= new String[packages.length];
+					
+					int i = 0;
+					for (IPackageFragment pack : packages) {
+						if ((pack.getKind() == 2) && (!pack.getElementName().isEmpty())) {
+							packageStrings[i] = pack.getElementName() + "*";
+							i++;
+						}
+					}
+					packageLists.add(packageStrings);
+					
 				}
 			} catch (CoreException e) {
 				// TODO Auto-generated catch block
@@ -301,22 +319,25 @@ public class ModelCache implements IModelCache
 			}
 		}
 		
+		//combine and remove duplicates
+		String[] packageStrings = new String[0];
 		
+		for (String[] strings : packageLists) {
+				packageStrings = Tools.combineStringArrays(packageStrings, strings);
+		}
 		
+//		//old method, keep for performance measuring
+//		Package[] packs = Package.getPackages();
+//		String[] packageStrings = new String[packs.length];
+//
+//		for (int i = 0; i < packageStrings.length; i++) {
+//			packageStrings[i] = packs[i].getName() + "*";
+//		}
+//		packageStrings = Tools.combineStringArrays(packageStrings, javaAPIPackages);
+//		//-----
 		
-
-		Package[] packs = Package.getPackages();
-		String[] packageStrings = new String[packs.length];
-
 		ArrayList<ArrayList<String>> exDepthList = new ArrayList<ArrayList<String>>();
 		ArrayList<ArrayList<String>> inDepthList = new ArrayList<ArrayList<String>>();
-
-
-		for (int i = 0; i < packageStrings.length; i++) {
-			packageStrings[i] = packs[i].getName() + "*";
-		}
-
-		packageStrings = Tools.combineStringArrays(packageStrings, javaAPIPackages);
 
 		exDepthList = makeHierarchical(exclusionList);
 		inDepthList = makeHierarchical(inclusionList);	
