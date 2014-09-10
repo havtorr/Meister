@@ -217,21 +217,19 @@ public class ModelCache implements IModelCache
 					IJavaProject javaProject = JavaCore.create(project);
 
 					IPackageFragment[] packages = javaProject.getPackageFragments();
-					String[] packageStrings	= new String[packages.length];
 
 					for (IPackageFragment pack : packages) {
 						if ((pack.getKind() == 2) && (!pack.getElementName().isEmpty())) {
 							packageSet.add(pack.getElementName() + "*");
 						}
 					}
-
 				}
 			} catch (CoreException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
-		
+
 
 		//combine and remove duplicates
 		String[] packageStrings = new String[packageSet.size()];
