@@ -1,6 +1,7 @@
 package edu.buffalo.cse.jive.internal.debug.jdi.model;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -207,7 +208,7 @@ public class ModelCache implements IModelCache
 		IWorkspace	workspace	= ResourcesPlugin.getWorkspace();
 		IProject[]	projects	= workspace.getRoot().getProjects();
 
-		ArrayList<String[]>	packageLists	= new ArrayList<String[]>();
+		Set<String>	packageSet	= new HashSet<String>();
 
 		//get all packages
 		for (IProject project : projects) {
@@ -218,14 +219,11 @@ public class ModelCache implements IModelCache
 					IPackageFragment[] packages = javaProject.getPackageFragments();
 					String[] packageStrings	= new String[packages.length];
 
-					int i = 0;
 					for (IPackageFragment pack : packages) {
 						if ((pack.getKind() == 2) && (!pack.getElementName().isEmpty())) {
-							packageStrings[i] = pack.getElementName() + "*";
-							i++;
+							packageSet.add(pack.getElementName() + "*");
 						}
 					}
-					packageLists.add(packageStrings);
 
 				}
 			} catch (CoreException e) {
@@ -233,13 +231,12 @@ public class ModelCache implements IModelCache
 				e.printStackTrace();
 			}
 		}
+		
 
 		//combine and remove duplicates
-		String[] packageStrings = new String[0];
+		String[] packageStrings = new String[packageSet.size()];
+		packageStrings = (String[]) packageSet.toArray(packageStrings);
 
-		for (String[] strings : packageLists) {
-			packageStrings = Tools.combineStringArrays(packageStrings, strings);
-		}
 
 		ArrayList<ArrayList<String>> exDepthList = new ArrayList<ArrayList<String>>();
 		ArrayList<ArrayList<String>> inDepthList = new ArrayList<ArrayList<String>>();
