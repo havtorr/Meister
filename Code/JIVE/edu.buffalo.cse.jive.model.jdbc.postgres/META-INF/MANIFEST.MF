@@ -27,4 +27,4 @@ Export-Package: org.postgresql,
  org.postgresql.util,
  org.postgresql.xa,
  org.postgresql.xa.jdbc3
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8

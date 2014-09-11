@@ -18,7 +18,21 @@ public interface IModelCache
 
   public void addMethodExclusionPattern(String pattern);
 
-  public List<String> exclusionList();
+  public List<String> getExclusionList();
+  
+  public void addInclusionFilter(String filter);
+
+  public void addMethodInclusionPattern(String pattern);
+
+  public List<String> getInclusionList();
 
   public boolean match(String input, String pattern);
+  
+  /**
+   * Builds the exclusion filter from the contents of the exclusion- and inclusion-lists.
+   * Must be called after modifying filters.
+   */
+  public void buildFilter();
+  
+  public List<String> getFilter();
 }

@@ -6,7 +6,7 @@ Bundle-SymbolicName: edu.buffalo.cse.jive.ui.view.model.sequence;singl
 Bundle-Version: 1.9.29.v20121216b
 Bundle-Vendor: University at Buffalo
 Fragment-Host: edu.buffalo.cse.jive.ui
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: edu.buffalo.cse.jive.internal.ui.view.model.sequence.a
  ctions;x-internal:=true,edu.buffalo.cse.jive.ui.view.model.sequence; 
  uses:="org.eclipse.jface.action,  edu.buffalo.cse.jive.ui,  org.eclip

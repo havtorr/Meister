@@ -95,4 +95,60 @@ public class Tools
     list.addAll(source);
     return Collections.unmodifiableList(list);
   }
+  
+  /**
+   * Counts the number of times a character appears in a string. 
+   * @param s	-the string to search
+   * @param c	-the character to look for
+   * @return	number of times c occurs in s
+   */
+  public static int countOccurrences(String s, char c)
+  {
+      int count = 0;
+      for (int i=0; i < s.length(); i++)
+      {
+          if (s.charAt(i) == c)
+          {
+               count++;
+          }
+      }
+      return count;
+  }
+
+  /**
+   * Combines two {@link String} arrays, allowing only one entry in case of duplicates. 
+   * @param s1
+   * @param s2
+   * @return
+   */
+public static String[] combineStringArrays(String[] s1,	String[] s2) {
+	String[] temp	= new String[s1.length+s2.length];
+	int emptyIndex	= 0;
+	
+	for (int i = 0; i < s1.length; i++) {
+		temp[i] = s1[i];
+		emptyIndex++;
+	}
+	
+	for (int i = 0; i < s2.length; i++) {
+		boolean found = false;
+		for (int j = 0; j < emptyIndex; j++) {
+			if (s2[i] == null) {
+				found = true;
+			} else if(s2[i].equals(temp[j])){
+				found = true;
+			}
+		}
+		if(!found){
+			temp[emptyIndex] = s2[i];
+			emptyIndex++;
+		}
+	}
+	String[] result = new String[emptyIndex];
+	
+	for (int i = 0; i < result.length; i++) {
+		result[i] = temp[i];
+	}
+	return result;
+}
 }

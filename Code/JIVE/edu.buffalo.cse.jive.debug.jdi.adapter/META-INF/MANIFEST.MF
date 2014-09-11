@@ -7,5 +7,5 @@ Bundle-Vendor: University at Buffalo
 Fragment-Host: org.eclipse.jdt.debug;bundle-version="3.5.0"
 Export-Package: org.eclipse.jdt.internal.debug.core.model;x-internal:=
  true
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 

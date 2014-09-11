@@ -32,7 +32,7 @@ Export-Package: edu.buffalo.cse.jive.internal.ui;x-internal:=true,edu.
  t.graphics,  org.eclipse.jface.viewers,  org.eclipse.ui.part,  org.ec
  lipse.swt.widgets,  org.eclipse.gef,  edu.buffalo.cse.jive.debug.mode
  l"
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Import-Package: edu.buffalo.cse.jive.debug.model,edu.buffalo.cse.jive.
  launch
 

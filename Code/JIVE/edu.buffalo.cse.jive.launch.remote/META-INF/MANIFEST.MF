@@ -9,7 +9,7 @@ Fragment-Host: org.eclipse.jdt.launching
 Bundle-Localization: fragment
 Require-Bundle: edu.buffalo.cse.jive.launch,org.eclipse.debug.ui;bundl
  e-version="3.5.0",org.eclipse.ui;bundle-version="3.7.0"
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: edu.buffalo.cse.jive.internal.launch.remote;x-internal
  :=true,edu.buffalo.cse.jive.launch.ui.remote;uses:="edu.buffalo.cse.j
  ive.launch.ui"

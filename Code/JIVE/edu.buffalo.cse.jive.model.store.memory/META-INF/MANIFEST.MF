@@ -4,7 +4,7 @@ Bundle-Name: JIVE In-Memory Store Extension
 Bundle-SymbolicName: edu.buffalo.cse.jive.model.store.memory
 Bundle-Version: 1.9.29.v20121216b
 Bundle-Vendor: University at Buffalo
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Import-Package: edu.buffalo.cse.jive.model,edu.buffalo.cse.jive.model.
  factory,edu.buffalo.cse.jive.model.store.db
 Export-Package: edu.buffalo.cse.jive.internal.model.store.memory;x-int

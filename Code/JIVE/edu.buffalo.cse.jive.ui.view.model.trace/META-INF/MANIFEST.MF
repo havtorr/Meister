@@ -6,7 +6,7 @@ Bundle-SymbolicName: edu.buffalo.cse.jive.ui.view.model.trace;singleto
 Bundle-Version: 1.9.29.v20121216b
 Bundle-Vendor: University at Buffalo
 Fragment-Host: edu.buffalo.cse.jive.ui
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: edu.buffalo.cse.jive.ui.view.model.trace; uses:="org.e
  clipse.jface.action,  org.eclipse.jface.resource,  org.eclipse.jface.
  viewers,  edu.buffalo.cse.jive.ui.view,  org.eclipse.swt.widgets,  ed
