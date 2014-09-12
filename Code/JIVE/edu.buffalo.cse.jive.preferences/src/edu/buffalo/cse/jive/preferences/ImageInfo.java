@@ -59,6 +59,8 @@ public enum ImageInfo
   IM_OM_CONTOUR_METHOD(ImagePaths.PATH_ICONS_CONTOUR_MODEL_CONTOURS, "method.gif"),
   IM_OM_CONTOUR_STATIC(ImagePaths.PATH_ICONS_CONTOUR_MODEL_CONTOURS, "class.gif"), // static.gif
   IM_OM_CONTOUR_THREAD(ImagePaths.PATH_ICONS_CONTOUR_MODEL_CONTOURS, "thread.gif"),
+  IM_OM_CONTOUR_ABSTRACT(ImagePaths.PATH_ICONS_CONTOUR_MODEL_CONTOURS, "abstract.gif"),
+  IM_OM_CONTOUR_LAMBDA(ImagePaths.PATH_ICONS_CONTOUR_MODEL_CONTOURS, "lambda.gif"),
   // sequence model images
   IM_SEARCH_INVARIANT_VIOLATED(ImagePaths.PATH_ICONS_SEARCH, "invariant_violated.gif"),
   // sequence model images

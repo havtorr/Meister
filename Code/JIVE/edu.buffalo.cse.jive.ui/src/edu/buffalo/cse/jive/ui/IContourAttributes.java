@@ -22,7 +22,18 @@ public interface IContourAttributes
   // light gray (out-of-scope local variables)
   public final Color BACKGROUND_COLOR_OUT_OF_SCOPE = new Color(null, 224, 224, 224);
 
+  public final int CLASS_ICON = 1;
+  public final int INTERFACE_ICON = 2;
+  public final int ABSTRACT_ICON = 3;
+  public final int LAMBDA_ICON = 4;
+  
   public Image getIcon();
+  
+  /**
+   * valid types:
+   * CLASS_ICON, INTERFACE_ICON, ABSTRACT_ICON, LAMBDA_ICON
+   */
+  public Image getIcon(int type);
 
   public Color getLabelBackgroundColor();
 

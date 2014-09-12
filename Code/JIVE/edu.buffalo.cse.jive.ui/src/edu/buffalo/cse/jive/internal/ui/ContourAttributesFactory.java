@@ -5,6 +5,8 @@ import static edu.buffalo.cse.jive.preferences.ImageInfo.IM_OM_CONTOUR_INTERFACE
 import static edu.buffalo.cse.jive.preferences.ImageInfo.IM_OM_CONTOUR_METHOD;
 import static edu.buffalo.cse.jive.preferences.ImageInfo.IM_OM_CONTOUR_STATIC;
 import static edu.buffalo.cse.jive.preferences.ImageInfo.IM_OM_CONTOUR_THREAD;
+import static edu.buffalo.cse.jive.preferences.ImageInfo.IM_OM_CONTOUR_ABSTRACT;
+import static edu.buffalo.cse.jive.preferences.ImageInfo.IM_OM_CONTOUR_LAMBDA;
 
 import java.util.Iterator;
 
@@ -98,8 +100,10 @@ public class ContourAttributesFactory
 
   private static class InstanceContourAttributes extends ContourAttributes
   {
-    private static final Image CLASS_IMAGE = IM_OM_CONTOUR_INSTANCE.enabledImage();
-    private static final Image INTERFACE_IMAGE = IM_OM_CONTOUR_INTERFACE.enabledImage();
+    private static final Image CLASS_IMAGE		= IM_OM_CONTOUR_INSTANCE.enabledImage();
+    private static final Image INTERFACE_IMAGE	= IM_OM_CONTOUR_INTERFACE.enabledImage();
+    private static final Image ABSTRACT_IMAGE	= IM_OM_CONTOUR_ABSTRACT.enabledImage();
+    private static final Image LAMBDA_IMAGE		= IM_OM_CONTOUR_LAMBDA.enabledImage();
     private final String text;
     private final String toolTipText;
     private final String superText;
@@ -128,10 +132,23 @@ public class ContourAttributesFactory
     @Override
     public Image getIcon()
     {
-    	if(superInterfaceText != null){
-    		return InstanceContourAttributes.INTERFACE_IMAGE;
-    	}
-      return InstanceContourAttributes.CLASS_IMAGE;
+    	return InstanceContourAttributes.CLASS_IMAGE;
+    }
+    
+    @Override
+    public Image getIcon(int type) {
+    	switch (type) {
+    	case CLASS_ICON:
+    		return CLASS_IMAGE;
+    	case INTERFACE_ICON:
+			return INTERFACE_IMAGE;
+    	case ABSTRACT_ICON:
+    		return ABSTRACT_IMAGE;
+    	case LAMBDA_ICON:
+    		return LAMBDA_IMAGE;
+		default:
+			return CLASS_IMAGE;
+		}
     }
 
     @Override
@@ -167,6 +184,7 @@ public class ContourAttributesFactory
 	public String getSuperInterfaceText() {
 		return superInterfaceText;
 	}
+
   }
 
   private static class MemberAttributes implements IMemberAttributes
@@ -485,6 +503,12 @@ public class ContourAttributesFactory
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	@Override
+	public Image getIcon(int type) {
+		// TODO Auto-generated method stub
+		return null;
+	}
   }
 
   private static class StaticContourAttributes extends ContourAttributes
@@ -546,6 +570,12 @@ public class ContourAttributesFactory
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	@Override
+	public Image getIcon(int type) {
+		// TODO Auto-generated method stub
+		return null;
+	}
   }
 
   private static final class ThreadAttributes extends ContourAttributes
@@ -598,6 +628,12 @@ public class ContourAttributesFactory
 
 	@Override
 	public String getSuperInterfaceText() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Image getIcon(int type) {
 		// TODO Auto-generated method stub
 		return null;
 	}

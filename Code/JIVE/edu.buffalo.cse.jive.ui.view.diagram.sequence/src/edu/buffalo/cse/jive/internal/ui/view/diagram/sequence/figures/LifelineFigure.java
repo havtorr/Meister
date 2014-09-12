@@ -15,6 +15,7 @@ import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.swt.SWT;
 
+import edu.buffalo.cse.jive.internal.ui.ContourAttributesFactory;
 import edu.buffalo.cse.jive.ui.IContourAttributes;
 
 public class LifelineFigure extends Figure
@@ -42,15 +43,17 @@ public class LifelineFigure extends Figure
   	   *  check if we are representing an anonymous inner type,
   	   * and look for superclass/interfaces if so. 
   	   */
-  	  if (attributes.getText().contains("$")){
-  		  if(attributes.getSuperInterfaceText() == null){
-  			  head = new Label(attributes.getSuperText(), attributes.getIcon());
-  		  }else{
-  			  head = new Label(attributes.getSuperInterfaceText(), attributes.getIcon());
-  		  }
-  	  }else{
-  		  head = new Label(attributes.getText(), attributes.getIcon());
-  	  }
+    	 if (attributes.getToolTipText().matches(".*Lambda.*")){
+   		  head = new Label(attributes.getText(), attributes.getIcon(IContourAttributes.LAMBDA_ICON));
+   	  }else if (attributes.getText().matches(".*$[0-9].*")){
+   		  if(attributes.getSuperInterfaceText() == null){
+   			  head = new Label(attributes.getSuperText(), attributes.getIcon(IContourAttributes.ABSTRACT_ICON));
+   		  }else{
+   			  head = new Label(attributes.getSuperInterfaceText(), attributes.getIcon(IContourAttributes.INTERFACE_ICON));
+   		  }
+   	  }else{
+   		  head = new Label(attributes.getText(), attributes.getIcon());
+   	  }
     	    	
       final Label tooltip = new Label(attributes.getToolTipText(), attributes.getToolTipIcon());
       
