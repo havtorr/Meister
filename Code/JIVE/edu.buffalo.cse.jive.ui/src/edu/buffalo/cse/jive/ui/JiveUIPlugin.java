@@ -33,6 +33,8 @@ public class JiveUIPlugin extends AbstractUIPlugin
       + ".searchPages";
   public static final String ID_SEQUENCE_DIAGRAM_VIEW = JiveUIPlugin.PLUGIN_ID
       + ".sequenceDiagramView";
+  public static final String ID_ISOLATEDSEQUENCE_DIAGRAM_VIEW = JiveUIPlugin.PLUGIN_ID
+		  + ".isolatedSequenceDiagramView";
   public static final String ID_SEQUENCE_MODEL_VIEW = JiveUIPlugin.PLUGIN_ID + ".sequenceModelView";
   public static final String ID_TRACE_VIEW = JiveUIPlugin.PLUGIN_ID + ".traceView";
   /**

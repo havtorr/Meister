@@ -98,5 +98,6 @@ public class SequenceDiagramContextMenuProvider extends ContextMenuProvider
     manager.add(expandMenu);
     manager.add(actionFactory.createFocusAction(initiator));
     jumpMenuFactory.createJumpToMenu(initiator, manager, false);
+    manager.add(actionFactory.createIsolatedViewAction(initiator));
   }
 }

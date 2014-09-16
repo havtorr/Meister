@@ -12,6 +12,15 @@
             name="Sequence Diagram"
             restorable="true">
       </view>
+      <view
+            allowMultiple="false"
+            category="edu.buffalo.cse.jive.ui.jiveCategory"
+            class="edu.buffalo.cse.jive.ui.view.diagram.sequence.IsolatedSequenceDiagramView"
+            icon="icons/general/enabled/tree.gif"
+            id="edu.buffalo.cse.jive.ui.isolatedSequenceDiagramView"
+            name="IsolatedSequence Diagram"
+            restorable="true">
+      </view>
    </extension>
 
 </fragment>

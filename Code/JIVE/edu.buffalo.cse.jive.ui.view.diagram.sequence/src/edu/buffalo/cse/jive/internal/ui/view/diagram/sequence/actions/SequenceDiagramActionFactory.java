@@ -9,6 +9,8 @@ import org.eclipse.gef.RootEditPart;
 import org.eclipse.jface.action.Action;
 import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.preference.IPreferenceStore;
+import org.eclipse.ui.PartInitException;
+import org.eclipse.ui.PlatformUI;
 
 import edu.buffalo.cse.jive.internal.ui.view.diagram.sequence.editparts.SequenceDiagramEditPart;
 import edu.buffalo.cse.jive.model.IContourModel.IContextContour;
@@ -17,6 +19,7 @@ import edu.buffalo.cse.jive.model.IModel.IThreadValue;
 import edu.buffalo.cse.jive.preferences.PreferenceKeys;
 import edu.buffalo.cse.jive.preferences.PreferencesPlugin;
 import edu.buffalo.cse.jive.ui.IJiveGraphicalView;
+import edu.buffalo.cse.jive.ui.JiveUIPlugin;
 
 public final class SequenceDiagramActionFactory
 {
@@ -101,6 +104,18 @@ public final class SequenceDiagramActionFactory
   {
     return new ShowThreadActivationsAction();
   }
+  
+  
+  /**
+   * creates an action that will display an isolated view of the provided
+   * event and its children
+   * @param initiator
+   * @return
+   */
+public IAction createIsolatedViewAction(IInitiatorEvent initiator) {
+	return new IsolatedViewAction(initiator);
+}
+  
 
   private SequenceDiagramEditPart contents()
   {
@@ -378,4 +393,26 @@ public final class SequenceDiagramActionFactory
       store.setValue(PreferenceKeys.PREF_SD_SHOW_THREAD_ACTIVATIONS, isChecked());
     }
   }
+
+  private class IsolatedViewAction extends Action{
+
+
+	  public IsolatedViewAction(IInitiatorEvent initiator) {
+		  super("Isolated View");
+		  // TODO Auto-generated constructor stub
+	  }
+
+	  @Override
+	  public void run() {
+		  try {
+			  PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage()
+			  .showView(JiveUIPlugin.getDefault().ID_ISOLATEDSEQUENCE_DIAGRAM_VIEW);
+		  } catch (PartInitException e) {
+			  // TODO Auto-generated catch block
+			  e.printStackTrace();
+		  }
+	  }
+
+  }
+
 }
