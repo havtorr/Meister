@@ -209,7 +209,7 @@ public class ContourFigure extends Figure
 	   */
 	  if (attributes.getToolTipText().matches(".*Lambda.*")){
 		  label = new Label(attributes.getText(), attributes.getIcon(IContourAttributes.LAMBDA_ICON));
-	  }else if (attributes.getText().matches(".*$[0-9].*")){
+	  }else if (attributes.getText().matches(".*[$][0-9].*")){
 		  if(attributes.getSuperInterfaceText() == null){
 			  label = new Label(attributes.getSuperText(), attributes.getIcon(IContourAttributes.ABSTRACT_ICON));
 		  }else{
