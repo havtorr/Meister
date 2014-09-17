@@ -158,6 +158,14 @@ public class SequenceDiagramEditPart extends AbstractGraphicalEditPart implement
     }
     forceUpdate();
   }
+  
+  /**
+   * collapses everything except the provided event end its children
+   * @param execution
+   */
+  public void collapseAllBut(final IInitiatorEvent execution){
+	  List events = execution.events();
+  }
 
   @Override
   public void deactivate()

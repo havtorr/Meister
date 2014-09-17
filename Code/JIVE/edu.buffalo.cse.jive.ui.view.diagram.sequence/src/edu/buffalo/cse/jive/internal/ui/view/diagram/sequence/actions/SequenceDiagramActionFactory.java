@@ -396,17 +396,21 @@ public IAction createIsolatedViewAction(IInitiatorEvent initiator) {
 
   private class IsolatedViewAction extends Action{
 
-
+	  IInitiatorEvent initiator;
 	  public IsolatedViewAction(IInitiatorEvent initiator) {
 		  super("Isolated View");
-		  // TODO Auto-generated constructor stub
+		  this.initiator	= initiator;
 	  }
 
 	  @Override
 	  public void run() {
 		  try {
+			  JiveUIPlugin.getDefault();
 			  PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage()
-			  .showView(JiveUIPlugin.getDefault().ID_ISOLATEDSEQUENCE_DIAGRAM_VIEW);
+			  .showView(JiveUIPlugin.ID_ISOLATEDSEQUENCE_DIAGRAM_VIEW);
+
+			  contents().collapseAllBut(initiator);
+
 		  } catch (PartInitException e) {
 			  // TODO Auto-generated catch block
 			  e.printStackTrace();
