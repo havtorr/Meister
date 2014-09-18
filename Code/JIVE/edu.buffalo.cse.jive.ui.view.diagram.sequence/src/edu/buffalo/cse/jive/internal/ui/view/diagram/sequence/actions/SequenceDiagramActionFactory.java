@@ -20,6 +20,7 @@ import edu.buffalo.cse.jive.preferences.PreferenceKeys;
 import edu.buffalo.cse.jive.preferences.PreferencesPlugin;
 import edu.buffalo.cse.jive.ui.IJiveGraphicalView;
 import edu.buffalo.cse.jive.ui.JiveUIPlugin;
+import edu.buffalo.cse.jive.ui.view.diagram.sequence.IsolatedSequenceDiagramView;
 
 public final class SequenceDiagramActionFactory
 {
@@ -408,8 +409,14 @@ public IAction createIsolatedViewAction(IInitiatorEvent initiator) {
 			  JiveUIPlugin.getDefault();
 			  PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage()
 			  .showView(JiveUIPlugin.ID_ISOLATEDSEQUENCE_DIAGRAM_VIEW);
-
-			  contents().collapseAllBut(initiator);
+			  
+			  IsolatedSequenceDiagramView isView = (IsolatedSequenceDiagramView)PlatformUI.getWorkbench()
+					  .getActiveWorkbenchWindow().getActivePage()
+					  .findView(JiveUIPlugin.ID_ISOLATEDSEQUENCE_DIAGRAM_VIEW);
+			  
+			  SequenceDiagramEditPart ep = (SequenceDiagramEditPart) isView.getViewer()
+					  .getRootEditPart().getContents();
+			  ep.collapseAllBut(initiator);
 
 		  } catch (PartInitException e) {
 			  // TODO Auto-generated catch block

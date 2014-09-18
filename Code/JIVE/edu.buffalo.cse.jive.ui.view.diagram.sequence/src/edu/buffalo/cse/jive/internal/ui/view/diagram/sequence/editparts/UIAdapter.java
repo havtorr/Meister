@@ -278,6 +278,18 @@ class UIAdapter
     }
   }
 
+/**
+ * Takes a list of event-IDs and hides them from the diagram.  
+ * @param events
+ */
+  void collapseSet(List<Integer> eventIDs){
+	  for (Integer eventID : eventIDs) {
+//		  collapsedRoots.set(eventID);
+		  hiddenInitiators.set(eventID);
+	  }
+  }
+  
+  
   void expandAll(final List<IInitiatorEvent> executions)
   {
     model.readLock();

@@ -158,16 +158,45 @@ public class SequenceDiagramEditPart extends AbstractGraphicalEditPart implement
     }
     forceUpdate();
   }
-  
+
   /**
    * collapses everything except the provided event end its children
    * @param execution
    */
   public void collapseAllBut(final IInitiatorEvent execution){
-	  List events = execution.events();
+	  List<Integer>		eventIDs	= new ArrayList<Integer>();
+
+	  for (int i = 0; i < execution.eventId(); i++) {
+		  eventIDs.add(new Integer(i));
+	  }
+
+	  int lastEvendID = (int) execution.lastChildEvent().eventId();
+	  IJiveEvent finalEvent = finalEvent(execution);
+	  int finalEventID = (int) finalEvent.eventId();
+
+	  for (int i = lastEvendID+1; i < finalEventID; i++) {
+		  eventIDs.add(new Integer(i));
+	  }
+	  
+	  uiAdapter.collapseSet(eventIDs);
+	  forceUpdate();
   }
 
-  @Override
+  /**
+   * Helper method to get the very last event in the execution trace
+   * @param event
+   * @return
+   */
+  private IJiveEvent finalEvent(IInitiatorEvent event) {
+	  if (event.parent() == null ){
+		  return  event.lastChildEvent();
+	  }else {
+		  return finalEvent(event.parent());
+	  }
+
+  }
+
+@Override
   public void deactivate()
   {
     final IExecutionModel model = executionModel();
