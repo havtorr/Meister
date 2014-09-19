@@ -60,10 +60,10 @@ public class SequenceDiagramEditPart extends AbstractGraphicalEditPart implement
     IQueryListener, ISearchResultListener, IStepListener, IThreadColorListener
 {
   private volatile boolean modelChanged = false;
-  private final UIAdapter uiAdapter;
-  private final ModelAdapter modelAdapter;
+  protected final UIAdapter uiAdapter;
+  protected final ModelAdapter modelAdapter;
   private final Map<IInitiatorEvent, List<IJiveEvent>> searchResultMap = new LinkedHashMap<IInitiatorEvent, List<IJiveEvent>>();
-  private boolean showExpandedLifeLines;
+  protected boolean showExpandedLifeLines;
   private long updateInterval;
   private final Job updateJob = new Job("SD Update Job")
     {
@@ -159,42 +159,7 @@ public class SequenceDiagramEditPart extends AbstractGraphicalEditPart implement
     forceUpdate();
   }
 
-  /**
-   * collapses everything except the provided event end its children
-   * @param execution
-   */
-  public void collapseAllBut(final IInitiatorEvent execution){
-	  List<Integer>		eventIDs	= new ArrayList<Integer>();
-
-	  for (int i = 0; i < execution.eventId(); i++) {
-		  eventIDs.add(new Integer(i));
-	  }
-
-	  int lastEvendID = (int) execution.lastChildEvent().eventId();
-	  IJiveEvent finalEvent = finalEvent(execution);
-	  int finalEventID = (int) finalEvent.eventId();
-
-	  for (int i = lastEvendID+1; i < finalEventID; i++) {
-		  eventIDs.add(new Integer(i));
-	  }
-	  
-	  uiAdapter.collapseSet(eventIDs);
-	  forceUpdate();
-  }
-
-  /**
-   * Helper method to get the very last event in the execution trace
-   * @param event
-   * @return
-   */
-  private IJiveEvent finalEvent(IInitiatorEvent event) {
-	  if (event.parent() == null ){
-		  return  event.lastChildEvent();
-	  }else {
-		  return finalEvent(event.parent());
-	  }
-
-  }
+  
 
 @Override
   public void deactivate()
@@ -521,7 +486,7 @@ public class SequenceDiagramEditPart extends AbstractGraphicalEditPart implement
   /**
    * Called in response to a user interaction.
    */
-  private void forceUpdate()
+  protected void forceUpdate()
   {
     final IJiveEvent event = getModel().model().temporalState().event();
     if (event == null)
@@ -714,7 +679,7 @@ public class SequenceDiagramEditPart extends AbstractGraphicalEditPart implement
       });
   }
 
-  private void updateLifelinesState(final boolean expandedLifelines)
+  protected void updateLifelinesState(final boolean expandedLifelines)
   {
     modelAdapter.setExpandLifelines(expandedLifelines);
   }
@@ -744,12 +709,12 @@ public class SequenceDiagramEditPart extends AbstractGraphicalEditPart implement
     }
   }
 
-  private void updateThreadActivationsState(final boolean showThreadActivations)
+  protected void updateThreadActivationsState(final boolean showThreadActivations)
   {
     modelAdapter.setShowThreadActivations(showThreadActivations);
   }
 
-  private void updateUpdateInterval(final long interval)
+  protected void updateUpdateInterval(final long interval)
   {
     updateInterval = interval;
   }

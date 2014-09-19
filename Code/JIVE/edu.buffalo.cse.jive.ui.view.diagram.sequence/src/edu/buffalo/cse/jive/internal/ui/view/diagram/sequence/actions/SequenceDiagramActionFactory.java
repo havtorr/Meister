@@ -12,6 +12,7 @@ import org.eclipse.jface.preference.IPreferenceStore;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.PlatformUI;
 
+import edu.buffalo.cse.jive.internal.ui.view.diagram.sequence.editparts.IsolatedSequenceDiagramEditPart;
 import edu.buffalo.cse.jive.internal.ui.view.diagram.sequence.editparts.SequenceDiagramEditPart;
 import edu.buffalo.cse.jive.model.IContourModel.IContextContour;
 import edu.buffalo.cse.jive.model.IEventModel.IInitiatorEvent;
@@ -414,7 +415,7 @@ public IAction createIsolatedViewAction(IInitiatorEvent initiator) {
 					  .getActiveWorkbenchWindow().getActivePage()
 					  .findView(JiveUIPlugin.ID_ISOLATEDSEQUENCE_DIAGRAM_VIEW);
 			  
-			  SequenceDiagramEditPart ep = (SequenceDiagramEditPart) isView.getViewer()
+			  IsolatedSequenceDiagramEditPart ep = (IsolatedSequenceDiagramEditPart) isView.getViewer()
 					  .getRootEditPart().getContents();
 			  ep.collapseAllBut(initiator);
 

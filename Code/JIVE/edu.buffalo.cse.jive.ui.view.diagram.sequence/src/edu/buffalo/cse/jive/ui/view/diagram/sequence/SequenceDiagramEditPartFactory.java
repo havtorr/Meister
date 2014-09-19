@@ -22,7 +22,7 @@ import edu.buffalo.cse.jive.model.IModel.IThreadValue;
 
 class SequenceDiagramEditPartFactory implements EditPartFactory
 {
-  private static final EditPart EMPTY_EDIT_PART = new AbstractGraphicalEditPart()
+  protected static final EditPart EMPTY_EDIT_PART = new AbstractGraphicalEditPart()
     {
       @Override
       protected void createEditPolicies()
