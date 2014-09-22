@@ -61,7 +61,7 @@ public class SequenceDiagramEditPart extends AbstractGraphicalEditPart implement
 {
   private volatile boolean modelChanged = false;
   protected final UIAdapter uiAdapter;
-  protected final ModelAdapter modelAdapter;
+  protected ModelAdapter modelAdapter;
   private final Map<IInitiatorEvent, List<IJiveEvent>> searchResultMap = new LinkedHashMap<IInitiatorEvent, List<IJiveEvent>>();
   protected boolean showExpandedLifeLines;
   private long updateInterval;

@@ -284,7 +284,7 @@ class UIAdapter
  */
   void collapseSet(List<Integer> eventIDs){
 	  for (Integer eventID : eventIDs) {
-//		  collapsedRoots.set(eventID);
+		  collapsedRoots.set(eventID);
 		  hiddenInitiators.set(eventID);
 	  }
   }
@@ -472,5 +472,10 @@ class UIAdapter
       }
     }
     return result;
+  }
+
+  public void expandAll() {
+	  hiddenInitiators.clear();
+	  collapsedRoots.clear();
   }
 }

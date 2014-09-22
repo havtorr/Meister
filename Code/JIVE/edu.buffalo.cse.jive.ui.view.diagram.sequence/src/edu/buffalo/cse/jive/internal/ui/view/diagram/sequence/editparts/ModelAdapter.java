@@ -33,7 +33,7 @@ class ModelAdapter
   /**
    * Adapter used to determine when to prune traversals at collapsed executions.
    */
-  private final UIAdapter uiAdapter;
+  protected final UIAdapter uiAdapter;
   /**
    * A mapping from objects to messages for which it is a source.
    */
@@ -45,15 +45,15 @@ class ModelAdapter
   /**
    * Life line model objects, which can be either {@code ContourId}s or {@code ThreadStartEvent}s.
    */
-  private final Set<Object> lifelines;
+  protected final Set<Object> lifelines;
   /**
    * State of the sequence diagram's thread activations.
    */
-  private boolean showExpandedLifeLines;
+  protected boolean showExpandedLifeLines;
   /**
    * State of the sequence diagram's thread activations.
    */
-  private boolean showThreadActivations;
+  protected boolean showThreadActivations;
   private final Map<IInitiatorEvent, Message> initiatorCache;
   private final Map<IInitiatorEvent, Message> terminatorCache;
   private boolean isRealTime;
@@ -79,7 +79,7 @@ class ModelAdapter
   /**
    * Creates an initiator message for the broken in-model call to nestedExecution.
    */
-  private void addBrokenInitiatorMessage(final IInitiatorEvent nestedExecution,
+  protected void addBrokenInitiatorMessage(final IInitiatorEvent nestedExecution,
       final IInitiatorEvent execution)
   {
     final Message message = createInitiatorMessage(execution, nestedExecution,
@@ -93,7 +93,7 @@ class ModelAdapter
   /**
    * Creates a terminator message for the broken in-model return from nestedExecution.
    */
-  private void addBrokenTerminatorMessage(final IInitiatorEvent nestedExecution,
+  protected void addBrokenTerminatorMessage(final IInitiatorEvent nestedExecution,
       final IInitiatorEvent execution)
   {
     final Message message = createTerminatorMessage(execution, nestedExecution,
@@ -111,7 +111,7 @@ class ModelAdapter
   /**
    * Creates an initiator message for the found call to in-model nestedExecution.
    */
-  private void addFoundInitiatorMessage(final IInitiatorEvent nestedExecution)
+  protected void addFoundInitiatorMessage(final IInitiatorEvent nestedExecution)
   {
     final Message message = createInitiatorMessage(nestedExecution, MK_FOUND);
     // source is the nested executions's life line
@@ -124,7 +124,7 @@ class ModelAdapter
   /**
    * Creates an initiator message for the in-model call to nestedExecution.
    */
-  private void addInModelInitiatorMessage(final IInitiatorEvent nestedExecution)
+  protected void addInModelInitiatorMessage(final IInitiatorEvent nestedExecution)
   {
     final Message message = createInitiatorMessage(nestedExecution, MK_DEFAULT);
     // source is the nested execution's parent execution
@@ -136,7 +136,7 @@ class ModelAdapter
   /**
    * Creates a terminator message for the in-model return from nestedExecution.
    */
-  private void addInModelTerminatorMessage(final IInitiatorEvent nestedExecution)
+  protected void addInModelTerminatorMessage(final IInitiatorEvent nestedExecution)
   {
     final Message message = createTerminatorMessage(nestedExecution, MK_DEFAULT);
     // execution is a target for a return arrow from the nested execution
@@ -152,7 +152,7 @@ class ModelAdapter
   /**
    * Creates a terminator message for the lost return from the in-model nestedExecution.
    */
-  private void addLostTerminatorMessage(final IInitiatorEvent nestedExecution)
+  protected void addLostTerminatorMessage(final IInitiatorEvent nestedExecution)
   {
     final Message message = createTerminatorMessage(nestedExecution, MK_LOST);
     // execution is a target for a return arrow from the nested execution
@@ -281,7 +281,7 @@ class ModelAdapter
   /**
    * Visits the execution and generates the appropriate source/target connections.
    */
-  private void visitExecution(final IInitiatorEvent initiator)
+  protected void visitExecution(final IInitiatorEvent initiator)
   {
     // a life line must exist on which to place the execution.
     if (initiator instanceof IThreadStartEvent)
