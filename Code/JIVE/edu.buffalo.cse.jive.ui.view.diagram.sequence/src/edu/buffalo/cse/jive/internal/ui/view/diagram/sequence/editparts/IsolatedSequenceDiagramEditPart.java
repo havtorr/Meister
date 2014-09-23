@@ -22,7 +22,7 @@ public class IsolatedSequenceDiagramEditPart extends SequenceDiagramEditPart {
 
 
 	/**
-	 * collapses everything except the provided event end its children
+	 * Collapses everything except the provided event end its children
 	 * @param execution
 	 */
 	public void collapseAllBut(final IInitiatorEvent execution){

@@ -9,21 +9,18 @@ import org.eclipse.gef.EditPartFactory;
  */
 public class IsolatedSequenceDiagramView extends SequenceDiagramView{
 
-	public IsolatedSequenceDiagramView()
-	{
+	public IsolatedSequenceDiagramView(){
 		super();
 	}
 
 
 	@Override
-	protected EditPartFactory createEditPartFactory()
-	{
+	protected EditPartFactory createEditPartFactory(){
 		return new IsolatedSequenceDiagramEditPartFactory();
 	}
 
 	@Override
-	protected String getDisplayTargetDropDownText()
-	{
+	protected String getDisplayTargetDropDownText(){
 		return "Display Isolated Sequence Diagram";
 	}
 }

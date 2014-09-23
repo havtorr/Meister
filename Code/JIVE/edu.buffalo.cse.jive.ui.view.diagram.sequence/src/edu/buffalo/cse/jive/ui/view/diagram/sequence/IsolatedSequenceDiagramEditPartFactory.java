@@ -27,46 +27,38 @@ public class IsolatedSequenceDiagramEditPartFactory extends	SequenceDiagramEditP
 
 
 	@Override
-	public EditPart createEditPart(final EditPart context, final Object model)
-	{
-		if (model == null)
-		{
+	public EditPart createEditPart(final EditPart context, final Object model){
+		if (model == null){
 			// System.err.println("returning empty edit part for context: " + context);
 			return SequenceDiagramEditPartFactory.EMPTY_EDIT_PART;
 		}
-		if (model instanceof IJiveDebugTarget)
-		{
+		if (model instanceof IJiveDebugTarget){
 			final EditPart editPart = new IsolatedSequenceDiagramEditPart();
 			editPart.setModel(model);
 			return editPart;
 		}
 		if (model instanceof IContextContour || model instanceof IThreadValue
-				|| model instanceof Gutter)
-		{
+				|| model instanceof Gutter){
 			final EditPart editPart = new LifelineEditPart();
 			editPart.setModel(model);
 			return editPart;
 		}
-		if (model instanceof IInitiatorEvent)
-		{
+		if (model instanceof IInitiatorEvent){
 			final EditPart editPart = new ExecutionOccurrenceEditPart();
 			editPart.setModel(model);
 			return editPart;
 		}
-		if (model instanceof Long)
-		{
+		if (model instanceof Long){
 			final EditPart editPart = new EventOccurrenceEditPart();
 			editPart.setModel(model);
 			return editPart;
 		}
-		if (model instanceof InitiatorMessage)
-		{
+		if (model instanceof InitiatorMessage){
 			final EditPart editPart = new InitiatorMessageEditPart();
 			editPart.setModel(model);
 			return editPart;
 		}
-		if (model instanceof TerminatorMessage)
-		{
+		if (model instanceof TerminatorMessage)	{
 			final EditPart editPart = new TerminatorMessageEditPart();
 			editPart.setModel(model);
 			return editPart;

@@ -15,7 +15,6 @@ import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.swt.SWT;
 
-import edu.buffalo.cse.jive.internal.ui.ContourAttributesFactory;
 import edu.buffalo.cse.jive.ui.IContourAttributes;
 
 public class LifelineFigure extends Figure
@@ -27,47 +26,42 @@ public class LifelineFigure extends Figure
   private final Label head;
   private final boolean isGutter;
 
-  public LifelineFigure(final IContourAttributes attributes)
-  {
-    isGutter = (attributes == null);
-    if (isGutter)
-    {
-      head = new Label("");
-      head.setOpaque(false);
-      head.setBorder(new MarginBorder(5));
-    }
-    else
-    {
-    	
-    	/*
-  	   *  check if we are representing an anonymous inner type,
-  	   * and look for superclass/interfaces if so. 
-  	   */
-    	 if (attributes.getToolTipText().matches(".*Lambda.*")){
-   		  head = new Label(attributes.getText(), attributes.getIcon(IContourAttributes.LAMBDA_ICON));
-   	  }else if (attributes.getText().matches(".*[$][0-9].*")){
-   		  if(attributes.getSuperInterfaceText() == null){
-   			  head = new Label(attributes.getSuperText(), attributes.getIcon(IContourAttributes.ABSTRACT_ICON));
-   		  }else{
-   			  head = new Label(attributes.getSuperInterfaceText(), attributes.getIcon(IContourAttributes.INTERFACE_ICON));
-   		  }
-   	  }else{
-   		  head = new Label(attributes.getText(), attributes.getIcon());
-   	  }
-    	    	
-      final Label tooltip = new Label(attributes.getToolTipText(), attributes.getToolTipIcon());
-      
-      head.setToolTip(tooltip);
-      head.setToolTip(tooltip);//called twice to work around blank tooltip
-      head.setOpaque(true);
-      head.setBorder(LifelineFigure.HEAD_BORDER);
-      head.setIconAlignment(PositionConstants.BOTTOM);
-      head.setLabelAlignment(PositionConstants.LEFT);
-      head.setBackgroundColor(attributes.getLabelBackgroundColor());
-    }
-    setOpaque(false);
-    setLayoutManager(new XYLayout());
-    add(head, new Rectangle(0, 0, -1, -1));
+  public LifelineFigure(final IContourAttributes attributes){
+	  isGutter = (attributes == null);
+	  if (isGutter){
+		  head = new Label("");
+		  head.setOpaque(false);
+		  head.setBorder(new MarginBorder(5));
+	  }else{    	
+		  /*
+		   *  check if we are representing an anonymous inner type,
+		   * and look for superclass/interfaces if so. 
+		   */
+		  if (attributes.getToolTipText().matches(".*Lambda.*")){
+			  head = new Label(attributes.getText(), attributes.getIcon(IContourAttributes.LAMBDA_ICON));
+		  }else if (attributes.getText().matches(".*[$][0-9].*")){
+			  if(attributes.getSuperInterfaceText() == null){
+				  head = new Label(attributes.getSuperText(), attributes.getIcon(IContourAttributes.ABSTRACT_ICON));
+			  }else{
+				  head = new Label(attributes.getSuperInterfaceText(), attributes.getIcon(IContourAttributes.INTERFACE_ICON));
+			  }
+		  }else{
+			  head = new Label(attributes.getText(), attributes.getIcon());
+		  }
+
+		  final Label tooltip = new Label(attributes.getToolTipText(), attributes.getToolTipIcon());
+
+		  head.setToolTip(tooltip);
+		  head.setToolTip(tooltip);//called twice to work around blank tooltip
+		  head.setOpaque(true);
+		  head.setBorder(LifelineFigure.HEAD_BORDER);
+		  head.setIconAlignment(PositionConstants.BOTTOM);
+		  head.setLabelAlignment(PositionConstants.LEFT);
+		  head.setBackgroundColor(attributes.getLabelBackgroundColor());
+	  }
+	  setOpaque(false);
+	  setLayoutManager(new XYLayout());
+	  add(head, new Rectangle(0, 0, -1, -1));
   }
 
   public Dimension getLifelineHeadSize()
