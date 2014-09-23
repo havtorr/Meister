@@ -6,6 +6,11 @@ import java.util.List;
 import edu.buffalo.cse.jive.model.IEventModel.IInitiatorEvent;
 import edu.buffalo.cse.jive.model.IEventModel.IJiveEvent;
 
+/**
+ * Specialized {@link SequenceDiagramEditPart} for viewing an isolated part of a larger sequence
+ * @author håvard
+ *
+ */
 public class IsolatedSequenceDiagramEditPart extends SequenceDiagramEditPart {
 
 	public IsolatedSequenceDiagramEditPart()

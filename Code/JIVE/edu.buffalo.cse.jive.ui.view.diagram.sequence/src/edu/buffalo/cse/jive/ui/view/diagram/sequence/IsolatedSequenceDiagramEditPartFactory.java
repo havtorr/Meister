@@ -16,7 +16,12 @@ import edu.buffalo.cse.jive.model.IContourModel.IContextContour;
 import edu.buffalo.cse.jive.model.IEventModel.IInitiatorEvent;
 import edu.buffalo.cse.jive.model.IModel.IThreadValue;
 
-
+/**
+ * Specialized {@link SequenceDiagramEditPartFactory} for viewing an isolated
+ * part of a larger sequence
+ * @author håvard
+ *
+ */
 public class IsolatedSequenceDiagramEditPartFactory extends	SequenceDiagramEditPartFactory{
 
 

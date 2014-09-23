@@ -1,9 +1,17 @@
 package edu.buffalo.cse.jive.internal.ui.view.diagram.sequence.editparts;
 
+
 import edu.buffalo.cse.jive.model.IEventModel.IInitiatorEvent;
 import edu.buffalo.cse.jive.model.IEventModel.IThreadStartEvent;
 
+/**
+ * Modified version of {@link ModelAdapter}, to allow children of hidden lifelines to be visible
+ * @author håvard
+ *
+ */
 public class IsoModelAdapter extends ModelAdapter {
+
+
 
 	IsoModelAdapter(UIAdapter uiAdapter) {
 		super(uiAdapter);
@@ -15,13 +23,18 @@ public class IsoModelAdapter extends ModelAdapter {
 	 */
 	@Override
 	protected void visitExecution(final IInitiatorEvent initiator){
+
 		// a life line must exist on which to place the execution.
 		if (initiator instanceof IThreadStartEvent){
 			if (showThreadActivations){
 				lifelines.add(initiator.thread());
 			}
-		}else{lifelines.add(showExpandedLifeLines ? initiator.executionContext() : initiator
-				.executionContext().concreteContour());
+		}else{/*only add the lifelines that are relevant, while still allowing the children of
+		 		hidden ones to be visible*/
+			if (!uiAdapter.isCollapsed(initiator)) {
+				lifelines.add(showExpandedLifeLines ? initiator.executionContext() : initiator
+						.executionContext().concreteContour());				
+			}
 		}
 		// process nested children only if the execution has children
 		if (initiator.nestedInitiators().isEmpty()){
@@ -86,10 +99,8 @@ public class IsoModelAdapter extends ModelAdapter {
 				addBrokenTerminatorMessage(modelReturner, initiator);
 			}
 		}
-		if (uiAdapter.isCollapsed(initiator)) {
-			lifelines.remove(initiator.executionContext());
-//			lifelines.remove(initiator.executionContext().concreteContour());
-		}
 	}
-
 }
+
+
+
