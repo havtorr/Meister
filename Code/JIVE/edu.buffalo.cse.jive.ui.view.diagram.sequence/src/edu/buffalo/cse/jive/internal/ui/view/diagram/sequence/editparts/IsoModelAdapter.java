@@ -25,13 +25,13 @@ public class IsoModelAdapter extends ModelAdapter {
 	protected void visitExecution(final IInitiatorEvent initiator){
 
 		// a life line must exist on which to place the execution.
-		if (initiator instanceof IThreadStartEvent){
-			if (showThreadActivations){
-				lifelines.add(initiator.thread());
-			}
-		}else{/*only add the lifelines that are relevant, while still allowing the children of
-		 		hidden ones to be visible*/
-			if (!uiAdapter.isCollapsed(initiator)) {
+		if (!uiAdapter.isCollapsed(initiator)) {/*only add the lifelines that are relevant,
+							while still allowing the children of hidden ones to be visible*/
+			if (initiator instanceof IThreadStartEvent){
+				if (showThreadActivations){
+					lifelines.add(initiator.thread());
+				}
+			}else{
 				lifelines.add(showExpandedLifeLines ? initiator.executionContext() : initiator
 						.executionContext().concreteContour());				
 			}
