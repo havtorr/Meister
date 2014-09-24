@@ -82,12 +82,14 @@ class ModelAdapter
   protected void addBrokenInitiatorMessage(final IInitiatorEvent nestedExecution,
       final IInitiatorEvent execution)
   {
-    final Message message = createInitiatorMessage(execution, nestedExecution,
-        MessageKind.MK_FOUND_BROKEN, MessageOrientation.MO_LEFT_TO_RIGHT);
-    // source is the nested execution's eventual in-model parent execution
-    addSourceConnection(execution, message);
-    // target is the nested execution
-    addTargetConnection(nestedExecution, message);
+	  if(!uiAdapter.isCollapsed(execution)){
+		  final Message message = createInitiatorMessage(execution, nestedExecution,
+				  MessageKind.MK_FOUND_BROKEN, MessageOrientation.MO_LEFT_TO_RIGHT);
+		  // source is the nested execution's eventual in-model parent execution
+		  addSourceConnection(execution, message);
+		  // target is the nested execution
+		  addTargetConnection(nestedExecution, message);
+	  }
   }
 
   /**
@@ -111,14 +113,16 @@ class ModelAdapter
   /**
    * Creates an initiator message for the found call to in-model nestedExecution.
    */
-  protected void addFoundInitiatorMessage(final IInitiatorEvent nestedExecution)
-  {
-    final Message message = createInitiatorMessage(nestedExecution, MK_FOUND);
-    // source is the nested executions's life line
-    addSourceConnection(showExpandedLifeLines ? nestedExecution.executionContext()
-        : nestedExecution.executionContext().concreteContour(), message);
-    // target is the nested executions
-    addTargetConnection(nestedExecution, message);
+  protected void addFoundInitiatorMessage(final IInitiatorEvent nestedExecution){
+	  if(!uiAdapter.isCollapsed(nestedExecution)){
+		  final Message message = createInitiatorMessage(nestedExecution, MK_FOUND);
+		  //source is the nested executions's life line
+
+		  addSourceConnection(showExpandedLifeLines ? nestedExecution.executionContext()
+				  : nestedExecution.executionContext().concreteContour(), message);
+		  // target is the nested executions
+		  addTargetConnection(nestedExecution, message);
+	  }
   }
 
   /**
@@ -126,11 +130,13 @@ class ModelAdapter
    */
   protected void addInModelInitiatorMessage(final IInitiatorEvent nestedExecution)
   {
-    final Message message = createInitiatorMessage(nestedExecution, MK_DEFAULT);
-    // source is the nested execution's parent execution
-    addSourceConnection(nestedExecution.parent(), message);
-    // target is the nested execution
-    addTargetConnection(nestedExecution, message);
+	  if(!uiAdapter.isCollapsed(nestedExecution.parent())){
+		  final Message message = createInitiatorMessage(nestedExecution, MK_DEFAULT);
+		  // source is the nested execution's parent execution
+		  addSourceConnection(nestedExecution.parent(), message);
+		  // target is the nested execution
+		  addTargetConnection(nestedExecution, message);
+	  }
   }
 
   /**
