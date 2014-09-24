@@ -38,7 +38,7 @@ public class LifelineFigure extends Figure
 		   * and look for superclass/interfaces if so. 
 		   */
 		  if (attributes.getToolTipText().matches(".*Lambda.*")){
-			  head = new Label(attributes.getText(), attributes.getIcon(IContourAttributes.LAMBDA_ICON));
+			  head = new Label(attributes.getSuperInterfaceText(), attributes.getIcon(IContourAttributes.LAMBDA_ICON));
 		  }else if (attributes.getText().matches(".*[$][0-9].*")){
 			  if(attributes.getSuperInterfaceText() == null){
 				  head = new Label(attributes.getSuperText(), attributes.getIcon(IContourAttributes.ABSTRACT_ICON));
