@@ -80,16 +80,13 @@ class ModelAdapter
    * Creates an initiator message for the broken in-model call to nestedExecution.
    */
   protected void addBrokenInitiatorMessage(final IInitiatorEvent nestedExecution,
-      final IInitiatorEvent execution)
-  {
-	  if(!uiAdapter.isCollapsed(execution)){
-		  final Message message = createInitiatorMessage(execution, nestedExecution,
-				  MessageKind.MK_FOUND_BROKEN, MessageOrientation.MO_LEFT_TO_RIGHT);
-		  // source is the nested execution's eventual in-model parent execution
-		  addSourceConnection(execution, message);
-		  // target is the nested execution
-		  addTargetConnection(nestedExecution, message);
-	  }
+		  final IInitiatorEvent execution) {
+	  final Message message = createInitiatorMessage(execution, nestedExecution,
+			  MessageKind.MK_FOUND_BROKEN, MessageOrientation.MO_LEFT_TO_RIGHT);
+	  // source is the nested execution's eventual in-model parent execution
+	  addSourceConnection(execution, message);
+	  // target is the nested execution
+	  addTargetConnection(nestedExecution, message);
   }
 
   /**
