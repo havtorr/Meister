@@ -11,7 +11,7 @@ import edu.buffalo.cse.jive.model.IEventModel.IThreadStartEvent;
  */
 public class IsoModelAdapter extends ModelAdapter {
 
-
+	private int offset;
 
 	IsoModelAdapter(UIAdapter uiAdapter) {
 		super(uiAdapter);
@@ -99,6 +99,16 @@ public class IsoModelAdapter extends ModelAdapter {
 				addBrokenTerminatorMessage(modelReturner, initiator);
 			}
 		}
+	}
+
+
+	public int getOffset() {
+		return offset;
+	}
+
+
+	public void setOffsetEventID(long offset) {
+		this.offset = (int) (offset-10);
 	}
 }
 

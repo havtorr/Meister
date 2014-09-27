@@ -41,6 +41,7 @@ public class IsolatedSequenceDiagramEditPart extends SequenceDiagramEditPart {
 		}
 		uiAdapter.expandAll();
 		uiAdapter.collapseSet(eventIDs);
+		((IsoModelAdapter) modelAdapter).setOffsetEventID(execution.eventId());
 		forceUpdate();
 	}
 
