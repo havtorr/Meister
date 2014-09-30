@@ -1,8 +1,8 @@
-\subsection{Implemented changes}\label{jiveImpl}%hva ble gjort, hvordan bruke funksjonene.  Ikke så mye om hvordan. begrunne prioriteter?
+\subsection{Implemented changes}\label{jiveImpl}%hva ble gjort, hvordan bruke funksjonene. Ikke så mye om hvordan. begrunne prioriteter?
 ~\\
 
-%identifisering av  instansierte grensesnitt, lambdaer og abstrakte klaser
-The first change to be implemented  was the identification and presentation of instantiated interfaces, which are now displayed with an appropriate icon, as well as being labeled with the interface it implements, instead of the class name that is assigned by default.
+%identifisering av instansierte grensesnitt, lambdaer og abstrakte klaser
+The first change to be implemented was the identification and presentation of instantiated interfaces, which are now displayed with an appropriate icon, as well as being labeled with the interface it implements, instead of the class name that is assigned by default.
 This function was also expanded to identify instances of abstract classes, and the lambda-expressions that were introduced with Java 8.
 ~\\
 
@@ -14,6 +14,11 @@ This can result in very poor performance, and cluttered diagrams, but can be han
 ~\\
 
 %isolert visning av sekvens
-The isolated view of the diagram does what was proposed in \autoref{fig:seqOving4IsolatedMock}, 
-%mer avslappede søkekrav
-%hvorfor ble ikke alle forslag impementert?
+The isolated view of the diagram does what was proposed in \autoref{fig:seqOving4IsolatedMock}: it displays the events caused by the selected event, and hides everything else.
+By right clicking on an event in the regular sequence diagram, and selecting the 'Isolated view' option, the isolated view is triggered.
+It is also possible to further focus on a part of the diagram from within the isolated view.
+All of the functionality from the regular sequence diagram has been retained in the isolated view, so that the only difference is what parts of the execution are visible.
+~\\
+ 
+%mer avslappede søkekrav - er ikke utført for alle typer søk, er det verd å nevne i det hele tatt?
+%hvorfor ble ikke alle forslag impementert? - tid for å bli kjent med jive, eclipse-plugins
