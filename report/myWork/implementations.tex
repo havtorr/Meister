@@ -1,0 +1,19 @@
+\subsection{Implemented changes}\label{jiveImpl}%hva ble gjort, hvordan bruke funksjonene.  Ikke så mye om hvordan. begrunne prioriteter?
+~\\
+
+%identifisering av  instansierte grensesnitt, lambdaer og abstrakte klaser
+The first change to be implemented  was the identification and presentation of instantiated interfaces, which are now displayed with an appropriate icon, as well as being labeled with the interface it implements, instead of the class name that is assigned by default.
+This function was also expanded to identify instances of abstract classes, and the lambda-expressions that were introduced with Java 8.
+~\\
+
+%utvidelse av filteret
+The filtering function was expanded with the ability to specify packages that are not to be excluded from the execution model.
+Adding a package to be included is as simple as adding a '+' in front of the package-name when adding it to the filter.
+Unfortunately, a package may hold several classes that the user has no interest in seeing, but that are used by the few classes that the user is interested in.
+This can result in very poor performance, and cluttered diagrams, but can be handled by adding the unwanted classes to the filter for exclusion.
+~\\
+
+%isolert visning av sekvens
+The isolated view of the diagram does what was proposed in \autoref{fig:seqOving4IsolatedMock}, 
+%mer avslappede søkekrav
+%hvorfor ble ikke alle forslag impementert?
