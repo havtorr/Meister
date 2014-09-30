@@ -91,7 +91,7 @@ public class ExecutionOccurrenceEditPart extends AbstractGraphicalEditPart imple
     throw new UnsupportedOperationException();
   }
 
-  private SequenceDiagramEditPart contents()
+  protected SequenceDiagramEditPart contents()
   {
     return (SequenceDiagramEditPart) getRoot().getContents();
   }

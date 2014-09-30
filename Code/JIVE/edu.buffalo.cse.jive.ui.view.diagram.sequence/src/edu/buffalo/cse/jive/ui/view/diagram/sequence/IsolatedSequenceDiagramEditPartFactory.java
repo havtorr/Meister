@@ -4,9 +4,9 @@ import org.eclipse.gef.EditPart;
 
 import edu.buffalo.cse.jive.debug.model.IJiveDebugTarget;
 import edu.buffalo.cse.jive.internal.ui.view.diagram.sequence.editparts.EventOccurrenceEditPart;
-import edu.buffalo.cse.jive.internal.ui.view.diagram.sequence.editparts.ExecutionOccurrenceEditPart;
 import edu.buffalo.cse.jive.internal.ui.view.diagram.sequence.editparts.Gutter;
 import edu.buffalo.cse.jive.internal.ui.view.diagram.sequence.editparts.InitiatorMessageEditPart;
+import edu.buffalo.cse.jive.internal.ui.view.diagram.sequence.editparts.IsolatedExecutionOccurrenceEditPart;
 import edu.buffalo.cse.jive.internal.ui.view.diagram.sequence.editparts.IsolatedSequenceDiagramEditPart;
 import edu.buffalo.cse.jive.internal.ui.view.diagram.sequence.editparts.LifelineEditPart;
 import edu.buffalo.cse.jive.internal.ui.view.diagram.sequence.editparts.TerminatorMessageEditPart;
@@ -44,7 +44,7 @@ public class IsolatedSequenceDiagramEditPartFactory extends	SequenceDiagramEditP
 			return editPart;
 		}
 		if (model instanceof IInitiatorEvent){
-			final EditPart editPart = new ExecutionOccurrenceEditPart();
+			final EditPart editPart = new IsolatedExecutionOccurrenceEditPart();
 			editPart.setModel(model);
 			return editPart;
 		}
