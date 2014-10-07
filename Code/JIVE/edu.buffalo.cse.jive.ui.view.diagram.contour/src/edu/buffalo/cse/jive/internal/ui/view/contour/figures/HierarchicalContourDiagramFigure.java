@@ -93,7 +93,7 @@ class HierarchicalContourDiagramFigure extends AbstractContourDiagramFigure
     {
       topFigure.remove(figure);
     }
-    if (topFigure != sectionStatic())
+    if (topFigure != sectionStatic() && topFigure != null)
     {
       // retrieve the container
       final IFigure containerFigure = topFigure.getParent();

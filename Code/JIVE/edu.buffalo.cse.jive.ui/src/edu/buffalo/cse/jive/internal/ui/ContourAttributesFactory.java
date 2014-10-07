@@ -112,21 +112,25 @@ public class ContourAttributesFactory
 
     private InstanceContourAttributes(final IContextContour contour)
     {
-      toolTipText = contour.signature();
-      text = computeDefaultText(toolTipText);
-      superText = computeDefaultText(contour.schema().superClass().name());
-      
-      String textTail = "";
-      if (text.contains("$")){
-    	  textTail = ":" + text.substring(text.lastIndexOf('$') + 1, text.lastIndexOf(':'));
-      }
-      Iterator<ITypeNodeRef> supIntIterator = contour.schema().superInterfaces().iterator();
-      if(supIntIterator.hasNext()){
-    	  superInterfaceText = computeDefaultText(supIntIterator.next().name()) + textTail;
-      }else{
-    	  superInterfaceText = null;
-      }
-      
+    	toolTipText = contour.signature();
+    	text = computeDefaultText(toolTipText);
+    	if (contour.schema().superClass() != null) {
+    		superText = computeDefaultText(contour.schema().superClass().name());
+    	}else {
+    		superText = null;
+    	}
+    	
+    	String textTail = "";
+    	if (text.contains("$")){
+    		textTail = ":" + text.substring(text.lastIndexOf('$') + 1, text.lastIndexOf(':'));
+    	}
+    	Iterator<ITypeNodeRef> supIntIterator = contour.schema().superInterfaces().iterator();
+    	if(supIntIterator.hasNext()){
+    		superInterfaceText = computeDefaultText(supIntIterator.next().name()) + textTail;
+    	}else{
+    		superInterfaceText = null;
+    	}
+
     }
 
     @Override
