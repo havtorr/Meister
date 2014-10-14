@@ -45,6 +45,11 @@
 }
 \makeglossaries
 \renewcommand{\glsnamefont}[1]{\makefirstuc{#1}}
+
+%creating commant dor an RQ-environment
+\newtheorem{theorem}{Research Question}[section]
+\renewcommand{\thetheorem}{\arabic{theorem}}
+
 \begin{document}
 \pagenumbering{RomanType}
 \maketitle
