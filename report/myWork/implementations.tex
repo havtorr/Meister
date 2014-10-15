@@ -2,8 +2,8 @@
 ~\\
 
 %identifisering av instansierte grensesnitt, lambdaer og abstrakte klaser
-The first change to be implemented was the identification and presentation of instantiated interfaces, which are now displayed with an appropriate icon, as well as being labeled with the interface it implements, instead of the class name that is assigned by default.
-This function was also expanded to identify instances of abstract classes, and the lambda-expressions that were introduced with Java 8.
+The first change to be implemented was the identification and presentation of instantiated interfaces, which are now displayed with an appropriate icon, as well as being labeled with the interface it implements, instead of the generic class name that it is assigned by default.
+This function was also expanded to identify and label instances of abstract classes, and the lambda-expressions that were introduced with Java 8.%før/etter-figur?
 ~\\
 
 %utvidelse av filteret
@@ -11,10 +11,12 @@ The filtering function was expanded with the ability to specify packages that ar
 Adding a package to be included is as simple as adding a '+' in front of the package-name when adding it to the filter.
 Unfortunately, a package may hold several classes that the user has no interest in seeing, but that are used by the few classes that the user is interested in.
 This can result in very poor performance, and cluttered diagrams, but can be handled by adding the unwanted classes to the filter for exclusion.
+With an appropriate filter, one will get to see the connection between listeners and the objects they listen to, via the existing object-containment-links.
+Such a filter would need to allow the object listened to, and the list it uses to organize its listeners, and is likely to become very large due to the extra exclusions one must add, as a consequence of letting something through. 
 ~\\
 
 %isolert visning av sekvens
-The isolated view of the diagram does what was proposed in \autoref{fig:seqOving4IsolatedMock}: it displays the events caused by the selected event, and hides everything else.
+The isolated view was implemented as a separate view-tab, and does what was proposed in \autoref{fig:seqOving4IsolatedMock}: it displays the events caused by the selected event, and hides everything else.
 By right clicking on an event in the regular sequence diagram, and selecting the 'Isolated view' option, the isolated view is triggered.
 It is also possible to further focus on a part of the diagram from within the isolated view.
 All of the functionality from the regular sequence diagram has been retained in the isolated view, so that the only difference is what parts of the execution are visible.
