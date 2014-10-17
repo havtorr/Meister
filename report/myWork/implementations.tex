@@ -2,22 +2,29 @@
 ~\\
 
 %identifisering av instansierte grensesnitt, lambdaer og abstrakte klaser
-The first change to be implemented was the identification and presentation of instantiated interfaces, which are now displayed with an appropriate icon, as well as being labeled with the interface it implements, instead of the generic class name that it is assigned by default.
+The first change to be implemented was the identification and presentation of instantiated interfaces, which are now displayed in the diagrams with an appropriate icon, as well as being labeled with the interface it implements, instead of the generic class name that it is assigned by default.
 This function was also expanded to identify and label instances of abstract classes, and the lambda-expressions that were introduced with Java 8.%før/etter-figur?
 ~\\
 
 %utvidelse av filteret
-The filtering function was expanded with the ability to specify packages that are not to be excluded from the execution model.
+The filtering function was expanded with the ability to specify packages that are not to be excluded from the execution model, as suggested in \autoref{jiveSuggestions}.
 Adding a package to be included is as simple as adding a '+' in front of the package-name when adding it to the filter.
-Unfortunately, a package may hold several classes that the user has no interest in seeing, but that are used by the few classes that the user is interested in.
+As an example, the default filter excludes the javax package, and any subpackages that are not specifically listed with a '+' in front.
+When adding the line `+javax.swing.*' in order to let swing components through the filter, one will let every subpackage of javax.swing though the filter as well, witch is the intended design.
+Unfortunately, there are a lot of classes in both swing, and its subpackages that are not used directly when writing swing-programs, and that a user will have no interest in seeing in the diagrams.
 This can result in very poor performance, and cluttered diagrams, but can be handled by adding the unwanted classes to the filter for exclusion.
+Depending on the package in question, the amount of extra items added to the filter can become quite large, and identifying all unwanted classes and subpackages may take hours at worst.
+One weakness in the filter, related to the problem of unwanted packages, is that due to its design, allowing the contents of a package, will also allow any classes that are contained directly withing the parent package, as this also has to be removed from the internal list of exclusions that make up the filter.
+~\\
+
 With an appropriate filter, one will get to see the connection between listeners and the objects they listen to, via the existing object-containment-links.
-Such a filter would need to allow the object listened to, and the list it uses to organize its listeners, and is likely to become very large due to the extra exclusions one must add, as a consequence of letting something through. 
+Such a filter would need to allow the object listened to, and the list it uses to organize its listeners, and is likely to become very large due to the extra exclusions one must add, as a consequence of letting something through.
+There is currently no easy way to quickly switch the entire filter, but by using multiple launch-configurations, and modifying Eclipses launch file in a text editor, it is possible to distribute a pre-made filter, along with instructions, to at least avoid the repeated addition of single elements in the filter for each program being launched.
 ~\\
 
 %isolert visning av sekvens
 The isolated view was implemented as a separate view-tab, and does what was proposed in \autoref{fig:seqOving4IsolatedMock}: it displays the events caused by the selected event, and hides everything else.
-By right clicking on an event in the regular sequence diagram, and selecting the 'Isolated view' option, the isolated view is triggered.
+By right clicking on an event in the regular sequence diagram, and selecting the 'Isolated view' option, the isolated view is triggered.%figur?
 It is also possible to further focus on a part of the diagram from within the isolated view.
 All of the functionality from the regular sequence diagram has been retained in the isolated view, so that the only difference is what parts of the execution are visible.
 ~\\
