@@ -24,12 +24,12 @@ The debugger then does the work of finding what was asked for, instead of the us
 ~\\
 \subsection{Existing Tools}\label{PreTools}
 There currently exists several tools that provide one or two of the methods mentioned above.
-\Gls{gdb} offers a tracing environment, but due to its command-line interface %todo:cli to glossary
+\Gls{gdb} offers a tracing environment, but due to its command-line interface (\gls{cli})%todo:cli to glossary
 it is not necessarily easy to use on its own.
 The \gls{traceviewer} \cite{Kranzlmuller} for g-eclipse, uses a trace to generate visualizations of the program execution, and thus makes it easier to understand, but is designed for massive parallelism, and may not be very useful for understanding smaller programs.
 \Gls{whyline} \cite{ko2009}, and the \gls{tod} \cite{Pothier2007} also utilize execution traces, but use them to enable querying, instead of providing visualizations.
 Additionally, Whyline exists only as a separate application, and does not integrate into any \gls{ide}.
-~\\
+~\\%todo: legg til om https://code.google.com/a/eclipselabs.org/p/debugvisualisation/ og http://www.cvast.tuwien.ac.at/node/392
 
 \Gls{javavis} \cite{Oechsle2002} provides visualizations in the form of UML-diagrams, but does not provide any debugging features.
 \Gls{codecanvas} uses an interesting way of visualizing an entire project, everything from source-code to design documents and diagrams are layered onto a large canvas, allowing easy navigation between various elements, but is restricted to Microsoft Visual Studio.
