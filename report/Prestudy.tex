@@ -22,17 +22,37 @@ One can avoid the potential disadvantages of manual backstepping by using querie
 Queries enable the user to asks the debugger about the current and earlier states of execution in a simple way.
 The debugger then does the work of finding what was asked for, instead of the user manually searching through the program states.
 ~\\
+
 \subsection{Existing Tools}\label{PreTools}
-There currently exists several tools that provide one or two of the methods mentioned above.
-\Gls{gdb} offers a tracing environment, but due to its command-line interface (\gls{cli})%todo:cli to glossary
-it is not necessarily easy to use on its own.
-The \gls{traceviewer} \cite{Kranzlmuller} for g-eclipse, uses a trace to generate visualizations of the program execution, and thus makes it easier to understand, but is designed for massive parallelism, and may not be very useful for understanding smaller programs.
+There currently exists several tools that provide one or more of the methods mentioned above.
+Some of the tools listed below does not support Java or eclipse, but provide interesting features that are worth mentioning, despite their obvious inability to be integrated into the desired teaching environment.
+~\\
+
+%not java/eclipse
+\Gls{gdb} offers a tracing environment, and support for many languages, but not Java.
+Due to its command-line interface (\gls{cli}), it is not necessarily easy to use on its own, and so, there are several front-end platforms that provides a graphical environment around GDB.
+~\\
+
+\Gls{codecanvas} uses an interesting way of visualizing an entire project, everything from source-code to design documents and diagrams are layered onto a large canvas, allowing easy navigation between various elements, but is restricted to Microsoft Visual Studio, and the languages it supports.
+~\\
+
+%java/eclipse
+The \gls{traceviewer} \cite{Kranzlmuller} for g-eclipse, uses a trace to generate visualizations of the program execution, and thus makes it easier to understand, but is designed for massive parallelism, requires a special version of eclipse, and may not be very useful for understanding smaller programs.
+~\\
+
+\begin{sloppypar}
 \Gls{whyline} \cite{ko2009}, and the \gls{tod} \cite{Pothier2007} also utilize execution traces, but use them to enable querying, instead of providing visualizations.
 Additionally, Whyline exists only as a separate application, and does not integrate into any \gls{ide}.
-~\\%todo: legg til om https://code.google.com/a/eclipselabs.org/p/debugvisualisation/ og http://www.cvast.tuwien.ac.at/node/392
+~\\
+\end{sloppypar}
+
+The \gls{debugVisualizationPlugin} for eclipse provides an alternative to the variable view provided in eclipses debug-perspective, providing a graph that represents the variables of a program.
+The user still needs to use regular techniques they would use normally in order to pause the program-execution, and be able to actually view the state of the variables.
+~\\
 
 \Gls{javavis} \cite{Oechsle2002} provides visualizations in the form of UML-diagrams, but does not provide any debugging features.
-\Gls{codecanvas} uses an interesting way of visualizing an entire project, everything from source-code to design documents and diagrams are layered onto a large canvas, allowing easy navigation between various elements, but is restricted to Microsoft Visual Studio.
+~\\
+
 \Gls{jinsight} \cite{Pauw} is a powerful tool built by IBM, supporting both tracing and visualization.
 However, it is restricted to z/OS and linux on system Z, preventing most people from using it.
 ~\\
