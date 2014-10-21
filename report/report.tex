@@ -43,10 +43,12 @@
     urlcolor=blue,
    citecolor=black
 }
+
 \makeglossaries
 \renewcommand{\glsnamefont}[1]{\makefirstuc{#1}}
+\renewcommand{\glsdisplayfirst}[4]{\textit{#1}}
 
-%creating commant dor an RQ-environment
+%creating command for an RQ-environment
 \newtheorem{theorem}{Research Question}[section]
 \renewcommand{\thetheorem}{\arabic{theorem}}
 
