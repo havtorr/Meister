@@ -1,6 +1,6 @@
 \section{Prestudy}\label{prestudy}
 \subsection{Methods}\label{PreMethods}
-There are several ways a debugger can aid the programmer beyond just showing the current state of a program at a breakpoint chosen before running.
+There are several ways a debugger can aid the programmer beyond just showing the current state of a program at a \gls{breakpoint} chosen before running.
 For a fresh programmer, either in general, or at a certain project, the most useful method is probably to generate diagrams that visualize the current state, and the path of execution.
 I.e. some form of object-, and/or sequence--diagram.
 Such diagrams can make it easier to get an overview of a programs current state, see the contents of objects and how they relate to each other, and to understand how the various components work together.
@@ -23,6 +23,12 @@ Queries enable the user to asks the debugger about the current and earlier state
 The debugger then does the work of finding what was asked for, instead of the user manually searching through the program states.
 ~\\
 
+A major downside of execution traces, is the performance penalty from doing extra work for every step in the execution.
+The amount of work will vary, depending on implementation details and of course what is done with the log.
+If all the tracing-process does is write to a log-file, which will be used later, one can achieve significantly smaller performance impact compared to a system that does real-time analysis of the data.
+~\\
+
+%-----------------------------------------------------------------------------------------------------------------------------
 \subsection{Existing Tools}\label{PreTools}
 There currently exists several tools that provide one or more of the methods mentioned above.
 Some of the tools listed below does not support Java or eclipse, but provide interesting features that are worth mentioning, despite their obvious inability to be integrated into the desired teaching environment.
@@ -60,7 +66,7 @@ However, it is restricted to z/OS and linux on system Z, preventing most people 
 %stuff about jive coming up, sloppypar to fix cite going over margins
 \begin{sloppypar}
 \Gls{jive} seems to be the only tool that utilizes all three methods, as well as being freely available as a plugin for eclipse, making it easy to install and use.
-During program executiion, Jive generates a \gls{contourdiagram} \cite{Jayaraman1996}, and a sequence diagram.
+During program execution, Jive generates a \gls{contourdiagram} \cite{Jayaraman1996}, and a sequence diagram.
 Combined with an execution trace, it allows the user to jump back and forth in the execution, and have the diagrams updated accordingly.
 Querying is supported through the \gls{jql}, and is accessed trough a simple graphical interface with templates for the most common queries, as well as a text-field allowing the user to write any kind of query.
 ~\\
