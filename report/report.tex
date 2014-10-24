@@ -1,5 +1,5 @@
 \documentclass[titlepage, b5paper]{article}
-\PassOptionsToPackage{hyphens}{url}\usepackage[pdfborder=0 0 0, breaklinks = true]{hyperref}
+\PassOptionsToPackage{hyphens}{url}\usepackage[pdfborder={0 0 0}, breaklinks = true]{hyperref}
 \usepackage[lmargin=25mm,rmargin=25mm,tmargin=27mm,bmargin=30mm]{geometry}
 \usepackage[utf8]{inputenc}
 \usepackage[english]{babel}
@@ -48,6 +48,7 @@
 \makeglossaries
 \renewcommand{\glsnamefont}[1]{\makefirstuc{#1}}
 \renewcommand{\glsdisplayfirst}[4]{\textit{#1}}
+\renewcommand*{\glspostdescription}{}
 
 %creating command for an RQ-environment
 \newtheorem{theorem}{Research Question}[section]
