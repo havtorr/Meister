@@ -2,7 +2,7 @@
 \subsection{Methods}\label{PreMethods}
 There are several ways a debugger can aid the programmer beyond just showing the current state of a program at a \gls{breakpoint} chosen before running.
 For a fresh programmer, either in general, or at a certain project, the most useful method is probably to generate diagrams that visualize the current state, and the path of execution.
-I.e. some form of object-, and/or sequence--diagram.
+I.e. some form of object-, and/or sequence-diagram.
 Such diagrams can make it easier to get an overview of a programs current state, see the contents of objects and how they relate to each other, and to understand how the various components work together.
 ~\\
 
@@ -62,6 +62,10 @@ The user still needs to use regular techniques they would use normally in order 
 \Gls{jinsight} \cite{Pauw} is a powerful tool built by IBM, supporting both tracing and visualization.
 However, it is restricted to z/OS and linux on system Z, preventing most people from using it.
 ~\\
+
+\Gls{jive} is a tool that utilizes execution traces to provide diagrams while running a program.
+Developed at the university of Buffalo, it is installed a an Eclipse plugin, and provides several new views to display the information it provides.
+In addition to providing diagrams, the trace log is also used to enable backstepping, which is coupled with the diagrams to always show the selected execution state.
 
 %stuff about jive coming up, sloppypar to fix cite going over margins
 \begin{sloppypar}
