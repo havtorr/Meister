@@ -13,6 +13,9 @@ Finding ways to highlight the different parts of e.g. an MVC-architecture, makin
 But such highlighting must be balanced in order to not create a visual chaos of different colors.
 Adding symbols instead of colors might be a better solution, both maintaining the current color-scheme, and adding new information.
 The coloring, highlighting and naming of inner types should apply to both of the diagrams.
+The biggest challenge with this kind of highlighting, is the process of detection.
+While listeners can easily be detected by their implementation of a listener-interface, detecting a controller or a model is not trivial.
+One can make assumptions based on class names, but they will be worthless if a program does not match those assumptions, and developers are not likely to change their programs to fit.
 ~\\
 
 \begin{figure}[H]

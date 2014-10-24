@@ -31,4 +31,9 @@ All of the functionality from the regular sequence diagram has been retained in 
 ~\\
  
 %mer avslappede søkekrav - er ikke utført for alle typer søk, er det verd å nevne i det hele tatt?
+The searching functionality was relaxed by allowing partial matches, and disabling case sensitivity.
+While relaxing the search may cause false positives, a user should be able to identify such cases quickly, or at least identify the results they were looking for.
+The fact that partial matches and case insensitivity is the standard behavior in most search-engines, sets an expectation for the behavior of the search within JIVE.
+Unfortunately, due to the existing implementation consisting of separate searching- and matching-methods for each search type, not all searches were updated to this relaxed state.
+
 %hvorfor ble ikke alle forslag impementert? - tid for å bli kjent med jive, eclipse-plugins
