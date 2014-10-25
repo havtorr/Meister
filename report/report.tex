@@ -1,4 +1,4 @@
-\documentclass[titlepage, b5paper]{article}
+\documentclass[pdftex,10pt,b5paper,twoside]{report}
 \PassOptionsToPackage{hyphens}{url}\usepackage[pdfborder={0 0 0}, breaklinks = true]{hyperref}
 \usepackage[lmargin=25mm,rmargin=25mm,tmargin=27mm,bmargin=30mm]{geometry}
 \usepackage[utf8]{inputenc}
@@ -25,24 +25,24 @@
 \DeclareGraphicsExtensions{.pdf, .png, .jpg, .jpeg}
 \graphicspath{{./graphics/}{./graphics/graphs/}}
 \title{
- SomeTitle\\
+	SomeTitle\\
 }
 \author{
-    Tørresen, Håvard\\
-    \\
-    \underline{Supervisor:}\\
-    Trætteberg, Hallvard
-    \\
+	Tørresen, Håvard\\
+	\\
+	\underline{Supervisor:}\\
+	Trætteberg, Hallvard
+	\\
 }
 \date{\today}
 
 \hypersetup{
-    pdfnewwindow=true,
-    colorlinks=true,
-    linkcolor=black,
-    filecolor=red,
-    urlcolor=blue,
-   citecolor=black
+	pdfnewwindow=true,
+	colorlinks=true,
+	linkcolor=black,
+	filecolor=red,
+	urlcolor=blue,
+	citecolor=black
 }
 
 \makeglossaries
@@ -84,12 +84,14 @@
 \appendix
 
 %Glossary
-\addcontentsline{toc}{section}{Glossary}
+\phantomsection
+\addcontentsline{toc}{chapter}{Glossary}
 \label{Glossary}
 \printglossaries
 
 %Bibliography
-\addcontentsline{toc}{section}{Bibliography}
+\phantomsection
+\addcontentsline{toc}{chapter}{Bibliography}
 \bibliographystyle{apalike}
 \bibliography{Bibliography}
 
