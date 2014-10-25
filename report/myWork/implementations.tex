@@ -3,7 +3,7 @@
 
 %identifisering av instansierte grensesnitt, lambdaer og abstrakte klaser
 The first change to be implemented was the identification and presentation of instantiated interfaces, which are now displayed in the diagrams with an appropriate icon, as well as being labeled with the interface it implements, instead of the generic class name that it is assigned by default.
-This function was also expanded to identify and label instances of abstract classes, and the lambda-expressions that were introduced with Java 8.%før/etter-figur?
+This function was also expanded to identify and label instances of abstract classes, and the lambda-expressions that were introduced with Java 8.%før/etter-figur
 In order to still allow the actual class name to be visible, the tool-tip shown when hovering the mouse pointer over an object remains unmodified, showing the actual class name and icon.
 ~\\
 
@@ -16,6 +16,7 @@ Unfortunately, there are a lot of classes in both swing, and its subpackages tha
 This can result in very poor performance, as unnecessary events are logged, and cluttered diagrams, but can be handled by adding the unwanted classes to the filter for exclusion.
 Depending on the package in question, the amount of extra items added to the filter can become quite large, and identifying all unwanted classes and subpackages may take hours at worst.
 One weakness in the filter, related to the problem of unwanted packages, is that due to its design, allowing the contents of a package, will also allow any classes that are contained directly within the parent package, as this also has to be removed from the internal list of exclusions that make up the filter.
+This is not a big problem in the case of `javax.swing', as the `javax' package does not contain any classes, but there are definitely other packages that will show this behavior.
 ~\\
 
 With an appropriate filter, one will get to see the connection between listeners and the objects they listen to, via the existing object-containment-links.

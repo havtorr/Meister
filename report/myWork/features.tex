@@ -51,8 +51,9 @@ In \autoref{fig:seqOving1}, one can clearly see the two colors representing the 
 Right-clicking on a lifeline offers the ability to collapse method-calls originating from that lifeline in order to hide unnecessary information, shown in \autoref{fig:UIseqRightClick}.
 The collapse-menu offers four options when used on the lifeline of an object: after, before, children and here.
 Before and after collapses lifelines that occurred before or after the selected event, at the same depth in the sequence-tree.
-Children collapses all events that are children of the selected event, while here collapses the selected event.%figurer!
+Children collapses all events that are children of the selected event, while here collapses the selected event.
 Right clicking on an object instance at the top of the diagram also offers to collapse that objects entire lifeline, the result of which can be seen in \autoref{fig:seqOving4Collapse}.
+While \autoref{fig:seqOving4Collapse} shows the result of collapsing the lifeline of an object, a similar result can be achieved by selecting `collapse children' at the parent lifeline, or by selecting `collapse here' on each of the three method-calls shown.
 The same options are of course available for expanding collapsed elements.
 Right-clicking also offers to set the execution-state via the jump-option, updating the contour-diagram and -model to show that state.
 ~\\
@@ -61,13 +62,13 @@ Right-clicking also offers to set the execution-state via the jump-option, updat
 	\centering
 	\begin{subfigure}{\textwidth}
 		\centering
-		\includegraphics[width=\textwidth, trim= 0 48cm 0 50cm, clip]{MMI-Oving4-SequenceDiagInit}
+		\includegraphics[width=\textwidth, trim= 30cm 48cm 10cm 65cm, clip]{MMI-Oving4-SequenceDiagInit}
 		\caption{Normal}
 		\label{fig:seqOving4CollapseA}
 	\end{subfigure}
 	\begin{subfigure}{\textwidth}
 		\centering
-		\includegraphics[width=\textwidth, trim= 0 48cm 0 50cm, clip]{MMI-Oving4-SequenceDiagInitCollapsed}
+		\includegraphics[width=\textwidth, trim= 30cm 48cm 10cm 65cm, clip]{MMI-Oving4-SequenceDiagInitCollapsed}
 		\caption{Collapsed}
 		\label{fig:seqOving4CollapseB}
 	\end{subfigure}
@@ -80,7 +81,7 @@ This also helps to visualize any changes made to a program, and to see what the 
 The diagrams also share the ability to zoom in and out, further helping with the handling of larger diagrams.
 ~\\
 
-Closely related to the diagrams, is the ability to quickly jump backwards and forwards between execution states.
+Closely related to the diagrams, is the ability to quickly jump backwards and forwards between execution states.%figur, jump-to
 This is enabled by the trace-log, which contains an entry for every single event that occurs during the execution of a program, excluding those that are removed by the exclusion filter.
 Each event is assigned an identifying number, in ascending order, and information about thread, type, caller, target, and the location of the source-code is stored.
 The log is used as the basis for the models that make up the diagrams, and can be saved as both XML- and CSV-files for later use.
@@ -89,11 +90,11 @@ On the other hand, it allows the almost instant jumping between recorded states,
 ~\\
 
 In order to improve both performance and readability, the mentioned exclusion filter checks the origin of each event, and determines whether or not the event is to be logged.
-By default, the filter excludes the entire Java API, and by doing so, it is focusing on the classes that are made by the user.
+By default, the filter excludes the entire Java API, and by doing so, it is focusing on the classes that are made by the user.%figur som viser filter?
 This filter can be adjusted to better suit the program being analyzed, by adding or removing entries in order to see more or less details of the execution.
 ~\\
 
-The model-views each display an alternate view of their respective diagrams.%figur
+The model-views each display an alternate view of their respective diagrams.%figur begge modellvisninger, eventuelt vise begge modeller + logg
 They show the data-model representing the diagrams in a hierarchical structure, much like the organization of files and folders.
 Right-clicking on an event in the sequence model allows you to set the execution state to that event, and have the diagrams updated accordingly.
 Clicking on elements in the contour-model allows you to inspect the values of objects and their variables.
