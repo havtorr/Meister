@@ -1,4 +1,5 @@
 \chapter{Prestudy}\label{prestudy}
+This section will serve to get an overview of the current situation of debugging methods, and the various tools that are available.
 \section{Methods}\label{preMethods}
 There are several ways a debugger can aid the programmer beyond just showing the current state of a program at a \gls{breakpoint} chosen before running.
 For a fresh programmer, either in general, or at a certain project, the most useful method is probably to generate diagrams that visualize the current state, and the path of execution.
@@ -31,12 +32,13 @@ If all the tracing-process does is write to a log-file, which will be used later
 %-----------------------------------------------------------------------------------------------------------------------------
 \section{Existing Tools}\label{PreTools}
 There currently exists several tools that provide one or more of the methods mentioned above.
+The following list is not extensive, but includes some of the most interesting tools, considering the focus of this report.
 Some of the tools listed below does not support Java or eclipse, but provide interesting features that are worth mentioning, despite their obvious inability to be integrated into the desired teaching environment.
 ~\\
 
 %not java/eclipse
-\Gls{gdb} offers a tracing environment, and support for many languages, but not Java.
-Due to its command-line interface (\gls{cli}), it is not necessarily easy to use on its own, and so, there are several front-end platforms that provides a graphical environment around GDB.
+\gls{gdb} offers a tracing environment, and support for many languages, but not Java.
+Due to its \gls{cli}, it is not necessarily easy to use on its own, and so, there are several front-end platforms that provides a graphical environment around GDB, including Eclipse.
 ~\\
 
 \Gls{codecanvas} uses an interesting way of visualizing an entire project, everything from source-code to design documents and diagrams are layered onto a large canvas, allowing easy navigation between various elements, but is restricted to Microsoft Visual Studio, and the languages it supports.

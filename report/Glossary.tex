@@ -19,12 +19,14 @@ Our middleware layer works as a QoS broker for services and clients.
 Broker as referred to by the report given to us from FFI: a centralized ‘server’ of sorts which gathered Bandwidth data from tactical routers.}}
 
 %C
-\newglossaryentry{cli}{name={CLI}, description={
-Command Line Interface, a text-based interface for interacting with programs via a terminal.}}
+\newacronym{cli}{CLI}{\gls{commandLineInterface}}
 
 \newglossaryentry{codecanvas}{name={Code Canvas}, description={
 A visualization-tool for Microsoft visual studio, showing code, diagrams and documents on a large layered canvas.\\
 \url{http://research.microsoft.com/en-us/projects/codecanvas/}}}
+
+\newglossaryentry{commandLineInterface}{name={Command Line Interface}, description={
+A text-based interface for interacting with programs via a terminal.}}
 
 \newglossaryentry{contourdiagram}{name={contour diagram}, description={
 An enhanced object diagram, showing objects, their variables and their relations to other objects.\\
@@ -57,8 +59,10 @@ A log of all changes to the state of a program throughout its execution.}}
 A type of bar chart that illustrates a project schedule.\\
 \url{http://en.wikipedia.org/wiki/Gantt}}}
 
-\newglossaryentry{gdb}{name={GDB}, description={
-GNU debugger. A multiplatform, multilanguage CLI-debugger with tracing.\\
+\newacronym{gdb}{GDB}{\gls{gnuDebugger}}
+
+\newglossaryentry{gnuDebugger}{name={GNU debugger}, description={
+A multiplatform, multilanguage \gls{cli}-debugger with tracing.\\
 \url{http://www.sourceware.org/gdb/}}}
 
 \newglossaryentry{git}{name={Git} , description={
@@ -86,11 +90,13 @@ A toolset of low level Java components focused on HTTP and associating protocols
 HttpCore is a set of low level HTTP transport components that can be used to build custom client and server side HTTP services with a minimal footprint. It is a component of the \gls{httpcomponents} package.}}
 
 %I
-\newglossaryentry{ide}{name={IDE} , description={
-Integrated Development Environment. A software application that provides facilities for software development such as source code editor, compiler etc.}}
+\newacronym{ide}{IDE}{\gls{integratedDevelopmentEnvironment}}
 
 \newglossaryentry{identity server}{name={Identity Server} , description={
 \url{http://wso2.com/products/identity-server/}}}
+
+\newglossaryentry{integratedDevelopmentEnvironment}{name={Integrated Development Environment} , description={
+A software application that provides facilities for software development such as source code editor, compiler etc.}}
 
 \newglossaryentry{ipaddress}{name={IP address}, description={
 A numerical label assigned to each device connected to the Internet.}}
@@ -156,11 +162,18 @@ In the report middleware will refer to the program we are making. Other distinct
 \newglossaryentry{MobiEmu}{name={MobiEmu} , description={
 Mobility Emulator, A framework for emulating mobile ad-hoc networks with Linux containers and ns-3.}}
 
+\newglossaryentry{modelViewController}{name={Model View Controller} , description={
+A design pattern defining an architecture where data is kept separate from the component that displays it to a user. 
+}}
+
+
 \newglossaryentry{ms}{name={MS} , description={
 Please see \Gls{monitoring service}.}}
 
 \newglossaryentry{monitoring service}{name={Monitoring Service}, description={
 Monitoring Service, a service that provides bandwidth monitoring, running on the same server as the Tactical Router.}}
+
+\newacronym{mvc}{MVC}{\gls{modelViewController}}
 
 %N
 \newglossaryentry{ns-3}{name={ns-3} , description={
