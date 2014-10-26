@@ -225,3 +225,6 @@ report/report.synctex.gz
 *.blg
 *.glg
 *.gls
+*.acn
+*.alg
+*.acr

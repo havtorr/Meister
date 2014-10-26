@@ -7,7 +7,7 @@
 \usepackage{pdfpages}
 \usepackage{attachfile}
 \usepackage{float}
-\usepackage{glossaries}
+\usepackage[acronym]{glossaries}
 \usepackage{listing}
 \usepackage{listings}
 \usepackage{lstcustom}
@@ -47,7 +47,7 @@
 
 \makeglossaries
 \renewcommand{\glsnamefont}[1]{\makefirstuc{#1}}
-\renewcommand{\glsdisplayfirst}[4]{\textit{#1}}
+\renewcommand{\glsdisplayfirst}[4]{\textit{#1#4}}
 \renewcommand*{\glspostdescription}{}
 
 %creating command for an RQ-environment
