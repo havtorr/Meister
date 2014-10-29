@@ -5,13 +5,19 @@
 The first change to be implemented was the identification and presentation of instantiated interfaces, which are now displayed in the diagrams with an appropriate icon, as well as being labeled with the interface it implements, instead of the generic class name that it is assigned by default.
 This function was also expanded to identify and label instances of abstract classes, and the lambda-expressions that were introduced with Java 8.%før/etter-figur
 In order to still allow the actual class name to be visible, the tool-tip shown when hovering the mouse pointer over an object remains unmodified, showing the actual class name and icon.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{UIJiveInterfaceIcon}
+	\caption{A view of how instantiated interfaces are shown after the modification. Also shows the tooltip text for the instance second from the left. Originally, they would be labeled as 'ButtonsNText\$1:1', 'ButtonsNText\$2:1' and so on, with the green class-icon.}
+	\label{fig:JiveNewIcon}
+\end{figure}
 ~\\
 
 %utvidelse av filteret
 The filtering function was expanded with the ability to specify packages that are not to be excluded from the execution model, as suggested in \autoref{jiveSuggestions}.
 Adding a package to be included is as simple as adding a `+' in front of the package-name when adding it to the filter.
 As an example, the default filter excludes the javax package, and any subpackages that are not specifically listed with a `+' in front.
-When adding the line `+javax.swing.*' in order to let swing components through the filter, one will let every subpackage of javax.swing though the filter as well, which is the intended design.
+When adding the line `+javax.swing.*' in order to let swing components through the filter, one will let every subpackage of 'javax.swing' though the filter as well, which is the intended design.
 Unfortunately, there are a lot of classes in both swing, and its subpackages that are not used directly when writing swing-programs, and that a user will have no interest in seeing in the diagrams.
 This can result in very poor performance, as unnecessary events are logged, and cluttered diagrams, but can be handled by adding the unwanted classes to the filter for exclusion.
 Depending on the package in question, the amount of extra items added to the filter can become quite large, and identifying all unwanted classes and subpackages may take hours at worst.

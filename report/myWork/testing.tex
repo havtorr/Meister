@@ -1,15 +1,19 @@
 \section{Evaluating usefulness}\label{jiveEval}
 In order to evaluate both the usefulness of JIVE, and the changes that were implemented, testing was performed with a group of students.
 During this test, the students received a demonstration of what JIVE is, before getting to use it on an implementation of the first, and the last exercise of the MMI-course.
-During the test, the students were asked to evaluate the perceived performance, and whether it would affect the desire to use JIVE.
-The actual performance was measured separately from the user testing, the test was merely to see if this was an acceptable trade-off.
-They were also tasked with evaluating to what degree they found JIVE to be helpful in understanding the example programs, and how understandable the diagrams were.
+They were then asked to evaluate the perceived performance, and whether it would affect the desire to use JIVE.
+The actual performance was measured separately from the user testing, the performance focus of the test was merely to see if this was an acceptable trade-off, compared to the benefits.
+The  students were also tasked with evaluating to what degree they found JIVE to be helpful in understanding the example programs, and how understandable the diagrams were.
 Lastly, they were asked to evaluate the usefulness of the modifications detailed in the previous section, and whether or not they did what was intended.
 ~\\
 
-Regarding performance, it has already been stated that the tracing behavior of JIVE must affect the analyzed program.
+Regarding performance, it has already been stated in \autoref{preMethods} that the tracing behavior of JIVE must affect the analyzed program negatively.
 The specific penalty varies with the complexity of the program, and the level of detail that is being logged.
 With the default filters, the programs used in the test had an average startup time of INSERT TIME, and responded to user input with a delay of no more than one second.
 With the modified filter mechanism, and filters adjusted to include information on relevant classes, the startup time increased to INSERT TIME2, while the user input delay ended up at RESPONSETIME HERE.
 ~\\
 
+It should be noted that the example programs were both relatively simple, with few events following directly from a user interaction.
+While the program starts responding in a reasonable time, it may take unreasonably long time to finish responding.
+If for example data was to be fetched from some source, processed and then displayed to the user, it would be expected to take significantly more time to finish, than if it was to alter a line of text already on display.
+~\\
