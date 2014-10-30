@@ -5,10 +5,10 @@ Even though JIVE offers several useful features, there is still room for improve
 
 The diagrams are possibly the most useful feature of JIVE, showing a lot of information in an understandable way, and offering some useful interaction.
 But there is still room for improvement:
-Inner types are displayed with their automatically generated, and fairly anonymous, name unless given a proper name in code.
+Inner types are displayed with their automatically generated, and fairly anonymous, name unless given a proper name in the source code.
 By default, most of the classes defined by the JRE itself are ignored, omitting potentially important information in GUI-applications.
 For the sequence-diagrams, it is naturally not important no show the internal behavior of every object, but they are also hidden in the contour-diagram.
-Related to this, is the lack of visual connections between standard-objects, and for example instances of listeners added to them.
+This causes, among other things, the lack of visual connections between standard-objects, and for example instances of listeners that are added to them.
 More related to the target group for this project, is a lack of differentiation between the different object-types in typical graphical architectures.
 Especially MVC, whitch is a major focus of the MMI-course, has certain distinct types that are more important than others.
 ~\\
@@ -22,6 +22,6 @@ Some of the papers on JIVE mention regex-folding,that could be used to substitut
 Another potential for improvement is the process of stepping through recorded states, which currently requires manual interaction for each step, making complete replays of an execution infeasible due to the massive number of events recorded even for simple programs.
 ~\\
 
-The search-view, while useful, is very strict in terms of what it looks for.
-For example, searching for the creation of an object requires its full name, including packages, so searching for creations of JButton-instances would require a search for javax.swing.JButton.
+The search-view, while useful, is very strict in terms of what it looks for, and may seem broken for a user that is not aware of the strict requirements.
+For example, searching for the creation of an object requires its full name, including the package it is contained within.I.e. searching for creations of 'JButton'-instances would require a search for 'javax.swing.JButton', insted of just 'JButton'.
 ~\\
