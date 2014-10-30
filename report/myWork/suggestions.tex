@@ -17,7 +17,6 @@ The biggest challenge with this kind of highlighting, is the process of detectio
 While listeners can easily be detected by their implementation of a listener-interface, detecting a controller or a model is not trivial.
 One can make assumptions based on class names, but they will be worthless if a program does not match those assumptions, and developers are not likely to change their programs to fit.
 ~\\
-
 \begin{figure}[H]
 	\centering
 	\begin{subfigure}{\textwidth}
@@ -41,6 +40,7 @@ One can make assumptions based on class names, but they will be worthless if a p
 	\caption{Crude comparison of suggested changes to the contour diagram}
 	\label{fig:contOving4Changes} 
 \end{figure}
+~\\
 
 Exploring changes to the default exclusion-filter, in order to provide more useful information out of the box, is also an option.
 This will provide a better experience for certain scenarios, but may be useless in other cases by providing too much unnecessary information.
@@ -58,7 +58,7 @@ The way the sequence diagrams currently work, object instances are added as they
 	\caption{A section of a larger sequence diagram, showing method calls crossing several unrelated lifelines}
 	\label{fig:seqOving4CrossLines}
 \end{figure}
-In the case of exploring events triggered by a listener, the ability to isolate the involved objects, and reorder the diagram could be very useful, providing a clean view of a smaller series of events.%figur?
+In the case of exploring events triggered by a listener, the ability to isolate the involved objects, and reorder the diagram could be very useful, providing a clean view of a smaller series of events.
 Using the same figure as an example, the rightmost, and longest, bar would be moved to the far left, the three second-longest would be in the middle, while the shortest ones would be to the left.
 In total, only the lifelines of those five objects would be visible, all the ones that are being crossed in \autoref{fig:seqOving4CrossLines} are unnecessary, and would be hidden as shown in \autoref{fig:seqOving4IsolatedMock}.
 This function should be accessed by right clicking on the topmost event that is desired, and selecting a "view isolated" option.

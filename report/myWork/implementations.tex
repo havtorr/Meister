@@ -3,12 +3,13 @@
 
 %identifisering av instansierte grensesnitt, lambdaer og abstrakte klaser
 The first change to be implemented was the identification and presentation of instantiated interfaces, which are now displayed in the diagrams with an appropriate icon, as well as being labeled with the interface it implements, instead of the generic class name that it is assigned by default.
-This function was also expanded to identify and label instances of abstract classes, and the lambda-expressions that were introduced with Java 8.%før/etter-figur
+An example of this is shown in \autoref{fig:JiveNewIcon}
+This function was also expanded to identify and label instances of abstract classes, and the lambda-expressions that were introduced with Java 8.
 In order to still allow the actual class name to be visible, the tool-tip shown when hovering the mouse pointer over an object remains unmodified, showing the actual class name and icon.
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\textwidth]{UIJiveInterfaceIcon}
-	\caption{A view of how instantiated interfaces are shown after the modification. Also shows the tooltip text for the instance second from the left. Originally, they would be labeled as 'ButtonsNText\$1:1', 'ButtonsNText\$2:1' and so on, with the green class-icon.}
+	\caption[A view of how instantiated interfaces are shown after the modification.]{A view of how instantiated interfaces are shown after the modification. Also shown, is the tooltip text for the second instance from the left. Originally, they would be labeled as 'ButtonsNText\$1:1', 'ButtonsNText\$2:1' and so on, with the green class-icon.}
 	\label{fig:JiveNewIcon}
 \end{figure}
 ~\\
@@ -44,20 +45,22 @@ This is of course not a good way of handling the issue, and ways of improving th
 
 %isolert visning av sekvens
 The isolated view was implemented as a separate view-tab, and does what was proposed in \autoref{fig:seqOving4IsolatedMock}: it displays the events caused by the selected event, and hides everything else.
-By right clicking on an event in the regular sequence diagram, and selecting the `Isolated view' option, the isolated view is triggered.%figur?
+\autoref{fig:MMI-oving4-SeqIsoDiag-AWT-Event-Thread} shows what \autoref{fig:seqOving4IsolatedMock} ended up looking like after the modification.
+\autoref{fig:MMI-oving4-SeqIsoDiag-valueChanged} shows a similar, but slightly more complex situation in the isolated view.
+By right clicking on an event in the regular sequence diagram, and selecting the `Isolated view' option, shown in \autoref{fig:UISeqRightClickNew},  the isolated view is triggered.
 It is also possible to further focus on a part of the diagram from within the isolated view, by right clicking on the desired event, and selecting the `Isolated view' option again.
 All of the functionality from the regular sequence diagram has been retained in the isolated view, so that the only difference is what parts of the execution are visible.
 \begin{figure}
 	\centering
 	\includegraphics{UIseqRightClickNew}
 	\caption{The new 'Isolated view' option.}
-	\label{fig:UIseqRightClickNew}
+	\label{fig:UISeqRightClickNew}
 \end{figure}
 ~\\
 \begin{figure}
 	\centering
 	\includegraphics[width=\textwidth, trim= 0cm 50cm 0cm 0cm, clip]{MMI-oving4-SeqIsoDiag-AWT-Event-Thread}
-	\caption{How \autoref{fig:seqOving4CrossLines} looks in the isolated view. The three last elements shown on the top are referred to in parts of the diagram not shown.}
+	\caption[How \autoref{fig:seqOving4CrossLines} looks in the isolated view.]{How \autoref{fig:seqOving4CrossLines} looks in the isolated view. The three last elements shown on the top are referred to in parts of the diagram not shown. This view was achieved by selecting the 'AWT-EventQueue' lifeline for the isolated view.}
 	\label{fig:MMI-oving4-SeqIsoDiag-AWT-Event-Thread}
 \end{figure}
 ~\\
