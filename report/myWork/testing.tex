@@ -1,14 +1,15 @@
 \section{Evaluating usefulness}\label{jiveEval}
-In order to evaluate both the usefulness of JIVE, and the changes that were implemented, testing was performed with a group of students.
-During this test, the students received a demonstration of what JIVE is, before getting to use it on an implementation of the first, and the last exercise of the MMI-course.
-They were then asked to evaluate the perceived performance, and whether it would affect the desire to use JIVE.
-The actual performance was measured separately from the user testing, the performance focus of the test was merely to see if this was an acceptable trade-off, compared to the benefits.
-The  students were also tasked with evaluating to what degree they found JIVE to be helpful in understanding the example programs, and how understandable the diagrams were.
-Lastly, they were asked to evaluate the usefulness of the modifications detailed in the previous section, and whether or not they did what was intended.
+%om testen
+In order to evaluate both the usefulness of JIVE, and the changes that were implemented, an evaluation was performed with a small group of students, one by one.
+During this test, the students were given a demonstration of the main features of JIVE, using implementations of the first, and the last exercise of the MMI-course as examples.
+After getting familiar with JIVE, they were shown the modified version, focusing on the new and modified features that were implemented.
+They were then asked questions about how easily they understood the diagrams, and how useful they found the changes to be.
+As well as whether the performance trade-off was acceptable for occasional use, if they could see themselves using JIVE, and if so, in what situations.
 ~\\
 
 Regarding performance, it has already been stated in \autoref{preMethods} that the tracing behavior of JIVE must affect the analyzed program negatively.
 The specific penalty varies with the complexity of the program, and the level of detail that is being logged.
+The performance of each example program, with both versions of JIVE, and with two different levels of detail in the filter for the modified version, for a total of six measurements, were tested separately from the user evaluation, but on the same computer.
 With the default filters, the programs used in the test had an average startup time of INSERT TIME, and responded to user input with a delay of no more than one second.
 With the modified filter mechanism, and filters adjusted to include information on relevant classes, the startup time increased to INSERT TIME2, while the user input delay ended up at RESPONSETIME HERE.
 ~\\
@@ -17,3 +18,25 @@ It should be noted that the example programs were both relatively simple, with f
 While the program starts responding in a reasonable time, it may take unreasonably long time to finish responding.
 If for example data was to be fetched from some source, processed and then displayed to the user, it would be expected to take significantly more time to finish, than if it was to alter a line of text already on display.
 ~\\
+
+%resultat
+The students that participated in the evaluation were mostly in their third year, and had already finished the MMI-course the previous semester.
+This meant that they were familiar with the example programs, and had some knowledge of the MVC-pattern, and how it behaves in Java-swing.
+While this excluded the experiences of someone completely unfamiliar to these concepts, it did give the insight of relatively fresh experiences, as the participants remembered what they were finding hard to understand back then.
+There was also one participant who was in his second year, and as such, would take the MMI-course during the next semester.
+~\\
+
+The evaluation resulted in mostly positive feedback, with every participant seeing some kind of use for a tool like JIVE.
+Of those in their third year, only one participant did not consider the use of diagrams to understand code to be useful.
+In his experience, he learned just as well from reading the code directly, and building his own mental model of the program structure.
+On the other hand, he did recognize the usefulness of JIVE as a tool to create documentation, and for presenting his own work to other participants in a project.
+The rest shared the view that JIVE, or a similar tool, could have been very useful when trying to understand the connection between \gls{gui} elements, listeners, and the actions that are triggered by them.
+One of them also had experiences as a student assistant, and recognized JIVE as a tool that could give students a needed insight into what is going on in their programs.
+~\\
+
+
+some told of experiencing difficulties in understanding how gui elements and listeners worked together -> would have liked to have something like JIVE available back then
+one had similar experiences as a student assistant
+one did not really find the use of diagrams useful for his understanding of code, preferring to read it directly and build his own mental model, he also preferred to use simple text editors instead of IDEs. did see a use in showing own work to others in a project
+some new suggestions: always show line of objects on top of seq diag, regardless of how far down one is scrolling, desire for vertical collapse
+complaints about information overload, and inflated diagrams, especially with increased filtering details, some concern on how larger projects might behave
