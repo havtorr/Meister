@@ -36,6 +36,11 @@ A few specifically mentioned that they found that connection to be difficult to 
 One of them also had experiences as a student assistant, and recognized JIVE as a tool that could give students a needed insight into what is going on in their programs.
 ~\\
 
+The diagrams themselves were found to be both sufficiently detailed, and easy to understand, showing the available information in a simple and structured manner.
+The tendency for the diagrams to grow large and unwieldy did become a problem, especially when running with the less restrictive filter, showing many of the swing-internals.
+When hiding everything but user-created classes, the diagrams remained at an acceptable size, although the sequence diagram got quite long after a while.
+~\\
+
 %ytlese
 As expected, the participants all agreed that the performance of JIVE was too poor for continuous use, but they still found it acceptable for the occasional use that getting familiar with an example, or documenting a project would require.
 While a larger project could take several minutes to reach the initial stable state for a user to interact, one would only be interested in including the entire project when generating documentation for delivery.
@@ -45,10 +50,18 @@ In either case, the performance was not found to be a reason to not use JIVE at 
 
 %nytte av endringer
 The implemented changes were generally well-received, with the ability to view a subsection of the sequence diagram in the isolated view being the most preferred change.
-
+The changes to the filtering mechanism were found to still be somewhat cumbersome due to the lack of an easy way of importing an existing filter.
+The modified labeling of object instances provided a small, but useful addition to the visible information.
 ~\\
 
 %problemer
+While the feedback from the participants was generally positive, they still found some areas that they thought could be further improved with new or modified functionality.
+The mentioned challenge with importing an existing filter, was among the suggested changes, as well as adding a suggestion-functionality, similar to the autocomplete feature found in many search providers, when writing filter additions manually.
+Also related to the filter, was the risk of diagrams  becoming so large that they would be nearly impossible to navigate, especially for larger programs, or when letting more objects through the filter.
+To help with this, there was a desire to have the line of objects at the top of the sequence diagram visible at all times, regardless of how far down in the diagram one is currently looking, which would make the larger diagrams easier to navigate.
+Another suggestion was to make it possible to trigger the isolated view from the mentioned line of objects at the top of the sequence diagram, instead of having to find both the desired objects, and then scroll down to find the first event it is involved in.
+~\\
+
 
 some new suggestions: always show line of objects on top of seq diag, regardless of how far down one is scrolling, desire for vertical collapse
 complaints about information overload, and inflated diagrams, especially with increased filtering details, some concern on how larger projects might behave
