@@ -4,7 +4,7 @@ Based on the mentioned shortcomings, the following improvements are suggested.
 ~\\
 
 The ability to detect an inner type with a generic name, and display its parent type in the diagrams instead of its own.
-This will make, among others, listener-heavy programs much more understandable as one can see what kind of listener each object is, instead of guessing, based on when it is invoked in the sequence-diagram.
+This will make, among others, listener-heavy programs more understandable as the kind of listeners in use is clearly visible, removing the need to guess based on when they are invoked in the sequence-diagram.
 Further helping the same situation, is to visually link listeners to the objects they are added to, in the contour-diagram, making it clearly visible which object is being listened to by the different listeners.
 A crude visualization of these two changes, compared to the original, can be seen in \autoref{fig:contOving4Changes}.
 ~\\
@@ -37,7 +37,7 @@ One can make assumptions based on class names, but they will be worthless if a p
 		\caption{Listeners connected to the object listened to}
 		\label{fig:contOving4ChangesC}
 	\end{subfigure}
-	\caption{Crude comparison of suggested changes to the contour diagram}
+	\caption{Comparison of suggested changes to the contour diagram}
 	\label{fig:contOving4Changes} 
 \end{figure}
 ~\\
@@ -63,7 +63,7 @@ The way the sequence diagrams currently work, object instances are added as they
 ~\\
 
 In the case of exploring events triggered by a listener, the ability to isolate the involved objects, and reorder the diagram could be very useful, providing a clean view of a smaller series of events.
-Using the same figure as an example, the rightmost, and longest, bar would be moved to the far left, the three second-longest would be in the middle, while the shortest ones would be to the left.
+Using the same figure as an example, the rightmost, and longest, bar would be moved to the far left, the three of medium length would be in the middle, while the shortest ones would be to the left.
 In total, only the lifelines of those five objects would be visible, all the ones that are being crossed in \autoref{fig:seqOving4CrossLines} are unnecessary, and would be hidden as shown in \autoref{fig:seqOving4IsolatedMock}.
 This function should be accessed by right clicking on the topmost event that is desired, and selecting a "view isolated" option.
 Whether the isolated view should appear in a new eclipse view, or simply modify the existing view of the sequence diagram, is something that should be determined by user-testing.
@@ -77,7 +77,7 @@ Whether the isolated view should appear in a new eclipse view, or simply modify 
 \end{figure}
 ~\\
 
-Stepping through the recorded states is, as mentioned above, cumbersome.
+Stepping through the recorded states is, as mentioned above, a time-consuming and impractical.
 While there are quick and easy ways to jump straight to any interesting state, it may also be interesting to view a playback of a part of, or the entire execution.
 This would allow an easier way of observing changes happening in a program.
 The playback would automatically step through the recorded states at a pace that the user should be able to adjust, updating the diagrams for each step.
