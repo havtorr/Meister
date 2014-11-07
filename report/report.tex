@@ -56,13 +56,13 @@
 \renewcommand{\thetheorem}{\arabic{theorem}}
 
 \begin{document}
-\pagenumbering{RomanType}
+\pagenumbering{Roman}
 %\maketitle
 %\begin{abstract}\label{abstract}
 %    \input{abstract}
 %\end{abstract}
-\newpage
-\renewcommand{\abstractname}{Acknowledgements}
+%\newpage
+%\renewcommand{\abstractname}{Acknowledgements}
 %\begin{abstract}\label{acknowledgements}
     
 %\end{abstract}
@@ -71,13 +71,14 @@
 \tableofcontents
 \listoffigures
 %\listoflistings
+\newpage
 
 \pagenumbering{arabic}
 
 %sections
 \include{Introduction}
-\include{TaskDescription}
 \include{Prestudy}
+\include{Methodology}
 \include{myWork/MyWork}
 \include{Conclusion}
 
