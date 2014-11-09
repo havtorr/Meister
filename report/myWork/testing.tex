@@ -7,16 +7,12 @@ They were then asked questions about how easily they understood the diagrams, an
 As well as whether the performance trade-off was acceptable for occasional use, if they could see themselves using JIVE, and if so, in what situations.
 ~\\
 
-Regarding performance, it has already been stated in \autoref{preMethods} that the tracing behavior of JIVE must affect the analyzed program negatively.
-The specific penalty varies with the complexity of the program, and the level of detail that is being logged.
-The performance of each example program, with both versions of JIVE, and with two different levels of detail in the filter for the modified version, for a total of six measurements, were tested separately from the user evaluation, but on the same computer.
-With the default filters, the programs used in the test had an average startup time of INSERT TIME, and responded to user input with a delay of no more than one second.
-With the modified filter mechanism, and filters adjusted to include information on relevant classes, the startup time increased to INSERT TIME2, while the user input delay ended up at RESPONSETIME HERE.
-~\\
-
-It should be noted that the example programs were both relatively simple, with few events following directly from a user interaction.
-While the program starts responding in a reasonable time, it may take unreasonably long time to finish responding.
-If for example data was to be fetched from some source, processed and then displayed to the user, it would be expected to take significantly more time to finish, than if it was to alter a line of text already on display.
+The Example programs both consisted of a simple user interface in swing, implementing the \gls{mvc} pattern.
+Exercise 1 consists of a text field and two buttons to transform the text entered in that field to either uppercase or lowercase, and with an option to continuallytransform as new text is written.
+Exercise 4 is an application that manages a simple list of persons.
+The interface it presents is split between a list of persons, and a set of text fields to enter information about the selected person, as well as buttons to create new, and delete existing persons.
+Both of these programs were relatively simple, with few events following directly from a user interaction, and as such, should have a limited performance reduction when used with JIVE.
+More complex programs are likely to suffer a greater performance impact from JIVE, but are also out of the scope for the HMI-course.
 ~\\
 
 \section{Results}\label{jiveEvalResults}
@@ -62,6 +58,40 @@ To help with this, there was a desire to have the line of objects at the top of 
 Another suggestion was to make it possible to trigger the isolated view from the mentioned line of objects at the top of the sequence diagram, instead of having to find both the desired objects, and then scroll down to find the first event it is involved in.
 ~\\
 
+%målt ytelse
+Regarding performance, it has already been stated in \autoref{preMethods} that the tracing behavior of JIVE must affect the analyzed program negatively.
+The specific penalty varies with the complexity of the program, and the level of detail that is being logged.
+The performance of each example program, with both versions of JIVE, and with two different levels of detail in the filter for the modified version, for a total of six measurements, were tested separately from the user evaluation, but on the same computer.
+Each result was measured five times, with the averages reported in the table below:
+~\\
+
+\begin{center}
+	\begin{tabular}{|l|l|r|}
+		\hline
+		Version of JIVE & Program & 5-run average\\ \hline
+		Original JIVE & Exercise 1 & 5,0s\\ \hline	
+		Modified JIVE, standard filter & Exercise 1 & 16,5s\\ \hline	
+		Modified JIVE, swing-focused filter & Exercise 1 & 18,3s\\ \hline
+		Original JIVE & Exercise 4 & 8,2s\\ \hline	
+		Modified JIVE, standard filter & Exercise 4 & 25,0s\\ \hline	
+		Modified JIVE, swing-focused filter & Exercise 4 & 54,4s\\ \hline
+		
+	\end{tabular}
+\end{center}
+~\\
+
+As these results show, there is a significant degradation in performance, going from the original version if JIVE to the modified one.
+The impact of letting a larger amount of events through the filter adds another solid penalty.
+The reason for the latter has been explained in \autoref{jiveFeatures}, and is simply a reflection of the added work of processing more events as they are let through the filter.
+The impact observed from simply switching to the modified version, can be explained by the way the filter mechanism was altered.
+By first constructing a list of every package found in the workspace of the chosen program, and then use this list to add and remove excluded packages from the filter, the filter remains an exclusion filter, and its size reflects the size of the package list.
+When JIVE then checks to see if an event matches an entry in the filter, it has to look through a large amount of entries, and that clearly affects its performance.
+~\\
+
+
+
+
 
 STIKKORD: some new suggestions: always show line of objects on top of seq diag, regardless of how far down one is scrolling, desire for vertical collapse
 complaints about information overload, and inflated diagrams, especially with increased filtering details, some concern on how larger projects might behave
+~\\
