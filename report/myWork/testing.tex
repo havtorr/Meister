@@ -11,9 +11,28 @@ The Example programs both consisted of a simple user interface in swing, impleme
 Exercise 1 consists of a text field and two buttons to transform the text entered in that field to either uppercase or lowercase, and with an option to continuallytransform as new text is written.
 Exercise 4 is an application that manages a simple list of persons.
 The interface it presents is split between a list of persons, and a set of text fields to enter information about the selected person, as well as buttons to create new, and delete existing persons.
-Both of these programs were relatively simple, with few events following directly from a user interaction, and as such, should have a limited performance reduction when used with JIVE.
+Both of these programs, shown in \autoref{fig:MMI-Oving-UI}, were relatively simple, with few events following directly from a user interaction, and as such, should have a limited performance reduction when used with JIVE.
 More complex programs are likely to suffer a greater performance impact from JIVE, but are also out of the scope for the HMI-course.
 ~\\
+
+\begin{figure}[H]
+	\centering
+	\begin{subfigure}{\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{MMI-Oving1-UI}
+		\caption{HMI-exercise 1}
+		\label{fig:MMI-Oving1-UI}
+	\end{subfigure}
+	\begin{subfigure}{\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{MMI-Oving4-UI}
+		\caption{HMI-exercise 4}
+		\label{fig:MMI-Oving4-UI}
+	\end{subfigure}
+	\caption{The two example programs used in the evaluation}
+	\label{fig:MMI-Oving-UI}
+\end{figure}
+
 
 \section{Results}\label{jiveEvalResults}
 The students that participated in the evaluation were mostly in their third year, and had already finished the HMI-course the previous semester.
