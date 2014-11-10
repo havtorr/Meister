@@ -13,53 +13,50 @@ Java automatically names these classes by appending a dollar sign and a identify
 \gls{gui}-programs are written with several such classes to handle user input, each implementing a listener-interface of some kind, and they show up in the diagrams with their generated names, that do not reflect the purpose of the class.
 The ability to detect an inner type with a generic name, and display the interface it implements, instead of is actual name should help with this issue.
 Among others, listener-heavy programs should become more understandable, as the kind of listeners in use will be clearly visible, removing the need to guess based on when they are invoked in the sequence-diagram.
-\autoref{fig:contOving4Changes} illustrates this as the change from part a to part b.
+\autoref{fig:contOving4ChangesLab} illustrates this as the change from part a to part b.
 ~\\
 
 %koble listeners til det de lytter på
-To further help users identify listeners, they could be visually linked to the objects they are listening to in the contour-diagram, making it clearly visible which object is being listened to by the different listeners, as illustrated in part c of \autoref{fig:contOving4Changes} illustrates this change, along with the relabeled objects.
+To further help users identify listeners, they could be visually linked to the objects they are listening to in the contour-diagram, making it clearly visible which object is being listened to by the different listeners, as illustrated in \autoref{fig:contOving4ChangesLink} illustrates this change, along with the relabeled objects.
 While the effect is possible to achieve by applying an appropriate filter, this filter must let a large amount of objects through, causing the diagrams to become cluttered and challenging to navigate.
 On the other hand, the effect of the listener being triggered is clearly visible in the sequence diagram, and it is possible that this is easy enough to connect with a users interactions with a program, so that such a link will not be necessary.
-~\\
-
-%visualisere mvc-komonenter
-A last visual change would be to attempt further identification of the components that make up an \gls{mvc}-architecture, and highlight them.
-Being a change focusing solely on a specific architecture, it has to be possible to deactivate when not needed.
-The challenge with this feature is to find a way to identify the different components.
-While listeners can usually be identified by their name, of by their implementation of certain interfaces, this is not necessarily the case for models and controllers.
-Another challenge is to not add so many new elements to the diagrams that they become chaotic and difficult to read.
-
-Finding ways to highlight the different parts of e.g. an MVC-architecture, making it clearly visible which objects make out the models, views and controllers, may further help the understanding of a program.
-But such highlighting must be balanced in order to not create a visual chaos of different colors.
-Adding symbols instead of colors might be a better solution, both maintaining the current color-scheme, and adding new information.
-The coloring, highlighting and naming of inner types should apply to both of the diagrams.
-The biggest challenge with this kind of highlighting, is the process of detection.
-While listeners can easily be detected by their implementation of a listener-interface, detecting a controller or a model is not trivial.
-One can make assumptions based on class names, but they will be worthless if a program does not match those assumptions, and developers are not likely to change their programs to fit.
 ~\\
 
 \begin{figure}[H]
 	\centering
 	\begin{subfigure}{\textwidth}
 		\centering
-		\includegraphics[width=\textwidth, trim= 0 0 0 0, clip]{MMI-Oving4-ObjectDiagInit}
-		\caption{Original}
-		\label{fig:contOving4ChangesA}
+		\includegraphics[width=\textwidth, trim= 0 0 36cm 25cm, clip]{MMI-Oving4-ObjectDiagInit}
+		\caption{Original, cropped view of \autoref{fig:contOving4Init}}
+		\label{fig:contOving4ChangesLabA}
 	\end{subfigure}
 	\begin{subfigure}{\textwidth}
 		\centering
-		\includegraphics[width=\textwidth, trim= 0 0 0 0, clip]{MMI-Oving4-ObjectDiagInit-edit}
-		\caption{Changed naming of inner types}
-		\label{fig:contOving4ChangesB}
+		\includegraphics[width=\textwidth, trim= 0 0 27cm 19cm, clip]{MMI-Oving4-ObjectDiagInit-edit}
+		\caption{Changed naming of anonymous inner types}
+		\label{fig:contOving4ChangesLabB}
 	\end{subfigure}
-	\begin{subfigure}{\textwidth}
-		\centering
-		\includegraphics[width=\textwidth, trim= 0 0 0 0, clip]{MMI-Oving4-ObjectDiagInit-edit3}
-		\caption{Listeners connected to the object listened to}
-		\label{fig:contOving4ChangesC}
-	\end{subfigure}
-	\caption{Comparison of suggested changes to the contour diagram}
-	\label{fig:contOving4Changes} 
+	\caption{comparison of the suggested label-changes to the diagrams}
+	\label{fig:contOving4ChangesLab}
+\end{figure}
+
+%visualisere mvc-komonenter
+A last visual change would be to attempt further identification of the components that make up an \gls{mvc}-architecture, and highlight them.
+Being a change focusing solely on a specific architecture, it has to be possible to deactivate when not needed.
+The major challenge with this feature is to find a way to identify the different components.
+While listeners can usually be identified by their name, of by their implementation of certain interfaces, this is not necessarily the case for models and controllers.
+A possible solution would be to require developers to follow a certain naming scheme, but this would still have a risk of false positives -- leading to incorrect diagrams, and adoption of such a scheme with the sole purpose of using a special tool, is not something to expect.
+The highlighting could be done by adding colored frames to the identified objects, or by adding a icon indicating the role of a given object.
+Not as big of a challenge, this does pose the problem of not making the diagrams too distracting and hard to read due to the added elements.
+~\\
+
+%veldig vanskelig å lese teksten i figuren
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth, trim= 0 0 0 0, clip]{MMI-Oving4-ObjectDiagInit-edit3}
+	\caption{Listeners are relabeled, and connected to the objects they listen to. The illustration is based on \autoref{fig:contOving4Init}}
+	\label{fig:contOving4ChangesLink}
 \end{figure}
 ~\\
 
