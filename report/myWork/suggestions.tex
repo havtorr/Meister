@@ -104,16 +104,17 @@ This results in a potentially large list of packages, and will take an unnecessa
 By instead allowing the users to add the one package to be included, and using both a list of inclusions and a list of exclusions to build the filter, the amount of work for the user is significantly reduced, while maintaining readability.
 ~\\%hurtig bytting av filter ble ikke implementert, men burde være relativt enkelt å få til. utelatt her for ikke framstå for lat
 
-%auto-avspilling av states
-Stepping through the recorded states is, as mentioned above, a time-consuming and impractical.
-While there are quick and easy ways to jump straight to any interesting state, it may also be interesting to view a playback of a part of, or the entire execution.
-This would allow an easier way of observing changes happening in a program.
-The playback would automatically step through the recorded states at a pace that the user should be able to adjust, updating the diagrams for each step.
-Playback should be possible to initialize from any selected event that has been recorded, as starting from the beginning would often be a waste of time.
+%søk
+The ability to search through all the events is a potentially useful feature, depending on the scenario in which JIVE is used.
+When merely getting an overview of a program, it is likely not needed at all, but for debugging purposes, it has a clear use as a way of finding specific events.
+It is unfortunately very strict in its interpretation of the search terms, being both case-sensitive, and requiring full class names, including the package the class is contained within.
+It is assumed that this behavior was chosen in order to give an accurate, and limited set of results, instead of risking a large amount of false positives.
+On the other hand, this behavior goes against the expectations set by most search providers in other areas, and can lead to confused users, that may, at worst, consider the search to be non-functional.
+By relaxing the search criteria to not be case sensitive, and to allow partial matches, the usage of this feature would be less confusing, and still allow the users to narrow their results by being more specific with their search-terms.
 ~\\
 
-%søk
-Searching can be improved by relaxing the requirements for for search-terms.
-The requirement of full class names in searches goes against the expected behavior set by both web- and desktop-based search engines, and is likely to cause confusion or, at worst, leave users thinking the functionality is broken.
-Relaxing this requirement to allowing partial class names, or substrings in general, would be an improvement to the usability of the tool.
-~\\
+
+
+
+
+
