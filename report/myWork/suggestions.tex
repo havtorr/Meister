@@ -59,14 +59,6 @@ Not as big of a challenge, this does pose the problem of not making the diagrams
 ~\\
 
 \subsection{Functional changes}\label{jiveSuggestionsFunctional}
-%filter-endringer
-The filter operates by excluding unwanted elements from the trace-log, and only takes a list of elements to exclude as input.
-While this simplifies the internal operation, and makes it easy for users to understand, it also makes it hard to build a more fine grained filter, where , for instance, a package containing several sub-packages is excluded, but one of those sub-packages is not.
-The current way to achieve this is to individually list each of the sub-packages that are excluded, while omitting the one that should be included.
-This results in a potentially large list of packages, and will take an unnecessary amount of work to add to the filter.
-By instead allowing the users to add the one package to be included, and using both a list of inclusions and a list of exclusions to build the filter, the amount of work for the user is significantly reduced, while maintaining readability.
-~\\%hurtig bytting av filter ble ikke implementert, men burde være relativt enkelt å få til. utelatt her for ikke framstå for lat
-
 %bruker-tilpasning av diag
 Both diagrams can easily grow to sizes that make them hard to navigate and to get an overview of.
 While the contour diagram offers different presentation modes, by for instance only showing objects, and not their data-fields, the sequence diagram offers fewer options.
@@ -91,7 +83,7 @@ This problem is illustrated in \autoref{fig:seqOving4CrossLines}, where a listen
 ~\\
 
 %isolert visning
-In some cases, the amount of unrelated lifelines that are crossed becomes so large that fitting the entire sequence within the view of a single screen becomes impossible without zooming out, and thus rendering the text unreadable.
+In some cases, the amount of unrelated lifelines that are crossed becomes so large, that fitting the entire sequence within the view of a single screen becomes impossible without zooming out, and thus rendering the text unreadable.
 Scrolling sideways to follow consecutive events is not ideal, and can potentially be disorienting.
 This could be solved by allowing users to view such a sub-sequence in a separate, isolated environment, with the objects lined up in the order in which they are used, as illustrated in \autoref{fig:seqOving4IsolatedMock}.
 ~\\
@@ -103,6 +95,14 @@ This could be solved by allowing users to view such a sub-sequence in a separate
 	\label{fig:seqOving4IsolatedMock}
 \end{figure}
 ~\\
+
+%filter-endringer
+The filter operates by excluding unwanted elements from the trace-log, and only takes a list of elements to exclude as input.
+While this simplifies the internal operation, and makes it easy for users to understand, it also makes it hard to build a more fine grained filter, where , for instance, a package containing several sub-packages is excluded, but one of those sub-packages is not.
+The current way to achieve this is to individually list each of the sub-packages that are excluded, while omitting the one that should be included.
+This results in a potentially large list of packages, and will take an unnecessary amount of work to add to the filter.
+By instead allowing the users to add the one package to be included, and using both a list of inclusions and a list of exclusions to build the filter, the amount of work for the user is significantly reduced, while maintaining readability.
+~\\%hurtig bytting av filter ble ikke implementert, men burde være relativt enkelt å få til. utelatt her for ikke framstå for lat
 
 %auto-avspilling av states
 Stepping through the recorded states is, as mentioned above, a time-consuming and impractical.
