@@ -50,8 +50,6 @@ The highlighting could be done by adding colored frames to the identified object
 Not as big of a challenge, this does pose the problem of not making the diagrams too distracting and hard to read due to the added elements.
 ~\\
 
-%veldig vanskelig å lese teksten i figuren
-
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\textwidth, trim= 0 0 0 0, clip]{MMI-Oving4-ObjectDiagInit-edit3}
@@ -62,17 +60,26 @@ Not as big of a challenge, this does pose the problem of not making the diagrams
 
 \subsection{Functional changes}\label{jiveSuggestionsFunctional}
 %filter-endringer
-Exploring changes to the default exclusion-filter, in order to provide more useful information out of the box, is also an option.
-This will provide a better experience for certain scenarios, but may be useless in other cases by providing too much unnecessary information.
-A way to easily switch filters by defining presets might be preferable.
-The filter might also be extended to support both exclusion and inclusion, allowing a more fine-grained selection of interesting classes.
-As an example, one might be interested in ignoring the entire javax-package, but still allowing javax.swing in order to see more \gls{gui}-related objects.
-It is also important to not allow too many packages through the filter, as the performance can suffer immensely from logging too many events.
-~\\
+The filter operates by excluding unwanted elements from the trace-log, and only takes a list of elements to exclude as input.
+While this simplifies the internal operation, and makes it easy for users to understand, it also makes it hard to build a more fine grained filter, where , for instance, a package containing several sub-packages is excluded, but one of those sub-packages is not.
+The current way to achieve this is to individually list each of the sub-packages that are excluded, while omitting the one that should be included.
+This results in a potentially large list of packages, and will take an unnecessary amount of work to add to the filter.
+By instead allowing the users to add the one package to be included, and using both a list of inclusions and a list of exclusions to build the filter, the amount of work for the user is significantly reduced, while maintaining readability.
+~\\%hurtig bytting av filter ble ikke implementert, men burde være relativt enkelt å få til. utelatt her for ikke framstå for lat
 
 %bruker-tilpasning av diag
-Allowing more ways to interact with the diagrams, e.g. hiding elements or compressing sequences, should improve usability for larger programs and longer runs.
-The way the sequence diagrams currently work, object instances are added as they appear, resulting in later method calls to draw lines crossing large parts of the diagram, as shown in \autoref{fig:seqOving4CrossLines}.
+Both diagrams can easily grow to sizes that make them hard to navigate and to get an overview of.
+While the contour diagram offers different presentation modes, by for instance only showing objects, and not their data-fields, the sequence diagram offers fewer options.
+Collapsing parts of the diagrams do help in reducing the amount of information shown, and thus ease the interpretation of the diagram, but are still some issues that are a result of how the diagram is drawn.
+Firstly, there is currently no method of vertically compressing the sequence diagram, resulting in long sequences with no visible interaction if that sequence has already been collapsed, or if there are a lot of filtered events occurring within the lifeline of an object.
+There is an ongoing development to solve this, by substituting an event-pattern with a single new event, and thus reducing the vertical size of the diagram.
+If this technique is applied when using the existing horizontal collapse, the diagram should shrink in both directions.
+~\\
+
+The other issue is a consequence of having the objects at the top of the sequence diagram added in the order in which they are used.
+This is generally a good way to order the objects, especially when considering the start-up sequence of a program, which is then displayed in a well organized way.
+Where this approach becomes problematic, is when the newer objects start interacting with the older ones, causing the lines that indicate method calls to cross over parts of the diagram, and often going back and forth.
+This problem is illustrated in \autoref{fig:seqOving4CrossLines}, where a listener triggers activity in an older part of the program.
 ~\\
 
 \begin{figure}[H]
@@ -84,11 +91,9 @@ The way the sequence diagrams currently work, object instances are added as they
 ~\\
 
 %isolert visning
-In the case of exploring events triggered by a listener, the ability to isolate the involved objects, and reorder the diagram could be very useful, providing a clean view of a smaller series of events.
-Using the same figure as an example, the rightmost, and longest, bar would be moved to the far left, the three of medium length would be in the middle, while the shortest ones would be to the left.
-In total, only the lifelines of those five objects would be visible, all the ones that are being crossed in \autoref{fig:seqOving4CrossLines} are unnecessary, and would be hidden as shown in \autoref{fig:seqOving4IsolatedMock}.
-This function should be accessed by right clicking on the topmost event that is desired, and selecting a "view isolated" option.
-Whether the isolated view should appear in a new eclipse view, or simply modify the existing view of the sequence diagram, is something that should be determined by user-testing.
+In some cases, the amount of unrelated lifelines that are crossed becomes so large that fitting the entire sequence within the view of a single screen becomes impossible without zooming out, and thus rendering the text unreadable.
+Scrolling sideways to follow consecutive events is not ideal, and can potentially be disorienting.
+This could be solved by allowing users to view such a sub-sequence in a separate, isolated environment, with the objects lined up in the order in which they are used, as illustrated in \autoref{fig:seqOving4IsolatedMock}.
 ~\\
 
 \begin{figure}[H]
