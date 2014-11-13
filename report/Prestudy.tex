@@ -51,7 +51,7 @@ Download links for the tools are provided in their respective glossary entries f
 ~\\
 
 %not java/eclipse
-\gls{gdb}, a part of the GNU project /FSF?,  offers a tracing environment, and support for many languages, but not Java.
+\gls{gdb}, a part of the GNU project /FSF?, offers a tracing environment, and support for many languages, but not Java.
 Due to its \gls{cli}, it is not necessarily easy to use on its own, and so, there are several front-end platforms that provides a graphical environment around GDB, including Eclipse.
 ~\\
 
@@ -64,7 +64,7 @@ The plugin was developed by the MNM-team at the Ludwig Maximilian University of 
 ~\\
 
 The \gls{tod} \cite{Pothier2007}, is developed at the University of Chile in Santiago, and as the name suggests, utilizes execution traces to enable its debugging and querying features.
-It offers  high performance tracing, being able to maintain usable interaction while debugging complex software, but its only visual representation of programs is the 'mural', a graph that shows event density over time.
+It offers high performance tracing, being able to maintain usable interaction while debugging complex software, but its only visual representation of programs is the 'mural', a graph that shows event density over time.
 ~\\
 
 \Gls{whyline} \cite{ko2009}, like the \gls{tod}, makes use of execution traces to enable querying, instead of providing visualizations.
@@ -94,10 +94,25 @@ In addition to providing diagrams, the trace log is also used to enable backstep
 \section{Deciding on a tool}\label{preDiscuss}
 %traceviewer, debug viualization plugin, jive, tod er eclipse plugins
 Of the mentioned tools, the \gls{traceviewer}, \gls{tod}, \gls{debugVisualizationPlugin}, and \gls{jive} are all available as eclipse-plugins, and are thus fairly simple to integrate into the existing teaching process.
-The features they provide, on the other hand, vary.
-The \gls{traceviewer} is as mentioned, designed for massive parallelism, and does require a specific version of eclipse, and because of this, it is not really suited for further study.%?
-The \gls{tod} provides a debugging environment supported by trace logs, as implied by the name.
+As the other tools that were mentioned lacks support for Java, Eclipse, or both, they are all deemed unfit for integration with the desired teaching environment.
+The features provided by the remaining tools are varies.
+Some are overlapping, like the tracing, while others provide completely different functionality, or combine a different set of techniques.
+The features they provide, on the other hand, varies.
+~\\
+
+The \gls{traceviewer} is as mentioned, designed for massive parallelism, and requires a specific version of eclipse, which has been discontinued.
+As small programs with a graphical interface, like those that are used in the HMI-exercises, are typically not massively parallel, but instead almost entirely serial in nature, this tool does not fit the scope of the course.
+Due to this, it is not really suited for further study.
+~\\
+
+The \gls{tod} provides a debugging environment supported by trace logs.
 It presents its information mostly in a textual way, and does not provide any visual diagrams of the program structure, or execution order.
+It does provide a 'mural' a graph depicting the frequency of events through time, but this does not describe the program structure in any way.
+While providing support for developers by letting them look back at earlier stages of their programs, and quickly jump to events of interest.
+E.g. the moment that a variable is assigned a value that later causes en error.
+
+~\\
+
 The \gls{debugVisualizationPlugin} expands on the debugging functionality of Eclipse by providing a visual view of variables, and is designed to be used alongside the rest of the debugging environment provided by eclipse.
 ~\\
 
