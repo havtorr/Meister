@@ -1,9 +1,11 @@
 \chapter{Prestudy}\label{prestudy}%veldig rett på, forklar mer om ulike typer diagram og metoder for å visualisere, hva skiller disse fra debuggere?
 This chapter will serve to get an overview of the current situation of debugging methods, visualization techniques, and the various tools that are available.
 \section{Methods}\label{preMethods}
-There are several ways a debugger can aid the programmer beyond just showing the current state of a program at a \gls{breakpoint} chosen before running.
-For a fresh programmer, either in general, or at a certain project, the most useful method is probably to generate diagrams that visualize the current state, and the path of execution.
-I.e. some form of object-, and/or sequence-diagram.
+Debuggers are tools that are designed to aid a developer in the process of finding errors, or bugs, in a program.
+Depending on the language and platform, this ranges from gathering information when a program crashes, to inserting \gls{breakpoints} -- points in the code where the debugged program will halt, allowing the contents of its memory to be inspected, and potentially modified.
+While having obvious uses, these techniques requires a certain level of knowledge of both the program in question, and programming in general, to be really useful.
+Going beyond this, the generation of diagrams to visualize the structure of a program, and its path of execution is another way of helping developers.
+I.e. some form of object-, and/or sequence-diagram as defined by the \gls{uml} specification.
 Such diagrams can make it easier to get an overview of a programs current state, see the contents of objects and how they relate to each other, and to understand how the various components work together.
 ~\\
 
@@ -51,7 +53,7 @@ Download links for the tools are provided in their respective glossary entries f
 ~\\
 
 %not java/eclipse
-\gls{gdb}, a part of the GNU project /FSF?, offers a tracing environment, and support for many languages, but not Java.
+\gls{gdb}, a part of the GNU project, and maintained by the Free Software Foundation, offers a tracing environment, and support for many languages, although the support for Java is limited.
 Due to its \gls{cli}, it is not necessarily easy to use on its own, and so, there are several front-end platforms that provides a graphical environment around GDB, including Eclipse.
 ~\\
 
@@ -74,7 +76,7 @@ This tool only exists as a separate application, and does not integrate into any
 ~\\
 
 The \gls{debugVisualizationPlugin} for eclipse provides an alternative to the variable view provided in eclipses debug-perspective, providing a graph that represents the variables of a program.
-The user still needs to use regular techniques they would use normally in order to pause the program-execution, and be able to actually view the state of the variables.
+The user still needs to use regular techniques they would use normally in order to pause the program-execution, and be able to actually view the state of the variables, as this plugin does not do any tracing.
 This was previously tested in the course TDT4100~-~Object oriented programming, with the conclusion that the generated diagram quickly became too large, showing the contents of objects that were not important, and shuffling objects as new ones were added.%hvem står bak?
 ~\\
 
@@ -94,10 +96,11 @@ In addition to providing diagrams, the trace log is also used to enable backstep
 \section{Deciding on a tool}\label{preDiscuss}
 %traceviewer, debug viualization plugin, jive, tod er eclipse plugins
 Of the mentioned tools, the \gls{traceviewer}, \gls{tod}, \gls{debugVisualizationPlugin}, and \gls{jive} are all available as eclipse-plugins, and are thus fairly simple to integrate into the existing teaching process.
+While \gls{gdb} supports both Java and Eclipse, the Eclipse-integration is mainly to enable the use of eclipse as an environment for writing programs with C and C++.
+Since Eclipse already has a good debugger for Java, it is not considered necessary to use another for the same purpose.
 As the other tools that were mentioned lacks support for Java, Eclipse, or both, they are all deemed unfit for integration with the desired teaching environment.
-The features provided by the remaining tools are varies.
+The features provided by the remaining tools varies.
 Some are overlapping, like the tracing, while others provide completely different functionality, or combine a different set of techniques.
-The features they provide, on the other hand, varies.
 ~\\
 
 The \gls{traceviewer} is as mentioned, designed for massive parallelism, and requires a specific version of eclipse, which has been discontinued.
@@ -113,8 +116,10 @@ E.g. the moment that a variable is assigned a value that later causes en error.
 ~\\
 
 The \gls{debugVisualizationPlugin} expands on the debugging functionality of Eclipse by providing a visual view of variables, and is designed to be used alongside the rest of the debugging environment provided by eclipse.
-As mentioned, this plugin has already been tested with another course, with the conclusion that while the information it provides is good, the elements in the diagram does not stay put, causing confusion as they move around during execution.
-There were also complaints about too much information being displayed, making it hard to get an overview of the program, and identifying the important components.%TODO: installer og sjekk
+It does not perform any tracing, and instead uses the information exposed to Eclipses debugger when the program reaches a breakpoint to draw its diagram.
+As mentioned, this plugin has already been tested with another course, with the conclusion that while the information it provides is useful, the elements in the diagram does not stay put, causing confusion as they move around during execution.
+There were also complaints about too much information being displayed, making it hard to get an overview of the program, and identifying the important components.
+The latest version of this plugin does support the hiding of elements, as well as letting the user reorganize the diagram, but any such configuration seems to be reset when moving to a new breakpoint.
 ~\\
 
 %stuff about jive coming up, sloppypar to fix cite going over margins
