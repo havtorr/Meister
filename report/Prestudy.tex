@@ -2,7 +2,7 @@
 This chapter will serve to get an overview of the current situation of debugging methods, visualization techniques, and the various tools that are available.
 \section{Methods}\label{preMethods}
 Debuggers are tools that are designed to aid a developer in the process of finding errors, or bugs, in a program.
-Depending on the language and platform, this ranges from gathering information when a program crashes, to inserting \gls{breakpoints} -- points in the code where the debugged program will halt, allowing the contents of its memory to be inspected, and potentially modified.
+Depending on the language and platform, this ranges from gathering information when a program crashes, to inserting \glspl{breakpoint} -- points in the code where the debugged program will halt, allowing the contents of its memory to be inspected, and potentially modified.
 While having obvious uses, these techniques requires a certain level of knowledge of both the program in question, and programming in general, to be really useful.
 Going beyond this, the generation of diagrams to visualize the structure of a program, and its path of execution is another way of helping developers.
 I.e. some form of object-, and/or sequence-diagram as defined by the \gls{uml} specification.
@@ -87,7 +87,7 @@ This was previously tested in the course TDT4100~-~Object oriented programming, 
 However, it is restricted to z/OS and linux on system Z, preventing most people from using it.
 ~\\
 
-\Gls{jive} is a tool that utilizes execution traces to provide diagrams while running a program.
+\gls{jive} is a tool that utilizes execution traces to provide diagrams while running a program.
 Developed at the university of Buffalo, it is installed a an Eclipse plugin, and provides several new views to display the information it provides.
 In addition to providing diagrams, the trace log is also used to enable backstepping, which is coupled with the diagrams to always show the selected execution state.
 ~\\
@@ -96,16 +96,17 @@ In addition to providing diagrams, the trace log is also used to enable backstep
 \section{Deciding on a tool}\label{preDiscuss}
 %traceviewer, debug viualization plugin, jive, tod er eclipse plugins
 Of the mentioned tools, the \gls{traceviewer}, \gls{tod}, \gls{debugVisualizationPlugin}, and \gls{jive} are all available as eclipse-plugins, and are thus fairly simple to integrate into the existing teaching process.
-While \gls{gdb} supports both Java and Eclipse, the Eclipse-integration is mainly to enable the use of eclipse as an environment for writing programs with C and C++.
+While \gls{gdb} supports both Java and Eclipse, the Eclipse-integration is mainly to enable the use of eclipse as an environment for writing programs in C and C++.
 Since Eclipse already has a good debugger for Java, it is not considered necessary to use another for the same purpose.
 As the other tools that were mentioned lacks support for Java, Eclipse, or both, they are all deemed unfit for integration with the desired teaching environment.
 The features provided by the remaining tools varies.
 Some are overlapping, like the tracing, while others provide completely different functionality, or combine a different set of techniques.
+As they are all plugins that integrate into Eclipse, they allow, and encourage, the users to use them alongside the existing debugging functionality, as well as giving the opportunity of opting oft, should they be found to be unfit for a use case.
 ~\\
 
 The \gls{traceviewer} is as mentioned, designed for massive parallelism, and requires a specific version of eclipse, which has been discontinued.
 As small programs with a graphical interface, like those that are used in the HMI-exercises, are typically not massively parallel, but instead almost entirely serial in nature, this tool does not fit the scope of the course.
-Due to this, it is not really suited for further study.
+Due to this, and the fact that the plugin itself is no longer available, it is not suited for further study.
 ~\\
 
 The \gls{tod} provides a debugging environment supported by trace logs.
@@ -122,16 +123,17 @@ There were also complaints about too much information being displayed, making it
 The latest version of this plugin does support the hiding of elements, as well as letting the user reorganize the diagram, but any such configuration seems to be reset when moving to a new breakpoint.
 ~\\
 
-%stuff about jive coming up, sloppypar to fix cite going over margins
-\begin{sloppypar}
+%stuff about jive 
 \Gls{jive} seems to be the only tool that utilizes all three methods mentioned in \autoref{preMethods}, as well as being freely available as a plugin for eclipse, making it easy to install and use.
-During program execution, Jive generates a \gls{contourdiagram} \cite{Jayaraman1996}, and a sequence diagram.
+During program execution, \gls{jive} generates both a \gls{contourdiagram} \cite{Jayaraman1996} -- a diagram similar to object diagrams -- and a sequence diagram.
 Combined with an execution trace, it allows the user to jump back and forth in the execution, and have the diagrams updated accordingly.
 Querying is supported with pre-defined search-templates added to the built-in search window in Eclipse.
 ~\\
-\end{sloppypar}
 
-Due to all the extra work being done when using jive to debug a program, the performance is not always acceptable.
+While the diagrams, like the diagram generated by the \gls{debugVisualizationPlugin}, may suffer from the inclusion of too many objects, \gls{jive} integrates a filtering mechanism to reduce the amount of objects included in both diagrams.
+
+
+Due to all the extra work being done when using \gls{jive} to debug a program, the performance is not always acceptable.
 For small non-interactive programs, the added waiting time may not be a problem, but larger programs are likely to suffer from a significantly longer execution time, and even simple interactive programs can use up to a second to respond to input on a fairly powerful computer.
 ~\\
 
