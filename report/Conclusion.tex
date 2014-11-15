@@ -10,37 +10,40 @@ This section will summarize the previous sections in light of the research quest
 What is the current state of the various visualization tools that are available?
 \end{theorem}
 
-There are currently several different tools that can aid a developer in his understanding of programming, ranging from the regular debuggers found in most IDEs, to code analysis and execution tracers.
-Most of these focus on one or two features, instead of attempting to combine them all.
-Regarding NTNUs chosen teaching environment, the amount of available tools is naturally reduced, but there is still a large portion of tools available, thanks to the plug-in support of Eclipse.
-Among these, JIVE was found to be of most interest, due to its combination of features, including tracing, diagram generation, and state-jumping.
+There are currently several different tools that can aid a developer in his understanding of programming, ranging from the regular debuggers found in most IDEs, to code analysis tools and execution tracers.
+This paper has focused on the tools that provide information from programs as they are running, and has found that most of these tools focus on a few techniques to provide their users with information.
+The techniques in use are mostly based on trace-logging, with an analysis of the log after the program has finished execution.
+This analysis is then used to provide detailed behavior on the program, often with an interactive navigation of the data.
+Other techniques involve visualization with graphs and diagrams, either based on trace-logs, or on run-time-data captured when a program is suspended at a breakpoint.
+Not all of the discovered tools were available for download, and might be considered abandoned, while others are still under active development.
 ~\\
 
 \begin{theorem}
 Could any of these be integrated into the current teaching environment at NTNU, consisting of Java and Eclipse?
 \end{theorem}
 
-Both JIVE and other tools are available as Eclipse-plugins, and as such, they can easily be integrated into the courses that use Eclipse.
-Unless a very platform-specific mandatory framework is used, students are of course free to choose a different IDE while following  a course, and by doing so, they will also opt out of the use of JIVE or any other tools.
-But these students are not likely to be the ones that would benefit the most from such tools in the first place, as a decision to not use recommended tools usually indicates that they know what they are doing. %? ikke akkurat noe jeg har undersøkt, bør ha mer for å støtte opp om dette
-As mentioned in \cite[p. 99]{Gestwicki2005}, JIVE has already been successfully used to explain design patterns to students in a graduate-level seminar, indicating that it is suitable as an educational aid.
+Among the tools the tools that were examined, a variety of platforms were supported, although -- due to the focus of the report -- most of them were designed around supporting programs written in Java, and a majority of these were integrated with Eclipse by design.
+As such, they could be integrated with several courses at NTNU, both through use during lecture, or by making them a part of the recommended tools.
+This would cover most students participating in a course, excepting those who actively choose to not use them.
+The most promising tool, JIVE, chosen for its combination of tracing and diagrams, has already been successfully used to explain design patterns to students in a graduate-level seminar \cite[p. 99]{Gestwicki2005}, indicating that it is suitable as an educational aid.
 ~\\
 
 \begin{theorem}
-Is there room for improvement in how these tools are used, and the ease of using them?
+Is there room for improvement in how these tools are used, and the ease of using them? Can the information they provide be refined, or presented in a more understandable way?
 \end{theorem}
 
-As detailed in \autoref{jiveEnhance}, there are definitely a potential for improvements in how JIVE works, and is used.
+\Cref{preDiscuss} concludes that JIVE is the tool that is most suitable for use in the target environment, and, as such, it was selected for further study.
+As detailed in \cref{jiveEnhance}, there is a potential for improvements in how JIVE works, and in what kind of usage it encourages.
 While the existing features are useful as they are, they were found to be lacking in usability.
 The diagrams were found to lacking in their description of certain classes, making identification difficult.
 Larger programs were also found to quickly grow the sequence diagram to large sizes, making it harder to get an overview.
 ~\\
 
-Some of these points were the focus of the improvements that were implemented in \autoref{jiveImpl}, and their results are summarized when answering the last research question.
+Some of these points were the focus of the improvements that were implemented in \cref{jiveImpl}, and their results are summarized when answering the last research question.
 ~\\
 
 \begin{theorem}
-Would the use of such tools and any improvements actually be useful for the students?
+Would the use of such tools and any improvements actually be useful for the students, and help them understand the internal interactions in a program?
 \end{theorem}
 
 As the results from the user evaluation show, the use of JIVE, or a similar tool, can certainly be of use for students that are having trouble understanding the interactions in the programs they are creating. %prøv å ikke få det til å høres ut som ``special needs''-studenter
