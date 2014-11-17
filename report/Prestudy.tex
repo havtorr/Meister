@@ -6,7 +6,7 @@ Depending on the language and platform, this ranges from gathering information w
 While having obvious uses, these techniques requires a certain level of knowledge of both the program in question, and programming in general, to be really useful.
 Going beyond this, the generation of diagrams to visualize the structure of a program, and its path of execution is another way of helping developers.
 I.e. some form of object-, and/or sequence-diagram as defined by the \gls{uml} specification.
-Such diagrams can make it easier to get an overview of a programs current state, see the contents of objects and how they relate to each other, and to understand how the various components work together.
+Such diagrams can make it easier to get an overview of a program's current state, see the contents of objects and how they relate to each other, and to understand how the various components work together.
 ~\\
 
 Object diagrams are similar to class diagrams, in that they both show the objects of a program, and their connections between each other.
@@ -27,7 +27,7 @@ Execution traces can also be used to enable backwards stepping of program execut
 Stepping back in time allows the user to not only see the failure state of a program, but to go back and see what caused the problem, instead of adding a new \gls{breakpoint} and running the program again.
 There are different ways to store the information describing each step, providing various trade-offs between access-time and memory usage.
 The straightforward way would be to store each state independently, sacrificing memory for a near-constant time to load the details of a step.
-The load time will naturally be affected by the amount of data that must be analyzed, but there is no need to work through any the steps in between.
+The load time will naturally be affected by the amount of data that must be analyzed, but there is no need to work through any of the steps in between.
 If the data is stored as a differential of the previous state, the opposite situation is created.
 The amount of memory required is significantly reduced, and stepping to the immediate neighbors is very fast, but jumping between any two steps would require analyzing every step in between the two.
 A hybrid approach is also possible, relying on a differential model, but also introducing checkpoints every n steps, where all information is stored.
@@ -46,22 +46,23 @@ If all the tracing-process does is write to a log-file, which will be used later
 
 %-----------------------------------------------------------------------------------------------------------------------------
 \section{Existing Tools}\label{PreTools}%mer om hvilke metoder som blir brukt av hvert verktøy
-There currently exists several tools that provide one or more of the methods mentioned above.
+There are currently several existing tools that provide one or more of the methods mentioned above.
 The following list is not extensive, but includes some of the most interesting tools, considering the focus of this report.
-Some of the tools listed below does not support Java or eclipse, but provide interesting features that are worth mentioning, despite their incompatibilities with the desired teaching environment.
+Some of the tools listed below does not support Java or Eclipse, but provide interesting features that are worth mentioning, despite their incompatibilities with the desired teaching environment.
 Download links for the tools are provided in their respective glossary entries for those tools that are available.
 ~\\
 
 %not java/eclipse
 \gls{gdb}, a part of the GNU project, and maintained by the Free Software Foundation, offers a tracing environment, and support for many languages, although the support for Java is limited.
-Due to its \gls{cli}, it is not necessarily easy to use on its own, and so, there are several front-end platforms that provides a graphical environment around GDB, including Eclipse.
+Due to its \gls{cli}, it is not necessarily easy to use on its own, hence there are several front-end platforms that provide a graphical environment around \gls{gdb}, including Eclipse.
 ~\\
 
-\Gls{codecanvas} \cite{Deline2010}, developed by Microsoft, uses an interesting way of visualizing an entire project, everything from source-code to design documents and diagrams are layered onto a large canvas, allowing easy navigation between various elements, but is restricted to Microsoft Visual Studio, and the languages it supports.
+\Gls{codecanvas} \cite{Deline2010}, developed by Microsoft, uses an interesting way of visualizing an entire project, everything from source-code to design documents and diagrams are layered onto a large canvas.
+This allows the user to easily navigate between various elements, but this tool is restricted to Microsoft Visual Studio, and the languages it supports.
 ~\\
 
 %java/eclipse
-The \gls{traceviewer} \cite{Thomas2010} for g-eclipse -- a now discontinued version of eclipse, geared for development of grid-computing software -- uses a trace to generate visualizations of the program execution, and thus makes it easier to understand, but is designed for massive parallelism, requires a special version of eclipse, and may not be very useful for understanding smaller programs.
+The \gls{traceviewer} \cite{Thomas2010} for g-Eclipse -- a now discontinued version of Eclipse, geared for development of grid-computing software -- uses a trace to generate visualizations of the program execution, and thus making the execution easier to understand, but the plugin is designed for massive parallelism, requires a special version of Eclipse, and may not be very useful for understanding smaller programs.
 The plugin was developed by the MNM-team at the Ludwig Maximilian University of Munich.
 ~\\
 
@@ -75,28 +76,28 @@ This tool only exists as a separate application, and does not integrate into any
 \Gls{whyline} is developed at the Carnegie Mellon University.
 ~\\
 
-The \gls{debugVisualizationPlugin} for eclipse provides an alternative to the variable view provided in eclipses debug-perspective, providing a graph that represents the variables of a program.
+The \gls{debugVisualizationPlugin} for Eclipse provides an alternative to the variable view provided in Eclipse's debug-perspective, providing a graph that represents the variables of a program.
 The user still needs to use regular techniques they would use normally in order to pause the program-execution, and be able to actually view the state of the variables, as this plugin does not do any tracing.
 This was previously tested in the course TDT4100~-~Object oriented programming, with the conclusion that the generated diagram quickly became too large, showing the contents of objects that were not important, and shuffling objects as new ones were added.%hvem står bak?
 ~\\
 
-\Gls{javavis} \cite{Oechsle2002},developed at the University of Applied Sciences in Trier, provides visualizations in the form of \gls{uml} sequence- and object-diagrams, but does not provide any debugging features.
+\Gls{javavis} \cite{Oechsle2002},developed at the University of Applied Sciences in Trier, creates visualizations in the form of \gls{uml} sequence- and object-diagrams, but does not provide any debugging features.
 ~\\
 
 \Gls{jinsight} \cite{Pauw} is a powerful tool built by IBM, supporting both tracing and visualization.
-However, it is restricted to z/OS and linux on system Z, preventing most people from using it.
+However, it is restricted to z/OS and linux on system Z, preventing most people, and especially students, from using it.
 ~\\
 
-\gls{jive} is a tool that utilizes execution traces to provide diagrams while running a program.
-Developed at the university of Buffalo, it is installed a an Eclipse plugin, and provides several new views to display the information it provides.
-In addition to providing diagrams, the trace log is also used to enable backstepping, which is coupled with the diagrams to always show the selected execution state.
+\gls{jive} is a tool that utilizes execution traces to generate diagrams while running a program.
+Developed at the university of Buffalo, it is installed a an Eclipse plugin, and adds several new views to display the information it provides.
+In addition to generating diagrams, the trace log is also used to enable backstepping, which is coupled with the diagrams to always show the selected execution state.
 ~\\
 
 %-----------------------------------------------------------------------------------------------------------------------------
 \section{Deciding on a tool}\label{preDiscuss}
 %traceviewer, debug viualization plugin, jive, tod er eclipse plugins
-Of the mentioned tools, the \gls{traceviewer}, \gls{tod}, \gls{debugVisualizationPlugin}, and \gls{jive} are all available as eclipse-plugins, and are thus fairly simple to integrate into the existing teaching process.
-While \gls{gdb} supports both Java and Eclipse, the Eclipse-integration is mainly to enable the use of eclipse as an environment for writing programs in C and C++.
+Of the mentioned tools, the \gls{traceviewer}, \gls{tod}, \gls{debugVisualizationPlugin}, and \gls{jive} are all available as Eclipse-plugins, and are thus fairly simple to integrate into the existing teaching process.
+While \gls{gdb} supports both Java and Eclipse, the Eclipse-integration is mainly to enable the use of Eclipse as an environment for writing programs in C and C++.
 Since Eclipse already has a good debugger for Java, it is not considered necessary to use another for the same purpose.
 As the other tools that were mentioned lacks support for Java, Eclipse, or both, they are all deemed unfit for integration with the desired teaching environment.
 The features provided by the remaining tools varies.
@@ -104,7 +105,7 @@ Some are overlapping, like the tracing, while others provide completely differen
 As they are all plugins that integrate into Eclipse, they allow, and encourage, the users to use them alongside the existing debugging functionality, as well as giving the opportunity of opting oft, should they be found to be unfit for a use case.
 ~\\
 
-The \gls{traceviewer} is as mentioned, designed for massive parallelism, and requires a specific version of eclipse, which has been discontinued.
+The \gls{traceviewer} is as mentioned, designed for massive parallelism, and requires a specific version of Eclipse, which has been discontinued.
 As small programs with a graphical interface, like those that are used in the HMI-exercises, are typically not massively parallel, but instead almost entirely serial in nature, this tool does not fit the scope of the course.
 Due to this, and the fact that the plugin itself is no longer available, it is not suited for further study.
 ~\\
@@ -116,7 +117,7 @@ While providing support for developers by letting them look back at earlier stag
 E.g. the moment that a variable is assigned a value that later causes en error.
 ~\\
 
-The \gls{debugVisualizationPlugin} expands on the debugging functionality of Eclipse by providing a visual view of variables, and is designed to be used alongside the rest of the debugging environment provided by eclipse.
+The \gls{debugVisualizationPlugin} expands on the debugging functionality of Eclipse by providing a visual view of variables, and is designed to be used alongside the rest of the debugging environment provided by Eclipse.
 It does not perform any tracing, and instead uses the information exposed to Eclipses debugger when the program reaches a breakpoint to draw its diagram.
 As mentioned, this plugin has already been tested with another course, with the conclusion that while the information it provides is useful, the elements in the diagram does not stay put, causing confusion as they move around during execution.
 There were also complaints about too much information being displayed, making it hard to get an overview of the program, and identifying the important components.
@@ -124,7 +125,7 @@ The latest version of this plugin does support the hiding of elements, as well a
 ~\\
 
 %stuff about jive 
-\Gls{jive} seems to be the only tool that utilizes all three methods mentioned in \autoref{preMethods}, as well as being freely available as a plugin for eclipse, making it easy to install and use.
+\Gls{jive} seems to be the only tool that utilizes all three methods mentioned in \autoref{preMethods}, as well as being freely available as a plugin for Eclipse, making it easy to install and use.
 During program execution, \gls{jive} generates both a \gls{contourdiagram} \cite{Jayaraman1996} -- a diagram similar to object diagrams -- and a sequence diagram.
 Combined with an execution trace, it allows the user to jump back and forth in the execution, and have the diagrams updated accordingly.
 Querying is supported with pre-defined search-templates added to the built-in search window in Eclipse.

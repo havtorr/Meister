@@ -11,13 +11,14 @@ In both diagrams, object instances are labeled with the name of the object type,
 While this provides the expected information, it is affected by the way Java handles the naming of anonymous inner types -- classes that are defined within another class, and not given a name by the developer.
 Java automatically names these classes by appending a dollar sign and a identifying number to the name of the class they are defined within, e.g. `PersonPanel\$1'.
 \gls{gui}-programs are written with several such classes to handle user input, each implementing a listener-interface of some kind, and they show up in the diagrams with their generated names, that do not reflect the purpose of the class.
-The ability to detect an inner type with a generic name, and display the interface it implements, instead of is actual name should help with this issue.
+The ability to detect an inner type with a generic name, and display the interface it implements, instead of its actual name, should help with this issue.
 Among others, listener-heavy programs should become more understandable, as the kind of listeners in use will be clearly visible, removing the need to guess based on when they are invoked in the sequence-diagram.
 \autoref{fig:contOving4ChangesLab} illustrates this as the change from part a to part b.
 ~\\
 
 %koble listeners til det de lytter på
-To further help users identify listeners, they could be visually linked to the objects they are listening to in the contour-diagram, making it clearly visible which object is being listened to by the different listeners, as illustrated in \autoref{fig:contOving4ChangesLink} illustrates this change, along with the relabeled objects.
+To further help users identify listeners, they could be visually linked to the objects they are listening to in the contour-diagram, making it clearly visible which object is being listened to by the different listeners.
+\autoref{fig:contOving4ChangesLink} illustrates this change, along with the relabeled objects.
 While the effect is possible to achieve by applying an appropriate filter, this filter must let a large amount of objects through, causing the diagrams to become cluttered and challenging to navigate.
 On the other hand, the effect of the listener being triggered is clearly visible in the sequence diagram, and it is possible that this is easy enough to connect with a users interactions with a program, so that such a link will not be necessary.
 ~\\
@@ -44,9 +45,9 @@ On the other hand, the effect of the listener being triggered is clearly visible
 A last visual change would be to attempt further identification of the components that make up an \gls{mvc}-architecture, and highlight them.
 Being a change focusing solely on a specific architecture, it has to be possible to deactivate when not needed.
 The major challenge with this feature is to find a way to identify the different components.
-While listeners can usually be identified by their name, of by their implementation of certain interfaces, this is not necessarily the case for models and controllers.
+While listeners can usually be identified by their name, or by their implementation of certain interfaces, this is not necessarily the case for models and controllers.
 A possible solution would be to require developers to follow a certain naming scheme, but this would still have a risk of false positives -- leading to incorrect diagrams, and adoption of such a scheme with the sole purpose of using a special tool, is not something to expect.
-The highlighting could be done by adding colored frames to the identified objects, or by adding a icon indicating the role of a given object.
+The highlighting could be done by adding colored frames to the identified objects, or by adding an icon indicating the role of a given object.
 Not as big of a challenge, this does pose the problem of not making the diagrams too distracting and hard to read due to the added elements.
 ~\\
 
@@ -62,7 +63,7 @@ Not as big of a challenge, this does pose the problem of not making the diagrams
 %bruker-tilpasning av diag
 Both diagrams can easily grow to sizes that make them hard to navigate and to get an overview of.
 While the contour diagram offers different presentation modes, by for instance only showing objects, and not their data-fields, the sequence diagram offers fewer options.
-Collapsing parts of the diagrams do help in reducing the amount of information shown, and thus ease the interpretation of the diagram, but there are still some issues resulting from how the diagram is drawn.
+Collapsing parts of the diagrams do help in reducing the amount of information shown, and thus ease the interpretation of the diagram, but there are still some issues that result from how the diagram is drawn.
 Firstly, there is currently no method of vertically compressing the sequence diagram, resulting in long sequences with no visible interaction if that sequence has already been collapsed, or if there are a lot of filtered events occurring within the lifeline of an object.
 There is an ongoing development to solve this, by substituting an event-pattern with a single new event, and thus reducing the vertical size of the diagram.
 If this technique is applied when using the existing horizontal collapse, the diagram should shrink in both directions.
@@ -105,8 +106,8 @@ By instead allowing the users to add the one package to be included, and using b
 ~\\
 
 Changing the filter is currently done by adding or removing one entry at a time, making large changes time consuming and prone to spelling errors.
-As the filters are stored in the files Eclipse use to describe how to launch a program, directly modifying these files is a possible work-around for making large changes, but they require Eclipse to be restarted to have any effect.
-These files are also hidden away within the configuration folders that eclipse uses, making them hard to find without instructions.
+As the filters are stored in the files Eclipse uses to describe how to launch a program, directly modifying these files is a possible work-around for making large changes, but they require Eclipse to be restarted to have any effect.
+These files are also hidden within the configuration folders that Eclipse uses, making them hard to find without instructions.
 Having an easier way of swapping, or making large changes to filters, would likely increase the use of custom filters, and would enable the distribution of pre-made filters, designed for specific purposes.
 This feature could be extended further, to include multiple default filters that a user could select from when running a program.
 ~\\
