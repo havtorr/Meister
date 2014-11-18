@@ -57,7 +57,9 @@ Due to its \gls{cli}, it is not necessarily easy to use on its own, hence there 
 This allows the user to easily navigate between various elements, but this tool is restricted to Microsoft Visual Studio, and the languages it supports.
 
 %java/eclipse
-The \gls{traceviewer} \cite{Thomas2010} for g-Eclipse -- a now discontinued version of Eclipse, geared for development of grid-computing software -- uses a trace to generate visualizations of the program execution, and thus making the execution easier to understand, but the plugin is designed for tracing the massively parallel programs used on high performance computing clusters, requires a special version of Eclipse, and may not be very useful for understanding smaller programs.
+The \gls{traceviewer} \cite{Thomas2010} for g-Eclipse -- a now discontinued version of Eclipse, geared for development of grid-computing software -- uses a trace to generate visualizations of the program execution.
+These visualizations should make the execution easier to understand, but the plugin is designed for tracing the massively parallel programs that used on high performance computing clusters, and requires a special version of Eclipse.
+Smaller programs, like the ones students write as a part of the exercises in the \gls{hci}-course, are not massively parallel, making the diagrams of them less useful.
 The plugin was developed by the MNM-team at the Ludwig Maximilian University of Munich.
 
 The \gls{tod} \cite{Pothier2007}, is developed at the University of Chile in Santiago, and as the name suggests, utilizes execution traces to enable its debugging and querying features.
@@ -91,7 +93,7 @@ Since Eclipse already has a good debugger for Java, it is not considered necessa
 As the other tools that were mentioned lacks support for Java, Eclipse, or both, they are all deemed unfit for integration with the desired teaching environment.
 The features provided by the remaining tools varies.
 Some are overlapping, like the tracing, while others provide completely different functionality, or combine a different set of techniques.
-As they are all plugins that integrate into Eclipse, they allow, and encourage, the users to use them alongside the existing debugging functionality, as well as giving the opportunity of opting oft, should they be found to be unfit for a use case.
+As they are all plugins that integrate into Eclipse, they allow, and encourage, the users to use them alongside the existing debugging functionality, as well as giving the opportunity of opting out, should they be found to be unfit for a use case.
 
 The \gls{traceviewer} is as mentioned, designed for massive parallelism, and requires a specific version of Eclipse, which has been discontinued.
 As small programs with a graphical interface, like those that are used in the \gls{hci}-exercises, are typically not massively parallel, but instead almost entirely serial in nature, this tool does not fit the scope of the course.
