@@ -28,10 +28,10 @@ Stepping back in time allows the user to not only see the failure state of a pro
 There are different ways to store the information describing each step, providing various trade-offs between access-time and memory usage.
 The straightforward way would be to store each state independently, sacrificing memory for a near-constant time to load the details of a step.
 The load time will naturally be affected by the amount of data that must be analyzed, but there is no need to work through any of the steps in between.
-If the data is stored as a differential of the previous state, the opposite situation is created.
+If the data is stored as a differential to the previous state, the opposite situation is created.
 The amount of memory required is significantly reduced, and stepping to the immediate neighbors is very fast, but jumping between any two steps would require analyzing every step in between the two.
-A hybrid approach is also possible, relying on a differential model, but also introducing checkpoints every n steps, where all information is stored.
-This will provide a balance between the two previous methods, and could be adjusted to fit the characteristics of the system the tool is running on.
+A hybrid approach is also possible, relying on a differential model, but also introducing checkpoints every \textit{n} steps, where all information is stored.
+By adjusting the value of \textit{n} to fit the characteristics of the system that the tool is running on, an appropriate balance between the two previous methods can be found.
 
 One can avoid the potential disadvantages of manual backstepping by using queries instead.
 Queries enable the user to asks the debugger about the current and earlier states of execution in a simple way.
