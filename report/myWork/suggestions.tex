@@ -1,6 +1,6 @@
 \section{Suggestions for improvement}\label{jiveSuggestions}
 
-While exploring the features of JIVE, a few issues regarding use and behavior were encountered.
+While exploring the features of \gls{jive}, a few issues regarding use and behavior were encountered.
 None of these issues can be considered to be major, but they still expose a potential for improvement.
 This section will point out some of the issues, and provide suggestions on what can be done to improve them.
 
@@ -113,7 +113,7 @@ This feature could be extended further, to include multiple default filters that
 
 
 %søk
-The ability to search through all the events is a potentially useful feature, depending on the scenario in which JIVE is used.
+The ability to search through all the events is a potentially useful feature, depending on the scenario in which \gls{jive} is used.
 When merely getting an overview of a program, it is likely not needed at all, but for debugging purposes, it has a clear use as a way of finding specific events.
 It is unfortunately very strict in its interpretation of the search terms, being both case-sensitive, and requiring full class names, including the package the class is contained within.
 It is assumed that this behavior was chosen in order to give an accurate, and limited set of results, instead of risking a large amount of false positives.
@@ -122,14 +122,14 @@ By relaxing the search criteria to not be case sensitive, and to allow partial m
 
 
 %batch-kjøring av større prog? automatisert ui-interaksjon
-Despite the measures that have been taken to reduce the performance impact of JIVE, it will always be possible to create a scenario where the analyzed program will take a significant amount of time to run.
+Despite the measures that have been taken to reduce the performance impact of \gls{jive}, it will always be possible to create a scenario where the analyzed program will take a significant amount of time to run.
 This could for instance be when testing a larger project.
 For non-interactive programs, this is only a matter of waiting fro results, and doing something else in the meantime.
-But in order to get the desired results from an interactive program, it becomes necessary to check back regularly  in order to provide the correct input.
-Integrating automation tools that trigger pre-defined  inputs when they detect that the program is waiting for interaction, wold go a long way to solve this.
-A user could first run a session without JIVE, and record the desired interactions.
-These interactions would then be fed into the automaton tool, and played back during the JIVE-run.
-As this kind of feature is not required for the exercises given during the  HCI-course,  it is not prioritized over the other mentioned changes.
+But in order to get the desired results from an interactive program, it becomes necessary to check back regularly in order to provide the correct input.
+Integrating automation tools that trigger pre-defined inputs when they detect that the program is waiting for interaction, wold go a long way to solve this.
+A user could first run a session without \gls{jive}, and record the desired interactions.
+These interactions would then be fed into the automaton tool, and played back during the \gls{jive}-run.
+As this kind of feature is not required for the exercises given during the \gls{hci}-course, it is not prioritized over the other mentioned changes.
 
 
 

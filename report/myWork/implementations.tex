@@ -24,7 +24,7 @@ One weakness in the filter, related to the problem of unwanted packages, is that
 This is not a big problem in the case of `javax.swing', as the `javax' package does not contain any classes, but there are definitely other packages that will show this behavior.
 
 With an appropriate filter, the connection between listeners and the objects they listen to should become visible, via the existing object-containment-links, given that the listener-field is actually visible.
-An unfortunate behavior of JIVE is that only the fields defined within a class are visible in the figures representing instances of that class.
+An unfortunate behavior of \gls{jive} is that only the fields defined within a class are visible in the figures representing instances of that class.
 %TODO test for å være helt sikker
 Any inherited fields are not shown, and this is unfortunately the case for many UI-components in the swing-framework.
 The quick solution to this problem, simply showing all inherited fields, would result in a large amount of useless information, cluttering the diagram, and hiding the useful information.
@@ -43,7 +43,7 @@ This is of course not a good way of handling the issue, and ways of improving th
 The isolated view was implemented as a separate view-tab, and does what was proposed in \autoref{fig:seqOving4IsolatedMock}: it displays the events caused by the selected event, and hides everything else.
 \autoref{fig:MMI-oving4-SeqIsoDiag-AWT-Event-Thread} shows what \autoref{fig:seqOving4IsolatedMock} looked like after the modification.
 \autoref{fig:MMI-oving4-SeqIsoDiag-valueChanged} shows a similar, but slightly more complex situation in the isolated view.
-By right clicking on an event in the regular sequence diagram, and selecting the `Isolated view' option, shown in \autoref{fig:UISeqRightClickNew},  the isolated view is triggered.
+By right clicking on an event in the regular sequence diagram, and selecting the `Isolated view' option, shown in \autoref{fig:UISeqRightClickNew}, the isolated view is triggered.
 It is also possible to further focus on a part of the diagram from within the isolated view, by right clicking on the desired event, and selecting the `Isolated view' option again.
 All of the functionality from the regular sequence diagram has been retained in the isolated view, so that the only difference is what parts of the execution are visible.
 \begin{figure}[H]
@@ -63,14 +63,14 @@ All of the functionality from the regular sequence diagram has been retained in 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\textwidth, trim= 0cm 0cm 0cm 0cm, clip]{MMI-oving4-SeqIsoDiag-valueChanged}
-	\caption{Another example  of the isolated view, showing a significantly reorganized diagram.}
+	\caption{Another example of the isolated view, showing a significantly reorganized diagram.}
 	\label{fig:MMI-oving4-SeqIsoDiag-valueChanged}
 \end{figure}
 
 %mer avslappede søkekrav - er ikke utført for alle typer søk, er det verd å nevne i det hele tatt?
 The searching functionality was relaxed by allowing partial matches, and disabling case sensitivity.
 While relaxing the search may cause false positives, a user should be able to identify such cases quickly, or at least identify the results they were looking for.
-The fact that partial matches and case insensitivity is the standard behavior in most search-engines, sets an expectation for the behavior of the search within JIVE.
+The fact that partial matches and case insensitivity is the standard behavior in most search-engines, sets an expectation for the behavior of the search within \gls{jive}.
 Unfortunately, due to the existing implementation consisting of separate searching- and matching-methods for each search type, not all searches were updated to this relaxed state.
 
 %hvorfor ble ikke alle forslag impementert? - tid for å bli kjent med jive, eclipse-plugins

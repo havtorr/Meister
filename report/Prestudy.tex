@@ -8,7 +8,7 @@ Debuggers are tools that are designed to aid a developer in the process of findi
 Depending on the language and platform, this ranges from gathering information when a program crashes, to inserting \glspl{breakpoint} -- points in the code where the debugged program will halt, allowing the contents of its memory to be inspected, and potentially modified.
 While having obvious uses, these techniques requires a certain level of knowledge of both the program in question, and programming in general, to be really useful.
 Going beyond this, the generation of diagrams to visualize the structure of a program, and its path of execution is another way of helping developers.
-I.e. some form of object-, and/or sequence-diagram as defined by the \gls{uml} specification.
+I.e. some form of object-, and/or sequence-diagram, as defined by the \gls{uml} specification.
 Such diagrams can make it easier to get an overview of a program's current state, see the contents of objects and how they relate to each other, and to understand how the various components work together.
 
 Object diagrams are similar to class diagrams, in that they both show the objects of a program, and their connections between each other.
@@ -45,7 +45,7 @@ If all the tracing-process does is write to a log-file, which will be used later
 \section{Existing Tools}\label{PreTools}%mer om hvilke metoder som blir brukt av hvert verktøy
 
 There are currently several existing tools that provide one or more of the methods mentioned above.
-The following list is not extensive, but includes some of the most interesting tools, considering the focus of this report.
+The following list is not exhaustive, but includes some of the most interesting tools, considering the focus of this report.
 Some of the tools listed below does not support Java or Eclipse, but provide interesting features that are worth mentioning, despite their incompatibilities with the desired teaching environment.
 Download links for the tools are provided in their respective glossary entries for those tools that are available.
 
@@ -57,7 +57,7 @@ Due to its \gls{cli}, it is not necessarily easy to use on its own, hence there 
 This allows the user to easily navigate between various elements, but this tool is restricted to Microsoft Visual Studio, and the languages it supports.
 
 %java/eclipse
-The \gls{traceviewer} \cite{Thomas2010} for g-Eclipse -- a now discontinued version of Eclipse, geared for development of grid-computing software -- uses a trace to generate visualizations of the program execution, and thus making the execution easier to understand, but the plugin is designed for massive parallelism, requires a special version of Eclipse, and may not be very useful for understanding smaller programs.
+The \gls{traceviewer} \cite{Thomas2010} for g-Eclipse -- a now discontinued version of Eclipse, geared for development of grid-computing software -- uses a trace to generate visualizations of the program execution, and thus making the execution easier to understand, but the plugin is designed for tracing the massively parallel programs used on high performance computing clusters, requires a special version of Eclipse, and may not be very useful for understanding smaller programs.
 The plugin was developed by the MNM-team at the Ludwig Maximilian University of Munich.
 
 The \gls{tod} \cite{Pothier2007}, is developed at the University of Chile in Santiago, and as the name suggests, utilizes execution traces to enable its debugging and querying features.
@@ -69,13 +69,13 @@ This tool only exists as a separate application, and does not integrate into any
 \Gls{whyline} is developed at the Carnegie Mellon University.
 
 The \gls{debugVisualizationPlugin} for Eclipse provides an alternative to the variable view provided in Eclipse's debug-perspective, providing a graph that represents the variables of a program.
-The user still needs to use regular techniques they would use normally in order to pause the program-execution, and be able to actually view the state of the variables, as this plugin does not do any tracing.
-This was previously tested in the course TDT4100~-~Object oriented programming, with the conclusion that the generated diagram quickly became too large, showing the contents of objects that were not important, and shuffling objects as new ones were added.%hvem står bak?
+The users still needs to use regular techniques they would use normally in order to pause the program-execution, and be able to actually view the state of the variables, as this plugin does not do any tracing.
+This was previously tested in the course TDT4100~--~Object oriented programming, with the conclusion that the generated diagram quickly became too large, showing the contents of objects that were not important, and shuffling objects as new ones were added.%hvem står bak?
 
 \Gls{javavis} \cite{Oechsle2002},developed at the University of Applied Sciences in Trier, creates visualizations in the form of \gls{uml} sequence- and object-diagrams, but does not provide any debugging features.
 
 \Gls{jinsight} \cite{Pauw} is a powerful tool built by IBM, supporting both tracing and visualization.
-However, it is restricted to z/OS and linux on system Z, preventing most people, and especially students, from using it.
+However, it is restricted to z/OS and Linux on System Z, preventing most people, and especially students, from using it.
 
 \gls{jive} is a tool that utilizes execution traces to generate diagrams while running a program.
 Developed at the university of Buffalo, it is installed a an Eclipse plugin, and adds several new views to display the information it provides.
@@ -94,7 +94,7 @@ Some are overlapping, like the tracing, while others provide completely differen
 As they are all plugins that integrate into Eclipse, they allow, and encourage, the users to use them alongside the existing debugging functionality, as well as giving the opportunity of opting oft, should they be found to be unfit for a use case.
 
 The \gls{traceviewer} is as mentioned, designed for massive parallelism, and requires a specific version of Eclipse, which has been discontinued.
-As small programs with a graphical interface, like those that are used in the HCI-exercises, are typically not massively parallel, but instead almost entirely serial in nature, this tool does not fit the scope of the course.
+As small programs with a graphical interface, like those that are used in the \gls{hci}-exercises, are typically not massively parallel, but instead almost entirely serial in nature, this tool does not fit the scope of the course.
 Due to this, and the fact that the plugin itself is no longer available, it is not suited for further study.
 
 The \gls{tod} provides a debugging environment supported by trace logs.
