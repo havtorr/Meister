@@ -1,5 +1,4 @@
 \chapter{Implemented changes}\label{jiveImpl}%hva ble gjort, hvordan bruke funksjonene. Ikke så mye om hvordan. begrunne prioriteter?
-~\\
 
 %identifisering av instansierte grensesnitt, lambdaer og abstrakte klaser
 The first change to be implemented was the identification and presentation of instantiated interfaces, which are now displayed in the diagrams with an appropriate icon, as well as being labeled with the interface it implements, instead of the generic class name that it is assigned by default.
@@ -12,7 +11,6 @@ In order to still allow the actual class name to be visible, the tool-tip shown 
 	\caption[A view of how instantiated interfaces are shown after the modification.]{A view of how instantiated interfaces are shown after the modification. Also shown, is the tool-tip text for the second instance from the left. Originally, they would be labeled as 'ButtonsNText\$1:1', 'ButtonsNText\$2:1' and so on, with the green class-icon.}
 	\label{fig:JiveNewIcon}
 \end{figure}
-~\\
 
 %utvidelse av filteret
 The filtering function was expanded with the ability to specify packages that are not to be excluded from the execution model, as suggested in \autoref{jiveSuggestions}.
@@ -24,7 +22,6 @@ This can result in very poor performance, as unnecessary events are logged, and 
 Depending on the package in question, the amount of extra items added to the filter can become quite large, and identifying all unwanted classes and subpackages may take hours at worst.
 One weakness in the filter, related to the problem of unwanted packages, is that due to its design, allowing the contents of a package, will also allow any classes that are contained directly within the parent package, as this also has to be removed from the internal list of exclusions that make up the filter.
 This is not a big problem in the case of `javax.swing', as the `javax' package does not contain any classes, but there are definitely other packages that will show this behavior.
-~\\
 
 With an appropriate filter, the connection between listeners and the objects they listen to should become visible, via the existing object-containment-links, given that the listener-field is actually visible.
 An unfortunate behavior of JIVE is that only the fields defined within a class are visible in the figures representing instances of that class.
@@ -35,14 +32,12 @@ In lack of a good solution, and with a desire to not make large fundamental chan
 Assuming that the listener-field is visible, this would in most cases be a list of listeners, and so the filter would also need to allow that type of list through.
 As there are a large amount of lists in use behind the scenes in a graphical program, this would be another source of unnecessary clutter.
 The filter itself is likely to become very large due to the extra exclusions needed to hide unwanted classes, as a consequence of letting something through.
-~\\
 
 There is currently no easy way to quickly swap the entire filter for another one, but the filters are stored in Eclipses launch configuration files.
 These configurations are stored as XML-files, and can be easily modified in any text editor.
 By managing these files directly, a user can quickly swap the entire filter, copy it to another launch-configuration file, or share it with others.
 After modifying these files, Eclipse requires a restart to detect the changes, adding to the time and effort required to make any changes this way.
 This is of course not a good way of handling the issue, and ways of improving this should be explored in the future.
-~\\
 
 %isolert visning av sekvens
 The isolated view was implemented as a separate view-tab, and does what was proposed in \autoref{fig:seqOving4IsolatedMock}: it displays the events caused by the selected event, and hides everything else.
@@ -57,21 +52,20 @@ All of the functionality from the regular sequence diagram has been retained in 
 	\caption{The new 'Isolated view' option.}
 	\label{fig:UISeqRightClickNew}
 \end{figure}
-~\\
+
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\textwidth, trim= 0cm 50cm 0cm 0cm, clip]{MMI-oving4-SeqIsoDiag-AWT-Event-Thread}
 	\caption[How \autoref{fig:seqOving4CrossLines} looks in the isolated view.]{How \autoref{fig:seqOving4CrossLines} looks in the isolated view. The three last elements shown on the top are referred to in parts of the diagram not shown. This view was achieved by selecting the 'AWT-EventQueue' lifeline for the isolated view.}
 	\label{fig:MMI-oving4-SeqIsoDiag-AWT-Event-Thread}
 \end{figure}
-~\\
+
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\textwidth, trim= 0cm 0cm 0cm 0cm, clip]{MMI-oving4-SeqIsoDiag-valueChanged}
 	\caption{Another example  of the isolated view, showing a significantly reorganized diagram.}
 	\label{fig:MMI-oving4-SeqIsoDiag-valueChanged}
 \end{figure}
- ~\\
 
 %mer avslappede søkekrav - er ikke utført for alle typer søk, er det verd å nevne i det hele tatt?
 The searching functionality was relaxed by allowing partial matches, and disabling case sensitivity.

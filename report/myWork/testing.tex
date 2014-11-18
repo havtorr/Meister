@@ -1,45 +1,42 @@
 \chapter{Evaluating usefulness}\label{jiveEval}
 \section{The test}\label{jiveEvalTest}%mer konkret om hva som ble spurt om, spesifikke spørsmål
 In order to evaluate both the usefulness of JIVE, and the changes that were implemented, an evaluation was performed with a small group of students, one by one.
-During this test, the students were given a demonstration of the main features of JIVE, using implementations of the first, and the last exercise of the HMI-course as examples.
+During this test, the students were given a demonstration of the main features of JIVE, using implementations of the first, and the last exercise of the HCI-course as examples.
 After getting familiar with JIVE, they were shown the modified version, focusing on the new and modified features that were implemented.
 They were then asked questions about how easily they understood the diagrams, and how useful they found the changes to be.
 As well as whether the performance trade-off was acceptable for occasional use, if they could see themselves using JIVE, and if so, in what situations.
-~\\
 
 The Example programs both consisted of a simple user interface in swing, implementing the \gls{mvc} pattern.
 Exercise 1 consists of a text field and two buttons to transform the text entered in that field to either uppercase or lowercase, and with an option to continuallytransform as new text is written.
 Exercise 4 is an application that manages a simple list of persons.
 The interface it presents is split between a list of persons, and a set of text fields to enter information about the selected person, as well as buttons to create new, and delete existing persons.
 Both of these programs, shown in \autoref{fig:MMI-Oving-UI}, were relatively simple, with few events following directly from a user interaction, and as such, should have a limited performance reduction when used with JIVE.
-More complex programs are likely to suffer a greater performance impact from JIVE, but are also out of the scope for the HMI-course.
-~\\
+More complex programs are likely to suffer a greater performance impact from JIVE, but are also out of the scope for the HCI-course.
+
 
 \begin{figure}[H]
 	\centering
 	\begin{subfigure}{\textwidth}
 		\centering
 		\includegraphics[width=\textwidth]{MMI-Oving1-UI}
-		\caption{HMI-exercise 1}
+		\caption{HCI-exercise 1}
 		\label{fig:MMI-Oving1-UI}
 	\end{subfigure}
 	\begin{subfigure}{\textwidth}
 		\centering
 		\includegraphics[width=\textwidth]{MMI-Oving4-UI}
-		\caption{HMI-exercise 4}
+		\caption{HCI-exercise 4}
 		\label{fig:MMI-Oving4-UI}
 	\end{subfigure}
 	\caption{The two example programs used in the evaluation}
 	\label{fig:MMI-Oving-UI}
 \end{figure}
 
-
 \section{Results}\label{jiveEvalResults}
-The students that participated in the evaluation were mostly in their third year, and had already finished the HMI-course the previous semester.
+The students that participated in the evaluation were mostly in their third year, and had already finished the HCI-course the previous semester.
 This meant that they were familiar with the example programs, and had some knowledge of the MVC-pattern, and how it behaves in Java-swing.
 While this excluded the experiences of someone completely unfamiliar to these concepts, it did give the insight of relatively fresh experiences, as the participants remembered what they were finding hard to understand back then.
-There was also one participant who was in his second year, and as such, would take the HMI-course during the next semester.
-~\\
+There was also one participant who was in his second year, and as such, would take the HCI-course during the next semester.
 
 %nytte av diag
 The evaluation resulted in mostly positive feedback, with every participant seeing some kind of use for a tool like JIVE.
@@ -49,25 +46,21 @@ On the other hand, he did recognize the usefulness of JIVE as a tool to create d
 The rest of the participants shared the view that JIVE, or a similar tool, could have been very useful when trying to understand the connection between \gls{gui} elements, listeners, and the actions that are triggered by them.
 A few specifically mentioned that they found that connection to be difficult to understand.
 One of them also had experiences as a student assistant, and recognized JIVE as a tool that could give students a needed insight into what is going on in their programs.
-~\\
 
 The diagrams themselves were found to be both sufficiently detailed, and easy to understand, showing the available information in a simple and structured manner.
 The tendency for the diagrams to grow large and unwieldy did become a problem, especially when running with the less restrictive filter, showing many of the swing-internals.
 When hiding everything but user-created classes, the diagrams remained at an acceptable size, although the sequence diagram got quite long after a while.
-~\\
 
 %nytte av endringer
 The implemented changes were generally well-received, with the ability to view a subsection of the sequence diagram in the isolated view being the most preferred change.
 The changes to the filtering mechanism, while useful, were found to still be somewhat hard to use, due to the lack of an easy way of importing an existing filter, and the amount of work necessary to adapt a filter to the program being examined.
 The modified labeling of object instances provided a small, but useful addition to the visible information.
-~\\
 
 %målt ytelse
 Regarding performance, it has already been shown in \autoref{preMethods} that the tracing behavior of JIVE must affect the analyzed program negatively.
 The specific penalty varies with the complexity of the program, and the level of detail that is being logged.
 The performance of each example program, with both versions of JIVE, and with two different levels of detail in the filter for the modified version, for a total of six measurements, were tested separately from the user evaluation, but on the same computer.
 Each result was measured five times, with the averages reported in the table below:
-~\\
 
 \begin{center}
 	\begin{tabular}{|l|l|r|}
@@ -81,7 +74,6 @@ Each result was measured five times, with the averages reported in the table bel
 		Modified JIVE, swing-focused filter & Exercise 4 & 54,4s\\ \hline
 	\end{tabular}
 \end{center}
-~\\
 
 As these results show, there is a significant degradation in performance, going from the original version if JIVE to the modified one.
 The impact of letting a larger amount of events through the filter adds another solid penalty.
@@ -89,14 +81,12 @@ The reason for the latter has been explained in \autoref{jiveFeatures}, and is s
 The impact observed from simply switching to the modified version, can be explained by the way the filter mechanism was altered.
 By first constructing a list of every package found in the workspace of the chosen program, and then use this list to add and remove excluded packages from the filter, the filter remains an exclusion filter, and its size reflects the size of the package list.
 When JIVE then checks to see if an event matches an entry in the filter, it has to look through a large amount of entries, and that clearly affects its performance.
-~\\
 
 %ytlese-meniger
 As expected, the participants all agreed that the performance of JIVE was too poor for continuous use, but they still found it acceptable for the occasional use that getting familiar with an example, or documenting a project would require.
 While a larger project could take several minutes to reach the initial stable state for a user to interact, one would only be interested in including the entire project when generating documentation for delivery.
 By using the filter to ignore well known parts of the project, one could more easily show the interesting or complex parts, while saving time.
 In either case, the performance was not found to be a reason to never use JIVE, but it would clearly depend on the complexity of the program, as well as what the filter would be letting through.
-~\\
 
 %problemer
 While the feedback from the participants was generally positive, they still found some areas that they thought could be further improved with new or modified functionality.
@@ -108,5 +98,3 @@ The ability to compress the height of the sequence diagram, was also suggested.
 Another suggestion was to make it possible to trigger the isolated view from the mentioned line of objects at the top of the sequence diagram, instead of having to find both the desired objects, and then scroll down to find the first event it is involved in.
 Finally, it was suggested that the placement of objects in the contour diagram could be reworked to give a more compact diagram.
 For instance, preventing a single row of objects without connections to others from growing wider than a certain threshold, making a new line instead.
-~\\
-
