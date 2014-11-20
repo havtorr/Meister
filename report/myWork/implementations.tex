@@ -2,7 +2,7 @@
 
 %identifisering av instansierte grensesnitt, lambdaer og abstrakte klaser
 The first change to be implemented was the identification and presentation of instantiated interfaces.
-These are now displayed in the diagrams with an appropriate icon, as well as being labeled with the interface it implements, instead of the generic class name that it is assigned by default.
+These are now displayed in the diagrams with an appropriate icon, as well as being labeled with the interface they implement, instead of the generic class name that they are assigned by default.
 An example of this is shown in \autoref{fig:JiveNewIcon}
 This function was also expanded to identify and label instances of abstract classes, and the lambda-expressions that were introduced with Java 8.
 In order to still allow the actual class name to be visible, the tool-tip shown when hovering the mouse pointer over an object remains unmodified, showing the actual class name and icon.
@@ -15,23 +15,24 @@ In order to still allow the actual class name to be visible, the tool-tip shown 
 
 %utvidelse av filteret
 The filtering function was expanded with the ability to specify packages that are not to be excluded from the execution model, as suggested in \autoref{jiveSuggestions}.
-Adding a package to be included is as simple as adding a `+' in front of the package-name when adding it to the filter.
+Adding a package to be included is done by adding a `+' in front of the package-name when adding it to the filter.
 As an example, the default filter excludes the javax package, and any subpackages that are not specifically listed with a `+' in front.
 When adding the line `+javax.swing.*' in order to let swing components through the filter, one will let every subpackage of 'javax.swing' though the filter as well, which is the intended design.
 Unfortunately, there are a lot of classes in both swing, and its subpackages that are not used directly when writing swing-programs, and a user will have no interest in seeing these in the diagrams.
-This can result in very poor performance, as unnecessary events are logged, and cluttered diagrams, but can be handled by adding the unwanted classes to the filter for exclusion.
+This can result in very poor performance -- as unnecessary events are logged -- as well as cluttered diagrams, but can be handled by adding the unwanted classes to the filter for exclusion.
 Depending on the package in question, the amount of extra items added to the filter can become quite large, and identifying all unwanted classes and subpackages may take hours at worst.
-One weakness in the filter, related to the problem of unwanted packages, is that due to its design, allowing the contents of a package, will also allow any classes that are contained directly within the parent package, as this also has to be removed from the internal list of exclusions that make up the filter.
-This is not a big problem in the case of `javax.swing', as the `javax' package does not contain any classes, but there are definitely other packages that will show this behavior.
+One weakness in the filter is related to the problem of unwanted packages.
+Due to its design, allowing the contents of a package will also allow any classes that are contained directly within the parent package, as the parent also has to be removed from the internal list of exclusions that make up the filter.
+This is not a big problem in the case of `javax.swing', as the `javax' package does not contain any classes, but there are most likely other packages that will show this behavior.
 
-With an appropriate filter, the connection between listeners and the objects they listen to should become visible, via the existing object-containment-links, given that the listener-field is actually visible.
+With an appropriate filter, the connection between listeners and the objects they listen to should become visible via the existing object-containment-links, given that the listener-field is actually visible.
 An unfortunate behavior of \gls{jive} is that only the fields defined within a class are visible in the figures representing instances of that class.
 %TODO test for å være helt sikker
 Any inherited fields are not shown, and this is unfortunately the case for many UI-components in the swing-framework.
 The quick solution to this problem, simply showing all inherited fields, would result in a large amount of useless information, cluttering the diagram, and hiding the useful information.
-In lack of a good solution, and with a desire to not make large fundamental changes, preferring minor adjustments that use the existing framework in better ways.
+Lacking of a good solution, and having a desire to not make large fundamental changes, adjustments that use the existing framework in better ways is preferred.
 Assuming that the listener-field is visible, this would in most cases be a list of listeners, and so the filter would also need to allow that type of list through.
-As there are a large amount of lists in use behind the scenes in a graphical program, this would be another source of unnecessary clutter.
+As there is a large amount of lists in use behind the scenes in a graphical program, this would be another source of unnecessary clutter.
 The filter itself is likely to become very large due to the extra exclusions needed to hide unwanted classes, as a consequence of letting something through.
 
 There is currently no easy way to quickly swap the entire filter for another one, but the filters are stored in Eclipses launch configuration files.
@@ -73,5 +74,6 @@ The searching functionality was relaxed by allowing partial matches, and disabli
 While relaxing the search may cause false positives, a user should be able to identify such cases quickly, or at least identify the results they were looking for.
 The fact that partial matches and case insensitivity is the standard behavior in most search-engines, sets an expectation for the behavior of the search within \gls{jive}.
 Unfortunately, due to the existing implementation consisting of separate searching- and matching-methods for each search type, not all searches were updated to this relaxed state.
+%TODO: hvilke ble tatt, hvorfor?
 
 %hvorfor ble ikke alle forslag impementert? - tid for å bli kjent med jive, eclipse-plugins

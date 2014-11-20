@@ -20,14 +20,12 @@ Among others, listener-heavy programs should become more understandable, as the 
 To further help users identify listeners, they could be visually linked to the objects they are listening to in the contour-diagram, making it clearly visible which object is being listened to by the different listeners.
 \autoref{fig:contOving4ChangesLink} illustrates this change, along with the relabeled objects.
 While the effect is possible to achieve by applying an appropriate filter, this filter must let a large amount of objects through, causing the diagrams to become cluttered and challenging to navigate.
-On the other hand, the effect of the listener being triggered is clearly visible in the sequence diagram, and it is possible that this is easy enough to connect with a users interactions with a program, so that such a link will not be necessary.
-
-
+On the other hand, the effect of the listener being triggered is clearly visible in the sequence diagram, and it is possible that this is easy enough to connect with a users interactions with a program, so that the addition of a specific link will not be necessary.
 \begin{figure}[H]
 	\centering
 	\begin{subfigure}{\textwidth}
 		\centering
-		\includegraphics[width=\textwidth, trim= 0 0 36cm 25cm, clip]{MMI-Oving4-ObjectDiagInit}
+		\includegraphics[width=\textwidth, trim= 0 0 36cm 26cm, clip]{MMI-Oving4-ObjectDiagInit}
 		\caption{Original, cropped view of \autoref{fig:contOving4Init}}
 		\label{fig:contOving4ChangesLabA}
 	\end{subfigure}
@@ -40,7 +38,6 @@ On the other hand, the effect of the listener being triggered is clearly visible
 	\caption{comparison of the suggested label-changes to the diagrams}
 	\label{fig:contOving4ChangesLab}
 \end{figure}
-
 %visualisere mvc-komonenter
 A last visual change would be to attempt further identification of the components that make up an \gls{mvc}-architecture, and highlight them.
 Being a change focusing solely on a specific architecture, it has to be possible to deactivate when not needed.
@@ -48,7 +45,7 @@ The major challenge with this feature is to find a way to identify the different
 While listeners can usually be identified by their name, or by their implementation of certain interfaces, this is not necessarily the case for models and controllers.
 A possible solution would be to require developers to follow a certain naming scheme, but this would still have a risk of false positives -- leading to incorrect diagrams, and adoption of such a scheme with the sole purpose of using a special tool, is not something to expect.
 The highlighting could be done by adding colored frames to the identified objects, or by adding an icon indicating the role of a given object.
-Not as big of a challenge, this does pose the problem of not making the diagrams too distracting and hard to read due to the added elements.
+Not as big of a challenge, this does pose the problem of maintaining the the readability of the diagrams, and not making them harder to read due to the added elements.
 
 
 \begin{figure}[H]
@@ -99,14 +96,14 @@ This could be solved by allowing users to view such a sub-sequence in a separate
 
 %filter-endringer
 The filter operates by excluding unwanted elements from the trace-log, and only takes a list of elements to exclude as input.
-While this simplifies the internal operation, and makes it easy for users to understand, it also makes it hard to build a more fine grained filter, where , for instance, a package containing several sub-packages is excluded, but one of those sub-packages is not.
+While this simplifies the internal operation, and makes it easy for users to understand, it also makes it hard to build a more fine grained filter, where, for instance, a package containing several sub-packages is excluded, but one of those sub-packages is not.
 The current way to achieve this is to individually list each of the sub-packages that are excluded, while omitting the one that should be included.
 This results in a potentially large list of packages, and will take an unnecessary amount of work to add to the filter.
 By instead allowing the users to add the one package to be included, and using both a list of inclusions and a list of exclusions to build the filter, the amount of work for the user is significantly reduced, while maintaining readability.
 
 
 Changing the filter is currently done by adding or removing one entry at a time, making large changes time consuming and prone to spelling errors.
-As the filters are stored in the files Eclipse uses to describe how to launch a program, directly modifying these files is a possible work-around for making large changes, but they require Eclipse to be restarted to have any effect.
+Since the filters are stored in the files Eclipse uses to describe how to launch a program, directly modifying these files is a possible work-around for making large changes, but they require Eclipse to be restarted to have any effect.
 These files are also hidden within the configuration folders that Eclipse uses, making them hard to find without instructions.
 Having an easier way of swapping, or making large changes to filters, would likely increase the use of custom filters, and would enable the distribution of pre-made filters, designed for specific purposes.
 This feature could be extended further, to include multiple default filters that a user could select from when running a program.
@@ -123,13 +120,13 @@ By relaxing the search criteria to not be case sensitive, and to allow partial m
 
 %batch-kjøring av større prog? automatisert ui-interaksjon
 Despite the measures that have been taken to reduce the performance impact of \gls{jive}, it will always be possible to create a scenario where the analyzed program will take a significant amount of time to run.
-This could for instance be when testing a larger project.
-For non-interactive programs, this is only a matter of waiting fro results, and doing something else in the meantime.
+For instance when testing a larger project.
+For non-interactive programs, this is only a matter of waiting for results.
 But in order to get the desired results from an interactive program, it becomes necessary to check back regularly in order to provide the correct input.
-Integrating automation tools that trigger pre-defined inputs when they detect that the program is waiting for interaction, wold go a long way to solve this.
+Integrating automation tools that trigger pre-defined inputs when they detect that the program is waiting for interaction, would go a long way towards solving this.
 A user could first run a session without \gls{jive}, and record the desired interactions.
-These interactions would then be fed into the automaton tool, and played back during the \gls{jive}-run.
-As this kind of feature is not required for the exercises given during the \gls{hci}-course, it is not prioritized over the other mentioned changes.
+These interactions would then be fed into the automaton tool and played back during the \gls{jive}-run.
+As this kind of feature is not required for the exercises given during the \gls{hci}-course, it is not prioritized above the other mentioned changes.
 
 
 
