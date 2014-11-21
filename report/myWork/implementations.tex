@@ -9,7 +9,7 @@ In order to still allow the actual class name to be visible, the tool-tip shown 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\textwidth]{UIJiveInterfaceIcon}
-	\caption[A view of how instantiated interfaces are shown after the modification.]{A view of how instantiated interfaces are shown after the modification. Also shown, is the tool-tip text for the second instance from the left. Originally, they would be labeled as 'ButtonsNText\$1:1', 'ButtonsNText\$2:1' and so on, with the green class-icon.}
+	\caption[A view of how instantiated interfaces are shown after the modification.]{A view of how instantiated interfaces are shown after the modification. Also shown, is the tool-tip text for the second instance from the left. Originally, they would be labeled as `ButtonsNText\$1:1', `ButtonsNText\$2:1' and so on, with the green class-icon.}
 	\label{fig:JiveNewIcon}
 \end{figure}
 
@@ -17,7 +17,7 @@ In order to still allow the actual class name to be visible, the tool-tip shown 
 The filtering function was expanded with the ability to specify packages that are not to be excluded from the execution model, as suggested in \autoref{jiveSuggestions}.
 Adding a package to be included is done by adding a `+' in front of the package-name when adding it to the filter.
 As an example, the default filter excludes the javax package, and any subpackages that are not specifically listed with a `+' in front.
-When adding the line `+javax.swing.*' in order to let swing components through the filter, one will let every subpackage of 'javax.swing' though the filter as well, which is the intended design.
+When adding the line `+javax.swing.*' in order to let swing components through the filter, one will let every subpackage of `javax.swing' though the filter as well, which is the intended design.
 Unfortunately, there are a lot of classes in both swing, and its subpackages that are not used directly when writing swing-programs, and a user will have no interest in seeing these in the diagrams.
 This can result in very poor performance -- as unnecessary events are logged -- as well as cluttered diagrams, but can be handled by adding the unwanted classes to the filter for exclusion.
 Depending on the package in question, the amount of extra items added to the filter can become quite large, and identifying all unwanted classes and subpackages may take hours at worst.
@@ -51,14 +51,14 @@ All of the functionality from the regular sequence diagram has been retained in 
 \begin{figure}[H]
 	\centering
 	\includegraphics{UIseqRightClickNew}
-	\caption{The new 'Isolated view' option.}
+	\caption{The new `Isolated view' option.}
 	\label{fig:UISeqRightClickNew}
 \end{figure}
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\textwidth, trim= 0cm 50cm 0cm 0cm, clip]{MMI-oving4-SeqIsoDiag-AWT-Event-Thread}
-	\caption[How \autoref{fig:seqOving4CrossLines} looks in the isolated view.]{How \autoref{fig:seqOving4CrossLines} looks in the isolated view. The three last elements shown on the top are referred to in parts of the diagram not shown. This view was achieved by selecting the 'AWT-EventQueue' lifeline for the isolated view.}
+	\caption[How \autoref{fig:seqOving4CrossLines} looks in the isolated view.]{How \autoref{fig:seqOving4CrossLines} looks in the isolated view. The three last elements shown on the top are referred to in parts of the diagram not shown. This view was achieved by selecting the `AWT-EventQueue' lifeline for the isolated view.}
 	\label{fig:MMI-oving4-SeqIsoDiag-AWT-Event-Thread}
 \end{figure}
 
