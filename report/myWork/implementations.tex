@@ -3,13 +3,13 @@
 %identifisering av instansierte grensesnitt, lambdaer og abstrakte klaser
 The first change to be implemented was the identification and presentation of instantiated interfaces.
 These are now displayed in the diagrams with an appropriate icon, as well as being labeled with the interface they implement, instead of the generic class name that they are assigned by default.
-An example of this is shown in \cref{fig:JiveNewIcon}
+An example of this is shown in \cref{fig:JiveNewIcon}.
 This function was also expanded to identify and label instances of abstract classes, and the lambda-expressions that were introduced with Java 8.
-In order to still allow the actual class name to be visible, the tool-tip shown when hovering the mouse pointer over an object remains unmodified, showing the actual class name and icon.
+In order to still allow the actual class name to be visible, the tool-tip shown when hovering the mouse pointer over an object remains unmodified, and displays the actual class name and icon.
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\textwidth]{UIJiveInterfaceIcon}
-	\caption[A view of how instantiated interfaces are shown after the modification.]{A view of how instantiated interfaces are shown after the modification. Also shown, is the tool-tip text for the second instance from the left. Originally, they would be labeled as `ButtonsNText\$1:1', `ButtonsNText\$2:1' and so on, with the green class-icon.}
+	\caption[A view of how instantiated interfaces are shown after the modification.]{A view of how instantiated interfaces are shown after the modification. Also shown is the tool-tip text for the second instance from the left. Originally, they would be labeled as `ButtonsNText\$1:1', `ButtonsNText\$2:1' and so on, with the green class-icon.}
 	\label{fig:JiveNewIcon}
 \end{figure}
 
@@ -18,7 +18,7 @@ The filtering function was expanded with the ability to specify packages that ar
 Adding a package to be included is done by adding a `+' in front of the package-name when adding it to the filter.
 As an example, the default filter excludes the javax package, and any subpackages that are not specifically listed with a `+' in front.
 When adding the line `+javax.swing.*' in order to let swing components through the filter, one will let every subpackage of `javax.swing' though the filter as well, which is the intended design.
-Unfortunately, there are a lot of classes in both swing, and its subpackages that are not used directly when writing swing-programs, and a user will have no interest in seeing these in the diagrams.
+Unfortunately, there are a lot of classes in both swing and its subpackages that are not used directly when writing swing-programs, and a user will have no interest in seeing these in the diagrams.
 This can result in very poor performance -- as unnecessary events are logged -- as well as cluttered diagrams, but can be handled by adding the unwanted classes to the filter for exclusion.
 Depending on the package in question, the amount of extra items added to the filter can become quite large, and identifying all unwanted classes and subpackages may take hours at worst.
 One weakness in the filter is related to the problem of unwanted packages.
@@ -45,8 +45,8 @@ This is of course not a good way of handling the issue, and ways of improving th
 The isolated view was implemented as a separate view-tab, and does what was proposed in \cref{fig:seqOving4IsolatedMock}: it displays the events caused by the selected event, and hides everything else.
 \Cref{fig:MMI-oving4-SeqIsoDiag-AWT-Event-Thread} shows what \cref{fig:seqOving4IsolatedMock} looked like after the modification.
 \Cref{fig:MMI-oving4-SeqIsoDiag-valueChanged} shows a similar, but slightly more complex situation in the isolated view.
-By right clicking on an event in the regular sequence diagram, and selecting the `Isolated view' option, shown in \cref{fig:UISeqRightClickNew}, the isolated view is triggered.
-It is also possible to further focus on a part of the diagram from within the isolated view, by right clicking on the desired event, and selecting the `Isolated view' option again.
+By right-clicking on an event in the regular sequence diagram, and selecting the `Isolated view' option, shown in \cref{fig:UISeqRightClickNew}, the isolated view is triggered.
+It is also possible to further focus on a part of the diagram from within the isolated view, by right-clicking on the desired event, and selecting the `Isolated view' option again.
 All of the functionality from the regular sequence diagram has been retained in the isolated view, so that the only difference is what parts of the execution are visible.
 \begin{figure}[H]
 	\centering

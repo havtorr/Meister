@@ -64,18 +64,22 @@ The specific penalty varies with the complexity of the program, and the level of
 The performance of each example program, with both versions of \gls{jive}, and with two different levels of detail in the filter for the modified version, for a total of six measurements, were tested separately from the user evaluation, but on the same computer.
 Each result was measured five times, with the averages reported in the table below:
 
-\begin{center}
-	\begin{tabular}{|l|l|r|}
-		\hline
-		Version of JIVE & Program & 5-run average\\ \hline
-		Original JIVE & Exercise 1 & 5,0s\\ \hline	
-		Modified JIVE, standard filter & Exercise 1 & 16,5s\\ \hline	
-		Modified JIVE, swing-focused filter & Exercise 1 & 18,3s\\ \hline
-		Original JIVE & Exercise 4 & 8,2s\\ \hline	
-		Modified JIVE, standard filter & Exercise 4 & 25,0s\\ \hline	
-		Modified JIVE, swing-focused filter & Exercise 4 & 54,4s\\ \hline
-	\end{tabular}
-\end{center}
+\begin{table}[H]
+	\begin{center}
+		\label{tab:testPerf}
+		\caption{Timing results from benchmarking}
+		\begin{tabular}{llr}%\label{tab:testPerf}
+			\hline
+			Version of JIVE & Program & 5-run average\\ \hline
+			Original JIVE & Exercise 1 & 5.0 s\\
+			Modified JIVE, standard filter & Exercise 1 & 16.5 s\\
+			Modified JIVE, swing-focused filter & Exercise 1 & 18.3 s\\
+			Original JIVE & Exercise 4 & 8.2 s\\ 
+			Modified JIVE, standard filter & Exercise 4 & 25.0 s\\ 
+			Modified JIVE, swing-focused filter & Exercise 4 & 54.4 s\\ \hline
+		\end{tabular}
+	\end{center}
+\end{table}
 
 As these results show, there is a significant degradation in performance when going from the original version if \gls{jive} to the modified one.
 The impact of letting a larger amount of events through the filter adds another solid penalty.
