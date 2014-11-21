@@ -11,7 +11,7 @@ The example programs both consisted of a simple user interface in swing, impleme
 Exercise 1 consists of a text field and two buttons to transform the text entered in that field to either uppercase or lowercase, and with an option to continually transform as new text is written.
 Exercise 4 is an application that manages a simple list of people.
 The interface it presents is split between a list of people, and a set of text fields to enter information about the selected person, as well as buttons to create new, and delete existing people.
-Both of these programs, shown in \autoref{fig:MMI-Oving-UI}, were relatively simple, with few events following directly from a user interaction, and as such, should have a limited performance reduction when used with \gls{jive}.
+Both of these programs, shown in \cref{fig:MMI-Oving-UI}, were relatively simple, with few events following directly from a user interaction, and as such, should have a limited performance reduction when used with \gls{jive}.
 More complex programs are likely to suffer a greater performance impact from \gls{jive}, but are also out of the scope for the \gls{hci}-course.
 
 
@@ -59,7 +59,7 @@ The changes to the filtering mechanism, while useful, were found to still be som
 The modified labeling of object instances provided a small, but useful addition to the visible information.
 
 %målt ytelse
-Regarding performance, it has already been shown in \autoref{preMethods} that the tracing behavior of \gls{jive} must affect the analyzed program negatively.
+Regarding performance, it has already been shown in \cref{preMethods} that the tracing behavior of \gls{jive} must affect the analyzed program negatively.
 The specific penalty varies with the complexity of the program, and the level of detail that is being logged.
 The performance of each example program, with both versions of \gls{jive}, and with two different levels of detail in the filter for the modified version, for a total of six measurements, were tested separately from the user evaluation, but on the same computer.
 Each result was measured five times, with the averages reported in the table below:
@@ -79,7 +79,7 @@ Each result was measured five times, with the averages reported in the table bel
 
 As these results show, there is a significant degradation in performance when going from the original version if \gls{jive} to the modified one.
 The impact of letting a larger amount of events through the filter adds another solid penalty.
-The reason for the latter has been explained in \autoref{jiveFeatures}, and is simply a reflection of the added work of processing more events as they are let through the filter.
+The reason for the latter has been explained in \cref{jiveFeatures}, and is simply a reflection of the added work of processing more events as they are let through the filter.
 The impact observed from simply switching to the modified version can be explained by the way the filter mechanism was altered.
 By first constructing a list of every package found in the workspace of the chosen program, and then use this list to add and remove excluded packages from the filter, the filter remains an exclusion filter, and its size reflects the size of the package list.
 When \gls{jive} then checks to see if an event matches an entry in the filter, it has to look through a large amount of entries, and that clearly affects its performance.

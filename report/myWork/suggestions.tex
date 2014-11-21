@@ -13,12 +13,12 @@ Java automatically names these classes by appending a dollar sign and a identify
 \gls{gui}-programs are written with several such classes to handle user input, each implementing a listener-interface of some kind, and they show up in the diagrams with their generated names, that do not reflect the purpose of the class.
 The ability to detect an inner type with a generic name, and display the interface it implements, instead of its actual name, should help with this issue.
 Among others, listener-heavy programs should become more understandable, as the kind of listeners in use will be clearly visible, removing the need to guess based on when they are invoked in the sequence-diagram.
-\autoref{fig:contOving4ChangesLab} illustrates this as the change from part a to part b.
+\Cref{fig:contOving4ChangesLab} illustrates this as the change from part a to part b.
 
 
 %koble listeners til det de lytter på
 To further help users identify listeners, they could be visually linked to the objects they are listening to in the contour-diagram, making it clearly visible which object is being listened to by the different listeners.
-\autoref{fig:contOving4ChangesLink} illustrates this change, along with the relabeled objects.
+\Cref{fig:contOving4ChangesLink} illustrates this change, along with the relabeled objects.
 While the effect is possible to achieve by applying an appropriate filter, this filter must let a large amount of objects through, causing the diagrams to become cluttered and challenging to navigate.
 On the other hand, the effect of the listener being triggered is clearly visible in the sequence diagram, and it is possible that this is easy enough to connect with a users interactions with a program, so that the addition of a specific link will not be necessary.
 \begin{figure}[H]
@@ -26,7 +26,7 @@ On the other hand, the effect of the listener being triggered is clearly visible
 	\begin{subfigure}{\textwidth}
 		\centering
 		\includegraphics[width=\textwidth, trim= 0 0 36cm 26cm, clip]{MMI-Oving4-ObjectDiagInit}
-		\caption{Original, cropped view of \autoref{fig:contOving4Init}}
+		\caption{Original, cropped view of \cref{fig:contOving4Init}}
 		\label{fig:contOving4ChangesLabA}
 	\end{subfigure}
 	\begin{subfigure}{\textwidth}
@@ -51,7 +51,7 @@ Not as big of a challenge, this does pose the problem of maintaining the the rea
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\textwidth, trim= 0 0 0 0, clip]{MMI-Oving4-ObjectDiagInit-edit3}
-	\caption{Listeners are relabeled, and connected to the objects they listen to. The illustration is based on \autoref{fig:contOving4Init}}
+	\caption{Listeners are relabeled, and connected to the objects they listen to. The illustration is based on \cref{fig:contOving4Init}}
 	\label{fig:contOving4ChangesLink}
 \end{figure}
 
@@ -69,7 +69,7 @@ If this technique is applied when using the existing horizontal collapse, the di
 The other issue is a consequence of having the objects at the top of the sequence diagram added in the order in which they are used.
 This is generally a good way to order the objects, especially when considering the start-up sequence of a program, which is then displayed in a well organized way.
 Where this approach becomes problematic, is when the newer objects start interacting with the older ones, causing the lines that indicate method calls to cross over parts of the diagram, and often going back and forth.
-This problem is illustrated in \autoref{fig:seqOving4CrossLines}, where a listener triggers activity in an older part of the program.
+This problem is illustrated in \cref{fig:seqOving4CrossLines}, where a listener triggers activity in an older part of the program.
 
 
 \begin{figure}[H]
@@ -83,13 +83,13 @@ This problem is illustrated in \autoref{fig:seqOving4CrossLines}, where a listen
 %isolert visning
 In some cases, the amount of unrelated lifelines that surround a sequence becomes so large, that fitting the entire sequence within the view of a single screen becomes impossible without zooming out, and thus rendering the text unreadable.
 Scrolling sideways to follow consecutive events is not ideal, and can potentially be disorienting.
-This could be solved by allowing users to view such a sub-sequence in a separate, isolated environment, with the objects lined up in the order in which they are used, as illustrated in \autoref{fig:seqOving4IsolatedMock}.
+This could be solved by allowing users to view such a sub-sequence in a separate, isolated environment, with the objects lined up in the order in which they are used, as illustrated in \cref{fig:seqOving4IsolatedMock}.
 
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[height =.5\paperheight, trim= 0cm 5cm 0cm 5cm, clip]{MMI-Oving4-SequenceDiagInit-isolatedEventsMock}
-	\caption{An example of how \autoref{fig:seqOving4CrossLines} might look in the isolated view}
+	\caption{An example of how \cref{fig:seqOving4CrossLines} might look in the isolated view}
 	\label{fig:seqOving4IsolatedMock}
 \end{figure}
 

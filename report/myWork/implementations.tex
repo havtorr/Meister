@@ -3,7 +3,7 @@
 %identifisering av instansierte grensesnitt, lambdaer og abstrakte klaser
 The first change to be implemented was the identification and presentation of instantiated interfaces.
 These are now displayed in the diagrams with an appropriate icon, as well as being labeled with the interface they implement, instead of the generic class name that they are assigned by default.
-An example of this is shown in \autoref{fig:JiveNewIcon}
+An example of this is shown in \cref{fig:JiveNewIcon}
 This function was also expanded to identify and label instances of abstract classes, and the lambda-expressions that were introduced with Java 8.
 In order to still allow the actual class name to be visible, the tool-tip shown when hovering the mouse pointer over an object remains unmodified, showing the actual class name and icon.
 \begin{figure}[H]
@@ -14,7 +14,7 @@ In order to still allow the actual class name to be visible, the tool-tip shown 
 \end{figure}
 
 %utvidelse av filteret
-The filtering function was expanded with the ability to specify packages that are not to be excluded from the execution model, as suggested in \autoref{jiveSuggestions}.
+The filtering function was expanded with the ability to specify packages that are not to be excluded from the execution model, as suggested in \cref{jiveSuggestions}.
 Adding a package to be included is done by adding a `+' in front of the package-name when adding it to the filter.
 As an example, the default filter excludes the javax package, and any subpackages that are not specifically listed with a `+' in front.
 When adding the line `+javax.swing.*' in order to let swing components through the filter, one will let every subpackage of `javax.swing' though the filter as well, which is the intended design.
@@ -42,10 +42,10 @@ After modifying these files, Eclipse requires a restart to detect the changes, a
 This is of course not a good way of handling the issue, and ways of improving this should be explored in the future.
 
 %isolert visning av sekvens
-The isolated view was implemented as a separate view-tab, and does what was proposed in \autoref{fig:seqOving4IsolatedMock}: it displays the events caused by the selected event, and hides everything else.
-\autoref{fig:MMI-oving4-SeqIsoDiag-AWT-Event-Thread} shows what \autoref{fig:seqOving4IsolatedMock} looked like after the modification.
-\autoref{fig:MMI-oving4-SeqIsoDiag-valueChanged} shows a similar, but slightly more complex situation in the isolated view.
-By right clicking on an event in the regular sequence diagram, and selecting the `Isolated view' option, shown in \autoref{fig:UISeqRightClickNew}, the isolated view is triggered.
+The isolated view was implemented as a separate view-tab, and does what was proposed in \cref{fig:seqOving4IsolatedMock}: it displays the events caused by the selected event, and hides everything else.
+\Cref{fig:MMI-oving4-SeqIsoDiag-AWT-Event-Thread} shows what \cref{fig:seqOving4IsolatedMock} looked like after the modification.
+\Cref{fig:MMI-oving4-SeqIsoDiag-valueChanged} shows a similar, but slightly more complex situation in the isolated view.
+By right clicking on an event in the regular sequence diagram, and selecting the `Isolated view' option, shown in \cref{fig:UISeqRightClickNew}, the isolated view is triggered.
 It is also possible to further focus on a part of the diagram from within the isolated view, by right clicking on the desired event, and selecting the `Isolated view' option again.
 All of the functionality from the regular sequence diagram has been retained in the isolated view, so that the only difference is what parts of the execution are visible.
 \begin{figure}[H]
@@ -58,7 +58,7 @@ All of the functionality from the regular sequence diagram has been retained in 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\textwidth, trim= 0cm 50cm 0cm 0cm, clip]{MMI-oving4-SeqIsoDiag-AWT-Event-Thread}
-	\caption[How \autoref{fig:seqOving4CrossLines} looks in the isolated view.]{How \autoref{fig:seqOving4CrossLines} looks in the isolated view. The three last elements shown on the top are referred to in parts of the diagram not shown. This view was achieved by selecting the `AWT-EventQueue' lifeline for the isolated view.}
+	\caption[How \cref{fig:seqOving4CrossLines} looks in the isolated view.]{How \cref{fig:seqOving4CrossLines} looks in the isolated view. The three last elements shown on the top are referred to in parts of the diagram not shown. This view was achieved by selecting the `AWT-EventQueue' lifeline for the isolated view.}
 	\label{fig:MMI-oving4-SeqIsoDiag-AWT-Event-Thread}
 \end{figure}
 
