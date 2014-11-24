@@ -23,6 +23,13 @@ Adding a package to be included is done by adding a `+' in front of the package-
 As an example, the default filter excludes the javax package, and any subpackages that are not specifically listed with a `+' in front.
 When adding the line `+javax.swing.*' in order to let swing components through the filter, one will let every subpackage of `javax.swing' though the filter as well, which is the intended design.
 
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{UIJiveLaunchConfigDefaultFilter+swing}
+	\caption[The JIVE-tab in the launch configuration menu]{The JIVE-tab in the launch configuration menu, showing the default exclusion filter, with the addition of an entry to include `javax.swing.*'.}
+	\label{fig:UIJiveLaunchConfigDefaultFilter+swing}
+\end{figure}
+
 Unfortunately, there are a lot of classes in both swing and its subpackages that are not used directly when writing swing-programs, and a user will have no interest in seeing these in the diagrams.
 This can result in very poor performance -- as unnecessary events are logged -- as well as cluttered diagrams, but can be handled by adding the unwanted classes to the filter for exclusion.
 Depending on the package in question, the amount of extra items added to the filter can become quite large, and identifying all unwanted classes and subpackages may take hours at worst.
@@ -33,13 +40,6 @@ This is not a big problem in the case of `javax.swing', as the `javax' package d
 Internally, the filter is still only excluding events.
 The changes were made to the construction-phase, where every package that is found in the Eclipse workspace is added if it is found in the list that the user has made.
 This allows the removal of entries that are marked with a `+', but results in a rather large filter that affects the performance negatively, as is shown in the evaluation results in \cref{jiveEvalPerf}.
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=\textwidth]{UIJiveLaunchConfigDefaultFilter+swing}
-	\caption[The JIVE-tab in the launch configuration menu]{The JIVE-tab in the launch configuration menu, showing the default exclusion filter, with the addition of an entry to include `javax.swing.*'.}
-	\label{fig:UIJiveLaunchConfigDefaultFilter+swing}
-\end{figure}
 
 %isolert visning av sekvens
 \section{The isolated view}\label{isoView}
