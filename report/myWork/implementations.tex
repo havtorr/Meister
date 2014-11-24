@@ -1,6 +1,8 @@
 \chapter{Implemented changes}\label{jiveImpl}%hva ble gjort, hvordan bruke funksjonene. Ikke så mye om hvordan. begrunne prioriteter?
 
 %identifisering av instansierte grensesnitt, lambdaer og abstrakte klaser
+\section{Labeling of objects}\label{implLabel}
+
 The first change to be implemented was the identification and presentation of instantiated interfaces.
 These are now displayed in the diagrams with an appropriate icon, as well as being labeled with the interface they implement, instead of the generic class name that they are assigned by default.
 An example of this is shown in \cref{fig:JiveNewIcon}.
@@ -14,6 +16,8 @@ In order to still allow the actual class name to be visible, the tool-tip shown 
 \end{figure}
 
 %utvidelse av filteret
+\section{Expanding the filter}\label{implFilter}
+
 The filtering function was expanded with the ability to specify packages that are not to be excluded from the execution model, as suggested in \cref{jiveSuggestions}.
 Adding a package to be included is done by adding a `+' in front of the package-name when adding it to the filter.
 As an example, the default filter excludes the javax package, and any subpackages that are not specifically listed with a `+' in front.
@@ -42,6 +46,8 @@ After modifying these files, Eclipse requires a restart to detect the changes, a
 This is of course not a good way of handling the issue, and ways of improving this should be explored in the future.
 
 %isolert visning av sekvens
+\section{The isolated view}\label{isoView}
+
 The isolated view was implemented as a separate view-tab, and does what was proposed in \cref{fig:seqOving4IsolatedMock}: it displays the events caused by the selected event, and hides everything else.
 \Cref{fig:MMI-oving4-SeqIsoDiag-AWT-Event-Thread} shows what \cref{fig:seqOving4IsolatedMock} looked like after the modification.
 \Cref{fig:MMI-oving4-SeqIsoDiag-valueChanged} shows a similar, but slightly more complex situation in the isolated view.
@@ -70,6 +76,7 @@ All of the functionality from the regular sequence diagram has been retained in 
 \end{figure}
 
 %mer avslappede søkekrav - er ikke utført for alle typer søk, er det verd å nevne i det hele tatt?
+\section{Relaxing the search}\label{implSearch}
 The searching functionality was relaxed by allowing partial matches, and disabling case sensitivity.
 While relaxing the search may cause false positives, a user should be able to identify such cases quickly, or at least identify the results they were looking for.
 The fact that partial matches and case insensitivity is the standard behavior in most search-engines, sets an expectation for the behavior of the search within \gls{jive}.
