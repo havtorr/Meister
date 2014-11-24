@@ -20,7 +20,11 @@ This should make listener-heavy programs more understandable, as the kind of lis
 To further help users identify listeners, they could be visually linked to the objects they are listening to in the contour-diagram, making it clearly visible which object is being listened to by the different listeners.
 \Cref{fig:contOving4ChangesLink} illustrates this change, along with the relabeled objects.
 While the effect is possible to achieve by applying an appropriate filter, this filter must let a large amount of objects through, causing the diagrams to become cluttered and challenging to navigate.
+This is partially caused by the design of the swing-framework, as a component does not have a direct link to its listeners, but rather to another object that handles them.
+Additionally, \gls{jive} does not show inherited fields unless the ancestor-object is let through the filter, and as listeners are typically handled by inherited methods, this adds another series of types that must get through the filter.
+
 On the other hand, the effect of the listener being triggered is clearly visible in the sequence diagram, and it is possible that this is easy enough to connect with a user's interactions with a program, so that the addition of a specific link will not be necessary.
+
 \begin{figure}[H]
 	\centering
 	\begin{subfigure}{\textwidth}
@@ -38,6 +42,7 @@ On the other hand, the effect of the listener being triggered is clearly visible
 	\caption{comparison of the suggested label-changes to the diagrams.}
 	\label{fig:contOving4ChangesLab}
 \end{figure}
+
 %visualisere mvc-komonenter
 A last visual change would be to attempt further identification of the components that make up an \gls{mvc}-architecture, and highlight them.
 Being a change focusing solely on a specific architecture, it must be possible to deactivate when not needed.
@@ -57,7 +62,8 @@ Not as big of a challenge, this does pose the problem of maintaining the the rea
 \end{figure}
 
 
-\subsection{Functional changes}\label{jiveSuggestionsFunctional}
+
+\subsection{Compacting diagrams}\label{jiveSuggestionsCompact}
 %bruker-tilpasning av diag
 Both diagrams can easily grow to sizes that make them hard to navigate and to get an overview of.
 While the contour diagram offers different presentation modes, by for instance only showing objects, and not their data-fields, the sequence diagram offers fewer options.
@@ -65,7 +71,6 @@ Collapsing parts of the diagrams do help in reducing the amount of information s
 Firstly, there is currently no method of vertically compressing the sequence diagram, resulting in long sequences with no visible interaction if that sequence has already been collapsed, or if there are a lot of filtered events occurring within the lifeline of an object.
 There is an ongoing development to solve this, by substituting an event-pattern with a single new event, and thus reducing the vertical size of the diagram.
 If this technique is applied when using the existing horizontal collapse, the diagram should shrink in both directions.
-
 
 The other issue is a consequence of having the objects at the top of the sequence diagram added in the order in which they are used.
 This is generally a good way to order the objects, especially when considering the start-up sequence of a program, which is then displayed in a well organized way.
@@ -80,12 +85,10 @@ This problem is illustrated in \cref{fig:seqOving4CrossLines}, where a listener 
 	\label{fig:seqOving4CrossLines}
 \end{figure}
 
-
 %isolert visning
 In some cases, the amount of unrelated lifelines that surround a sequence becomes so large, that fitting the entire sequence within the view of a single screen is impossible without zooming out, and thus rendering the text unreadable.
 Scrolling sideways to follow consecutive events is not ideal, and can potentially be disorienting.
 This could be solved by allowing users to view such a sub-sequence in a separate, isolated environment, with the objects lined up in the order in which they are used, as illustrated in \cref{fig:seqOving4IsolatedMock}.
-
 
 \begin{figure}[H]
 	\centering
@@ -96,6 +99,8 @@ This could be solved by allowing users to view such a sub-sequence in a separate
 
 
 %filter-endringer
+\subsection{Changes to the filter}\label{jiveSuggestionsFilter}
+
 The filter operates by excluding unwanted elements from the trace-log, and only takes a list of elements to exclude as input.
 While this simplifies the internal operation, and makes it easy for users to understand, it also makes it hard to build a more fine grained filter.
 For example, a package containing several sub-packages is excluded, but one of those sub-packages is not.
@@ -103,15 +108,17 @@ The current way to achieve this is to individually list each of the sub-packages
 This results in a potentially large list of packages, and will take an unnecessary amount of work to add to the filter.
 By instead allowing the users to add the one package to be included, and using both a list of inclusions and a list of exclusions to build the filter, the amount of work for the user is significantly reduced while maintaining readability.
 
-
 Changing the filter is currently done by adding or removing one entry at a time, making large changes time consuming and prone to spelling errors.
-Since the filters are stored in the files Eclipse uses to describe how to launch a program, directly modifying these files is a possible work-around for making large changes, but they require Eclipse to be restarted to have any effect.
+Since the filters are stored in the \gls{xml}-files Eclipse uses to describe how to launch a program, directly modifying these files is a possible work-around for making large changes, but they require Eclipse to be restarted to have any effect.
 These files are also hidden within the configuration folders that Eclipse uses, making them hard to find without instructions.
 Having an easier way of swapping, or making large changes to filters, would likely increase the use of custom filters, and would enable the distribution of pre-made filters, designed for specific purposes.
 This feature could be extended further, to include multiple default filters that a user could select from when running a program.
 
 
+
 %søk
+\subsection{Searching}\label{jiveSuggestionsSearch}
+
 The ability to search through all the events can be a useful feature, depending on the scenario in which \gls{jive} is used.
 When merely getting an overview of a program, it is likely not needed at all, but for debugging purposes, it has a clear use as a way of finding specific events.
 The search is unfortunately very strict in its interpretation of the search terms, being both case-sensitive, and requiring full class names that include the package the class is contained within.
@@ -121,6 +128,8 @@ By relaxing the search criteria to not be case sensitive, and to allow partial m
 
 
 %batch-kjøring av større prog? automatisert ui-interaksjon
+\subsection{Automation}\label{jiveSuggestionsAutomation}
+
 Despite the measures that have been taken to reduce the performance impact of \gls{jive}, it will always be possible to create a scenario where the analyzed program will take a significant amount of time to run.
 For instance when testing a larger project.
 For non-interactive programs, this is only a matter of waiting for them to finish.

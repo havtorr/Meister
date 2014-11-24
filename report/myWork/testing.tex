@@ -1,8 +1,18 @@
 \chapter{Evaluating usefulness}\label{jiveEval}
+
+This chapter will look at the external evaluation of \gls{jive} and the implemented changes, providing details on both the execution of the evaluation, and the results that were acquired.
+
 \section{The test}\label{jiveEvalTest}
 %mer konkret om hva som ble spurt om, spesifikke spørsmål
-In order to evaluate both the usefulness of \gls{jive}, and the changes that were implemented, an evaluation was performed individually with a small group of six students.
-During this test, the students were given a demonstration of the main features of \gls{jive}, using implementations of the first, and the last exercise of the \gls{hci}-course as examples.
+In order to evaluate both the usefulness of \gls{jive}, and the changes that were implemented, the evaluation was performed individually with a small group of six students.
+The participants were initially recruited through a request sent to the participants of a second-year course that is mandatory for those who follow the informatics program.
+This group was selected as they were matching the target group outlined in \cref{introduction}.
+After only getting a single response, another request  was sent to the students association of the computer science program, bringing in the five remaining participants.
+The latter group were all in their third year, and had already finished the \gls{hci}-course the previous semester.
+This meant that they were familiar with the example programs, and had some knowledge of the MVC-pattern and how it behaves in Java-swing.
+While this excluded the experiences of someone completely unfamiliar to these concepts, it did give the insight of relatively fresh experiences, as the participants remembered what they were finding hard to understand back then.
+
+During the test, the students were given a demonstration of the main features of \gls{jive}, using implementations of the first, and the last exercise of the \gls{hci}-course as examples.
 After getting familiar with \gls{jive}, they were shown the modified version, focusing on the new and modified features that were implemented.
 They were then asked questions about how easily they understood the diagrams, and how useful they found the changes to be.
 As well as whether the performance trade-off was acceptable for occasional use, if they could see themselves using \gls{jive}, and if so, in what situations.
@@ -34,11 +44,6 @@ More complex programs are likely to suffer a greater performance impact from \gl
 \end{figure}
 
 \section{Results}\label{jiveEvalResults}
-%TODO: forklar utval av studenter
-The students that participated in the evaluation were mostly in their third year, and had already finished the \gls{hci}-course the previous semester.
-This meant that they were familiar with the example programs, and had some knowledge of the MVC-pattern and how it behaves in Java-swing.
-While this excluded the experiences of someone completely unfamiliar to these concepts, it did give the insight of relatively fresh experiences, as the participants remembered what they were finding hard to understand back then.
-There was also one participant who was in his second year, and as such, he would be taking the \gls{hci}-course during the next semester.
 
 %nytte av diag
 The evaluation resulted in mostly positive feedback, with every participant seeing some kind of use for a tool like \gls{jive}.
@@ -59,9 +64,12 @@ The changes to the filtering mechanism, while useful, were found to still be som
 The modified labeling of object instances provided a small, but useful addition to the visible information.
 
 %målt ytelse
+\subsection{Performance}\label{jiveEvalPerf}
 Regarding performance, it has already been shown in \cref{preMethods} that the tracing behavior of \gls{jive} must affect the analyzed program negatively.
 The specific penalty varies with the complexity of the program, and the level of detail that is being logged.
-The performance of each example program, with both versions of \gls{jive}, and with two different levels of detail in the filter for the modified version, for a total of six measurements, were tested separately from the user evaluation, but on the same computer.
+The performance was measured as the it took for the program to reach a state where it could be interacted with.
+Each of the example programs were run with both versions of \gls{jive}, and with two different levels of detail in the filter for the modified version, for a total of six measurements.
+They were tested separately from the user evaluation, but on the same computer.
 Each result was measured five times, with the averages reported in the table below:
 
 \begin{table}[H]
@@ -95,6 +103,7 @@ By using the filter to ignore well known parts of the project, one could more ea
 In either case, the performance was not found to be a reason to never use \gls{jive}, but it would clearly depend on the complexity of the program, as well as what the filter would be letting through.
 
 %problemer
+\subsection{New issues}\label{jiveEvalIssues}
 While the feedback from the participants was generally positive, they still found some areas that they thought could be further improved with new or modified functionality.
 The mentioned challenge with importing an existing filter, was among the suggested changes.
 Along with this, there was a desire to add a suggestion-functionality that would behave similarly to the autocomplete feature found in many search providers, including parts of Eclipse, when manually entering new filter entries.
