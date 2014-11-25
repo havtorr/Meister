@@ -10,8 +10,12 @@ This chapter will serve to get an overview of the current situation of debugging
 Debuggers are tools that are designed to aid a developer in the process of finding errors, or bugs, in a program.
 Depending on the language and platform, this ranges from gathering information when a program crashes, to inserting \glspl{breakpoint} -- points in the code where the debugged program will be suspended, allowing the contents of its memory to be inspected, and potentially modified.
 While having obvious uses, these techniques requires a certain level of knowledge of both the program in question, and programming in general, to be really useful.
-Going beyond this, the generation of diagrams to visualize the structure of a program, and its path of execution is another way of helping developers.
-I.E. some form of object-, and/or sequence-diagram, as defined by the \gls{uml} specification.
+The information provided by these debuggers is mainly textual, and that can itself be a limiting factor in the understanding of the programs \cite{Larkin1987}. %siter nr.1 fra taxonomy i tillegg?
+
+Larkin and Simon has shown that the use of diagrams can enable an individual to absorb the presented information faster than if it was purely textual.
+It is then natural to explore the generation of diagrams to visualize the structure of a program, and its path of execution, as a way of helping developers.
+The \gls{omg} has, with the \gls{uml} specification, established a widely used standard for how a large variety of diagrams describing software design and architecture should be formed.
+Of these, it is the class- object- and sequence-diagrams that are of most use when describing the architecture and execution pattern of a program. %sitat?
 Such diagrams can make it easier to get an overview of a program's current state, see the contents of objects and how they relate to each other, and to understand how the various components work together.
 
 Object diagrams are similar to class diagrams in that they both show the objects of a program and their connections between each other.
