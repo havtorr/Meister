@@ -63,24 +63,26 @@ The participants also expressed desires for further changes, some of which were 
 This report has explored some of the currently available tools that are designed to help developers get an insight into the software they are working on, focusing on usage in connection with education.
 Through the exploration of \gls{jive}, several potential points of improvement were identified, but not implemented due to prioritizing within a limited time frame.
 Additional improvements were discovered by the evaluation participants during the evaluation.
-These modifications are listed below: %in no particular order?
+These modifications are listed below, in no particular order:
 
+\begin{itemize*}
+	\item{Less restrictive search}
+	\item{Further improvements to the filtering performance and granularity}
+	\item{Improving the way the filter is edited}
+	\item{Compression of sequence diagram height}
+	\item{Making the top of the sequence diagram visible at all times}
+	\item{Restricting growth of contour diagram}
+	\item{Further exploration of indicating indirect connections in the contour diagram}
+\end{itemize*}
 
-unimplemented stuffs here\\
-further improvements on usability.\\
-compression of diagram height\\
-looser search terms\\
-improving filter, tree-view of classes/packages found in workspace with checkboxes for inclusion/exclusion?\\
-If gui is a desired use case: Focus on performance, minimize unnecessary work/avoid work as soon as possible.\\
+The usage and performance of the filter is an important point to continue working on.
+As the filter directly affects the experience of \gls{jive}, both by reducing the size of the trace-log, and through its performance impact, this is the key factor in enabling the use of \gls{jive} for larger programs.
+While the live analysis that \gls{jive} does makes it unlikely that performance will reach the point where continuous use can be considered, a significant reduction in startup- and response-time can be achieved.
 
+With larger programs, the search function becomes more important.
+As detailed in \cref{jiveSuggestionsSearch}, the relaxation of the search terms will make the behavior more similar to the behavior expected of other search providers, causing less confusion.
 
-Apart from the implementation of additional modifications, it would be desirable to start the use of \gls{jive} as part of the lecturing, and encouraging students to try the tool for themselves.
-This can be considered to be a natural next step in gaining more data on its use, and to better identify and prioritize further refinements of the tool.
-
-
-STIKKORD:\\
-Test in actual teaching, lectures student assistants, etc.
-
-JFX is essentially not usable with \gls{jive} in current state: too many things going on behind the scene\\
+Apart from the implementation of additional modifications, it would be desirable to start the use of \gls{jive} during lectures, and encourage students to try the tool for themselves.
+This can be considered a natural next step in gaining more data on its use, in order to properly understand how students can benefit from such a tool, as well as identifying and prioritizing further refinements of \gls{jive}.
 
 
