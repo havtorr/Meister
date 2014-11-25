@@ -39,7 +39,7 @@ More complex programs are likely to suffer a greater performance impact from \gl
 		\caption{\gls{hci}-exercise 4}
 		\label{fig:MMI-Oving4-UI}
 	\end{subfigure}
-	\caption{The two example programs used in the evaluation}
+	\caption{The two example programs used in the evaluation.}
 	\label{fig:MMI-Oving-UI}
 \end{figure}
 
@@ -105,12 +105,26 @@ In either case, the performance was not found to be a reason to never use \gls{j
 %problemer
 \subsection{New issues}\label{jiveEvalIssues}
 While the feedback from the participants was generally positive, they still found some areas that they thought could be further improved with new or modified functionality.
+
 The mentioned challenge with importing an existing filter, was among the suggested changes.
-Along with this, there was a desire to add a suggestion-functionality that would behave similarly to the autocomplete feature found in many search providers, including parts of Eclipse, when manually entering new filter entries.
+Along with this, there was a desire to add a suggestion-functionality that would behave similarly to the autocomplete feature found in many search providers, including parts of Eclipse.
+This feature would suggest package-names as the user started typing in the text field to add a new entry.
+
 Another issue was the risk of diagrams becoming so large that they would be nearly impossible to navigate.
 The size would especially become a problem when running larger programs, or when letting more objects through the filter.
 To help with this, there was a desire to have the line of objects at the top of the sequence diagram visible at all times, regardless of how far down in the diagram one is currently looking, which would make the larger diagrams easier to navigate.
 The ability to compress the height of the sequence diagram was also suggested.
+
+Following the same lines, it was suggested that the placement of objects in the contour diagram could be reworked to give a more compact diagram.
+\Cref{fig:MMI-Oving4-ObjectDiagVerybig} illustrates the problem, with a lot of unused space, and especially bottom row of objects extending far beyond the rest.
+If the size of the diagram was restricted, for instance by preventing it from growing wider than the top row, preferring multiple shorter rows of objects instead of a few long ones.
+This would let users see more information without scrolling the view of the diagram or zooming out.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\textwidth]{MMI-Oving4-ObjectDiagVerybig}
+	\caption{Contour diagram that has grown unnecessarily large.}
+	\label{fig:MMI-Oving4-ObjectDiagVerybig}
+\end{figure}
+
 Another suggestion was to make it possible to trigger the isolated view from the mentioned line of objects at the top of the sequence diagram instead of having to find the desired objects, and then scroll down to find the first event it is involved in.
-Finally, it was suggested that the placement of objects in the contour diagram could be reworked to give a more compact diagram.
-This could be done by making a new line in order to prevent a single row of objects, without connections to others, from growing wider than a certain threshold.

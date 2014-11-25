@@ -11,7 +11,7 @@ The default views shown in this perspective are the "object diagram" and "sequen
 The diagrams are updated according to the current state of the debugged program, so that the backtracking functionality allows you to see the entire execution graphically, step-by-step.
 The other views provided by \gls{jive} are as follows: `contour model', `sequence model', `execution trace' and `search'.
 
-\subsection{The object diagram}\label{featObjectDiag}
+\subsection{The object diagram}\label{jiveFeatObjectDiag}
 
 The object diagram-view shows the current state of the program by using a contour-diagram.
 Contour-diagrams, as shown in \cref{fig:contOving4Init}, are based on an old technique to give semantics to Algol-like languages.
@@ -33,7 +33,7 @@ Visibility is aided by the use of colors to highlight specific elements of the d
 	\label{fig:contOving4Init}
 \end{figure}
 
-\subsection{The sequence diagram}\label{featSequenceDiag}
+\subsection{The sequence diagram}\label{jiveFeatSequenceDiag}
 
 The sequence diagrams, shown in \cref{fig:seqOving1}, are fairly standard, with threads and object instances represented by boxes in a row at the top, each with a vertical line coming down.
 The actual process is shown with a thicker lifeline overlaying the vertical line of the object that is currently active, with arrows between lifelines representing method-calls.
@@ -69,17 +69,17 @@ Right-clicking also provides to set the execution-state via the jump-option, upd
 	\centering
 	\begin{subfigure}{\textwidth}
 		\centering
-		\includegraphics[width=\textwidth, trim= 36cm 49cm 10cm 65cm, clip]{MMI-Oving4-SequenceDiagInit}
+		\includegraphics[width=\textwidth, trim= 36cm 50cm 10cm 65cm, clip]{MMI-Oving4-SequenceDiagInit}
 		\caption{Normal.}
 		\label{fig:seqOving4CollapseA}
 	\end{subfigure}
 	\begin{subfigure}{\textwidth}
 		\centering
-		\includegraphics[width=\textwidth, trim= 36cm 49cm 10cm 65cm, clip]{MMI-Oving4-SequenceDiagInitCollapsed}
+		\includegraphics[width=\textwidth, trim= 36cm 50cm 10cm 65cm, clip]{MMI-Oving4-SequenceDiagInitCollapsed}
 		\caption{Collapsed.}
 		\label{fig:seqOving4CollapseB}
 	\end{subfigure}
-	\caption{Normal and collapsed section of a sequence diagram. Note the `+' symbols in (b) indicating a collapsed element.}
+	\caption[Normal and collapsed section of a sequence diagram.]{Normal and collapsed section of a sequence diagram. Note the `+' symbols in (b) indicating a collapsed element.}
 	\label{fig:seqOving4Collapse} 
 \end{figure}
 
@@ -87,7 +87,7 @@ Both of the diagrams can be saved as an image at any time, so that one can look 
 This also helps to visualize any changes made to a program, and to see what the effects are on the program flow.
 The diagrams also have the ability to zoom in and out, further helping with the handling of larger diagrams.
 
-\subsection{Time-stepping}\label{featTimeStep}
+\subsection{Time-stepping}\label{jiveFeatTimeStep}
 
 Closely related to the diagrams, is the ability to quickly jump backwards and forwards between execution states.
 %figur, jump-to
@@ -96,7 +96,7 @@ Each event is assigned an identifying number, in ascending order, and informatio
 The log is used as the basis for the models that make up the diagrams, and can be saved as both \gls{xml}- and \gls{csv}-files for later use.
 %er det nødvendig med gls?
 
-\subsection{Filtering}\label{featFilter}
+\subsection{The exclusion Filter}\label{jiveFeatFilter}
 
 As mentioned in the prestudy, logging every event has a significant impact on run-time performance, limiting the size and complexity of the programs that can be used with \gls{jive} in a meaningful way.
 On the other hand, it allows quick jumping between recorded states, as opposed to techniques that save a snapshot at predefined intervals, requiring the program to be run from the snapshot-state to the desired one, even if it is just a single step backwards.
@@ -106,7 +106,7 @@ By default, the filter excludes the entire Java API, and by doing so, it focuses
 %figur som viser filter?
 This filter can be adjusted to better suit the program being analyzed, by adding or removing entries in order to show or hide details of the execution.
 
-\subsection{The model views}\label{featModelView}
+\subsection{The model views}\label{jiveFeatModelView}
 
 The model-views each display an alternate view of their respective diagrams.
 %figur begge modellvisninger, eventuelt vise begge modeller + logg
@@ -114,7 +114,7 @@ They show the data-model representing the diagrams in a hierarchical structure, 
 Right-clicking on an event in the sequence model allows you to set the execution state to that event, and have the diagrams updated accordingly.
 Clicking on elements in the contour-model allows you to inspect the values of objects and their variables.
 
-\subsection{Searching}\label{featSearch}
+\subsection{Searching}\label{jiveFeatSearch}
 
 Finally, the trace-log enables the use of queries to search for specific events in the execution.
 The queries are presented through a new tab in the Eclipse search-window as seen in \cref{fig:UIjiveSearchPanel}, easily accessible through the search-view, and comes with several pre-defined templates to simplify searching.
