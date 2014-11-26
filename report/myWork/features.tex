@@ -47,23 +47,21 @@ In \cref{fig:seqOving1}, one can clearly see the two colors representing the `ma
 	\label{fig:seqOving1}
 \end{figure}
 
-
 \begin{figure}[H]
 	\centering
 	\includegraphics[scale=0.9]{UIseqRightClick}
 	\caption{The sequence diagram right-click menu.}
 	\label{fig:UIseqRightClick}
 \end{figure}
-Right-clicking on a lifeline provides the ability to collapse method-calls originating from that lifeline in order to hide unnecessary information, as shown in \cref{fig:UIseqRightClick}.
-The collapse-menu gives four options when used on the lifeline of an object: `After', `before', `children' and `here'.
-%kursiv isteden for fnuttofant?
-`Before' and `after' collapses lifelines that occurred before or after the selected event, at the same depth in the sequence-tree.
-`Children' collapses all events that are children of the selected event, while `here' collapses the selected event.
-Right-clicking on an object instance at the top of the diagram also gives the opportunity to collapse that object's entire lifeline, the result of which can be seen in \cref{fig:seqOving4Collapse}.
-While this figure shows the result of collapsing the lifeline of an object, a similar result can be achieved by selecting `collapse children' at the parent lifeline, or by selecting `collapse here' on each of the three method-calls shown.
-The same options are available for expanding collapsed elements.
-Right-clicking also provides to set the execution-state via the jump-option, updating the contour-diagram and -model to show that state.
 
+Right-clicking on a \gls{lifeline} provides the ability to collapse method-calls originating from that lifeline in order to hide unnecessary information, as shown in \cref{fig:UIseqRightClick}.
+The collapse-menu gives four options when used on the lifeline of an object: \emph{After}, \emph{Before}, \emph{Children} and \emph{Here}.
+\emph{Before} and \emph{After} collapses lifelines that occurred before or after the selected event, at the same depth in the sequence-tree.
+\emph{Children} collapses all events that are children of the selected event, while \emph{Here} collapses the selected event.
+Right-clicking on an object instance at the top of the diagram also gives the opportunity to collapse that object's entire lifeline, the result of which can be seen in \cref{fig:seqOving4Collapse}.
+While this figure shows the result of collapsing the lifeline of an object, a similar result can be achieved by selecting \emph{Collapse-Children} at the parent lifeline, or by selecting \emph{Collapse-Here} on each of the three method-calls shown.
+The same options are also available for expanding collapsed elements.
+Right-clicking also provides to set the execution-state via the \emph{Jump to}-option, updating the contour-diagram and -model to show that state.
 
 \begin{figure}[H]
 	\centering
@@ -90,11 +88,12 @@ The diagrams also have the ability to zoom in and out, further helping with the 
 \subsection{Time-stepping}\label{jiveFeatTimeStep}
 
 Closely related to the diagrams, is the ability to quickly jump backwards and forwards between execution states.
-%figur, jump-to
 This is enabled by the trace-log, which contains an entry for every single event that occurs during the execution of a program, excluding those that are removed by the exclusion filter.
 Each event is assigned an identifying number, in ascending order, and information about thread, type, caller, target, and the location of the source-code is stored.
 The log is used as the basis for the models that make up the diagrams, and can be saved as both \gls{xml}- and \gls{csv}-files for later use.
-%er det nødvendig med gls?
+
+When jumping between execution sates, both of the diagrams are updated accordingly.
+The contour diagram shows a representation of that state, while a horizontal line is added to the sequence diagram to show where the state is located on the time-line.
 
 \subsection{The exclusion Filter}\label{jiveFeatFilter}
 
@@ -103,8 +102,10 @@ On the other hand, it allows quick jumping between recorded states, as opposed t
 
 In order to improve both performance and readability, the mentioned exclusion filter checks the origin of each event, and determines whether or not the event is to be logged.
 By default, the filter excludes the entire Java API, and by doing so, it focuses on the classes that are made by the user.
-%figur som viser filter?
-This filter can be adjusted to better suit the program being analyzed, by adding or removing entries in order to show or hide details of the execution.
+This filter can be adjusted to better suit the program being analyzed, by adding or removing entries in order to hide or show details of the execution, respectively.
+
+\gls{jive} maintains an individual filter for each \emph{debug launch configuration} in eclipse, all based on a default filter.
+This makes it possible to have different filters for the same program, with for instance varying degrees of detail, or different areas of focus.
 
 \subsection{The model views}\label{jiveFeatModelView}
 
