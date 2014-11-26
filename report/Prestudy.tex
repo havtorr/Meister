@@ -3,14 +3,11 @@
 This chapter will serve to get an overview of the current situation of debugging methods, visualization techniques, and the various tools that are available.
 
 \section{Methods}\label{preMethods}
-%hent og siter?:
-%http://www.sciencedirect.com/science/article/pii/S1045926X05800369
-%http://dl.acm.org/citation.cfm?id=1240714
 
 Debuggers are tools that are designed to aid a developer in the process of finding errors, or bugs, in a program.
 Depending on the language and platform, this ranges from gathering information when a program crashes, to inserting \glspl{breakpoint} -- points in the code where the debugged program will be suspended, allowing the contents of its memory to be inspected, and potentially modified.
 While having obvious uses, these techniques requires a certain level of knowledge of both the program in question, and programming in general, to be really useful.
-The information provided by these debuggers is mainly textual, and that can itself be a limiting factor in the understanding of the programs \cite{Larkin1987}. %siter nr.1 fra taxonomy i tillegg?
+The information provided by these debuggers is mainly textual, and that can itself be a limiting factor in the understanding of the programs \cite{Larkin1987}.
 
 Larkin and Simon has shown that the use of diagrams can enable an individual to absorb the presented information faster than if it was purely textual.
 It is then natural to explore the generation of diagrams to visualize the structure of a program, and its path of execution, as a way of helping developers.
@@ -18,12 +15,19 @@ The \gls{omg} has, with the \gls{uml} specification, established a widely used s
 Of these, it is the class- object- and sequence-diagrams that are of most use when describing the architecture and execution pattern of a program. %sitat?
 Such diagrams can make it easier to get an overview of a program's current state, see the contents of objects and how they relate to each other, and to understand how the various components work together.
 
+Class diagrams show what classes, or objects, a program consists of.
+The classes are described with both methods and connections to other classes, indicating relations between them.
+
 Object diagrams are similar to class diagrams in that they both show the objects of a program and their connections between each other.
 They differ in that while the class diagram shows the connection between classes and what the classes are composed of, whereas the object diagram shows the state of a program at a certain point in time.
 As a program is executed, its state changes, and the exact combination of objects and the connections between them will change accordingly, and the object diagram reflects this.
 Some programs will return to a certain state after performing a task, while others do not have this `stable state'.
 The transition between stable and working states can be illustrated with a state diagram, which typically abstracts the states to `idle' and various `tasks', like `processing input'.
-A sequence diagram shows the order in which the program is executed, showing components invoking methods on each other.
+
+A sequence diagram shows the order in which the program is executed.
+The active components are shown  at the top, with vertical \glspl{lifeline} below them, representing a time-line.
+The lifelines alternate between thin and bold lines to indicate whether or not they are involved in the execution at a specific point in time.
+As the components in the program invoke methods on each other, their respective lifelines are connected to each other with arrows.
 
 Depending on the desired kind of diagram, different techniques are used for the generation.
 Class diagrams can be made by analyzing the source code of a program, while object diagrams require information that can only be acquired by analyzing a running program, and logging what happens.
@@ -81,7 +85,7 @@ The \gls{debugVisualizationPlugin} for Eclipse provides an alternative to the va
 The users still needs to use regular techniques they would use normally in order to pause the program-execution, and be able to actually view the state of the variables, as this plugin does not do any tracing.
 This was previously tested in the course TDT4100~--~Object oriented programming, with the conclusion that the generated diagram quickly became too large, showing the contents of objects that were not important, and shuffling objects as new ones were added.%hvem står bak?
 
-\Gls{javavis} \cite{Oechsle2002} ,developed at the University of Applied Sciences in Trier, creates visualizations in the form of \gls{uml} sequence- and object-diagrams, but does not provide any debugging features.
+\Gls{javavis} \cite{Oechsle2002}, developed at the University of Applied Sciences in Trier, creates visualizations in the form of \gls{uml} sequence- and object-diagrams, but does not provide any debugging features.
 
 \Gls{jinsight} \cite{Pauw} is a powerful tool built by IBM, supporting both tracing and visualization.
 However, it is restricted to z/OS and Linux on System z, preventing most people, and especially students, from using it.
@@ -113,7 +117,7 @@ It does provide a `mural', a graph depicting the frequency of events through tim
 While providing support for developers by letting them look back at earlier stages of their programs, and quickly jump to events of interest, the lack of visual information can be considered a downside.
 
 The \gls{debugVisualizationPlugin} expands on the debugging functionality of Eclipse by providing a visual view of variables, and is designed to be used alongside the rest of the debugging environment provided by Eclipse.
-It does not perform any tracing, and instead uses the information exposed to Eclipses debugger when the program reaches a breakpoint to draw its diagram.
+It does not perform any tracing, and instead uses the information exposed to Eclipses debugger when the debugged program reaches a breakpoint to draw its diagram.
 As mentioned, this plugin has already been tested with another course, with the conclusion that while the information it provides is useful, the elements in the diagram does not stay put, causing confusion as they move around during execution.
 There were also complaints about too much information being displayed, making it hard to get an overview of the program, and identifying the important components.
 The latest version of this plugin does support the hiding of elements, as well as letting the user reorganize the diagram, but any such configuration seems to be reset when moving to a new breakpoint.
