@@ -61,39 +61,46 @@ Some of the tools listed below does not support Java or Eclipse, but provide int
 Download links for the tools are provided in their respective glossary entries for those tools that are available.
 
 %not java/eclipse
-\gls{gdb}, a part of the GNU project, and maintained by the Free Software Foundation, offers a tracing environment, and support for many languages, although the support for Java is limited.
+\begin{description}
+\item[\gls{gdb}] A part of the GNU project, and maintained by the Free Software Foundation, offers a tracing environment, and support for many languages, although the support for Java is limited.
 Due to its \gls{cli}, it is not necessarily easy to use on its own, and as a consequence, there are several front-end platforms that provide a graphical environment around \gls{gdb}, including Eclipse.
 
-\Gls{codecanvas} \cite{Deline2010}, developed by Microsoft, uses an interesting way of visualizing an entire project, everything from source-code to design documents and diagrams are layered onto a large canvas.
+\item[\Gls{codecanvas}] \cite{Deline2010} Developed by Microsoft, uses an interesting way of visualizing an entire project, everything from source-code to design documents and diagrams are layered onto a large canvas.
 This allows the user to easily navigate between various elements, but this tool is restricted to Microsoft Visual Studio, and the languages it supports.
 
 %java/eclipse
-The \gls{traceviewer} \cite{Thomas2010} for g-Eclipse -- a now discontinued version of Eclipse, geared for development of grid-computing software -- uses a trace to generate visualizations of the program execution.
+\item[\gls{traceviewer}] \cite{Thomas2010} Developed by the MNM-team at the Ludwig Maximilian University of Munich, Germany.
+A plugin for g-Eclipse -- a now discontinued version of Eclipse, geared for development of grid-computing software.
+Uses a trace to generate visualizations of the program execution.
 These visualizations should make the execution easier to understand, but the plugin is designed for tracing the massively parallel programs that are used on high performance computing clusters, and requires a special version of Eclipse.
 Smaller programs, like the ones students write as a part of the exercises in the \gls{hci}-course, are not massively parallel, making the diagrams of them less useful.
-The plugin was developed by the MNM-team at the Ludwig Maximilian University of Munich.
 
-The \gls{tod} \cite{Pothier2007}, is developed at the University of Chile in Santiago, and as the name suggests, utilizes execution traces to enable its debugging and querying features.
+\item[\gls{tod}] \cite{Pothier2007} Developed at the University of Chile in Santiago.
+Utilizes execution traces to enable its debugging and querying features.
 It offers high performance tracing, being able to maintain usable interaction while debugging complex software, but its only visual representation of programs is the `mural', a graph that shows event density over time.
 
-\Gls{whyline} \cite{ko2009}, like the \gls{tod}, makes use of execution traces to enable querying, instead of providing visualizations.
+\item[\Gls{whyline}] \cite{ko2009} Developed at the Carnegie Mellon University, Pennsylvania, USA.
+Like the \gls{tod}, makes use of execution traces to enable querying, instead of providing visualizations.
 It aims to explain why something happened in a program, and does so by looking at the history of the involved components.
 This tool only exists as a separate application, and does not integrate into any \gls{ide}.
-\Gls{whyline} is developed at the Carnegie Mellon University.
 
-The \gls{debugVisualizationPlugin} for Eclipse provides an alternative to the variable view provided in Eclipse's debug-perspective, providing a graph that represents the variables of a program.
+\item[\gls{debugVisualizationPlugin}] for Eclipse provides an alternative to the variable view provided in Eclipse's debug-perspective, providing a graph that represents the variables of a program.
 The users still needs to use regular techniques they would use normally in order to pause the program-execution, and be able to actually view the state of the variables, as this plugin does not do any tracing.
 This was previously tested in the course TDT4100~--~Object oriented programming, with the conclusion that the generated diagram quickly became too large, showing the contents of objects that were not important, and shuffling objects as new ones were added.%hvem står bak?
 
-\Gls{javavis} \cite{Oechsle2002}, developed at the University of Applied Sciences in Trier, creates visualizations in the form of \gls{uml} sequence- and object-diagrams, but does not provide any debugging features.
+\item[\Gls{javavis}] \cite{Oechsle2002} Developed at the University of Applied Sciences in Trier, Germany.
+Creates visualizations in the form of \gls{uml} sequence- and object-diagrams, but does not provide any debugging features.
 
-\Gls{jinsight} \cite{Pauw} is a powerful tool built by IBM, supporting both tracing and visualization.
+\item[\Gls{jinsight}] \cite{Pauw} is a powerful tool built by IBM, supporting both tracing and visualization.
 However, it is restricted to z/OS and Linux on System z, preventing most people, and especially students, from using it.
 
-\gls{jive} is a tool that utilizes execution traces to generate diagrams while running a program.
-Developed at the university of Buffalo, it is installed a an Eclipse plugin, and adds several new views to display the information it provides.
+\item[\gls{jive}] \cite{Lessaa}\\
+Developed at the University at Buffalo, New York, USA.
+A tool that utilizes execution traces to generate diagrams while running a program.
+It is installed as an Eclipse plugin, and adds several new views to display the information it provides.
 In addition to generating diagrams, the trace log is also used to enable backstepping, which is coupled with the diagrams to always show the selected execution state.
 
+\end{description}
 %-----------------------------------------------------------------------------------------------------------------------------
 \section{Deciding on a tool}\label{preDiscuss}
 
