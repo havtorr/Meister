@@ -7,21 +7,21 @@ This chapter will look at the external evaluation of \gls{jive} and the implemen
 In order to evaluate both the usefulness of \gls{jive}, and the changes that were implemented, the evaluation was performed individually with a small group of six students.
 The participants were initially recruited through a request sent to the participants of a second-year course that is mandatory for those who follow the informatics program.
 This group was selected as they were matching the target group outlined in \cref{introduction}.
-After only getting a single response, another request  was sent to the students association of the computer science program, bringing in the five remaining participants.
+After only getting a single response, another request was sent to the students association of the computer science program, bringing in the five remaining participants.
 The latter group were all in their third year, and had already finished the \gls{hci}-course the previous semester.
 This meant that they were familiar with the example programs, and had some knowledge of the MVC-pattern and how it behaves in Java-swing.
 While this excluded the experiences of someone completely unfamiliar to these concepts, it did give the insight of relatively fresh experiences, as the participants remembered what they were finding hard to understand back then.
 
-During the test, the students were given a demonstration of the main features of \gls{jive}, using implementations of the first, and the last exercise of the \gls{hci}-course as examples.
+During the test, the students were given a demonstration of the main features of \gls{jive}, using implementations of the first and the last exercise of the \gls{hci}-course as examples.
 After getting familiar with \gls{jive}, they were shown the modified version, focusing on the new and modified features that were implemented.
 They were then asked questions about how easily they understood the diagrams, and how useful they found the changes to be.
 As well as whether the performance trade-off was acceptable for occasional use, if they could see themselves using \gls{jive}, and if so, in what situations.
 
-The example programs both consisted of a simple user interface in swing, implementing the \gls{mvc} pattern.
+The example programs both consisted of a simple user interface in Swing, implementing the \gls{mvc} pattern.
 Exercise 1 consists of a text field and two buttons to transform the text entered in that field to either uppercase or lowercase, and with an option to continually transform as new text is written.
 Exercise 4 is an application that manages a simple list of people.
 The interface it presents is split between a list of people, and a set of text fields to enter information about the selected person, as well as buttons to create new, and delete existing people.
-Both of these programs, shown in \cref{fig:MMI-Oving-UI}, were relatively simple, with few events following directly from a user interaction, and as such, should have a limited performance reduction when used with \gls{jive}.
+Both of these programs, shown in \cref{fig:MMI-Oving-UI}, were relatively simple, with few events following directly from user interaction, and as such, should have a limited performance reduction when used with \gls{jive}.
 More complex programs are likely to suffer a greater performance impact from \gls{jive}, but are also out of the scope for the \gls{hci}-course.
 
 
@@ -33,6 +33,8 @@ More complex programs are likely to suffer a greater performance impact from \gl
 		\caption{\gls{hci}-exercise 1}
 		\label{fig:MMI-Oving1-UI}
 	\end{subfigure}
+	~\\
+	~\\
 	\begin{subfigure}{\textwidth}
 		\centering
 		\includegraphics[width=\textwidth]{MMI-Oving4-UI}
@@ -55,7 +57,7 @@ A few specifically mentioned that they found that connection to be difficult to 
 One of them also had experiences as a student assistant, and recognized \gls{jive} as a tool that could give students a needed insight into what is going on in their programs.
 
 The diagrams themselves were found to be both sufficiently detailed, and easy to understand, showing the available information in a simple and structured manner.
-The tendency for the diagrams to grow large and unwieldy did become a problem, especially when running with the less restrictive filter, showing many of the swing-internals.
+The tendency for the diagrams to grow large and unwieldy did become a problem, especially when running with the less restrictive filter that was showing more of the swing-internals.
 When hiding everything but user-created classes, the diagrams remained at an acceptable size, although the sequence diagram got quite long after a while.
 
 %nytte av endringer
@@ -67,15 +69,15 @@ The modified labeling of object instances provided a small, but useful addition 
 \subsection{Performance}\label{jiveEvalPerf}
 Regarding performance, it has already been shown in \cref{preMethods} that the tracing behavior of \gls{jive} must affect the analyzed program negatively.
 The specific penalty varies with the complexity of the program, and the level of detail that is being logged.
-The performance was measured as the it took for the program to reach a state where it could be interacted with.
+The performance was measured as the time between starting the program, and the moment it could be interacted with.
 Each of the example programs were run with both versions of \gls{jive}, and with two different levels of detail in the filter for the modified version, for a total of six measurements.
 They were tested separately from the user evaluation, but on the same computer.
-Each result was measured five times, with the averages reported in the table below:
+Each result was measured five times, with the averages reported in \cref{tab:testPerf}.
 
 \begin{table}[H]
 	\begin{center}
-		\label{tab:testPerf}
 		\caption{Timing results from benchmarking}
+		\label{tab:testPerf}
 		\begin{tabular}{llr}
 			\hline
 			Version of JIVE & Program & 5-run average\\ \hline
@@ -89,7 +91,7 @@ Each result was measured five times, with the averages reported in the table bel
 	\end{center}
 \end{table}
 
-As these results show, there is a significant degradation in performance when going from the original version if \gls{jive} to the modified one.
+As these results show, there is a significant degradation in performance when going from the original version of \gls{jive} to the modified one.
 The impact of letting a larger amount of events through the filter adds another solid penalty.
 The reason for the latter has been explained in \cref{jiveFeatures}, and is simply a reflection of the added work of processing more events as they are let through the filter.
 The impact observed from simply switching to the modified version can be explained by the way the filter mechanism was altered.
@@ -98,8 +100,8 @@ When \gls{jive} then checks to see if an event matches an entry in the filter, i
 
 %ytlese-meniger
 As expected, the participants all agreed that the performance of \gls{jive} was too poor for continuous use, but they still found it acceptable for the occasional use that getting familiar with an example or documenting a project would require.
-While a larger project could take several minutes to reach the initial stable state for a user to interact, one would only be interested in including the entire project when generating documentation for delivery.
-By using the filter to ignore well known parts of the project, one could more easily show the interesting or complex parts while saving time.
+While a larger project could take several minutes to reach the initial stable state for a user to interact, the user would only be interested in including the entire project when generating documentation for delivery.
+By using the filter to ignore well known parts of the project, the more interesting or complex parts could more easily be shown while saving time.
 In either case, the performance was not found to be a reason to never use \gls{jive}, but it would clearly depend on the complexity of the program, as well as what the filter would be letting through.
 
 %problemer
@@ -112,7 +114,7 @@ This feature would suggest package-names as the user started typing in the text 
 
 Another issue was the risk of diagrams becoming so large that they would be nearly impossible to navigate.
 The size would especially become a problem when running larger programs, or when letting more objects through the filter.
-To help with this, there was a desire to have the line of objects at the top of the sequence diagram visible at all times, regardless of how far down in the diagram one is currently looking, which would make the larger diagrams easier to navigate.
+To help with this, there was a desire to have the line of objects at the top of the sequence diagram visible at all times, regardless of how far down in the diagram the user is currently looking, which would make the larger diagrams easier to navigate.
 The ability to compress the height of the sequence diagram was also suggested.
 
 Following along the same lines, it was suggested that the placement of objects in the contour diagram could be reworked to give a more compact diagram.

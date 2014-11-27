@@ -25,7 +25,7 @@ Some programs will return to a certain state after performing a task, while othe
 The transition between stable and working states can be illustrated with a state diagram, which typically abstracts the states to `idle' and various `tasks', like `processing input'.
 
 A sequence diagram shows the order in which the program is executed.
-The active components are shown  at the top, with vertical \glspl{lifeline} below them, representing a time-line.
+The active components are shown at the top, with vertical \glspl{lifeline} below them, representing a time-line.
 The lifelines alternate between thin and bold lines to indicate whether or not they are involved in the execution at a specific point in time.
 As the components in the program invoke methods on each other, their respective lifelines are connected to each other with arrows.
 
@@ -44,13 +44,13 @@ The amount of memory required is significantly reduced, and stepping to the imme
 A hybrid approach is also possible, relying on a differential model, but also introducing checkpoints every \textit{n} steps, where all information is stored.
 By adjusting the value of \textit{n} to fit the characteristics of the system that the tool is running on, an appropriate balance between the two previous methods can be found.
 
-One can avoid the potential disadvantages of manual backstepping by using queries instead.
+The potential disadvantages of manual backstepping can be avoided by using queries instead.
 Queries enable the user to ask the debugger about the current and earlier states of execution in a simple way.
 The debugger then does the work of finding what was asked for, instead of the user manually searching through the program states.
 
 A major downside of execution traces, is the performance penalty from doing extra work for every step in the execution.
 The amount of work will vary, depending on implementation details and of course what is done with the log.
-If all the tracing-process does is write to a log-file, which will be used later, one can achieve significantly smaller performance impact compared to a system that does real-time analysis of the data.
+If all the tracing-process does is write to a log-file, which will be used later, it is possible to achieve a significantly smaller performance impact compared to a system that does real-time analysis of the data.
 
 %-----------------------------------------------------------------------------------------------------------------------------
 \section{Existing Tools}\label{PreTools}%mer om hvilke metoder som blir brukt av hvert verktøy

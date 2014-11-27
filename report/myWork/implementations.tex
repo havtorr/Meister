@@ -21,7 +21,7 @@ In order to still allow the actual class name to be visible, the tool-tip shown 
 The filtering function was expanded with the ability to specify packages that are not to be excluded from the execution model, as suggested in \cref{jiveSuggestions}.
 Adding a package for inclusion is done by prefixing the package-name with a `+' when adding it to the filter, as shown in \cref{fig:UIJiveLaunchConfigDefaultFilter+swing}.
 As an example, the default filter excludes the `javax' package, and any subpackages that are not specifically listed with a `+' in front.
-When adding the line `+javax.swing.*' in order to let swing components through the filter, one will let every subpackage of `javax.swing' though the filter as well, which is the intended design.
+When adding the line `+javax.swing.*' in order to let swing components through the filter, every subpackage of `javax.swing' is let though the filter as well, which is the intended design.
 
 \begin{figure}[H]
 	\centering
@@ -34,7 +34,7 @@ Unfortunately, there are a lot of classes in both swing and its subpackages that
 This can result in very poor performance -- as unnecessary events are logged and added to the underlying model -- as well as cluttered diagrams.
 By adding these unwanted classes to the filter for exclusion, the problem is handled.
 Depending on the package in question, the amount of extra items added to the filter can become quite large, and identifying all unwanted classes and subpackages may take hours at worst.
-One weakness in the filter is related to the problem of unwanted packages.
+A weakness in the filter is related to the problem of unwanted packages.
 Due to its design, allowing the contents of a package will also allow any classes that are contained directly within the parent package, as the parent also has to be removed from the internal list of exclusions that make up the filter.
 This is not a big problem in the case of `javax.swing', as the `javax' package does not contain any classes, but there are most likely other packages that will show this behavior.
 
@@ -49,7 +49,7 @@ By improving the way an event is checked against the filter, possibly by looking
 %isolert visning av sekvens
 \section{The isolated view}\label{isoView}
 
-The isolated view was implemented as a separate view-tab, and does what was proposed in \cref{fig:seqOving4IsolatedMock}: it displays the events caused by the selected event, and hides everything else.
+The isolated view was implemented as a separate view-tab, and does what was proposed in \cref{fig:seqOving4IsolatedMock}: It displays the events caused by the selected event, and hides everything else.
 \Cref{fig:MMI-oving4-SeqIsoDiag-AWT-Event-Thread} shows what \cref{fig:seqOving4IsolatedMock} looked like after the modification.
 \Cref{fig:MMI-oving4-SeqIsoDiag-valueChanged} shows a similar, but slightly more complex situation in the isolated view.
 By right-clicking on an event in the regular sequence diagram, and selecting the \emph{Isolated view}-option, shown in \cref{fig:UISeqRightClickNew}, the isolated view is triggered.
