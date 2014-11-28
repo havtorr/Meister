@@ -38,7 +38,7 @@ Execution traces can also be used to enable backwards stepping of program execut
 Stepping back in time allows the user to not only see the failure state of a program, but to go back and see what caused the problem, instead of adding a new \gls{breakpoint} and running the program again.
 There are different ways to store the information describing each step, providing various trade-offs between access-time and memory usage.
 The straightforward way would be to store each state independently, sacrificing memory for a near-constant load-time.
-The load time will naturally be affected by the amount of data that must be analyzed, but there is no need to work through any of the steps in between.
+The load time will be affected by the amount of data that must be analyzed, but there is no need to work through any of the steps in between.
 If the data is stored as a differential to the previous state, the opposite situation is created.
 The amount of memory required is significantly reduced, and stepping to the immediate neighbors is very fast, but jumping between any two steps would require analyzing every step in between the two.
 A hybrid approach is also possible, relying on a differential model, but also introducing checkpoints every \textit{n} steps, where all information is stored.
@@ -56,9 +56,9 @@ If all the tracing-process does is write to a log-file, which will be used later
 \section{Existing Tools}\label{PreTools}%mer om hvilke metoder som blir brukt av hvert verktøy
 
 There are currently several existing tools that provide one or more of the methods mentioned above.
-The following list is not exhaustive, but includes some of the most interesting tools, considering the focus of this report.
+The following list is not exhaustive, but includes some of the most relevant tools, considering the focus of this report.
 Some of the tools listed below does not support Java or Eclipse, but provide interesting features that are worth mentioning, despite their incompatibilities with the desired teaching environment.
-Download links for the tools are provided in their respective glossary entries for those tools that are available.
+Download links for the tools are provided in their respective glossary entries for the tools that are available.
 
 %not java/eclipse
 \begin{description}
@@ -112,7 +112,7 @@ As the other tools that were mentioned lacks support for Java, Eclipse, or both,
 The features provided by the remaining tools varies.
 Some are overlapping, like the tracing, while others provide completely different functionality, or combine a different set of techniques.
 As they are all plugins that integrate into Eclipse, they both allow and encourage usage alongside the existing debugging functionality, instead of attempting to replace it.
-They also give users the opportunity to not use them, if that should be necessary.
+Users are also free to not use them, if that is what they desire.
 
 The \gls{traceviewer} is as mentioned, designed for massive parallelism, and requires a specific version of Eclipse, which has been discontinued.
 As small programs with a graphical interface, such as those that are used in the \gls{hci}-exercises, are typically not massively parallel, but instead almost entirely serial in nature, this tool does not fit the scope of the course.
@@ -121,11 +121,12 @@ Due to this, and the fact that the plugin itself is no longer available, it is n
 The \gls{tod} provides a debugging environment supported by trace logs.
 It presents its information mostly in a textual way, and does not provide any visual diagrams of the program structure or execution order.
 It does provide a `mural', a graph depicting the frequency of events through time, but this does not describe the program structure in any way.
-While providing support for developers by letting them look back at earlier stages of their programs, and quickly jump to events of interest, the lack of visual information can be considered a downside.
+While providing support for developers by letting them look back at earlier stages of their programs, and quickly jump to events of interest, the lack of visual information can be considered a drawback.
 
 The \gls{debugVisualizationPlugin} expands on the debugging functionality of Eclipse by providing a visual view of variables, and is designed to be used alongside the rest of the debugging environment provided by Eclipse.
 It does not perform any tracing, and instead uses the information exposed to Eclipses debugger when the debugged program reaches a breakpoint to draw its diagram.
-As mentioned, this plugin has already been tested with another course, with the conclusion that while the information it provides is useful, the elements in the diagram does not stay put, causing confusion as they move around during execution.
+As mentioned, this plugin has already been tested with another course.
+This testing concluded that while the information it provides is useful, the elements in the diagram does not stay put, causing confusion as they move around during execution.
 There were also complaints about too much information being displayed, making it hard to get an overview of the program, and identifying the important components.
 The latest version of this plugin does support the hiding of elements, as well as letting the user reorganize the diagram, but any such configuration seems to be reset when moving to a new breakpoint.
 
