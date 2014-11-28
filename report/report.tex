@@ -1,4 +1,4 @@
-\documentclass[pdftex,10pt,b5paper,twoside]{report}
+\documentclass[pdftex,10pt,b5paper,twoside]{book}
 \PassOptionsToPackage{hyphens}{url}\usepackage[pdfborder={0 0 0}, breaklinks = true]{hyperref}
 \usepackage[nameinlink, noabbrev]{cleveref}
 \usepackage[lmargin=25mm,rmargin=25mm,tmargin=27mm,bmargin=30mm]{geometry}
@@ -18,6 +18,19 @@
 \usepackage{subcaption}
 \usepackage{microtype}
 \usepackage[font={small}, labelfont=bf]{caption}
+\usepackage{fncychap}
+\usepackage{fancyhdr}
+
+\restylefloat{figure}
+
+\renewcommand*\contentsname{Table of Contents}
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\chaptermark}[1]{\markboth{\chaptername\ \thechapter.\ #1}{}}
+\renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
+\renewcommand{\headrulewidth}{0.1ex}
+\renewcommand{\footrulewidth}{0.1ex}
+\fancypagestyle{plain}{\fancyhf{}\fancyfoot[LE,RO]{\thepage}\renewcommand{\headrulewidth}{0ex}}
 
 % the file that contains our syntax highlighting configuration for the lst listings. 
 \include{syntax}
@@ -57,7 +70,7 @@
 \newtheorem{theorem}{Research Question}[section]
 \renewcommand{\thetheorem}{\arabic{theorem}}
 
-\setlength{\parskip}{0em}
+
 
 \begin{document}
 \pagenumbering{Roman}
@@ -76,6 +89,8 @@
 \listoffigures
 %\listoflistings
 \newpage
+
+\setlength{\parskip}{0em}
 
 \pagenumbering{arabic}
 
