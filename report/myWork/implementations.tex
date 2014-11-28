@@ -1,5 +1,10 @@
 \chapter{Implemented changes}\label{jiveImpl}%hva ble gjort, hvordan bruke funksjonene. Ikke så mye om hvordan. begrunne prioriteter?
 
+This chapter will list the changes that were made to \gls{jive}, and give some information on how they work.
+
+In order to be able to implement any changes, it was first necessary to gain some knowledge about how Eclipse's plugin-framework is used, and how \gls{jive} is structured.
+
+
 %identifisering av instansierte grensesnitt, lambdaer og abstrakte klaser
 \section{Labeling of objects}\label{implLabel}
 
@@ -41,7 +46,7 @@ This is not a big problem in the case of `javax.swing', as the `javax' package d
 Internally, the filter is still only excluding events.
 The changes were made to the construction-phase, where every package that is found in the Eclipse workspace is added if it is found in the list that the user has made.
 This allows the removal of entries that are marked with a `+', but results in a rather large filter that affects the performance negatively, as is shown in the evaluation results in \cref{jiveEvalPerf}.
-During development, the performance was not a major concern, and as such, it was not given too much attention.
+During development, the performance was not a major concern, and as such, it was not prioritized.
 It is possible to reduce the impact of the filtering changes by further altering the construction process to result in a smaller filter.
 By improving the way an event is checked against the filter, possibly by looking up hashed values instead of comparing strings, further gains should be possible.
 
@@ -54,7 +59,7 @@ The isolated view was implemented as a separate view-tab, and does what was prop
 \Cref{fig:MMI-oving4-SeqIsoDiag-valueChanged} shows a similar, but slightly more complex situation in the isolated view.
 By right-clicking on an event in the regular sequence diagram, and selecting the \emph{Isolated view}-option, shown in \cref{fig:UISeqRightClickNew}, the isolated view is triggered.
 It is also possible to further focus on a part of the diagram from within the isolated view, by right-clicking on the desired event, and selecting the \emph{Isolated view}-option again.
-All of the functionality from the regular sequence diagram has been retained in the isolated view, so that the only difference is what parts of the execution are visible.
+All of the functionality from the regular sequence diagram has been retained in the isolated view, so that the only difference is which parts of the execution are visible.
 \begin{figure}[H]
 	\centering
 	\includegraphics{UIseqRightClickNew}

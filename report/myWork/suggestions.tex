@@ -2,7 +2,7 @@
 
 While exploring the features of \gls{jive}, a few issues regarding use and behavior were encountered.
 None of these issues can be considered to be of major importance, they still expose a potential for improvement.
-This section will point out some of the issues, and provide suggestions on what can be done to improve them.
+This section will point out some of the issues, and suggest specific improvements to address them.
 
 \subsection{Visual changes to the diagrams}\label{jiveSuggestionsVisual}
 %oppdage indre typer
@@ -47,10 +47,10 @@ A last visual change would be to attempt further identification of the component
 Being a change focusing solely on a specific architecture, it must be possible to deactivate when not needed.
 The major challenge with this feature is to find a way to identify the different components.
 While listeners can usually be identified by their name, or by their implementation of certain interfaces, this is not necessarily the case for models and controllers.
-A possible solution would be to require developers to follow a certain naming scheme, but this would still have a risk of false positives -- leading to incorrect diagrams
-As it can not be expected that users will adopt such a scheme with the sole purpose of using a special tool, this solution is not considered any further.
+A possible solution would be to require developers to follow a certain naming scheme, but this would still have a risk of false positives -- leading to incorrect diagrams.
+It can not be expected that users will adopt such a scheme for the sole purpose of using a specific tool, consequently, this solution is not pursued.
 The highlighting could be done by adding colored frames to the identified objects, or by adding an icon indicating the role of a given object.
-Not as big of a challenge, this does pose the problem of maintaining the the readability of the diagrams, and not making them harder to read due to the added elements.
+While highlighting is not as big of a challenge compared to the identification, it does pose the problem of maintaining the readability of the diagrams, and not make them harder to read due to the added elements.
 
 \begin{figure}[H]
 	\centering
@@ -61,7 +61,7 @@ Not as big of a challenge, this does pose the problem of maintaining the the rea
 
 \subsection{Compacting diagrams}\label{jiveSuggestionsCompact}
 %bruker-tilpasning av diag
-Both the sequence- and the contour-diagrams can easily grow to sizes that make them hard to navigate and to get an overview of.
+Both the sequence- and the contour-diagrams can easily grow to sizes that make them hard to get an overview of, and to navigate.
 While the contour diagram offers different presentation modes, by for instance only showing objects, and not their data-fields, the sequence diagram offers fewer options.
 Collapsing parts of the diagrams do help in reducing the amount of information shown, and thus ease the interpretation of the diagram, but there are still some issues that result from how the diagram is drawn.
 
@@ -70,7 +70,7 @@ There is an ongoing development to solve this, by substituting an event-pattern 
 If this technique is applied when using the existing horizontal collapse, the diagram should shrink in both directions.
 
 The other issue is a consequence of having the objects at the top of the sequence diagram added in the order in which they are used.
-This is generally a good way to order the objects, especially when considering the start-up sequence of a program, which is then displayed in a well organized way.
+This is generally a good way of ordering the objects, especially when considering the start-up sequence of a program, which is then displayed in a well organized way.
 Where this approach becomes problematic, is when the newer objects start interacting with the older ones, causing the lines that indicate method calls to cross over parts of the diagram, and often going back and forth.
 This problem is illustrated in \cref{fig:seqOving4CrossLines}, where a listener triggers activity in an older part of the program.
 %endre til mer kaotisk figur?
@@ -113,11 +113,12 @@ This feature could be extended further, to include multiple default filters that
 %søk
 \subsection{Searching}\label{jiveSuggestionsSearch}
 
-The ability to search through all the events can be a useful feature, depending on the scenario in which \gls{jive} is used.
+The ability to search through all logged events can be a useful feature, depending on the scenario in which \gls{jive} is used.
 When merely getting an overview of a program, it is likely not needed at all, but for debugging purposes, it has a clear use as a way of finding specific events.
-The search is unfortunately very strict in its interpretation of the search terms, being both case-sensitive, and requiring full class names that include the package the class is contained within.
+The search is unfortunately very strict in its interpretation of the search terms, being both case-sensitive, and requiring full class names, including the path to where the class resides.
 It is assumed that this behavior was chosen in order to give an accurate and limited set of results, instead of risking a large amount of false positives.
-On the other hand, this behavior goes against the expectations set by most search providers in other areas, and can lead to confused users, that may, at worst, consider the search to be non-functional.
+On the other hand, this behavior goes against the expectations set by most search providers in other areas and can lead to confusion.
+At worst, users may be led to believe that the search is non-functional.
 By relaxing the search criteria to not be case sensitive, and to allow partial matches, the usage of this feature would be less confusing, and still allow the users to narrow their results by being more specific with their search-terms.
 
 %batch-kjøring av større prog? automatisert ui-interaksjon
@@ -130,7 +131,7 @@ But in order to get the desired results from an interactive program, it becomes 
 Integrating automation tools that trigger pre-defined inputs when they detect that the program is waiting for interaction, would go a long way towards solving this.
 A user could first run a session without \gls{jive}, and record the desired interactions.
 These interactions would then be fed into the automaton tool and played back during the \gls{jive}-run.
-As this kind of feature is not required for the exercises given during the \gls{hci}-course, it is not prioritized above the other mentioned changes.
+As this kind of feature is not required for the exercises given as a part of the \gls{hci}-course, it is not prioritized above the other changes.
 
 
 
