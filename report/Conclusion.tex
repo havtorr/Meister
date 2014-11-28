@@ -11,17 +11,18 @@ This chapter will summarize the findings of the previous sections in light of th
 What is the current state of the various visualization tools that are available?
 \end{theorem}
 There are currently several different tools that can aid a developer in his understanding of programming, ranging from the regular debuggers found in most IDEs, to code analysis tools and execution tracers.
-This paper has focused on the tools that provide information from programs as they are running, and has found that most of these tools are based on a few techniques to provide their users with information.
+This paper has focused on the tools that provide information from programs as they are running, and has found that most of them are based on a limited set of techniques to provide their users with information.
 The techniques in use are mostly based on trace-logging, with an analysis of the log after the program has finished execution.
-This analysis is then used to provide detailed behavior on the program, often with interactive navigation of the data.
+This analysis is then used to provide a detailed description of the program's behavior, often with interactive navigation of the data.
 Other techniques involve visualization with graphs and diagrams, either based on trace-logs, or on run-time-data captured when a program is suspended at a breakpoint.
 Not all of the discovered tools were available for download, and might be considered abandoned, while others are still under active development.
 
 \begin{theorem}
 Could any of these be integrated into the current teaching environment at NTNU, consisting of Java and Eclipse?
 \end{theorem}
-Among the tools that were examined, a variety of platforms were supported, although -- due to the focus of the report -- most of them were designed around supporting programs written in Java, and a majority of these were integrated with Eclipse by design.
-As such, they could be integrated with several courses at NTNU, both through use during lecture, or by making them a part of the recommended tools.
+Among the tools that were examined, a variety of platforms were supported.
+Due to the focus of the report, most of them were designed around supporting programs written in Java, and a majority of these were integrated with Eclipse by design.
+As such, they could be integrated with several courses at NTNU, both through use during lectures, or by making them a part of the recommended tools.
 This would cover most students participating in a course, except those who actively choose not to use them.
 The most promising tool, \gls{jive}, chosen for its combination of tracing and diagrams, has already been successfully used to explain design patterns to students in a graduate-level seminar \cite[p. 99]{Gestwicki2005}, indicating that it is suitable as an educational aid.
 
@@ -30,8 +31,8 @@ Is there room for improvement in how these tools are used, and the ease of using
 \end{theorem}
 \Cref{preDiscuss} concludes that \gls{jive} is the tool that is most suitable for use in the target environment, and, as such, it was selected for further study.
 As detailed in \cref{jiveEnhance}, there is a potential for improvements in how \gls{jive} works, and in what kind of usage it encourages.
-While the existing features are useful as they are, they were found to be insufficient in terms of usability.
-The diagrams were found to be lacking in their description of certain classes, making identification difficult.
+While the existing features are useful as they are, some of them were found to be insufficient in terms of usability.
+Certain classes were considered to have a confusing naming scheme that made their identification difficult.
 Larger programs were also found to quickly grow the sequence diagram to large sizes, making it harder to get an overview.
 
 Some of these points were the focus of the improvements that were implemented in \cref{jiveImpl}, and their results are summarized when answering the last research question.

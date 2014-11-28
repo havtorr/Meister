@@ -26,7 +26,7 @@ In order to still allow the actual class name to be visible, the tool-tip shown 
 The filtering function was expanded with the ability to specify packages that are not to be excluded from the execution model, as suggested in \cref{jiveSuggestions}.
 Adding a package for inclusion is done by prefixing the package-name with a `+' when adding it to the filter, as shown in \cref{fig:UIJiveLaunchConfigDefaultFilter+swing}.
 As an example, the default filter excludes the `javax' package, and any subpackages that are not specifically listed with a `+' in front.
-When adding the line `+javax.swing.*' in order to let swing components through the filter, every subpackage of `javax.swing' is let though the filter as well, which is the intended design.
+When adding the line `+javax.swing.*' in order to let Swing--components through the filter, every subpackage of `javax.swing' is let though the filter as well, which is the intended design.
 
 \begin{figure}[H]
 	\centering
@@ -35,7 +35,7 @@ When adding the line `+javax.swing.*' in order to let swing components through t
 	\label{fig:UIJiveLaunchConfigDefaultFilter+swing}
 \end{figure}
 
-Unfortunately, there are a lot of classes in both swing and its subpackages that are not used directly when writing swing-programs, and a user will have no interest in seeing these in the diagrams.
+Unfortunately, there are a lot of classes in both Swing and its subpackages that are not used directly when writing Swing-programs, and a user will have no interest in seeing these in the diagrams.
 This can result in very poor performance -- as unnecessary events are logged and added to the underlying model -- as well as cluttered diagrams.
 By adding these unwanted classes to the filter for exclusion, the problem is handled.
 Depending on the package in question, the amount of extra items added to the filter can become quite large, and identifying all unwanted classes and subpackages may take hours at worst.
