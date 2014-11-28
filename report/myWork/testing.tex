@@ -10,7 +10,7 @@ This group was selected as they were matching the target group outlined in \cref
 After only getting a single response, another request was sent to the students association of the computer science program, bringing in the five remaining participants.
 The latter group were all in their third year, and had already finished the \gls{hci}-course the previous semester.
 This meant that they were familiar with the example programs, and had some knowledge of the MVC-pattern and how it behaves in Java-swing.
-While this excluded the experiences of someone completely unfamiliar to these concepts, it did give the insight of relatively fresh experiences, as the participants remembered what they were finding hard to understand back then.
+While this excluded the experiences of someone completely unfamiliar to these concepts, it did give the insight of relatively fresh experiences, as the participants remembered what they were finding hard to understand during the course.
 
 During the test, the students were given a demonstration of the main features of \gls{jive}, using implementations of the first and the last exercise of the \gls{hci}-course as examples.
 After getting familiar with \gls{jive}, they were shown the modified version, focusing on the new and modified features that were implemented.
@@ -93,7 +93,7 @@ Each result was measured five times, with the averages reported in \cref{tab:tes
 
 As these results show, there is a significant degradation in performance when going from the original version of \gls{jive} to the modified one.
 The impact of letting a larger amount of events through the filter adds another solid penalty.
-The reason for the latter has been explained in \cref{jiveFeatures}, and is simply a reflection of the added work of processing more events as they are let through the filter.
+The reason for the latter has been explained in \cref{jiveFeatures}, and is simply a reflection of the added work of processing more events as they are allowed through the filter.
 The impact observed from simply switching to the modified version can be explained by the way the filter mechanism was altered.
 By first constructing a list of every package found in the workspace of the chosen program, and then use this list to add and remove excluded packages from the filter, the filter remains an exclusion filter, and its size reflects the size of the package list.
 When \gls{jive} then checks to see if an event matches an entry in the filter, it has to look through a large amount of entries, and that clearly affects its performance.
