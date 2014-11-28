@@ -24,6 +24,15 @@ Knowledge and practical experience with implementation of user interfaces in obj
 Through the course, students are introduced both to the theories of good user interface design, and how such interfaces can be implemented in Java.
 Java, and the Eclipse \gls{ide}, make a common framework for many of the programming courses at NTNU, which makes compatibility with them an important criteria when looking for tools to support the students.
 
+The \gls{mvc} pattern describes a way of dividing graphical applications into a trinity of models, views and controllers.
+The models store data, and only accepts modifications from the controller.
+The controller acts as a mediator between views and models, ensuring a safe and consistent modification of the model, and informing views of any changes.
+The views are simply presenters of the data contained in the model.
+While the view can request data directly from the model, all modifications are relayed through the controller.
+This pattern provides several benefits, such as separation of responsibility, modularity and robustness, but it can also be complicated to implement properly.
+
+%
+
 \section{Research Questions}\label{intro-RQs}
 
 The goal of this report is to look into the available tools that can aid developers, concentrating on the potential use in the \gls{hci}-course.
