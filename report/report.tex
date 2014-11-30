@@ -8,7 +8,7 @@
 \usepackage{pdfpages}
 \usepackage{attachfile}
 \usepackage{float}
-\usepackage[acronym, nonumberlist, toc]{glossaries}
+\usepackage[acronym, nonumberlist, toc, nogroupskip]{glossaries}
 \usepackage{listing}
 \usepackage{listings}
 \usepackage{mdwlist}
@@ -22,6 +22,7 @@
 
 % the file that contains our syntax highlighting configuration for the lst listings. 
 \include{syntax}
+\include{glossarystyles}
 
 % the file containing all the words in our glossary. 
 \input{Glossary}
@@ -95,7 +96,8 @@
 
 
 %Glossary
-\printglossaries
+\printglossary
+\printglossary[type=\acronymtype, style=superbold]
 
 \newpage
 ~
