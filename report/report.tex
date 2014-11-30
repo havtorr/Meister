@@ -8,7 +8,7 @@
 \usepackage{pdfpages}
 \usepackage{attachfile}
 \usepackage{float}
-\usepackage[acronym, nonumberlist]{glossaries}
+\usepackage[acronym, nonumberlist, toc]{glossaries}
 \usepackage{listing}
 \usepackage{listings}
 \usepackage{mdwlist}
@@ -58,6 +58,7 @@
 \newtheorem{theorem}{Research Question}[section]
 \renewcommand{\thetheorem}{\arabic{theorem}}
 
+\renewcommand{\arraystretch}{1.2}
 
 
 \begin{document}
@@ -94,18 +95,15 @@
 
 
 %Glossary
-\phantomsection
-\addcontentsline{toc}{chapter}{Glossary}
-\label{Glossary}
 \printglossaries
 
-%acronyms
-\phantomsection
-\phantomsection
-\addcontentsline{toc}{chapter}{Acronyms}
+\newpage
+~
 \newpage
 
+
 %Bibliography
+\phantomsection
 \phantomsection
 \addcontentsline{toc}{chapter}{Bibliography}
 \bibliographystyle{apalike}

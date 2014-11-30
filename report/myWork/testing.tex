@@ -5,9 +5,10 @@ This chapter will look at the external evaluation of \gls{jive} and the implemen
 \section{The test}\label{jiveEvalTest}
 %mer konkret om hva som ble spurt om, spesifikke spørsmål
 In order to evaluate both the usefulness of \gls{jive}, and the changes that were implemented, the evaluation was performed individually with a small group of six students.
-The participants were initially recruited through a request sent to the participants of a second-year course that is mandatory for those who follow the informatics program.
+The participants were initially recruited through a request sent to everyone that were taking a second-year course that is mandatory for those who follow the informatics program.
 This group was selected as they were matching the target group outlined in \cref{introduction}.
-After only getting a single response, another request was sent to the students association of the computer science program, bringing in the five remaining participants.
+
+After only getting a single response, another request was sent to the students' association of the computer science program, bringing in the five remaining participants.
 The latter group were all in their third year, and had already finished the \gls{hci}-course the previous semester.
 This meant that they were familiar with the example programs, and had some knowledge of the MVC-pattern and how it behaves in Java-swing.
 While this excluded the experiences of someone completely unfamiliar to these concepts, it did give the insight of relatively fresh experiences, as the participants remembered what they were finding hard to understand during the course.
@@ -30,7 +31,7 @@ More complex programs are likely to suffer a greater performance impact from \gl
 	\begin{subfigure}{\textwidth}
 		\centering
 		\includegraphics[width=\textwidth]{MMI-Oving1-UI}
-		\caption{\gls{hci}-exercise 1}
+		\caption{\gls{hci}-exercise 1.}
 		\label{fig:MMI-Oving1-UI}
 	\end{subfigure}
 	~\\
@@ -38,7 +39,7 @@ More complex programs are likely to suffer a greater performance impact from \gl
 	\begin{subfigure}{\textwidth}
 		\centering
 		\includegraphics[width=\textwidth]{MMI-Oving4-UI}
-		\caption{\gls{hci}-exercise 4}
+		\caption{\gls{hci}-exercise 4.}
 		\label{fig:MMI-Oving4-UI}
 	\end{subfigure}
 	\caption{The two example programs used in the evaluation.}
@@ -57,7 +58,7 @@ A few specifically mentioned that they found that connection to be difficult to 
 One of them also had experiences as a student assistant, and recognized \gls{jive} as a tool that could give students a needed insight into what is going on in their programs.
 
 The diagrams themselves were found to be both sufficiently detailed, and easy to understand, showing the available information in a simple and structured manner.
-The tendency for the diagrams to grow large and unwieldy did become a problem, especially when running with the less restrictive filter that was showing more of the swing-internals.
+The tendency for the diagrams to grow large and unwieldy did become a problem, especially when running with the less restrictive filter that was showing more of the Swing-internals.
 When hiding everything but user-created classes, the diagrams remained at an acceptable size, although the sequence diagram got quite long after a while.
 
 %nytte av endringer
@@ -74,19 +75,22 @@ Each of the example programs were run with both versions of \gls{jive}, and with
 They were tested separately from the user evaluation, but on the same computer.
 Each result was measured five times, with the averages reported in \cref{tab:testPerf}.
 
+
+
 \begin{table}[H]
 	\begin{center}
 		\caption{Timing results from benchmarking}
 		\label{tab:testPerf}
 		\begin{tabular}{llr}
+
 			\hline
 			Version of JIVE & Program & 5-run average\\ \hline
-			Original JIVE & Exercise 1 & 5.0 s\\
-			Modified JIVE, standard filter & Exercise 1 & 16.5 s\\
-			Modified JIVE, swing-focused filter & Exercise 1 & 18.3 s\\
-			Original JIVE & Exercise 4 & 8.2 s\\ 
-			Modified JIVE, standard filter & Exercise 4 & 25.0 s\\ 
-			Modified JIVE, swing-focused filter & Exercise 4 & 54.4 s\\ \hline
+			Original& Exercise 1 & 5.0 s\\
+			Modified, standard filter & Exercise 1 & 16.5 s\\
+			Modified, Swing-focused filter & Exercise 1 & 18.3 s\\
+			Original& Exercise 4 & 8.2 s\\ 
+			Modified, standard filter & Exercise 4 & 25.0 s\\ 
+			Modified, Swing-focused filter & Exercise 4 & 54.4 s\\ \hline
 		\end{tabular}
 	\end{center}
 \end{table}

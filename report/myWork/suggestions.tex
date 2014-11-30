@@ -1,7 +1,7 @@
 \section{Suggested changes}\label{jiveSuggestions}
 
 While exploring the features of \gls{jive}, a few issues regarding use and behavior were encountered.
-None of these issues can be considered to be of major importance, they still expose a potential for improvement.
+None of these issues can be considered to be of major importance, but they still expose a potential for improvement.
 This section will point out some of the issues, and suggest specific improvements to address them.
 
 \subsection{Visual changes to the diagrams}\label{jiveSuggestionsVisual}
@@ -49,6 +49,7 @@ The major challenge with this feature is to find a way to identify the different
 While listeners can usually be identified by their name, or by their implementation of certain interfaces, this is not necessarily the case for models and controllers.
 A possible solution would be to require developers to follow a certain naming scheme, but this would still have a risk of false positives -- leading to incorrect diagrams.
 It can not be expected that users will adopt such a scheme for the sole purpose of using a specific tool, consequently, this solution is not pursued.
+
 The highlighting could be done by adding colored frames to the identified objects, or by adding an icon indicating the role of a given object.
 While highlighting is not as big of a challenge compared to the identification, it does pose the problem of maintaining the readability of the diagrams, and not make them harder to read due to the added elements.
 
@@ -90,7 +91,7 @@ This could be solved by allowing users to view such a sub-sequence in a separate
 \begin{figure}[H]
 	\centering
 	\includegraphics[height =.5\paperheight, trim= 0cm 5cm 0cm 5cm, clip]{MMI-Oving4-SequenceDiagInit-isolatedEventsMock}
-	\caption{An example of how \cref{fig:seqOving4CrossLines} might look in the isolated view.}
+	\caption{An example of how \cref{fig:seqOving4CrossLines} might look in an isolated view.}
 	\label{fig:seqOving4IsolatedMock}
 \end{figure}
 
@@ -105,7 +106,7 @@ This results in a potentially large list of packages, and will take an unnecessa
 By instead allowing the users to add the one package to be included, and using both a list of inclusions and a list of exclusions to build the filter, the amount of work for the user is significantly reduced while maintaining readability.
 
 Changing the filter is currently done by adding or removing one entry at a time, making large changes time consuming and prone to spelling errors.
-Since the filters are stored in the \gls{xml}-files Eclipse uses to describe how to launch a program, directly modifying these files is a possible work-around for making large changes, but they require Eclipse to be restarted to have any effect.
+Since the filters are stored in the \acrshort{xml}-files Eclipse uses to describe how to launch a program, directly modifying these files is a possible work-around for making large changes, but they require Eclipse to be restarted to have any effect.
 These files are also hidden within the configuration folders that Eclipse uses, making them hard to find without instructions.
 Having an easier way of swapping, or making large changes to filters, would likely increase the use of custom filters, and would enable the distribution of pre-made filters, designed for specific purposes.
 This feature could be extended further, to include multiple default filters that a user could select from when running a program.
@@ -124,10 +125,10 @@ By relaxing the search criteria to not be case sensitive, and to allow partial m
 %batch-kjøring av større prog? automatisert ui-interaksjon
 \subsection{Automation}\label{jiveSuggestionsAutomation}
 
-Despite the measures that have been taken to reduce the performance impact of \gls{jive}, it will always be possible to create a scenario where the analyzed program will take a significant amount of time to run.
-For instance when testing a larger project.
+Despite the measures that have been taken to reduce the performance impact of \gls{jive}, it will always be possible to create a scenario where the analyzed program will take a significant amount of time to run, for instance when testing a larger project.
 For non-interactive programs, this is only a matter of waiting for them to finish.
 But in order to get the desired results from an interactive program, it becomes necessary to check back regularly in order to provide the correct input.
+
 Integrating automation tools that trigger pre-defined inputs when they detect that the program is waiting for interaction, would go a long way towards solving this.
 A user could first run a session without \gls{jive}, and record the desired interactions.
 These interactions would then be fed into the automaton tool and played back during the \gls{jive}-run.
