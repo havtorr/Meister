@@ -19,6 +19,7 @@
 \usepackage{microtype}
 \usepackage[font={small}, labelfont=bf]{caption}
 \usepackage{emptypage}
+\usepackage{booktabs}
 
 % the file that contains our syntax highlighting configuration for the lst listings. 
 \include{syntax}
@@ -79,6 +80,9 @@
 \tableofcontents
 \listoffigures
 %\listoflistings
+ \newpage
+\thispagestyle{empty}
+~
 \newpage
 
 \setlength{\parskip}{0em}
@@ -97,6 +101,7 @@
 
 
 %Glossary
+\glsunsetall
 \printglossary
 \printglossary[type=\acronymtype, style=superbold]
 
