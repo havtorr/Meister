@@ -31,7 +31,7 @@
 \DeclareGraphicsExtensions{.pdf, .png, .jpg, .jpeg}
 \graphicspath{{./graphics/}{./graphics/graphs/}}
 \title{
-	Visualization of the composition and execution of Java-code and Swing-interfaces
+	Visualization of the Composition and Execution of Java-Code and Swing-Interfaces
 	%Norsk:  Visualisering av oppbygning og utførelse av Java-kode/Swing-grensesnitt\\
 }
 \author{
@@ -67,15 +67,29 @@
 \begin{document}
 \pagenumbering{Roman}
 %\maketitle
-%\begin{abstract}\label{abstract}
-%    \input{abstract}
-%\end{abstract}
-%\newpage
-%\renewcommand{\abstractname}{Acknowledgements}
-%\begin{abstract}\label{acknowledgements}
-    
-%\end{abstract}
+\begin{abstract}\label{abstract}
+	\thispagestyle{plain}
+	\input{abstract}
+\end{abstract}
 \newpage
+~
+\newpage
+\renewcommand{\abstractname}{Acknowledgements}
+\begin{abstract}\label{acknowledgements}
+	\thispagestyle{plain}
+	\setcounter{page}{3}
+I would like to thank the following people for their assistance in making this project  possible:\\
+~\\
+	%veileder
+\textbf{Hallvard Trætteberg}\\
+For providing supervision, feedback, and an interesting task.\\
+~\\
+	%jive-utviklere
+\textbf{Bharat Jayaraman}\\
+\textbf{Demian Lessa}\\
+For the development of JIVE, and for making its source code available under the Eclipse Public License, enabling third party development.\\
+\end{abstract}
+
 
 \tableofcontents
 \listoffigures
@@ -106,6 +120,7 @@
 \printglossary[type=\acronymtype, style=superbold]
 
 \newpage
+\thispagestyle{empty}
 ~
 \newpage
 
