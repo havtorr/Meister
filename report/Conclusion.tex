@@ -11,6 +11,7 @@ This chapter will summarize the findings of the previous sections in light of th
 What is the current state of the various visualization tools that are available?
 \end{theorem}
 There are currently several different tools that can aid a developer in his understanding of programming, ranging from the regular debuggers found in most IDEs, to code analysis tools and execution tracers.
+A few of these tools are listed in the prestudy in \cref{prestudy}.
 This paper has focused on the tools that provide information from programs as they are running, and has found that most of them are based on a limited set of techniques to provide their users with information.
 The techniques in use are mostly based on trace-logging, with an analysis of the log after the program has finished execution.
 This analysis is then used to provide a detailed description of the program's behavior, often with interactive navigation of the data.
@@ -24,7 +25,8 @@ Among the tools that were examined, a variety of platforms were supported.
 Due to the focus of the report, most of them were designed around supporting programs written in Java, and a majority of these were integrated with Eclipse by design.
 As such, they could be integrated with several courses at NTNU, both through use during lectures, or by making them a part of the recommended tools.
 This would cover most students participating in a course, except those who actively choose not to use them.
-The most promising tool, \gls{jive}, chosen for its combination of tracing and diagrams, has already been successfully used to explain design patterns to students in a graduate-level seminar \cite[p. 99]{Gestwicki2005}, indicating that it is suitable as an educational aid.
+The most promising tool, \gls{jive}, was chosen in \cref{preDiscuss} for its combination of tracing and diagrams.
+It has already been successfully used to explain design patterns to students in a graduate-level seminar \cite[p. 99]{Gestwicki2005}, indicating that it is suitable as an educational aid.
 
 \begin{theorem}
 Is there room for improvement in how these tools are used, and the ease of using them, so that the information they provide can be refined or presented in a more understandable way?
@@ -33,7 +35,7 @@ Is there room for improvement in how these tools are used, and the ease of using
 As detailed in \cref{jiveEnhance}, there is a potential for improvements in how \gls{jive} works, and what kind of usage it encourages.
 While the existing features are useful as they are, some of them were found to be insufficient in terms of usability.
 Certain classes were considered to have a confusing naming scheme that made their identification difficult.
-Larger programs were also found to quickly grow the sequence diagram to large sizes, making it harder to get an overview.
+Larger programs were also found to make the sequence-diagram quickly grow to large sizes, making it harder to get an overview.
 
 Some of these points were the focus of the improvements that were implemented in \cref{jiveImpl}, and their results are summarized when answering the last research question.
 Other potential improvements were identified during the evaluation, and are detailed in \cref{conclusionFuture}.
@@ -53,16 +55,16 @@ The participants also expressed desires for further changes, some of which were 
 This report has explored some of the currently available tools that are designed to help developers get an insight into the software they are working on, focusing on usage in connection with education.
 Through the exploration of \gls{jive}, several potential points of improvement were identified, but not implemented due to prioritizing within a limited time frame.
 Additional improvements were discovered by the evaluation participants during the evaluation.
-These modifications are listed below, in no particular order:
+All of these modifications are summarized, in no particular order, in the following list:
 
 \begin{itemize*}
 	\item{Less restrictive search}
 	\item{Further improvements to the filtering performance and granularity}
 	\item{Improving the way the filter is edited}
-	\item{Compression of sequence diagram height}
-	\item{Making the top of the sequence diagram visible at all times}
-	\item{Restricting growth of contour diagram}
-	\item{Further exploration of indicating indirect connections in the contour diagram}
+	\item{Compression of sequence-diagram height}
+	\item{Making the top of the sequence-diagram visible at all times}
+	\item{Restricting growth of contour-diagram}
+	\item{Further exploration of indicating indirect connections in the contour-diagram}
 \end{itemize*}
 
 The usage and performance of the filter is an important point to continue working on.

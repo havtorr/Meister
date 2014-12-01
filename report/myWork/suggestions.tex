@@ -21,7 +21,7 @@ While the effect is possible to achieve by applying an appropriate filter, this 
 This is partially caused by the design of the Swing-framework, as a component does not have direct control of its listeners, but instead delegates the handling of listeners to another object.
 Additionally, \gls{jive} does not show inherited fields unless the ancestor-object is let through the filter, and as listeners are typically handled by inherited methods, this adds another series of types that must get through the filter.
 
-On the other hand, the effect caused by the listener being triggered is clearly visible in the sequence diagram.
+On the other hand, the effect caused by the listener being triggered is clearly visible in the sequence-diagram.
 It is possible that connecting this effect with a user's interactions with a program is simple enough for the user to not need the addition of a specific link.
 
 \begin{figure}[H]
@@ -63,14 +63,14 @@ While highlighting is not as big of a challenge compared to the identification, 
 \subsection{Compacting diagrams}\label{jiveSuggestionsCompact}
 %bruker-tilpasning av diag
 Both the sequence- and the contour-diagrams can easily grow to sizes that make them hard to get an overview of, and to navigate.
-While the contour diagram offers different presentation modes, by for instance only showing objects, and not their data-fields, the sequence diagram offers fewer options.
+While the contour-diagram offers different presentation modes, by for instance only showing objects, and not their data-fields, the sequence-diagram offers fewer options.
 Collapsing parts of the diagrams do help in reducing the amount of information shown, and thus ease the interpretation of the diagram, but there are still some issues that result from how the diagram is drawn.
 
-Firstly, there is currently no method of vertically compressing the sequence diagram, resulting in long sequences with no visible interaction if that sequence has already been collapsed, or if there are a lot of filtered events occurring within the lifeline of an object.
+Firstly, there is currently no method of vertically compressing the sequence-diagram, resulting in long sequences with no visible interaction if that sequence has already been collapsed, or if there are a lot of filtered events occurring within the lifeline of an object.
 There is an ongoing development to solve this, by substituting an event-pattern with a single new event, and thus reducing the vertical size of the diagram.
 If this technique is applied when using the existing horizontal collapse, the diagram should shrink in both directions.
 
-The other issue is a consequence of having the objects at the top of the sequence diagram added in the order in which they are used.
+The other issue is a consequence of having the objects at the top of the sequence-diagram added in the order in which they are used.
 This is generally a good way of ordering the objects, especially when considering the start-up sequence of a program, which is then displayed in a well organized way.
 Where this approach becomes problematic, is when the newer objects start interacting with the older ones, causing the lines that indicate method calls to cross over parts of the diagram, and often going back and forth.
 This problem is illustrated in \cref{fig:seqOving4CrossLines}, where a listener triggers activity in an older part of the program.
@@ -79,7 +79,7 @@ This problem is illustrated in \cref{fig:seqOving4CrossLines}, where a listener 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\textwidth, trim= 45cm 7cm 0cm 103cm, clip]{MMI-Oving4-SequenceDiagInit}
-	\caption{A section of a larger sequence diagram, showing method calls crossing several unrelated lifelines.}
+	\caption{A section of a larger sequence-diagram, showing method calls crossing several unrelated lifelines.}
 	\label{fig:seqOving4CrossLines}
 \end{figure}
 

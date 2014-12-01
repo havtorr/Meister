@@ -48,7 +48,7 @@ The potential disadvantages of manual backstepping can be avoided by using queri
 Queries enable the user to ask the debugger about the current and earlier states of execution in a simple way.
 The debugger then does the work of finding what was asked for, instead of the user manually searching through the program states.
 
-A major downside of execution traces, is the performance penalty from doing extra work for every step in the execution.%drawback?
+A major drawback of execution traces, is the performance penalty from doing extra work for every step in the execution.
 The amount of work will vary, depending on implementation details and of course what is done with the log.
 If all the tracing-process does is write to a log-file, which will be used later, it is possible to achieve a significantly smaller performance impact compared to a system that does real-time analysis of the data.
 

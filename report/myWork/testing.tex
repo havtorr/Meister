@@ -13,18 +13,22 @@ The latter group were all in their third year, and had already finished the \gls
 This meant that they were familiar with the example programs, and had some knowledge of the MVC-pattern and how it behaves in Java-swing.
 While this excluded the experiences of someone completely unfamiliar to these concepts, it did give the insight of relatively fresh experiences, as the participants remembered what they were finding hard to understand during the course.
 
-During the test, the students were given a demonstration of the main features of \gls{jive}, using implementations of the first and the last exercise of the \gls{hci}-course as examples.
-After getting familiar with \gls{jive}, they were shown the modified version, focusing on the new and modified features that were implemented.
-They were then asked questions about how easily they understood the diagrams, and how useful they found the changes to be.
+The test started with a demonstration of the unmodified version of \gls{jive}, showing the diagrams, trace logs and filtering using implementations of the first and the last exercise of the \gls{hci}-course as examples.
+After getting familiar with \gls{jive}, they were shown the modified version, focusing on the new features and changes that were implemented.
+The original version was kept available during the entire evaluation, allowing an easier comparison by switching between the two.
+
+During the test they were asked questions about how easily they understood the diagrams, and how useful they found the changes to be.
 As well as whether the performance trade-off was acceptable for occasional use, if they could see themselves using \gls{jive}, and if so, in what situations.
 
 The example programs both consisted of a simple user interface in Swing, implementing the \gls{mvc} pattern.
 Exercise 1 consists of a text field and two buttons to transform the text entered in that field to either uppercase or lowercase, and with an option to continually transform as new text is written.
 Exercise 4 is an application that manages a simple list of people.
 The interface it presents is split between a list of people, and a set of text fields to enter information about the selected person, as well as buttons to create new, and delete existing people.
+
+The two remaining exercises serve to build a bridge between the first and last, in terms of complexity and knowledge of the \gls{mvc}-pattern, with the last exercise building directly on top of the third.
+
 Both of these programs, shown in \cref{fig:MMI-Oving-UI}, were relatively simple, with few events following directly from user interaction, and as such, should have a limited performance reduction when used with \gls{jive}.
 More complex programs are likely to suffer a greater performance impact from \gls{jive}, but are also out of the scope for the \gls{hci}-course.
-
 
 \begin{figure}[H]
 	\centering
@@ -47,7 +51,6 @@ More complex programs are likely to suffer a greater performance impact from \gl
 \end{figure}
 
 \section{Results}\label{jiveEvalResults}
-
 %nytte av diag
 The evaluation resulted in mostly positive feedback, with every participant seeing some kind of use for a tool like \gls{jive}.
 Of those in their third year, only one participant did not consider the use of diagrams to understand code to be useful.
@@ -59,10 +62,10 @@ One of them also had experiences as a student assistant, and recognized \gls{jiv
 
 The diagrams themselves were found to be both sufficiently detailed, and easy to understand, showing the available information in a simple and structured manner.
 The tendency for the diagrams to grow large and unwieldy did become a problem, especially when running with the less restrictive filter that was showing more of the Swing-internals.
-When hiding everything but user-created classes, the diagrams remained at an acceptable size, although the sequence diagram got quite long after a while.
+When hiding everything but user-created classes, the diagrams remained at an acceptable size, although the sequence-diagram got quite long after a while.
 
 %nytte av endringer
-The implemented changes were generally well-received, with the ability to view a subsection of the sequence diagram in the isolated view being the most preferred change.
+The implemented changes were generally well-received, with the ability to view a subsection of the sequence-diagram in the isolated view being the most preferred change.
 The changes to the filtering mechanism, while useful, were found to still be somewhat hard to use, due to the lack of an easy way of importing an existing filter, and the amount of work necessary to adapt a filter to the program being examined.
 The modified labeling of object instances provided a small, but useful addition to the visible information.
 
@@ -117,10 +120,10 @@ This feature would suggest package-names as the user started typing in the text 
 
 Another issue was the risk of diagrams becoming so large that they would be nearly impossible to navigate.
 The size would especially become a problem when running larger programs, or when letting more objects through the filter.
-To help with this, there was a desire to have the line of objects at the top of the sequence diagram visible at all times, regardless of how far down in the diagram the user is currently looking, which would make the larger diagrams easier to navigate.
-The ability to compress the height of the sequence diagram was also suggested.
+To help with this, there was a desire to have the line of objects at the top of the sequence-diagram visible at all times, regardless of how far down in the diagram the user is currently looking, which would make the larger diagrams easier to navigate.
+The ability to compress the height of the sequence-diagram was also suggested.
 
-Following along the same lines, it was suggested that the placement of objects in the contour diagram could be reworked to give a more compact diagram.
+Following along the same lines, it was suggested that the placement of objects in the contour-diagram could be reworked to give a more compact diagram.
 \Cref{fig:MMI-Oving4-ObjectDiagVerybig} illustrates the problem, with a lot of unused space, and especially bottom row of objects extending far beyond the rest.
 If the size of the diagram was restricted, for instance by preventing it from growing wider than the top row, preferring multiple shorter rows of objects instead of a few long ones.
 This would let users see more information without scrolling the view of the diagram or zooming out.
@@ -128,8 +131,8 @@ This would let users see more information without scrolling the view of the diag
 \begin{figure}[ht]
 	\centering
 	\includegraphics[width=\textwidth]{MMI-Oving4-ObjectDiagVerybig}
-	\caption{Contour diagram that has grown unnecessarily large.}
+	\caption{Contour-diagram that has grown unnecessarily large.}
 	\label{fig:MMI-Oving4-ObjectDiagVerybig}
 \end{figure}
 
-Another suggestion was to make it possible to trigger the isolated view from the mentioned line of objects at the top of the sequence diagram instead of having to find the desired objects, and then scroll down to find the first event it is involved in.%finally?
+Finally, it was suggested that it should be possible to trigger the isolated view from the mentioned line of objects at the top of the sequence-diagram instead of having to find the desired objects, and then scroll down to find the first event it is involved in.%finally?

@@ -57,9 +57,9 @@ By improving the way an event is checked against the filter, possibly by looking
 The isolated view was implemented as a separate view-tab, and does what was proposed in \cref{fig:seqOving4IsolatedMock}: It displays the events caused by the selected event, and hides everything else.
 \Cref{fig:MMI-oving4-SeqIsoDiag-AWT-Event-Thread} shows what \cref{fig:seqOving4IsolatedMock} looked like after the modification.
 \Cref{fig:MMI-oving4-SeqIsoDiag-valueChanged} shows a similar, but slightly more complex situation in the isolated view.
-By right-clicking on an event in the regular sequence diagram, and selecting the \emph{Isolated view}-option, shown in \cref{fig:UISeqRightClickNew}, the isolated view is triggered.
+By right-clicking on an event in the regular sequence-diagram, and selecting the \emph{Isolated view}-option, shown in \cref{fig:UISeqRightClickNew}, the isolated view is triggered.
 It is also possible to further focus on a part of the diagram from within the isolated view, by right-clicking on the desired event, and selecting the \emph{Isolated view}-option again.
-All of the functionality from the regular sequence diagram has been retained in the isolated view, so that the only difference is which parts of the execution are visible.
+All of the functionality from the regular sequence-diagram has been retained in the isolated view, so that the only difference is which parts of the execution are visible.
 \begin{figure}[H]
 	\centering
 	\includegraphics{UIseqRightClickNew}
@@ -89,6 +89,4 @@ The fact that partial matches and case insensitivity is the standard behavior in
 Unfortunately, due to the existing implementation consisting of separate searching- and matching-methods for each search type, not all searches were updated to this relaxed state in order to prioritize more important changes.
 The only changed search was the \emph{Object created}-search.
 Ideally the searches should all be matched through the same matching method, only differing in the gathering of necessary information.
-%TODO: hvilke ble tatt, hvorfor?
 
-%hvorfor ble ikke alle forslag impementert? - tid for å bli kjent med jive, eclipse-plugins
